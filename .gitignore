@@ -1,5 +1,6 @@
 /etc/build/*
 !/etc/build/.gitignore
+public/assets
 
 ###> symfony/framework-bundle ###
 /.env.local
