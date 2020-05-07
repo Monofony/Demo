@@ -1,5 +1,7 @@
 {
     "type": "project",
+    "name": "monofony/demo",
+    "description": "Monofony demo edition that is deployed to monofony.mobizel.com",
     "license": "proprietary",
     "require": {
         "php": "^7.2",
@@ -8,7 +10,8 @@
         "monofony/core-bundle": "^0.2",
         "monofony/fixtures-plugin": "^0.2",
         "monofony/front-bundle": "^0.2",
-        "symfony/flex": "^1.6"
+        "symfony/flex": "^1.6",
+        "symfony/polyfill-php80": "^1.15"
     },
     "require-dev": {
         "monofony/test-pack": "^0.2"
