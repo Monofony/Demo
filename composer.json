@@ -1,5 +1,7 @@
 {
     "type": "project",
+    "name": "monofony/demo",
+    "description": "Monofony demo edition that is deployed to monofony.mobizel.com",
     "license": "proprietary",
     "require": {
         "php": "^7.2",
