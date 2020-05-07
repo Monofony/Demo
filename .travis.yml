@@ -1,0 +1,97 @@
+language: php
+
+dist: trusty
+
+php:
+    - '7.2'
+
+cache:
+    yarn: true
+    directories:
+        - ~/.composer/cache/files
+        - $MONOFONY_CACHE_DIR
+
+env:
+    global:
+        - APP_ENV=test
+        - IS_DOCTRINE_ORM_SUPPORTED=true
+        - DATABASE_URL=mysql://root@127.0.0.1:3306/monofony_%kernel.environment%?serverVersion=5.7
+        - MONOFONY_CACHE_DIR=$HOME/.monofony-cache
+        - MONOFONY_BUILD_DIR=etc/build
+        - SYMFONY_ENDPOINT=https://flex.symfony.com/r/github.com/symfony/recipes-contrib/871
+
+before_install:
+    - phpenv config-rm xdebug.ini
+    - echo "memory_limit=4096M" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
+    - mkdir -p "${MONOFONY_CACHE_DIR}"
+
+install:
+    - composer install --no-interaction --prefer-dist
+    - composer dump-env test
+    - yarn install
+
+before_script:
+    - bin/console doctrine:database:create -vvv
+    - APP_DEBUG=1 APP_ENV=dev bin/console cache:warmup -vvv # For PHPStan
+    - bin/console doctrine:migration:migrate -n -vv
+    - bin/console assets:install public -vvv
+    - bin/console cache:warmup -vvv
+    - yarn build
+
+    # Configure display
+    - /sbin/start-stop-daemon --start --quiet --pidfile /tmp/xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1680x1050x16
+    - export DISPLAY=:99
+
+    # Download Symfony CLI
+    - |
+        if [ ! -f $MONOFONY_CACHE_DIR/symfony ]; then
+            wget https://get.symfony.com/cli/installer -O - | bash
+            mv ~/.symfony/bin/symfony $MONOFONY_CACHE_DIR
+        fi
+
+    # Download and configure ChromeDriver
+    - |
+        if [ ! -f $MONOFONY_CACHE_DIR/chromedriver ] || [ "$($MONOFONY_CACHE_DIR/chromedriver --version | grep -c 2.34)" = "0" ]; then
+            curl http://chromedriver.storage.googleapis.com/2.34/chromedriver_linux64.zip > chromedriver.zip
+            unzip chromedriver.zip
+            chmod +x chromedriver
+            mv chromedriver $MONOFONY_CACHE_DIR
+        fi
+
+    # Run ChromeDriver
+    - $MONOFONY_CACHE_DIR/chromedriver > /dev/null 2>&1 &
+
+    # Download and configure Selenium
+    - |
+        if [ ! -f $MONOFONY_CACHE_DIR/selenium.jar ] || [ "$(java -jar $MONOFONY_CACHE_DIR/selenium.jar --version | grep -c 3.4.0)" = "0" ]; then
+            curl http://selenium-release.storage.googleapis.com/3.4/selenium-server-standalone-3.4.0.jar > selenium.jar
+            mv selenium.jar $MONOFONY_CACHE_DIR
+        fi
+
+    # Run Selenium
+    - java -Dwebdriver.chrome.driver=$MONOFONY_CACHE_DIR/chromedriver -jar $MONOFONY_CACHE_DIR/selenium.jar > /dev/null 2>&1 &
+
+    # Run webserver
+    - $MONOFONY_CACHE_DIR/symfony server:ca:install
+    - $MONOFONY_CACHE_DIR/symfony server:start --port=8080 --dir=public --force-php-discovery --daemon
+
+script:
+    - composer validate --strict
+    - vendor/bin/security-checker security:check
+    - bin/console doctrine:schema:validate -vvv
+    - bin/console lint:twig templates
+    - bin/console lint:yaml config --parse-tags
+    - phpdbg -qrr vendor/bin/phpspec run --no-interaction -f dot
+    - vendor/bin/phpstan analyse -c phpstan.neon -l 1 src
+    - vendor/bin/psalm --show-info=false
+    - vendor/bin/phpunit
+    - bin/console app:install --no-interaction -vvv
+    - bin/console sylius:fixtures:load default --no-interaction
+    - vendor/bin/behat --strict -vvv --no-interaction -f progress || vendor/bin/behat --strict -vvv --no-interaction -f progress --rerun
+    - (bin/console doctrine:migrations:migrate first --no-interaction && bin/console doctrine:migrations:migrate latest --no-interaction)
+
+after_failure:
+    - vendor/lakion/mink-debug-extension/travis/tools/upload-textfiles "${MONOFONY_BUILD_DIR}/*.log"
+
+notifications:
+    email: false
