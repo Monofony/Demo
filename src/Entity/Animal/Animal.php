@@ -13,22 +13,22 @@ namespace App\Entity\Animal;
 
 class Animal
 {
-    /** @var string | null */
+    /** @var string|null */
     private $name;
 
-    /** @var string | null */
+    /** @var string|null */
     private $slug;
 
-    /** @var string | null */
+    /** @var string|null */
     private $description;
 
-    /** @var float | null */
+    /** @var float|null */
     private $size;
 
-    /** @var string | null */
+    /** @var string|null */
     private $sizeUnit;
 
-    /** @var string | null */
+    /** @var string|null */
     private $mainColor;
 
     public function getName(): ?string
@@ -90,29 +90,4 @@ class Animal
     {
         $this->mainColor = $mainColor;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

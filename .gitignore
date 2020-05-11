@@ -1,6 +1,7 @@
 /etc/build/*
 !/etc/build/.gitignore
 public/assets
+/phpspec.yml
 
 ###> symfony/framework-bundle ###
 /.env.local
@@ -35,5 +36,4 @@ yarn-error.log
 
 ###> friends-of-behat/symfony-extension ###
 /behat.yml
-/phpspec.yml
 ###< friends-of-behat/symfony-extension ###
