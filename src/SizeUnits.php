@@ -11,7 +11,7 @@
 
 namespace App;
 
-class SizeUnit
+class SizeUnits
 {
 
     public const METER = 'meter';

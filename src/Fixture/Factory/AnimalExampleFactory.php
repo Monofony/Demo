@@ -13,7 +13,7 @@ namespace App\Fixture\Factory;
 
 use App\Colors;
 use App\Entity\Animal\Animal;
-use App\SizeUnit;
+use App\SizeUnits;
 use Monofony\Plugin\FixturesPlugin\Fixture\Factory\AbstractExampleFactory;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -50,7 +50,7 @@ class AnimalExampleFactory extends AbstractExampleFactory
                 return $this->faker->randomFloat(2, 1.00, 10.00);
             })
             ->setDefault('sizeUnit', function (Options $options) {
-                return $this->faker->randomElement(SizeUnit::ALL);
+                return $this->faker->randomElement(SizeUnits::ALL);
             })
             ->setDefault('mainColor', function (Options $options) {
                 return $this->faker->randomElement(Colors::ALL);
