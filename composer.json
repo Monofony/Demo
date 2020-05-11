@@ -14,7 +14,8 @@
         "symfony/polyfill-php80": "^1.15"
     },
     "require-dev": {
-        "monofony/test-pack": "^0.2"
+        "monofony/test-pack": "^0.2",
+        "symplify/easy-coding-standard": "^6.0||^7.0"
     },
     "config": {
         "optimize-autoloader": true,
@@ -44,6 +45,9 @@
         ],
         "post-update-cmd": [
             "@auto-scripts"
+        ],
+        "fix": [
+            "@php vendor/bin/ecs check src --fix"
         ]
     },
     "conflict": {
