@@ -13,6 +13,11 @@ class AnimalSpec extends ObjectBehavior
         $this->shouldHaveType(Animal::class);
     }
 
+    function it_has_no_default_id(): void
+    {
+        $this->getId()->shouldReturn(null);
+    }
+
     function it_has_no_default_name()
     {
         $this->getName()->shouldReturn(null);

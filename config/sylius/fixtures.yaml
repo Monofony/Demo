@@ -28,6 +28,10 @@ sylius_fixtures:
                                enabled: true
                        random: 10
 
+                animal:
+                    options:
+                        random: 100
+
                 api_client:
                     options:
                         custom:

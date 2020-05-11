@@ -11,24 +11,57 @@
 
 namespace App\Entity\Animal;
 
+use App\Entity\IdentifiableTrait;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="app_animal")
+ */
 class Animal
 {
-    /** @var string|null */
+    use IdentifiableTrait;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(type="string")
+     */
     private $name;
 
-    /** @var string|null */
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(type="string")
+     */
     private $slug;
 
-    /** @var string|null */
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(type="text", nullable=true)
+     */
     private $description;
 
-    /** @var float|null */
+    /**
+     * @var float|null
+     *
+     * @ORM\Column(type="decimal", nullable=true)
+     */
     private $size;
 
-    /** @var string|null */
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(type="string", nullable=true)
+     */
     private $sizeUnit;
 
-    /** @var string|null */
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(type="string", nullable=true)
+     */
     private $mainColor;
 
     public function getName(): ?string
