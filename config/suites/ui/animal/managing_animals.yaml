@@ -1,0 +1,14 @@
+default:
+    suites:
+        ui_managing_animals:
+            contexts:
+                - App\Tests\Behat\Context\Hook\DoctrineORMContext
+
+                - App\Tests\Behat\Context\Setup\AdminSecurityContext
+
+                - App\Tests\Behat\Context\Transform\SharedStorageContext
+
+                - App\Tests\Behat\Context\Ui\Backend\ManagingAnimalsContext
+                - App\Tests\Behat\Context\Ui\Backend\NotificationContext
+            filters:
+                tags: "@managing_animals && @ui"
