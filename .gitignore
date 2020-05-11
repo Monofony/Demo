@@ -2,6 +2,7 @@
 !/etc/build/.gitignore
 public/assets
 /phpspec.yml
+/coverage
 
 ###> symfony/framework-bundle ###
 /.env.local
