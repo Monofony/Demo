@@ -1,6 +1,7 @@
 /etc/build/*
 !/etc/build/.gitignore
 public/assets
+/phpspec.yml
 
 ###> symfony/framework-bundle ###
 /.env.local
