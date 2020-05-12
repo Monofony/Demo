@@ -31,8 +31,8 @@ class AnimalContext implements Context
     public function __construct(
         SharedStorageInterface $sharedStorage,
         AnimalExampleFactory $animalFactory,
-        EntityManagerInterface $manager)
-    {
+        EntityManagerInterface $manager
+    ) {
         $this->sharedStorage = $sharedStorage;
         $this->animalFactory = $animalFactory;
         $this->manager = $manager;

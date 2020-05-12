@@ -4,7 +4,7 @@ sylius_grid:
             driver:
                 name: doctrine/orm
                 options:
-                    class: App\Entity\Animal\Animal
+                    class: '%app.model.animal.class%'
             fields:
                 name:
                     type: string
