@@ -13,8 +13,10 @@ declare(strict_types=1);
 
 namespace App\Tests\Behat\Context\Ui\Backend;
 
+use App\Entity\Animal\Animal;
 use App\Tests\Behat\Page\Backend\Animal\CreatePage;
 use App\Tests\Behat\Page\Backend\Animal\IndexPage;
+use App\Tests\Behat\Page\Backend\Animal\UpdatePage;
 use Behat\Behat\Context\Context;
 use Webmozart\Assert\Assert;
 
@@ -26,11 +28,17 @@ final class ManagingAnimalsContext implements Context
     /** @var IndexPage */
     private $indexPage;
 
+    /** @var UpdatePage */
+    private $updatePage;
 
-    public function __construct(CreatePage $createPage, IndexPage $indexPage)
-    {
+    public function __construct(
+        CreatePage $createPage,
+        IndexPage $indexPage,
+        UpdatePage $updatePage
+    ) {
         $this->createPage = $createPage;
         $this->indexPage = $indexPage;
+        $this->updatePage = $updatePage;
     }
 
     /**
@@ -99,4 +107,45 @@ final class ManagingAnimalsContext implements Context
         Assert::true($this->indexPage->isSingleResourceOnPage(['name' => $name]));
     }
 
+    /**
+     * @Then the animal with :slug should appear in the list
+     */
+    public function theAnimalWithSlugShouldAppearInTheStore(string $slug)
+    {
+        $this->indexPage->open();
+
+        Assert::true($this->indexPage->isSingleResourceOnPage(['slug' => $slug]));
+    }
+
+    /**
+     * @When /^I want to edit (this animal)$/
+     */
+    public function iWantToEditThisAnimal(Animal $animal): void
+    {
+        $this->updatePage->open(['id' => $animal->getId()]);
+    }
+
+    /**
+     * @When I change its name to :name
+     */
+    public function iChangeItsNameTo(string $name)
+    {
+        $this->updatePage->changeName($name);
+    }
+
+    /**
+     * @When I change its slug to :slug
+     */
+    public function iChangeItsSlugTo(string $slug)
+    {
+        $this->updatePage->changeSlug($slug);
+    }
+
+    /**
+     * @When I save my changes
+     */
+    public function iSaveMyChanges()
+    {
+        $this->updatePage->saveChanges();
+    }
 }
