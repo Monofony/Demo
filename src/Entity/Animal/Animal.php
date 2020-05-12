@@ -13,12 +13,13 @@ namespace App\Entity\Animal;
 
 use App\Entity\IdentifiableTrait;
 use Doctrine\ORM\Mapping as ORM;
+use Sylius\Component\Resource\Model\ResourceInterface;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="app_animal")
  */
-class Animal
+class Animal implements ResourceInterface
 {
     use IdentifiableTrait;
 

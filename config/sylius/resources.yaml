@@ -1,5 +1,7 @@
 sylius_resource:
     resources:
-#        app.topic:
-#            classes:
-#                model: App\Entity\Topic\Topic
+        app.animal:
+            driver: doctrine/orm
+            classes:
+                model: App\Entity\Animal\Animal
+                form: App\Form\Type\Animal\AnimalType
