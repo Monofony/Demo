@@ -41,30 +41,30 @@ final class AdminMenuBuilder implements AdminMenuBuilderInterface
 
     private function addAnimalSubMenu(ItemInterface $menu): ItemInterface
     {
-        $customer = $menu
+        $animal = $menu
             ->addChild('animal')
             ->setLabel('sylius.ui.animal')
         ;
 
-        $customer->addChild('backend_animal', ['route' => 'app_backend_animal_index'])
+        $animal->addChild('backend_animal', ['route' => 'app_backend_animal_index'])
             ->setLabel('sylius.ui.animals')
             ->setLabelAttribute('icon', 'cat');
 
-        return $customer;
+        return $animal;
     }
 
     private function addCustomerSubMenu(ItemInterface $menu): ItemInterface
     {
-        $animal = $menu
+        $customer = $menu
             ->addChild('customer')
             ->setLabel('sylius.ui.customer')
         ;
 
-        $animal->addChild('backend_customer', ['route' => 'sylius_backend_customer_index'])
+        $customer->addChild('backend_customer', ['route' => 'sylius_backend_customer_index'])
             ->setLabel('sylius.ui.customers')
             ->setLabelAttribute('icon', 'users');
 
-        return $animal;
+        return $customer;
     }
 
     private function addConfigurationSubMenu(ItemInterface $menu): ItemInterface
