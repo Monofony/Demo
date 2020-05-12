@@ -32,10 +32,25 @@ final class AdminMenuBuilder implements AdminMenuBuilderInterface
     {
         $menu = $this->factory->createItem('root');
 
+        $this->addAnimalSubMenu($menu);
         $this->addCustomerSubMenu($menu);
         $this->addConfigurationSubMenu($menu);
 
         return $menu;
+    }
+
+    private function addAnimalSubMenu(ItemInterface $menu): ItemInterface
+    {
+        $animal = $menu
+            ->addChild('animal')
+            ->setLabel('sylius.ui.animal')
+        ;
+
+        $animal->addChild('backend_animal', ['route' => 'app_backend_animal_index'])
+            ->setLabel('sylius.ui.animals')
+            ->setLabelAttribute('icon', 'cat');
+
+        return $animal;
     }
 
     private function addCustomerSubMenu(ItemInterface $menu): ItemInterface
