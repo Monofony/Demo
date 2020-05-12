@@ -1,0 +1,20 @@
+sylius_grid:
+    grids:
+        app_backend_animal:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: App\Entity\Animal\Animal
+            fields:
+                name:
+                    type: string
+                    label: sylius.ui.name
+                slug:
+                    type: string
+                    label: sylius.ui.slug
+            filters:
+                search:
+                    type: string
+                    label: sylius.ui.search
+                    options:
+                        fields: [name, slug]

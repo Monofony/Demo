@@ -17,12 +17,14 @@ class Colors
     public const BLACK = 'black';
     public const GREY = 'grey';
     public const GINGER = 'ginger';
+    public const WHITE = 'white';
 
     public const ALL = [
         self::BROWN,
         self::BLACK,
         self::GREY,
         self::GINGER,
+        self::WHITE,
     ];
 
     private function __construct()

@@ -1,0 +1,14 @@
+app_backend_animal_index:
+    resource: |
+        alias: app.animal
+        section: backend
+        except: ['show']
+        redirect: update
+        grid: app_backend_animal
+        vars:
+            all:
+                subheader: app.ui.supplier # define a translation key for your entity subheader
+            index:
+                icon: 'cat' # choose an icon that will be displayed next to the subheader
+        templates: backend/crud
+    type: sylius.resource

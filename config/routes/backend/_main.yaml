@@ -11,6 +11,9 @@ app_backend_partial:
 sylius_backend_admin_user:
     resource: "admin_user.yaml"
 
+app_backend_animal:
+    resource: "animal.yaml"
+
 sylius_backend_customer:
     resource: "customer.yaml"
 

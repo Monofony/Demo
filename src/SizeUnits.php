@@ -16,10 +16,12 @@ class SizeUnits
 
     public const METER = 'meter';
     public const CENTIMETER = 'centimeter';
+    public const MILLIMETER = 'millimeter';
 
     public const ALL = [
         self::METER,
         self::CENTIMETER,
+        self::MILLIMETER,
     ];
 
     private function __construct()
