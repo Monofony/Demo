@@ -13,17 +13,23 @@ declare(strict_types=1);
 
 namespace App\Tests\Behat\Context\Ui\Backend;
 
+use App\Tests\Behat\Page\Backend\Animal\CreatePage;
 use App\Tests\Behat\Page\Backend\Animal\IndexPage;
 use Behat\Behat\Context\Context;
 use Webmozart\Assert\Assert;
 
 final class ManagingAnimalsContext implements Context
 {
+    /** @var CreatePage */
+    private $createPage;
+
     /** @var IndexPage */
     private $indexPage;
 
-    public function __construct(IndexPage $indexPage)
+
+    public function __construct(CreatePage $createPage, IndexPage $indexPage)
     {
+        $this->createPage = $createPage;
         $this->indexPage = $indexPage;
     }
 
@@ -50,4 +56,47 @@ final class ManagingAnimalsContext implements Context
     {
         Assert::true($this->indexPage->isSingleResourceOnPage(['name' => $name]));
     }
+
+    /**
+     * @Given I want to create a new animal
+     */
+    public function iWantToCreateANewAnimal()
+    {
+        $this->createPage->open();
+    }
+
+    /**
+     * @When I specify its name as :name
+     */
+    public function iSpecifyItsNameAs(string $name)
+    {
+        $this->createPage->specifyName($name);
+    }
+
+    /**
+     * @When I specify its slug as :slug
+     */
+    public function iSpecifyItsSlugAs(string $slug)
+    {
+        $this->createPage->specifySlug($slug);
+    }
+
+    /**
+     * @When I add it
+     */
+    public function iAddIt()
+    {
+        $this->createPage->create();
+    }
+
+    /**
+     * @Then the animal :name should appear in the store
+     */
+    public function theAnimalShouldAppearInTheStore(string $name)
+    {
+        $this->indexPage->open();
+
+        Assert::true($this->indexPage->isSingleResourceOnPage(['name' => $name]));
+    }
+
 }
