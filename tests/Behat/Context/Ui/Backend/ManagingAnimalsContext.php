@@ -90,7 +90,7 @@ final class ManagingAnimalsContext implements Context
     }
 
     /**
-     * @Then the animal :name should appear in the store
+     * @Then the animal :name should appear in the list
      */
     public function theAnimalShouldAppearInTheStore(string $name)
     {

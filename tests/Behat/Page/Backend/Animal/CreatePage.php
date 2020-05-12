@@ -16,7 +16,6 @@ use Monofony\Bundle\AdminBundle\Tests\Behat\Crud\CreatePageInterface;
 
 class CreatePage extends AbstractCreatePage implements CreatePageInterface
 {
-
     public function getRouteName(): string
     {
         return 'app_backend_animal_create';

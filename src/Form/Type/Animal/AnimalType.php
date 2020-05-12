@@ -21,7 +21,6 @@ class AnimalType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        parent::buildForm($builder, $options);
         $builder
             ->add('name', TextType::class, [
                 'label' => 'sylius.ui.name',
