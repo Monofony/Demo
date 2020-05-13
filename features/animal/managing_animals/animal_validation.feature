@@ -16,19 +16,9 @@ Feature: Family projects validation
         And this animal should not be added
 
     @ui
-    Scenario: Trying to add a new animal without slug
-        Given I want to create a new animal
-        When I specify its name as "Axolotl"
-        But I do not specify any slug
-        And I try to add it
-        Then I should be notified that the slug is required
-        And this animal should not be added
-
-    @ui
     Scenario: Trying to add a new animal with size but without size unit
         Given I want to create a new animal
         When I specify its name as "Axolotl"
-        And I specify its slug as "Axolotl"
         And I specify its size as "12"
         But I do not specify any size unit
         And I try to add it
