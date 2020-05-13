@@ -18,6 +18,7 @@ use App\Tests\Behat\Page\Backend\Animal\CreatePage;
 use App\Tests\Behat\Page\Backend\Animal\IndexPage;
 use App\Tests\Behat\Page\Backend\Animal\UpdatePage;
 use Behat\Behat\Context\Context;
+use Behat\Behat\Tester\Exception\PendingException;
 use Webmozart\Assert\Assert;
 
 final class ManagingAnimalsContext implements Context
@@ -75,8 +76,9 @@ final class ManagingAnimalsContext implements Context
 
     /**
      * @When I specify its name as :name
+     * @When I do not specify any name
      */
-    public function iSpecifyItsNameAs(string $name)
+    public function iSpecifyItsNameAs(string $name = null)
     {
         $this->createPage->specifyName($name);
     }
@@ -90,7 +92,7 @@ final class ManagingAnimalsContext implements Context
     }
 
     /**
-     * @When I add it
+     * @When I (try to )add it
      */
     public function iAddIt()
     {
@@ -147,5 +149,25 @@ final class ManagingAnimalsContext implements Context
     public function iSaveMyChanges()
     {
         $this->updatePage->saveChanges();
+    }
+
+    /**
+     * @Then I should be notified that the name is required
+     */
+    public function iShouldBeNotifiedThatTheNameIsRequired()
+    {
+        Assert::true($this->createPage->checkValidationName(
+            'name',
+            'This value should not be blank.')
+        );
+    }
+
+    /**
+     * @Then this animal should not be added
+     */
+    public function thisAnimalShouldNotBeAdded()
+    {
+        $this->indexPage->open();
+        Assert::eq($this->indexPage->countItems(), 0);
     }
 }
