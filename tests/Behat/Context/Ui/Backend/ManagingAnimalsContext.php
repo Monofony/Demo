@@ -18,7 +18,6 @@ use App\Tests\Behat\Page\Backend\Animal\CreatePage;
 use App\Tests\Behat\Page\Backend\Animal\IndexPage;
 use App\Tests\Behat\Page\Backend\Animal\UpdatePage;
 use Behat\Behat\Context\Context;
-use Behat\Behat\Tester\Exception\PendingException;
 use Webmozart\Assert\Assert;
 
 final class ManagingAnimalsContext implements Context
