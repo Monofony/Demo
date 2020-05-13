@@ -43,11 +43,11 @@ final class AdminMenuBuilder implements AdminMenuBuilderInterface
     {
         $animal = $menu
             ->addChild('animal')
-            ->setLabel('sylius.ui.animal')
+            ->setLabel('app.ui.animal')
         ;
 
         $animal->addChild('backend_animal', ['route' => 'app_backend_animal_index'])
-            ->setLabel('sylius.ui.animals')
+            ->setLabel('app.ui.animals')
             ->setLabelAttribute('icon', 'cat');
 
         return $animal;
