@@ -30,9 +30,6 @@ class AnimalType extends AbstractType
             ->add('name', TextType::class, [
                 'label' => 'sylius.ui.name',
             ])
-            ->add('slug', TextType::class, [
-                'label' => 'sylius.ui.slug',
-            ])
             ->add('description', TextareaType::class, [
                 'label' => 'sylius.ui.description',
                 'required' => false,

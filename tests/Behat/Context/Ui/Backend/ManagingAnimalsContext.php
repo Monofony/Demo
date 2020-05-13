@@ -83,14 +83,6 @@ final class ManagingAnimalsContext implements Context
     }
 
     /**
-     * @When I specify its slug as :slug
-     */
-    public function iSpecifyItsSlugAs(string $slug)
-    {
-        $this->createPage->specifySlug($slug);
-    }
-
-    /**
      * @When I (try to )add it
      */
     public function iAddIt()
@@ -109,16 +101,6 @@ final class ManagingAnimalsContext implements Context
     }
 
     /**
-     * @Then the animal with :slug should appear in the list
-     */
-    public function theAnimalWithSlugShouldAppearInTheStore(string $slug)
-    {
-        $this->indexPage->open();
-
-        Assert::true($this->indexPage->isSingleResourceOnPage(['slug' => $slug]));
-    }
-
-    /**
      * @When /^I want to edit (this animal)$/
      */
     public function iWantToEditThisAnimal(Animal $animal): void
@@ -132,14 +114,6 @@ final class ManagingAnimalsContext implements Context
     public function iChangeItsNameTo(string $name)
     {
         $this->updatePage->changeName($name);
-    }
-
-    /**
-     * @When I change its slug to :slug
-     */
-    public function iChangeItsSlugTo(string $slug)
-    {
-        $this->updatePage->changeSlug($slug);
     }
 
     /**
@@ -171,14 +145,6 @@ final class ManagingAnimalsContext implements Context
      * @When I do not specify any size unit
      */
     public function iDoNotSpecifyAnySizeUnit()
-    {
-        // Intentionally left blank.
-    }
-
-    /**
-     * @When I do not specify any slug
-     */
-    public function iDoNotSpecifyAnySlug()
     {
         // Intentionally left blank.
     }

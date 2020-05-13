@@ -41,11 +41,6 @@ class CreatePage extends AbstractCreatePage implements CreatePageInterface
         $this->getElement('name')->setValue($name);
     }
 
-    public function specifySlug(?string $slug): void
-    {
-        $this->getElement('slug')->setValue($slug);
-    }
-
     public function specifySize(?float $size): void
     {
         $this->getElement('size')->setValue($size);
@@ -63,7 +58,6 @@ class CreatePage extends AbstractCreatePage implements CreatePageInterface
     {
         return array_merge(parent::getDefinedElements(), [
             'name' => '#app_animal_name',
-            'slug' => '#app_animal_slug',
             'size' => '#app_animal_size',
             'size_unit' => '#app_animal_sizeUnit',
         ]);

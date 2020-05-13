@@ -11,7 +11,6 @@ Feature: Adding a new animal
     Scenario: Adding a new animal
         Given I want to create a new animal
         When I specify its name as "Axolotl"
-        And I specify its slug as "Axolotl"
         And I add it
         Then I should be notified that it has been successfully created
         And the animal "Axolotl" should appear in the list
@@ -20,7 +19,6 @@ Feature: Adding a new animal
     Scenario: Adding a new animal with its characteristic fields
         Given I want to create a new animal
         When I specify its name as "Axolotl"
-        And I specify its slug as "Axolotl"
         And I specify its size as "12"
         And I specify its size unit as "centimeter"
         And I add it

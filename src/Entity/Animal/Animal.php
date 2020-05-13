@@ -12,6 +12,7 @@
 namespace App\Entity\Animal;
 
 use App\Entity\IdentifiableTrait;
+use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
 use Sylius\Component\Resource\Model\ResourceInterface;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -36,9 +37,8 @@ class Animal implements ResourceInterface
     /**
      * @var string|null
      *
-     * @ORM\Column(type="string")
-     *
-     * @Assert\NotBlank()
+     * @Gedmo\Slug(fields={"name"})
+     * @ORM\Column(type="string", length=128, unique=true)
      */
     private $slug;
 

@@ -32,19 +32,10 @@ class UpdatePage extends AbstractUpdatePage implements UpdatePageInterface
     /**
      * {@inheritdoc}
      */
-    public function changeSlug(?string $slug): void
-    {
-        $this->getElement('slug')->setValue($slug);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     protected function getDefinedElements(): array
     {
         return array_merge(parent::getDefinedElements(), [
             'name' => '#app_animal_name',
-            'slug' => '#app_animal_slug',
         ]);
     }
 }
