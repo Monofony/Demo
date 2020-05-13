@@ -11,6 +11,7 @@
 
 namespace App\Tests\Behat\Page\Backend\Animal;
 
+use Behat\Mink\Exception\ElementNotFoundException;
 use Monofony\Bundle\AdminBundle\Tests\Behat\Crud\AbstractCreatePage;
 use Monofony\Bundle\AdminBundle\Tests\Behat\Crud\CreatePageInterface;
 
@@ -19,6 +20,17 @@ class CreatePage extends AbstractCreatePage implements CreatePageInterface
     public function getRouteName(): string
     {
         return 'app_backend_animal_create';
+    }
+
+    public function checkValidationName($element, $message): bool
+    {
+        $errorLabel = $this->getElement($element)->getParent()->find('css', '.sylius-validation-error');
+
+        if (null === $errorLabel) {
+            throw new ElementNotFoundException($this->getSession(), 'Validation message', 'css', '.sylius-validation-error');
+        }
+
+        return $message === $errorLabel->getText();
     }
 
     public function specifyName(?string $name): void

@@ -12,6 +12,9 @@ sylius_grid:
                 slug:
                     type: string
                     label: sylius.ui.slug
+                description:
+                    type: string
+                    label: sylius.ui.description
             filters:
                 search:
                     type: string
