@@ -1,13 +1,26 @@
 app:
     ui:
+        animal: Animal
+        animals: Animaux
         avatar: Avatar
+        black: Noir
+        brown: Marron
+        centimeter: Centimètre
         create_user: Créer un utilisateur
         forgotten_password: Mot de passe oublié
+        ginger: Roux
+        grey: Gris
         legal_notices: Mentions légales
+        main_color: Couleur dominante
+        meter: Mètre
+        millimeter: Millimètre
         overview_of_your_website: Aperçu de votre site web
         search_customers: Chercher des clients
+        size: Taille
+        size_unit: Unité de taille
         validate: Valider
         view_website: Voir le site
+        white: Blanc
 sylius:
     ui:
         show: Afficher
