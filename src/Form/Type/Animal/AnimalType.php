@@ -16,6 +16,7 @@ use App\Entity\Animal\Animal;
 use App\SizeUnits;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -36,7 +37,7 @@ class AnimalType extends AbstractType
                 'label' => 'sylius.ui.description',
                 'required' => false,
             ])
-            ->add('size', TextType::class, [
+            ->add('size', NumberType::class, [
                 'label' => 'app.ui.size',
                 'required' => false,
             ])

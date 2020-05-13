@@ -11,6 +11,7 @@
 
 namespace App\Tests\Behat\Page\Backend\Animal;
 
+use App\Formatter\StringInflector;
 use Behat\Mink\Exception\ElementNotFoundException;
 use Monofony\Bundle\AdminBundle\Tests\Behat\Crud\AbstractCreatePage;
 use Monofony\Bundle\AdminBundle\Tests\Behat\Crud\CreatePageInterface;
@@ -22,8 +23,10 @@ class CreatePage extends AbstractCreatePage implements CreatePageInterface
         return 'app_backend_animal_create';
     }
 
-    public function checkValidationName($element, $message): bool
+    public function checkValidationMessageFor($element, $message): bool
     {
+        $element = StringInflector::nameToCode($element);
+
         $errorLabel = $this->getElement($element)->getParent()->find('css', '.sylius-validation-error');
 
         if (null === $errorLabel) {
@@ -43,6 +46,16 @@ class CreatePage extends AbstractCreatePage implements CreatePageInterface
         $this->getElement('slug')->setValue($slug);
     }
 
+    public function specifySize(?float $size): void
+    {
+        $this->getElement('size')->setValue($size);
+    }
+
+    public function specifySizeUnit(?string $sizeUnit): void
+    {
+        $this->getElement('size_unit')->setValue($sizeUnit);
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -51,6 +64,8 @@ class CreatePage extends AbstractCreatePage implements CreatePageInterface
         return array_merge(parent::getDefinedElements(), [
             'name' => '#app_animal_name',
             'slug' => '#app_animal_slug',
+            'size' => '#app_animal_size',
+            'size_unit' => '#app_animal_sizeUnit',
         ]);
     }
 }

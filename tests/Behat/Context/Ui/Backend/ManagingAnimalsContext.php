@@ -151,22 +151,54 @@ final class ManagingAnimalsContext implements Context
     }
 
     /**
-     * @Then I should be notified that the name is required
-     */
-    public function iShouldBeNotifiedThatTheNameIsRequired()
-    {
-        Assert::true($this->createPage->checkValidationName(
-            'name',
-            'This value should not be blank.')
-        );
-    }
-
-    /**
      * @Then this animal should not be added
      */
     public function thisAnimalShouldNotBeAdded()
     {
         $this->indexPage->open();
         Assert::eq($this->indexPage->countItems(), 0);
+    }
+
+    /**
+     * @When I specify its size as :size
+     */
+    public function iSpecifyItsSizeAs(float $size)
+    {
+        $this->createPage->specifySize($size);
+    }
+
+    /**
+     * @When I do not specify any size unit
+     */
+    public function iDoNotSpecifyAnySizeUnit()
+    {
+        // Intentionally left blank.
+    }
+
+    /**
+     * @When I do not specify any slug
+     */
+    public function iDoNotSpecifyAnySlug()
+    {
+        // Intentionally left blank.
+    }
+
+    /**
+     * @Then I should be notified that the :element is required
+     */
+    public function iShouldBeNotifiedThatTheElementIsRequired(string $element)
+    {
+        Assert::true($this->createPage->checkValidationMessageFor(
+            $element,
+            'This value should not be blank.')
+        );
+    }
+
+    /**
+     * @When I specify its size unit as :sizeUnit
+     */
+    public function iSpecifyItsSizeunitAs(string $sizeUnit)
+    {
+        $this->createPage->specifySizeUnit($sizeUnit);
     }
 }

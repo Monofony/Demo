@@ -37,6 +37,8 @@ class Animal implements ResourceInterface
      * @var string|null
      *
      * @ORM\Column(type="string")
+     *
+     * @Assert\NotBlank()
      */
     private $slug;
 
@@ -58,6 +60,11 @@ class Animal implements ResourceInterface
      * @var string|null
      *
      * @ORM\Column(type="string", nullable=true)
+     *
+     * @Assert\Expression(
+     *     "value != null or !this.isSizeUnitRequired()",
+     *     message="This value should not be blank."
+     * )
      */
     private $sizeUnit;
 
@@ -126,5 +133,10 @@ class Animal implements ResourceInterface
     public function setMainColor(?string $mainColor): void
     {
         $this->mainColor = $mainColor;
+    }
+
+    public function isSizeUnitRequired(): bool
+    {
+        return null != $this->getSize();
     }
 }
