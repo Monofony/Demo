@@ -3,6 +3,8 @@
 namespace spec\App\Entity\Animal;
 
 use App\Entity\Animal\Animal;
+use App\Entity\Animal\AnimalImage;
+use Doctrine\Common\Collections\Collection;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
@@ -82,5 +84,30 @@ class AnimalSpec extends ObjectBehavior
     {
         $this->setMainColor('Zinzolin');
         $this->getMainColor()->shouldReturn('Zinzolin');
+    }
+
+    function it_initializes_image_collection_by_default()
+    {
+        $this->getImages()->shouldHaveType(Collection::class);
+    }
+
+    function it_adds_images(AnimalImage $image)
+    {
+        $image->setAnimal($this)->shouldBeCalled();
+
+        $this->addImage($image);
+
+        $this->hasImage($image)->shouldReturn(true);
+    }
+
+    function it_removes_images(AnimalImage $image)
+    {
+        $this->addImage($image);
+
+        $image->setAnimal(null)->shouldBeCalled();
+
+        $this->removeImage($image);
+
+        $this->hasImage($image)->shouldReturn(false);
     }
 }

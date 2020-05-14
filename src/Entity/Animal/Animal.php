@@ -12,6 +12,8 @@
 namespace App\Entity\Animal;
 
 use App\Entity\IdentifiableTrait;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
 use Sylius\Component\Resource\Model\ResourceInterface;
@@ -74,6 +76,19 @@ class Animal implements ResourceInterface
      * @ORM\Column(type="string", nullable=true)
      */
     private $mainColor;
+
+    /**
+     * @var Collection
+     *
+     * @ORM\OneToMany(targetEntity="App\Entity\Animal\AnimalImage", mappedBy="animal", orphanRemoval=true)
+     */
+    private $images;
+
+    public function __construct()
+    {
+        $this->images = new ArrayCollection();
+    }
+
 
     public function getName(): ?string
     {
@@ -138,5 +153,29 @@ class Animal implements ResourceInterface
     public function isSizeUnitRequired(): bool
     {
         return null != $this->getSize();
+    }
+
+    public function getImages(): ?Collection
+    {
+        return $this->images;
+    }
+
+    public function hasImage(AnimalImage $image): bool
+    {
+        return $this->images->contains($image);
+    }
+
+    public function addImage(AnimalImage $image): void
+    {
+        if (!$this->hasImage($image)) {
+            $this->images->add($image);
+            $image->setAnimal($this);
+        }
+    }
+
+    public function removeImage(AnimalImage $image): void
+    {
+        $this->images->removeElement($image);
+        $image->setAnimal(null);
     }
 }
