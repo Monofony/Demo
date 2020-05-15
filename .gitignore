@@ -1,6 +1,7 @@
 /etc/build/*
 !/etc/build/.gitignore
 public/assets
+public/media
 /phpspec.yml
 /coverage
 

@@ -12,9 +12,11 @@
 namespace App\Tests\Behat\Page\Backend\Animal;
 
 use App\Formatter\StringInflector;
+use Behat\Mink\Element\NodeElement;
 use Behat\Mink\Exception\ElementNotFoundException;
 use Monofony\Bundle\AdminBundle\Tests\Behat\Crud\AbstractCreatePage;
 use Monofony\Bundle\AdminBundle\Tests\Behat\Crud\CreatePageInterface;
+use Webmozart\Assert\Assert;
 
 class CreatePage extends AbstractCreatePage implements CreatePageInterface
 {
@@ -51,6 +53,27 @@ class CreatePage extends AbstractCreatePage implements CreatePageInterface
         $this->getElement('size_unit')->setValue($sizeUnit);
     }
 
+    public function attachImage(string $path): void
+    {
+        $filesPath = $this->getParameter('files_path');
+
+        $this->getDocument()->clickLink('Add');
+
+        $imageForm = $this->getLastImageElement();
+
+        $imageForm->find('css', 'input[type="file"]')->attachFile($filesPath . $path);
+    }
+
+    private function getLastImageElement(): NodeElement
+    {
+        $images = $this->getElement('images');
+        $items = $images->findAll('css', 'div[data-form-collection="item"]');
+
+        Assert::notEmpty($items);
+
+        return end($items);
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -60,6 +83,7 @@ class CreatePage extends AbstractCreatePage implements CreatePageInterface
             'name' => '#app_animal_name',
             'size' => '#app_animal_size',
             'size_unit' => '#app_animal_sizeUnit',
+            'images' => '#app_animal_images',
         ]);
     }
 }

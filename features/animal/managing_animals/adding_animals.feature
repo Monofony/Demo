@@ -2,7 +2,7 @@
 Feature: Adding a new animal
     In order to create new animal
     As an Administrator
-    I want to add a animal to the store
+    I want to add a animal to the list
 
     Background:
         Given I am logged in as an administrator

@@ -80,7 +80,7 @@ class Animal implements ResourceInterface
     /**
      * @var Collection
      *
-     * @ORM\OneToMany(targetEntity="App\Entity\Animal\AnimalImage", mappedBy="animal", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\Animal\AnimalImage", mappedBy="animal", orphanRemoval=true, cascade={"persist"})
      */
     private $images;
 
@@ -88,7 +88,6 @@ class Animal implements ResourceInterface
     {
         $this->images = new ArrayCollection();
     }
-
 
     public function getName(): ?string
     {
