@@ -175,12 +175,4 @@ final class ManagingAnimalsContext implements Context
     {
         $this->createPage->attachImage($path);
     }
-
-    /**
-     * @Then the animal :name should have an image
-     */
-    public function theAnimalShouldHaveAnImage(string $name)
-    {
-        Assert::eq($this->createPage->countImages(), 1);
-    }
 }

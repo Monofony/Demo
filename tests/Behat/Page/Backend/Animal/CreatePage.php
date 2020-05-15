@@ -74,14 +74,6 @@ class CreatePage extends AbstractCreatePage implements CreatePageInterface
         return end($items);
     }
 
-    public function countImages(): int
-    {
-        $images = $this->getElement('images');
-        $items = $images->findAll('css', 'div[data-form-collection="item"]');
-
-        return count($items);
-    }
-
     /**
      * {@inheritdoc}
      */
