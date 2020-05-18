@@ -98,11 +98,19 @@ final class ManagingTaxonsContext implements Context
     }
 
     /**
-     * @Then the taxon :taxon should appear in the list
+     * @Then the taxon :taxon should appear in the registry
      */
     public function theTaxonShouldAppearInTheList(Taxon $taxon)
     {
         $this->updatePage->open(['id' => $taxon->getId()]);
         Assert::true($this->updatePage->hasResourceValues(['name' => $taxon->getName()]));
+    }
+
+    /**
+     * @Then this taxon :element should be :value
+     */
+    public function thisTaxonElementShouldBe($element, $value)
+    {
+        Assert::true($this->updatePage->hasResourceValues([$element => $value]));
     }
 }

@@ -14,4 +14,4 @@ Feature: Editing a taxon
         And I change its name to "Pogba"
         And I save my changes
         Then I should be notified that it has been successfully edited
-        And the taxon "Pogba" should appear in the list
+        And this taxon name should be "Pogba"
