@@ -15,4 +15,4 @@ Feature: Adding a new taxon
         And I specify its slug as "cats"
         When I add it
         Then I should be notified that it has been successfully created
-        And this taxonomy with name "Cats" should appear in the website
+        And the taxon "Cats" should appear in the list

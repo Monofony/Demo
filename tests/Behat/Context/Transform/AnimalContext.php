@@ -15,8 +15,6 @@ namespace App\Tests\Behat\Context\Transform;
 use App\Entity\Animal\Animal;
 use Behat\Behat\Context\Context;
 use Monofony\Bundle\CoreBundle\Tests\Behat\Service\SharedStorageInterface;
-use Sylius\Bundle\ResourceBundle\Tests\Fixtures\AnimalInterface;
-use Sylius\Component\Resource\Factory\FactoryInterface;
 use Sylius\Component\Resource\Repository\RepositoryInterface;
 use Webmozart\Assert\Assert;
 
