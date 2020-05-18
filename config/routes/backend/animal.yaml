@@ -1,4 +1,4 @@
-app_backend_animal_index:
+app_backend_animal:
     resource: |
         alias: app.animal
         section: backend

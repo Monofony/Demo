@@ -7,4 +7,5 @@ imports:
     - suites/ui/admin/dashboard.yaml
     - suites/ui/animal/managing_animals.yaml
     - suites/ui/customer/managing_customers.yaml
+    - suites/ui/taxonomy/managing_taxons.yaml
     - suites/ui/user/managing_administrators.yaml
