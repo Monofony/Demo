@@ -10,6 +10,7 @@
         "monofony/core-bundle": "^0.2",
         "monofony/fixtures-plugin": "^0.2",
         "monofony/front-bundle": "^0.2",
+        "sylius/locale-bundle": "^1.6",
         "sylius/taxonomy-bundle": "^1.6",
         "symfony/flex": "^1.6",
         "symfony/polyfill-php80": "^1.15"

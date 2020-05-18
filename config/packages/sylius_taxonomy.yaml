@@ -4,3 +4,4 @@ sylius_taxonomy:
         taxon:
             classes:
                 model: App\Entity\Taxonomy\Taxon
+                form: App\Form\Type\Taxonomy\TaxonType

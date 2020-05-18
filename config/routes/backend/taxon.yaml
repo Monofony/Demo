@@ -1,0 +1,14 @@
+sylius_backend_taxon:
+    resource: |
+        alias: sylius.taxon
+        path: taxons
+        section: backend
+        except: ['show']
+        redirect: update
+        vars:
+            all:
+                subheader: sylius.ui.managing_taxons
+                templates:
+                    form: backend/taxon/_form.html.twig
+        templates: backend/crud
+    type: sylius.resource
