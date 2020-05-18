@@ -12,18 +12,25 @@ declare(strict_types=1);
 
 namespace App\Tests\Behat\Context\Ui\Backend;
 
+use App\Entity\Taxonomy\Taxon;
 use App\Tests\Behat\Page\Backend\Taxon\CreatePage;
 use App\Tests\Behat\Page\Backend\Taxon\IndexPage;
+use App\Tests\Behat\Page\Backend\Taxon\UpdatePage;
 use Behat\Behat\Context\Context;
+use Webmozart\Assert\Assert;
 
 final class ManagingTaxonsContext implements Context
 {
     /** @var CreatePage */
     private $createPage;
 
-    public function __construct(CreatePage $createPage)
+    /** @var UpdatePage */
+    private $updatePage;
+
+    public function __construct(CreatePage $createPage, UpdatePage $updatePage)
     {
         $this->createPage = $createPage;
+        $this->updatePage = $updatePage;
     }
 
     /**
@@ -67,10 +74,43 @@ final class ManagingTaxonsContext implements Context
     }
 
     /**
-     * @Then this taxonomy with name :name should appear in the website
+     * @When /^I want to edit (this taxon)$/
      */
-    public function thisTaxonomyWithNameShouldAppearInTheWebsite(string $name)
+    public function iWantToEditThisTaxon(Taxon $taxon)
     {
-        // todo
+        $this->updatePage->open(['id' => $taxon->getId()]);
+    }
+
+    /**
+     * @When I change its name to :name
+     */
+    public function iChangeItsNameTo(string $name)
+    {
+        $this->updatePage->changeName($name);
+    }
+
+    /**
+     * @When I save my changes
+     */
+    public function iSaveMyChanges()
+    {
+        $this->updatePage->saveChanges();
+    }
+
+    /**
+     * @Then the taxon :taxon should appear in the registry
+     */
+    public function theTaxonShouldAppearInTheList(Taxon $taxon)
+    {
+        $this->updatePage->open(['id' => $taxon->getId()]);
+        Assert::true($this->updatePage->hasResourceValues(['name' => $taxon->getName()]));
+    }
+
+    /**
+     * @Then this taxon :element should be :value
+     */
+    public function thisTaxonElementShouldBe($element, $value)
+    {
+        Assert::true($this->updatePage->hasResourceValues([$element => $value]));
     }
 }

@@ -1,5 +1,5 @@
 @managing_animals
-Feature: Editing an administrator
+Feature: Editing an animal
     In order to change information about an animal
     As an Administrator
     I want to be able to edit the animal
