@@ -19,3 +19,6 @@ sylius_backend_customer:
 
 sylius_backend_security:
     resource: "security.yaml"
+
+sylius_backend_taxon:
+    resource: "taxon.yaml"
