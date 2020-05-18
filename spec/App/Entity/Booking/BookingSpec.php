@@ -4,9 +4,8 @@ namespace spec\App\Entity\Booking;
 
 use App\Entity\Animal\Animal;
 use App\Entity\Booking\Booking;
-use App\Entity\Customer\Customer;
+use Monofony\Component\Core\Model\Customer\CustomerInterface;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class BookingSpec extends ObjectBehavior
 {
@@ -36,7 +35,7 @@ class BookingSpec extends ObjectBehavior
         $this->getCustomer()->shouldReturn(null);
     }
 
-    function it_has_a_customer(Customer $customer)
+    function it_has_a_customer(CustomerInterface $customer)
     {
         $this->setCustomer($customer);
         $this->getCustomer()->shouldReturn($customer);
@@ -53,23 +52,23 @@ class BookingSpec extends ObjectBehavior
         $this->getStatus()->shouldReturn('En cours');
     }
 
-    function it_has_no_default_created_at()
+    function it_has_no_default_creation_date()
     {
         $this->getCreatedAt()->shouldReturn(null);
     }
 
-    function it_has_a_created_at(\DateTime $dateTime)
+    function it_has_a_creation_date(\DateTime $dateTime)
     {
         $this->setCreatedAt($dateTime);
         $this->getCreatedAt()->shouldReturn($dateTime);
     }
 
-    function it_has_no_default_validate_At()
+    function it_has_no_default_validation_date()
     {
         $this->getValidateAt()->shouldReturn(null);
     }
 
-    function it_has_a_validate_At(\DateTime $dateTime)
+    function it_has_a_validation_date(\DateTime $dateTime)
     {
         $this->setValidateAt($dateTime);
         $this->getValidateAt()->shouldReturn($dateTime);
