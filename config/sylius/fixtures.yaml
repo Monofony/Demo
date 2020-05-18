@@ -41,3 +41,7 @@ sylius_fixtures:
                 taxon:
                     options:
                         random: 10
+
+                booking:
+                    options:
+                        random: 20

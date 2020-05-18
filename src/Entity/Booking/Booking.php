@@ -19,22 +19,42 @@ use Doctrine\ORM\Mapping as ORM;
 use Monofony\Component\Core\Model\Customer\CustomerInterface;
 use Sylius\Component\Resource\Model\TimestampableTrait;
 
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="app_booking")
+ */
 final class Booking
 {
     use IdentifiableTrait;
 
-    /** @var Animal|null */
+    /**
+     * @var Animal|null
+     *
+     * @ORM\ManyToOne(targetEntity="App\Entity\Animal\Animal")
+     */
     private $animal;
 
-    /** @var CustomerInterface|null */
+    /**
+     * @var CustomerInterface|null
+     *
+     * @ORM\ManyToOne(targetEntity="App\Entity\Customer\Customer")
+     */
     private $customer;
 
-    /** @var string|null */
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(type="string")
+     */
     private $status;
 
     use TimestampableTrait;
 
-    /** @var \DateTimeInterface|null */
+    /**
+     * @var \DateTimeInterface|null
+     *
+     * @ORM\Column(type="date")
+     */
     private $validateAt;
 
     public function getAnimal(): ?Animal
