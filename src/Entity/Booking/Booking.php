@@ -8,6 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
 declare(strict_types=1);
 
 namespace App\Entity\Booking;
@@ -15,6 +16,7 @@ namespace App\Entity\Booking;
 use App\Entity\Animal\Animal;
 use App\Entity\Customer\Customer;
 use App\Entity\IdentifiableTrait;
+use Doctrine\ORM\Mapping as ORM;
 
 final class Booking
 {
