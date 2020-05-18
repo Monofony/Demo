@@ -12,6 +12,7 @@
 namespace App\Entity\Animal;
 
 use App\Entity\IdentifiableTrait;
+use App\Entity\Taxonomy\Taxon;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Gedmo\Mapping\Annotation as Gedmo;
@@ -83,6 +84,11 @@ class Animal implements ResourceInterface
      * @ORM\OneToMany(targetEntity="App\Entity\Animal\AnimalImage", mappedBy="animal", orphanRemoval=true, cascade={"persist"})
      */
     private $images;
+
+    /**
+     * @var Taxon|null
+     */
+    private $taxon;
 
     public function __construct()
     {

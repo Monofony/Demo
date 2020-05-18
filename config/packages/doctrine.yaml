@@ -7,9 +7,9 @@ doctrine:
         #server_version: '5.7'
 
         # only needed for MySQL
-        charset: utf8mb4
+        charset: utf8
         default_table_options:
-            collate: utf8mb4_unicode_ci
+            collate: utf8_unicode_ci
 
         # backtrace queries in profiler (increases memory usage per request)
         #profiling_collect_backtrace: '%kernel.debug%'

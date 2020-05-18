@@ -701,6 +701,12 @@
     "sylius/resource-bundle": {
         "version": "v1.6.3"
     },
+    "sylius/taxonomy": {
+        "version": "v1.6.6"
+    },
+    "sylius/taxonomy-bundle": {
+        "version": "v1.6.6"
+    },
     "sylius/ui-bundle": {
         "version": "v1.6.6"
     },
