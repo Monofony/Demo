@@ -85,7 +85,7 @@ class AnimalExampleFactory extends AbstractExampleFactory
         return $animal;
     }
 
-        private function createImages(Animal $animal, array $options)
+    private function createImages(Animal $animal, array $options)
     {
         $filesystem = new Filesystem();
 

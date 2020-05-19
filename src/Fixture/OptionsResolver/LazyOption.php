@@ -134,14 +134,12 @@ final class LazyOption
         };
     }
 
-    public static function randomOnesImage(string $directory, int $amount)
+    public static function randomOnesImage(string $directory, int $amount): \Closure
     {
-        return function (Options $options) use ($directory, $amount) {
+        return function (Options $options) use ($directory, $amount): array {
             $finder = new Finder();
             $files = $finder->files()->in($directory);
             $images = [];
-
-            /* @var File $file */
 
             foreach ($files as $sourcePathName) {
                 $file = new File($sourcePathName);
