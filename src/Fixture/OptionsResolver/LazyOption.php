@@ -13,6 +13,8 @@ namespace App\Fixture\OptionsResolver;
 
 use Doctrine\Common\Collections\Collection;
 use Sylius\Component\Resource\Repository\RepositoryInterface;
+use Symfony\Component\Finder\Finder;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\OptionsResolver\Options;
 use Webmozart\Assert\Assert;
 
@@ -129,6 +131,33 @@ final class LazyOption
             } else {
                 return $repository->findOneBy([$field => $previousValue]);
             }
+        };
+    }
+
+    public static function randomOnesImage(string $directory, int $amount)
+    {
+        return function (Options $options) use ($directory, $amount) {
+            $finder = new Finder();
+            $files = $finder->files()->in($directory);
+            $images = [];
+
+            /* @var File $file */
+
+            foreach ($files as $sourcePathName) {
+                $file = new File($sourcePathName);
+                $images[] = $file->getPathname();
+            }
+
+            $selectedImages = [];
+            for (; $amount > 0 && count($images) > 0; --$amount) {
+                $randomKey = array_rand($images);
+
+                $selectedImages[] = $images[$randomKey];
+
+                unset($images[$randomKey]);
+            }
+
+            return $selectedImages;
         };
     }
 }

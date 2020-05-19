@@ -4,6 +4,9 @@ sylius_resource:
             classes:
                 model: App\Entity\Animal\Animal
                 form: App\Form\Type\Animal\AnimalType
+        app.animal_image:
+            classes:
+                model: App\Entity\Animal\AnimalImage
         app.booking:
             classes:
                 model: App\Entity\Booking\Booking
