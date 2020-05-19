@@ -18,12 +18,16 @@ use App\Entity\Booking\Booking;
 use App\Fixture\OptionsResolver\LazyOption;
 use App\Repository\CustomerRepository;
 use Monofony\Plugin\FixturesPlugin\Fixture\Factory\AbstractExampleFactory;
+use Sylius\Component\Resource\Factory\FactoryInterface;
 use Sylius\Component\Resource\Repository\RepositoryInterface;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 final class BookingExampleFactory extends AbstractExampleFactory
 {
+    /** @var FactoryInterface */
+    private $bookingFactory;
+
     /** @var RepositoryInterface */
     private $animalRepository;
 
@@ -36,8 +40,9 @@ final class BookingExampleFactory extends AbstractExampleFactory
     /** @var OptionsResolver */
     private $optionsResolver;
 
-    public function __construct(RepositoryInterface $animalRepository, CustomerRepository $customerRepository)
+    public function __construct(FactoryInterface $bookingFactory, RepositoryInterface $animalRepository, CustomerRepository $customerRepository)
     {
+        $this->bookingFactory = $bookingFactory;
         $this->animalRepository = $animalRepository;
         $this->customerRepository = $customerRepository;
 
@@ -64,11 +69,12 @@ final class BookingExampleFactory extends AbstractExampleFactory
         ;
     }
 
-    public function create(array $options = [])
+    public function create(array $options = []): Booking
     {
         $options = $this->optionsResolver->resolve($options);
 
-        $booking = new Booking();
+        /** @var Booking $booking */
+        $booking = $this->bookingFactory->createNew();
         $booking->setAnimal($options['animal']);
         $booking->setCustomer($options['customer']);
         $booking->setStatus($options['status']);
