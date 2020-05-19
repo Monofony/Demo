@@ -165,6 +165,11 @@ class Animal implements ResourceInterface
         return $this->images;
     }
 
+    public function getFirstImage()
+    {
+        return false !== $this->getImages()->first() ? $this->getImages()->first() : null;
+    }
+
     public function hasImage(AnimalImage $image): bool
     {
         return $this->images->contains($image);

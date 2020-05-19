@@ -110,4 +110,17 @@ class AnimalSpec extends ObjectBehavior
 
         $this->hasImage($image)->shouldReturn(false);
     }
+
+    function it_has_no_first_image_by_default(): void
+    {
+        $this->getFirstImage()->shouldReturn(null);
+    }
+
+    function it_can_get_first_image(AnimalImage $firstImage, AnimalImage $secondImage): void
+    {
+        $this->addImage($firstImage);
+        $this->addImage($secondImage);
+
+        $this->getFirstImage()->shouldReturn($firstImage);
+    }
 }

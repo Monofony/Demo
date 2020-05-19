@@ -7,7 +7,7 @@ app_backend_animal:
         grid: app_backend_animal
         vars:
             all:
-                subheader: app.ui.supplier # define a translation key for your entity subheader
+                subheader: app.ui.managing_animals
             index:
                 icon: 'cat' # choose an icon that will be displayed next to the subheader
         templates: backend/crud
