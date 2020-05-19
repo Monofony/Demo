@@ -6,12 +6,18 @@ use App\Entity\Animal\Animal;
 use App\Entity\Booking\Booking;
 use Monofony\Component\Core\Model\Customer\CustomerInterface;
 use PhpSpec\ObjectBehavior;
+use Sylius\Component\Resource\Model\ResourceInterface;
 
 class BookingSpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
         $this->shouldHaveType(Booking::class);
+    }
+
+    function it_is_a_resource(): void
+    {
+        $this->shouldImplement(ResourceInterface::class);
     }
 
     function it_has_no_default_id(): void
