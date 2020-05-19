@@ -1,5 +1,6 @@
 /etc/build/*
 !/etc/build/.gitignore
+/log
 public/assets
 public/media
 /phpspec.yml
