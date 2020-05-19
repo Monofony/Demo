@@ -2,3 +2,10 @@
 liip_imagine:
     # valid drivers options include "gd" or "gmagick" or "imagick"
     driver: "gd"
+    filter_sets:
+        # @see http://symfony.com/doc/current/bundles/LiipImagineBundle/filters.html
+        cache: ~
+        thumbnail:
+            filters:
+                auto_rotate: ~
+                thumbnail: { size: [60, 60], mode: outbound }
