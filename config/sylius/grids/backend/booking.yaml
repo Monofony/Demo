@@ -1,0 +1,25 @@
+sylius_grid:
+    grids:
+        app_backend_booking:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: '%app.model.booking.class%'
+            fields:
+                animal:
+                    type: string
+                    label: app.ui.animal
+                    path: animal.name
+                status:
+                    type: twig
+                    label: sylius.ui.status
+                    options:
+                        template: "@SyliusUi/Grid/Field/state.html.twig"
+                        vars:
+                            labels: "backend/booking/label/state"
+            filters:
+                search:
+                    type: string
+                    label: sylius.ui.search
+                    options:
+                        fields: [status]

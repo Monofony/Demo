@@ -10,7 +10,7 @@ Feature: Browsing animals
         And there is also an animal with name "Gizmo"
         And I am logged in as an administrator
 
-    @ui @todo
+    @ui
     Scenario: Browsing animals
         When I want to see all animals
         Then I should see 3 animals in the list

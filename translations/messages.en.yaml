@@ -4,6 +4,8 @@ app:
         animals: Animals
         avatar: Avatar
         black: Noir
+        booking: Booking
+        bookings: Bookings
         brown: Marron
         centimeter: Centimeter
         create_user: Create an user
@@ -12,6 +14,7 @@ app:
         grey: Gris
         legal_notices: Legal notices
         main_color: Main color
+        managing_bookings: Managing bookings
         meter: Meter
         millimeter: Millimeter
         overview_of_your_website: Overview of you website
@@ -22,4 +25,6 @@ app:
         view_website: View website
         white: Blanc
 sylius:
-    ui: ~
+    ui:
+        finished: Finished
+        validated: Validated
