@@ -17,13 +17,14 @@ use App\Entity\Animal\Animal;
 use App\Entity\IdentifiableTrait;
 use Doctrine\ORM\Mapping as ORM;
 use Monofony\Component\Core\Model\Customer\CustomerInterface;
+use Sylius\Component\Resource\Model\ResourceInterface;
 use Sylius\Component\Resource\Model\TimestampableTrait;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="app_booking")
  */
-final class Booking
+final class Booking implements ResourceInterface
 {
     use IdentifiableTrait;
 
