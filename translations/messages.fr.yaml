@@ -26,4 +26,6 @@ app:
         white: Blanc
 sylius:
     ui:
+        finished: Terminé
         show: Afficher
+        validated: Validé

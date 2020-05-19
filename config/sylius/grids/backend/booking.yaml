@@ -8,10 +8,15 @@ sylius_grid:
             fields:
                 animal:
                     type: string
+                    label: app.ui.animal
                     path: animal.name
                 status:
-                    type: string
+                    type: twig
                     label: sylius.ui.status
+                    options:
+                        template: "@SyliusUi/Grid/Field/state.html.twig"
+                        vars:
+                            labels: "backend/booking/label/state"
             filters:
                 search:
                     type: string

@@ -25,4 +25,6 @@ app:
         view_website: View website
         white: Blanc
 sylius:
-    ui: ~
+    ui:
+        finished: Finished
+        validated: Validated
