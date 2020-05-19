@@ -24,7 +24,7 @@ use Sylius\Component\Resource\Model\TimestampableTrait;
  * @ORM\Entity
  * @ORM\Table(name="app_booking")
  */
-final class Booking implements ResourceInterface
+class Booking implements ResourceInterface
 {
     use IdentifiableTrait;
 
