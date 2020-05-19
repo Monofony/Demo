@@ -13,8 +13,13 @@ namespace App\Fixture\Factory;
 
 use App\Colors;
 use App\Entity\Animal\Animal;
+use App\Entity\Animal\AnimalImage;
+use App\Fixture\OptionsResolver\LazyOption;
 use App\SizeUnits;
 use Monofony\Plugin\FixturesPlugin\Fixture\Factory\AbstractExampleFactory;
+use Sylius\Component\Resource\Factory\FactoryInterface;
+use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -23,14 +28,18 @@ class AnimalExampleFactory extends AbstractExampleFactory
     /** @var \Faker\Generator */
     private $faker;
 
+    /** @var FactoryInterface */
+    private $animalImageFactory;
+
     /** @var OptionsResolver */
     private $optionsResolver;
 
     /**
      * AnimalExampleFactory constructor.
      */
-    public function __construct()
+    public function __construct(FactoryInterface $animalImageFactory)
     {
+        $this->animalImageFactory = $animalImageFactory;
         $this->faker = \Faker\Factory::create();
         $this->optionsResolver = new OptionsResolver();
 
@@ -55,6 +64,9 @@ class AnimalExampleFactory extends AbstractExampleFactory
             ->setDefault('mainColor', function (Options $options) {
                 return $this->faker->randomElement(Colors::ALL);
             })
+            ->setDefault('images', LazyOption::randomOnesImage(
+                __DIR__.'/../../../tests/Resources', 1
+            ))
         ;
     }
 
@@ -70,7 +82,25 @@ class AnimalExampleFactory extends AbstractExampleFactory
         $animal->setSizeUnit($options['sizeUnit']);
         $animal->setMainColor($options['mainColor']);
 
+        $this->createImages($animal, $options);
 
         return $animal;
+    }
+
+    private function createImages(Animal $animal, array $options)
+    {
+        $filesystem = new Filesystem();
+
+        foreach ($options['images'] as $imagePath) {
+            $basename = basename($imagePath);
+            $filesystem->copy($imagePath, '/tmp/'.$basename);
+            $file = new UploadedFile('/tmp/'.$basename, $basename, null, null, true);
+
+            /** @var AnimalImage $image */
+            $image = $this->animalImageFactory->createNew();
+            $image->setFile($file);
+
+            $animal->addImage($image);
+        }
     }
 }
