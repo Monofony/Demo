@@ -17,7 +17,6 @@ use Monofony\Bundle\AdminBundle\Tests\Behat\Crud\IndexPageInterface;
 
 final class IndexPage extends AbstractIndexPage implements IndexPageInterface
 {
-
     public function getRouteName(): string
     {
         return 'app_backend_booking_index';
