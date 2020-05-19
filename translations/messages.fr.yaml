@@ -4,6 +4,8 @@ app:
         animals: Animaux
         avatar: Avatar
         black: Noir
+        booking: Réservation
+        bookings: Réservations
         brown: Marron
         centimeter: Centimètre
         create_user: Créer un utilisateur
@@ -12,6 +14,7 @@ app:
         grey: Gris
         legal_notices: Mentions légales
         main_color: Couleur dominante
+        managing_bookings: Gestion des réservations
         meter: Mètre
         millimeter: Millimètre
         overview_of_your_website: Aperçu de votre site web

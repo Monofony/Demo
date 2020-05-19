@@ -33,6 +33,7 @@ final class AdminMenuBuilder implements AdminMenuBuilderInterface
         $menu = $this->factory->createItem('root');
 
         $this->addAnimalSubMenu($menu);
+        $this->addBookingSubMenu($menu);
         $this->addCustomerSubMenu($menu);
         $this->addConfigurationSubMenu($menu);
 
@@ -51,6 +52,20 @@ final class AdminMenuBuilder implements AdminMenuBuilderInterface
             ->setLabelAttribute('icon', 'cat');
 
         return $animal;
+    }
+
+    private function addBookingSubMenu(ItemInterface $menu): ItemInterface
+    {
+        $booking = $menu
+            ->addChild('booking')
+            ->setLabel('app.ui.booking')
+        ;
+
+        $booking->addChild('backend_booking', ['route' => 'app_backend_booking_index'])
+            ->setLabel('app.ui.bookings')
+            ->setLabelAttribute('icon', 'fax');
+
+        return $booking;
     }
 
     private function addCustomerSubMenu(ItemInterface $menu): ItemInterface
