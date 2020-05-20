@@ -23,6 +23,7 @@ app:
         size: Taille
         size_unit: Unité de taille
         validate: Valider
+        validation_date: Date de validation
         view_website: Voir le site
         white: Blanc
 sylius:
