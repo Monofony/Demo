@@ -79,7 +79,7 @@ final class BookingExampleFactory extends AbstractExampleFactory
         $booking->setCustomer($options['customer']);
         $booking->setStatus($options['status']);
         $booking->setCreatedAt($options['createdAt']);
-        $booking->setValidateAt($options['validateAt']);
+        $booking->setValidatedAt($options['validateAt']);
 
         return $booking;
     }

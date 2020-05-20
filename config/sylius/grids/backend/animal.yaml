@@ -5,6 +5,8 @@ sylius_grid:
                 name: doctrine/orm
                 options:
                     class: '%app.model.animal.class%'
+            sorting:
+                name: asc
             fields:
                 image:
                     type: twig
@@ -15,9 +17,7 @@ sylius_grid:
                 name:
                     type: string
                     label: sylius.ui.name
-                slug:
-                    type: string
-                    label: sylius.ui.slug
+                    sortable: null
                 description:
                     type: string
                     label: sylius.ui.description
