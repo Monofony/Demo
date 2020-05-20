@@ -173,6 +173,7 @@ final class ManagingAnimalsContext implements Context
      */
     public function iAttachTheImage($path)
     {
+        $this->createPage->clickTabIfItsNotActive('media');
         $this->createPage->attachImage($path);
     }
 
