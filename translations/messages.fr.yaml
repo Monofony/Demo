@@ -9,6 +9,7 @@ app:
         brown: Marron
         centimeter: Centimètre
         create_user: Créer un utilisateur
+        edit_animal: Edition d'un animal
         forgotten_password: Mot de passe oublié
         ginger: Roux
         grey: Gris
@@ -18,6 +19,7 @@ app:
         managing_bookings: Gestion des réservations
         meter: Mètre
         millimeter: Millimètre
+        new_animal: Ajout d'un animal
         overview_of_your_website: Aperçu de votre site web
         search_customers: Chercher des clients
         size: Taille
