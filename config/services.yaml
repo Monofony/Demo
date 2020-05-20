@@ -25,3 +25,7 @@ services:
     App\Controller\:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
+
+    App\Menu\AnimalFormBuilder:
+        tags:
+            - { name: knp_menu.menu_builder, method: createMenu, alias: app.backend.animal_form }

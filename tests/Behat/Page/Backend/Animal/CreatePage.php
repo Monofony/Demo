@@ -64,14 +64,12 @@ class CreatePage extends AbstractCreatePage implements CreatePageInterface
         $imageForm->find('css', 'input[type="file"]')->attachFile($filesPath . $path);
     }
 
-    private function getLastImageElement(): NodeElement
+    public function clickTabIfItsNotActive(string $tabName)
     {
-        $images = $this->getElement('images');
-        $items = $images->findAll('css', 'div[data-form-collection="item"]');
-
-        Assert::notEmpty($items);
-
-        return end($items);
+        $attributesTab = $this->getElement('tab', ['%name%' => $tabName]);
+        if (!$attributesTab->hasClass('active')) {
+            $attributesTab->click();
+        }
     }
 
     /**
@@ -84,6 +82,17 @@ class CreatePage extends AbstractCreatePage implements CreatePageInterface
             'size' => '#app_animal_size',
             'size_unit' => '#app_animal_sizeUnit',
             'images' => '#app_animal_images',
+            'tab' => '.menu [data-tab="%name%"]',
         ]);
+    }
+
+    private function getLastImageElement(): NodeElement
+    {
+        $images = $this->getElement('images');
+        $items = $images->findAll('css', 'div[data-form-collection="item"]');
+
+        Assert::notEmpty($items);
+
+        return end($items);
     }
 }
