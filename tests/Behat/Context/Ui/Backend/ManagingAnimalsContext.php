@@ -175,4 +175,20 @@ final class ManagingAnimalsContext implements Context
     {
         $this->createPage->attachImage($path);
     }
+
+    /**
+     * @When I delete animal with name :name
+     */
+    public function iDeleteAnimalWithName(string $name)
+    {
+        $this->indexPage->deleteResourceOnPage(['name' => $name]);
+    }
+
+    /**
+     * @Then there should not be :name animal anymore
+     */
+    public function thereShouldNotBeAnimalAnymore(string $name)
+    {
+        Assert::false($this->indexPage->isSingleResourceOnPage(['name' => $name]));
+    }
 }
