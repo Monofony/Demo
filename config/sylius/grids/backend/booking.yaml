@@ -5,21 +5,41 @@ sylius_grid:
                 name: doctrine/orm
                 options:
                     class: '%app.model.booking.class%'
+            sorting:
+                createdAt: desc
             fields:
                 animal:
                     type: string
                     label: app.ui.animal
+                    sortable: null
                     path: animal.name
+                customer:
+                    type: string
+                    label: sylius.ui.customer
+                    path: customer.email
                 status:
                     type: twig
                     label: sylius.ui.status
+                    sortable: null
                     options:
                         template: "@SyliusUi/Grid/Field/state.html.twig"
                         vars:
                             labels: "backend/booking/label/state"
+                createdAt:
+                    type: datetime
+                    label: sylius.ui.registration_date
+                    sortable: null
+                    options:
+                        format: Y-m-d
+                validatedAt:
+                    type: datetime
+                    label: app.ui.validation_date
+                    sortable: null
+                    options:
+                        format: Y-m-d
             filters:
                 search:
                     type: string
                     label: sylius.ui.search
                     options:
-                        fields: [status]
+                        fields: [animal.name, customer.email]

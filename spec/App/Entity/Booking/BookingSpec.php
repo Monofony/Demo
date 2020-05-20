@@ -71,12 +71,12 @@ class BookingSpec extends ObjectBehavior
 
     function it_has_no_default_validation_date()
     {
-        $this->getValidateAt()->shouldReturn(null);
+        $this->getValidatedAt()->shouldReturn(null);
     }
 
     function it_has_a_validation_date(\DateTime $dateTime)
     {
-        $this->setValidateAt($dateTime);
-        $this->getValidateAt()->shouldReturn($dateTime);
+        $this->setValidatedAt($dateTime);
+        $this->getValidatedAt()->shouldReturn($dateTime);
     }
 }

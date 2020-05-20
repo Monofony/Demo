@@ -27,6 +27,14 @@ use Sylius\Component\Resource\Model\TimestampableTrait;
 class Booking implements ResourceInterface
 {
     use IdentifiableTrait;
+    use TimestampableTrait;
+
+    /**
+     * @var \DateTimeInterface|null
+     *
+     * @ORM\Column(type="date")
+     */
+    protected $createdAt;
 
     /**
      * @var Animal|null
@@ -49,14 +57,12 @@ class Booking implements ResourceInterface
      */
     private $status;
 
-    use TimestampableTrait;
-
     /**
      * @var \DateTimeInterface|null
      *
      * @ORM\Column(type="date")
      */
-    private $validateAt;
+    private $validatedAt;
 
     public function getAnimal(): ?Animal
     {
@@ -88,13 +94,13 @@ class Booking implements ResourceInterface
         $this->status = $status;
     }
 
-    public function getValidateAt(): ?\DateTimeInterface
+    public function getValidatedAt(): ?\DateTimeInterface
     {
-        return $this->validateAt;
+        return $this->validatedAt;
     }
 
-    public function setValidateAt(?\DateTimeInterface $validateAt): void
+    public function setValidatedAt(?\DateTimeInterface $validatedAt): void
     {
-        $this->validateAt = $validateAt;
+        $this->validatedAt = $validatedAt;
     }
 }
