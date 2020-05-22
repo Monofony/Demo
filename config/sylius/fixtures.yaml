@@ -28,6 +28,10 @@ sylius_fixtures:
                                enabled: true
                        random: 10
 
+                taxon:
+                    options:
+                        random: 10
+
                 animal:
                     options:
                         random: 100
@@ -38,9 +42,6 @@ sylius_fixtures:
                             client:
                                 random_id: 5rbhrb0iiukokcwk8gow0w4ocgww0oco8g8gsgokwc0wcssg4w
                                 secret: 2rlxzhijcx448ow4c0gksw4wo8oo4k8kkwwg0osskk8g0k8kw8
-                taxon:
-                    options:
-                        random: 10
 
                 booking:
                     options:

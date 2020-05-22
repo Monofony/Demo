@@ -87,6 +87,8 @@ class Animal implements ResourceInterface
 
     /**
      * @var Taxon|null
+     *
+     * @ORM\ManyToOne(targetEntity="App\Entity\Taxonomy\Taxon")
      */
     private $taxon;
 
@@ -187,5 +189,15 @@ class Animal implements ResourceInterface
     {
         $this->images->removeElement($image);
         $image->setAnimal(null);
+    }
+
+    public function getTaxon(): ?Taxon
+    {
+        return $this->taxon;
+    }
+
+    public function setTaxon(?Taxon $taxon): void
+    {
+        $this->taxon = $taxon;
     }
 }

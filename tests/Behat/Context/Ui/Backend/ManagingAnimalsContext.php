@@ -192,4 +192,13 @@ final class ManagingAnimalsContext implements Context
     {
         Assert::false($this->indexPage->isSingleResourceOnPage(['name' => $name]));
     }
+
+    /**
+     * @When I specify its taxon as :name
+     */
+    public function iSpecifyItsTaxonAs(string $name)
+    {
+        $this->createPage->clickTabIfItsNotActive('taxonomy');
+        $this->createPage->specifyTaxon($name);
+    }
 }

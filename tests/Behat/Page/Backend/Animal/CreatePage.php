@@ -53,6 +53,11 @@ class CreatePage extends AbstractCreatePage implements CreatePageInterface
         $this->getElement('size_unit')->setValue($sizeUnit);
     }
 
+    public function specifyTaxon(?string $taxon): void
+    {
+        $this->getElement('taxon')->selectOption($taxon);
+    }
+
     public function attachImage(string $path): void
     {
         $filesPath = $this->getParameter('files_path');
@@ -83,6 +88,7 @@ class CreatePage extends AbstractCreatePage implements CreatePageInterface
             'size_unit' => '#app_animal_sizeUnit',
             'images' => '#app_animal_images',
             'tab' => '.menu [data-tab="%name%"]',
+            'taxon' => '#app_animal_taxon',
         ]);
     }
 

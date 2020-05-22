@@ -4,6 +4,7 @@ namespace spec\App\Entity\Animal;
 
 use App\Entity\Animal\Animal;
 use App\Entity\Animal\AnimalImage;
+use App\Entity\Taxonomy\Taxon;
 use Doctrine\Common\Collections\Collection;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
@@ -122,5 +123,16 @@ class AnimalSpec extends ObjectBehavior
         $this->addImage($secondImage);
 
         $this->getFirstImage()->shouldReturn($firstImage);
+    }
+
+    function it_has_no_default_taxon()
+    {
+        $this->getTaxon()->shouldReturn(null);
+    }
+
+    function it_has_a_taxon(Taxon $taxon)
+    {
+        $this->setTaxon($taxon);
+        $this->getTaxon()->shouldReturn($taxon);
     }
 }
