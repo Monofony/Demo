@@ -11,7 +11,7 @@ Feature: Adding a new animal with images
     Scenario: Adding a new animal with images
         Given I want to create a new animal
         When I specify its name as "Axolotl"
-        And I attach the "Axolotl.jpg" image
+        And I attach the "animals/Axolotl.jpg" image
         And I add it
         Then I should be notified that it has been successfully created
         And the animal "Axolotl" should have one image

@@ -34,9 +34,6 @@ class AnimalExampleFactory extends AbstractExampleFactory
     /** @var OptionsResolver */
     private $optionsResolver;
 
-    /**
-     * AnimalExampleFactory constructor.
-     */
     public function __construct(FactoryInterface $animalImageFactory)
     {
         $this->animalImageFactory = $animalImageFactory;
@@ -65,7 +62,7 @@ class AnimalExampleFactory extends AbstractExampleFactory
                 return $this->faker->randomElement(Colors::ALL);
             })
             ->setDefault('images', LazyOption::randomOnesImage(
-                __DIR__.'/../../../tests/Resources', 1
+                __DIR__.'/../../../tests/Resources/animals', 3
             ))
         ;
     }
