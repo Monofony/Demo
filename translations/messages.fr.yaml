@@ -30,6 +30,7 @@ app:
         white: Blanc
 sylius:
     ui:
+        canceled: Annulé
         finished: Terminé
         show: Afficher
         validated: Validé

@@ -15,11 +15,13 @@ namespace App;
 
 final class BookingStates
 {
+    public const CANCELED = 'canceled';
     public const FINISHED = 'finished';
     public const NEW = 'new';
     public const VALIDATED = 'validated';
 
     public const ALL = [
+        self::CANCELED,
         self::FINISHED,
         self::NEW,
         self::VALIDATED,

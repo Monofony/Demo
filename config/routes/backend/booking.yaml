@@ -2,7 +2,7 @@ app_backend_booking:
     resource: |
         alias: app.booking
         section: backend
-        except: ['show']
+        only: ['index']
         redirect: update
         grid: app_backend_booking
         vars:
@@ -12,3 +12,29 @@ app_backend_booking:
                 icon: 'fax'
         templates: backend/crud
     type: sylius.resource
+
+app_backend_booking_show:
+    methods: [GET]
+    path: /bookings/{id}
+    defaults:
+        _controller: app.controller.booking:showAction
+        _sylius:
+            section: backend
+            template: backend/booking/show.html.twig
+            vars:
+                templates:
+                    breadcrumb: backend/booking/show/_breadcrumb.html.twig
+                    toolbar: backend/booking/show/_toolbar.html.twig
+
+app_backend_booking_update_state:
+    methods: [PATCH]
+    path: /bookings/{id}/status/{transition}
+    defaults:
+        _controller: app.controller.booking:applyStateMachineTransitionAction
+        _sylius:
+            section: backend
+            state_machine:
+                graph: app_booking
+                transition: $transition
+            csrf_protection: false
+            redirect: referer
