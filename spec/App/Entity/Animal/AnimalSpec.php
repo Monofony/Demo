@@ -4,10 +4,9 @@ namespace spec\App\Entity\Animal;
 
 use App\Entity\Animal\Animal;
 use App\Entity\Animal\AnimalImage;
-use App\Entity\Taxonomy\Taxon;
 use Doctrine\Common\Collections\Collection;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
+use Sylius\Component\Taxonomy\Model\TaxonInterface;
 
 class AnimalSpec extends ObjectBehavior
 {
@@ -130,7 +129,7 @@ class AnimalSpec extends ObjectBehavior
         $this->getTaxon()->shouldReturn(null);
     }
 
-    function it_has_a_taxon(Taxon $taxon)
+    function it_has_a_taxon(TaxonInterface $taxon)
     {
         $this->setTaxon($taxon);
         $this->getTaxon()->shouldReturn($taxon);

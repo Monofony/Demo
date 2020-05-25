@@ -12,12 +12,12 @@
 namespace App\Entity\Animal;
 
 use App\Entity\IdentifiableTrait;
-use App\Entity\Taxonomy\Taxon;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
 use Sylius\Component\Resource\Model\ResourceInterface;
+use Sylius\Component\Taxonomy\Model\TaxonInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -86,7 +86,7 @@ class Animal implements ResourceInterface
     private $images;
 
     /**
-     * @var Taxon|null
+     * @var TaxonInterface|null
      *
      * @ORM\ManyToOne(targetEntity="App\Entity\Taxonomy\Taxon")
      */
@@ -191,12 +191,12 @@ class Animal implements ResourceInterface
         $image->setAnimal(null);
     }
 
-    public function getTaxon(): ?Taxon
+    public function getTaxon(): ?TaxonInterface
     {
         return $this->taxon;
     }
 
-    public function setTaxon(?Taxon $taxon): void
+    public function setTaxon(?TaxonInterface $taxon): void
     {
         $this->taxon = $taxon;
     }
