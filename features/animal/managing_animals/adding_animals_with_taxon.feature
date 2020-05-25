@@ -8,7 +8,7 @@ Feature: Adding a new animal with taxon
         Given I am logged in as an administrator
         And there is a taxon with name "Amphibie"
 
-    @ui @javascript
+    @ui
     Scenario: Adding a new animal with taxon
         Given I want to create a new animal
         When I specify its name as "Axolotl"
