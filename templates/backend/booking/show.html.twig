@@ -1,0 +1,10 @@
+{% extends 'backend/layout.html.twig' %}
+
+{% set header = configuration.vars.header|default(metadata.applicationName~'.ui.show_'~metadata.name) %}
+
+{% block title %}{{ parent() }} {{ header|trans }}{% endblock %}
+
+{% block content %}
+    {% include 'backend/booking/show/_header.html.twig' %}
+    {% include 'backend/booking/show/_content.html.twig' %}
+{% endblock %}

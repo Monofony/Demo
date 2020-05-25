@@ -5,6 +5,10 @@ parameters:
     email_sender: 'no-reply@example.com'
 
 services:
+    _instanceof:
+        Sylius\Bundle\ResourceBundle\Controller\ResourceController:
+            autowire: false
+
     # default configuration for services in *this* file
     _defaults:
         autowire: true      # Automatically injects dependencies in your services
