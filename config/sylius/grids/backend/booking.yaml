@@ -43,6 +43,14 @@ sylius_grid:
                     label: sylius.ui.search
                     options:
                         fields: [animal.name, customer.email]
+                status:
+                    type: select
+                    form_options:
+                        choices:
+                            app.ui.new: New
+                            app.ui.canceled: Canceled
+                            app.ui.validated: Validated
+                            app.ui.finished: Finished
             actions:
                 item:
                     show:
