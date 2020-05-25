@@ -12,6 +12,7 @@
 namespace App\Tests\Behat\Page\Backend\Animal;
 
 use App\Formatter\StringInflector;
+use Behat\Mink\Driver\Selenium2Driver;
 use Behat\Mink\Element\NodeElement;
 use Behat\Mink\Exception\ElementNotFoundException;
 use Monofony\Bundle\AdminBundle\Tests\Behat\Crud\AbstractCreatePage;
@@ -71,6 +72,10 @@ class CreatePage extends AbstractCreatePage implements CreatePageInterface
 
     public function clickTabIfItsNotActive(string $tabName)
     {
+        if (!$this->getDriver() instanceof Selenium2Driver) {
+            return;
+        }
+
         $attributesTab = $this->getElement('tab', ['%name%' => $tabName]);
         if (!$attributesTab->hasClass('active')) {
             $attributesTab->click();
