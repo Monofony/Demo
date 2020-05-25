@@ -18,6 +18,7 @@ use App\Fixture\OptionsResolver\LazyOption;
 use App\SizeUnits;
 use Monofony\Plugin\FixturesPlugin\Fixture\Factory\AbstractExampleFactory;
 use Sylius\Component\Resource\Factory\FactoryInterface;
+use Sylius\Component\Resource\Repository\RepositoryInterface;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\OptionsResolver\Options;
@@ -31,12 +32,16 @@ class AnimalExampleFactory extends AbstractExampleFactory
     /** @var FactoryInterface */
     private $animalImageFactory;
 
+    /** @var RepositoryInterface */
+    private $taxonRepository;
+
     /** @var OptionsResolver */
     private $optionsResolver;
 
-    public function __construct(FactoryInterface $animalImageFactory)
+    public function __construct(FactoryInterface $animalImageFactory, RepositoryInterface $taxonRepository)
     {
         $this->animalImageFactory = $animalImageFactory;
+        $this->taxonRepository = $taxonRepository;
         $this->faker = \Faker\Factory::create();
         $this->optionsResolver = new OptionsResolver();
 
@@ -64,6 +69,7 @@ class AnimalExampleFactory extends AbstractExampleFactory
             ->setDefault('images', LazyOption::randomOnesImage(
                 __DIR__.'/../../../tests/Resources/animals', 3
             ))
+            ->setDefault('taxon', LazyOption::randomOne($this->taxonRepository))
         ;
     }
 
@@ -78,6 +84,7 @@ class AnimalExampleFactory extends AbstractExampleFactory
         $animal->setSize($options['size']);
         $animal->setSizeUnit($options['sizeUnit']);
         $animal->setMainColor($options['mainColor']);
+        $animal->setTaxon($options['taxon']);
 
         $this->createImages($animal, $options);
 

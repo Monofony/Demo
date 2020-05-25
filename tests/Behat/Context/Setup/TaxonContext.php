@@ -51,4 +51,16 @@ final class TaxonContext implements Context
         $this->sharedStorage->set('taxon', $taxon);
     }
 
+    /**
+     * @Given animals are classified under :firstTaxonName and :secondTaxonName categories
+     */
+    public function animalsAreClassifiedUnderAndCategories(...$taxonNames)
+    {
+        foreach ($taxonNames as $taxonName) {
+            $taxon = $this->taxonFactory->create(['name' => $taxonName]);
+            $this->manager->persist($taxon);
+        }
+
+        $this->manager->flush();
+    }
 }

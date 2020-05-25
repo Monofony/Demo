@@ -12,6 +12,7 @@
 namespace App\Tests\Behat\Page\Backend\Animal;
 
 use App\Formatter\StringInflector;
+use Behat\Mink\Driver\Selenium2Driver;
 use Behat\Mink\Element\NodeElement;
 use Behat\Mink\Exception\ElementNotFoundException;
 use Monofony\Bundle\AdminBundle\Tests\Behat\Crud\AbstractCreatePage;
@@ -53,6 +54,11 @@ class CreatePage extends AbstractCreatePage implements CreatePageInterface
         $this->getElement('size_unit')->setValue($sizeUnit);
     }
 
+    public function specifyTaxon(?string $taxon): void
+    {
+        $this->getElement('taxon')->selectOption($taxon);
+    }
+
     public function attachImage(string $path): void
     {
         $filesPath = $this->getParameter('files_path');
@@ -66,6 +72,10 @@ class CreatePage extends AbstractCreatePage implements CreatePageInterface
 
     public function clickTabIfItsNotActive(string $tabName)
     {
+        if (!$this->getDriver() instanceof Selenium2Driver) {
+            return;
+        }
+
         $attributesTab = $this->getElement('tab', ['%name%' => $tabName]);
         if (!$attributesTab->hasClass('active')) {
             $attributesTab->click();
@@ -83,6 +93,7 @@ class CreatePage extends AbstractCreatePage implements CreatePageInterface
             'size_unit' => '#app_animal_sizeUnit',
             'images' => '#app_animal_images',
             'tab' => '.menu [data-tab="%name%"]',
+            'taxon' => '#app_animal_taxon',
         ]);
     }
 

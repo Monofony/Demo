@@ -11,10 +11,12 @@
 
 namespace App\Tests\Behat\Context\Setup;
 
+use App\Entity\Animal\Animal;
 use App\Fixture\Factory\AnimalExampleFactory;
 use Behat\Behat\Context\Context;
 use Doctrine\ORM\EntityManagerInterface;
 use Monofony\Bundle\CoreBundle\Tests\Behat\Service\SharedStorageInterface;
+use Sylius\Component\Taxonomy\Model\TaxonInterface;
 
 class AnimalContext implements Context
 {
@@ -48,5 +50,14 @@ class AnimalContext implements Context
         $this->manager->persist($animal);
         $this->manager->flush();
         $this->sharedStorage->set('animal', $animal);
+    }
+
+    /**
+     * @Given /^(it|this animal) (belongs to "[^"]+")$/
+     */
+    public function thisAnimalBelongsTo(Animal $animal, TaxonInterface $taxon)
+    {
+        $animal->setTaxon($taxon);
+        $this->manager->flush();
     }
 }

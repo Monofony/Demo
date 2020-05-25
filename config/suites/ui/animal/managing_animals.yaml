@@ -8,9 +8,11 @@ default:
 
                 - App\Tests\Behat\Context\Setup\AdminSecurityContext
                 - App\Tests\Behat\Context\Setup\AnimalContext
+                - App\Tests\Behat\Context\Setup\TaxonContext
 
                 - App\Tests\Behat\Context\Transform\AnimalContext
                 - App\Tests\Behat\Context\Transform\SharedStorageContext
+                - App\Tests\Behat\Context\Transform\TaxonContext
 
                 - App\Tests\Behat\Context\Ui\Backend\ManagingAnimalsContext
                 - App\Tests\Behat\Context\Ui\Backend\NotificationContext

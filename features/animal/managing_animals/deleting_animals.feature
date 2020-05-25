@@ -6,12 +6,15 @@ Feature: Deleting an animal
 
     Background:
         Given I am logged in as an administrator
-        And there is an animal with name "Axolotl"
+        And animals are classified under "Axolotls" and "Dogs" categories
+        And there is an animal with name "Homer"
+        And this animal belongs to "Axolotls"
         And there is an animal with name "Poivron"
+        And this animal belongs to "Dogs"
 
     @ui
     Scenario: Deleting an animal
         Given I want to see all animals
-        When I delete animal with name "Axolotl"
+        When I delete animal with name "Homer"
         Then I should be notified that it has been successfully deleted
         And there should not be "Axolotl" animal anymore

@@ -13,8 +13,9 @@ namespace App\Form\Type\Animal;
 
 use App\Colors;
 use App\Entity\Animal\Animal;
-use App\Entity\Animal\AnimalImage;
+use App\Entity\Taxonomy\Taxon;
 use App\SizeUnits;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
@@ -58,7 +59,13 @@ class AnimalType extends AbstractType
                 'allow_add' => true,
                 'allow_delete' => true,
                 'by_reference' => false,
-            ]);
+            ])
+            ->add('taxon', EntityType::class, [
+                'class' => Taxon::class,
+                'placeholder' => '---',
+                'choice_label' => 'code',
+            ])
+        ;
     }
 
     public function getBlockPrefix(): string
