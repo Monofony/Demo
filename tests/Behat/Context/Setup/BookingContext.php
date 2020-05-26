@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace App\Tests\Behat\Context\Setup;
 
+use App\BookingStates;
 use App\Entity\Animal\Animal;
 use App\Fixture\Factory\BookingExampleFactory;
 use Behat\Behat\Context\Context;
@@ -45,7 +46,7 @@ final class BookingContext implements Context
      */
     public function thereIsABookingForTheAnimal(Animal $animal, CustomerInterface $customer)
     {
-        $booking = $this->bookingFactory->create(['animal' => $animal, 'customer' => $customer]);
+        $booking = $this->bookingFactory->create(['animal' => $animal, 'customer' => $customer, 'status' => BookingStates::NEW]);
 
         $this->manager->persist($booking);
         $this->manager->flush();
