@@ -73,7 +73,7 @@ final class ManagingBookingsContext implements Context
     }
 
     /**
-     * @Then I should see this booking has been validated in the list
+     * @Then this booking should be validated
      */
     public function iShouldSeeThisBookingHasBeenValidatedInTheList()
     {
@@ -98,7 +98,7 @@ final class ManagingBookingsContext implements Context
     }
 
     /**
-     * @Then I should see this booking has been canceled in the list
+     * @Then this booking should be canceled
      */
     public function iShouldSeeThisBookingHasBeenCanceledInTheList()
     {

@@ -3,6 +3,7 @@ default:
         ui_managing_bookings:
             contexts:
                 - App\Tests\Behat\Context\Hook\DoctrineORMContext
+                - App\Tests\Behat\Context\Hook\EmailSpoolContext
 
                 - App\Tests\Behat\Context\Domain\AnimalContext
 

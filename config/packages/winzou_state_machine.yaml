@@ -24,5 +24,5 @@ winzou_state_machine:
             after:
                 email_on_cancel:
                     on:   'cancel'
-                    do:   ['@app.modifier.booking', 'sendEmailForCanceledBooking']
-                    args: ['object', '"Email title"']
+                    do:   ['@app.sender.email', 'sendEmailForCanceledBooking']
+                    args: ['object']

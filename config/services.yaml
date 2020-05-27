@@ -37,3 +37,7 @@ services:
     app.modifier.booking:
         class: App\Modifier\BookingModifier
         public: true
+
+    app.sender.email:
+        class: App\Sender\EmailSender
+        public: true

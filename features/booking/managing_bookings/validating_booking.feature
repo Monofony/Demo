@@ -1,5 +1,5 @@
 @managing_bookings
-Feature: Validate booking
+Feature: Validating booking
     In order to validate a booking
     As an Administrator
     I want to validate a booking
@@ -12,7 +12,7 @@ Feature: Validate booking
         And I am logged in as an administrator
 
     @ui
-    Scenario: Validate booking
+    Scenario: Validating booking
         Given I want to validate this booking
         When I validate it
-        Then I should see this booking has been validated in the list
+        Then this booking should be validated
