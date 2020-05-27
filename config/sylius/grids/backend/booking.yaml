@@ -47,10 +47,10 @@ sylius_grid:
                     type: select
                     form_options:
                         choices:
-                            sylius.ui.new: new
-                            sylius.ui.canceled: canceled
-                            sylius.ui.validated: validated
-                            sylius.ui.finished: finished
+                            sylius.ui.new: !php/const App\BookingStates::NEW
+                            sylius.ui.canceled: !php/const App\BookingStates::CANCELED
+                            sylius.ui.validated: !php/const App\BookingStates::VALIDATED
+                            sylius.ui.finished: !php/const App\BookingStates::FINISHED
             actions:
                 item:
                     show:
