@@ -41,19 +41,20 @@ final class ManagingBookingsContext implements Context
     }
 
     /**
-     * @Then I should see :nbBookings bookings in the list
+     * @Given /^I want to cancel (this booking)$/
      */
-    public function iShouldSeeBookingsInTheList(int $nbBookings)
+    public function iWantToCancelThisBooking(Booking $booking)
     {
-        Assert::eq($this->indexPage->countItems(), $nbBookings);
+        $this->showPage->open(['id' => $booking->getId()]);
     }
 
     /**
-     * @Then I should see the booking for the animal :name in the list
+     * @When I filter bookings with status :statusName
      */
-    public function iShouldSeeTheBookingForTheAnimalInTheList(string $name)
+    public function iFilterBookingsWithStatus(string $statusName)
     {
-        Assert::true($this->indexPage->isSingleResourceOnPage(['animal' => $name]));
+        $this->indexPage->specifyStatusByStatusName($statusName);
+        $this->indexPage->filter();
     }
 
     /**
@@ -73,28 +74,36 @@ final class ManagingBookingsContext implements Context
     }
 
     /**
+     * @When I cancel it
+     */
+    public function iCancelIt()
+    {
+        $this->showPage->cancelBooking();
+    }
+
+    /**
+     * @Then I should see :nbBookings bookings in the list
+     */
+    public function iShouldSeeBookingsInTheList(int $nbBookings)
+    {
+        Assert::eq($this->indexPage->countItems(), $nbBookings);
+    }
+
+    /**
+     * @Then I should see the booking for the animal :name in the list
+     */
+    public function iShouldSeeTheBookingForTheAnimalInTheList(string $name)
+    {
+        Assert::true($this->indexPage->isSingleResourceOnPage(['animal' => $name]));
+    }
+
+    /**
      * @Then this booking should be validated
      */
     public function iShouldSeeThisBookingHasBeenValidatedInTheList()
     {
         $this->indexPage->open();
         Assert::true($this->indexPage->isSingleResourceOnPage(['status' => 'Validated']));
-    }
-
-    /**
-     * @Given /^I want to cancel (this booking)$/
-     */
-    public function iWantToCancelThisBooking(Booking $booking)
-    {
-        $this->showPage->open(['id' => $booking->getId()]);
-    }
-
-    /**
-     * @When I cancel it
-     */
-    public function iCancelIt()
-    {
-        $this->showPage->cancelBooking();
     }
 
     /**

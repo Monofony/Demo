@@ -43,6 +43,14 @@ sylius_grid:
                     label: sylius.ui.search
                     options:
                         fields: [animal.name, customer.email]
+                status:
+                    type: select
+                    form_options:
+                        choices:
+                            sylius.ui.new: !php/const App\BookingStates::NEW
+                            sylius.ui.canceled: !php/const App\BookingStates::CANCELED
+                            sylius.ui.validated: !php/const App\BookingStates::VALIDATED
+                            sylius.ui.finished: !php/const App\BookingStates::FINISHED
             actions:
                 item:
                     show:
