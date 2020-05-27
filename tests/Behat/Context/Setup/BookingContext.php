@@ -14,6 +14,7 @@ namespace App\Tests\Behat\Context\Setup;
 
 use App\BookingStates;
 use App\Entity\Animal\Animal;
+use App\Entity\Booking\Booking;
 use App\Fixture\Factory\BookingExampleFactory;
 use Behat\Behat\Context\Context;
 use Doctrine\ORM\EntityManagerInterface;
@@ -53,5 +54,11 @@ final class BookingContext implements Context
         $this->sharedStorage->set('booking', $booking);
     }
 
-
+    /**
+     * @Given /^(this booking) has been canceled$/
+     */
+    public function thisBookingHasBeenCanceled(Booking $booking)
+    {
+        $booking->setStatus(BookingStates::CANCELED);
+    }
 }

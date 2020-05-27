@@ -21,4 +21,16 @@ final class IndexPage extends AbstractIndexPage implements IndexPageInterface
     {
         return 'app_backend_booking_index';
     }
+
+    public function specifyStatusByStatusName(string $status){
+        $this->getElement('filter_state')->selectOption($status);
+    }
+
+    protected function getDefinedElements(): array
+    {
+        return array_merge(parent::getDefinedElements(), [
+            'filter_state' => '#criteria_status',
+        ]);
+    }
+
 }

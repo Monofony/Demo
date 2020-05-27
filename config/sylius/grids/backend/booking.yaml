@@ -47,10 +47,10 @@ sylius_grid:
                     type: select
                     form_options:
                         choices:
-                            app.ui.new: New
-                            app.ui.canceled: Canceled
-                            app.ui.validated: Validated
-                            app.ui.finished: Finished
+                            sylius.ui.new: new
+                            sylius.ui.canceled: canceled
+                            sylius.ui.validated: validated
+                            sylius.ui.finished: finished
             actions:
                 item:
                     show:
