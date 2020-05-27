@@ -3,6 +3,7 @@ default:
         ui_managing_bookings:
             contexts:
                 - App\Tests\Behat\Context\Hook\DoctrineORMContext
+                - App\Tests\Behat\Context\Hook\EmailSpoolContext
 
                 - App\Tests\Behat\Context\Domain\AnimalContext
 
@@ -17,5 +18,7 @@ default:
 
                 - App\Tests\Behat\Context\Ui\Backend\ManagingBookingsContext
                 - App\Tests\Behat\Context\Ui\Backend\NotificationContext
+
+                - App\Tests\Behat\Context\Ui\EmailContext
             filters:
                 tags: "@managing_bookings && @ui"

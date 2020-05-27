@@ -33,3 +33,11 @@ services:
     App\Menu\AnimalFormBuilder:
         tags:
             - { name: knp_menu.menu_builder, method: createMenu, alias: app.backend.animal_form }
+
+    app.modifier.booking:
+        class: App\Modifier\BookingModifier
+        public: true
+
+    app.sender.email:
+        class: App\Sender\EmailSender
+        public: true

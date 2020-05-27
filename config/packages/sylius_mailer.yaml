@@ -1,0 +1,8 @@
+sylius_mailer:
+    sender:
+        name: Canceled Booking
+        address: demo-monofony-5b6e94@inbox.mailtrap.io
+    emails:
+        canceled_booking:
+            subject: Your booking for the animal {{ booking.animal.name }} is canceled
+            template: "emails/canceledBooking.html.twig"
