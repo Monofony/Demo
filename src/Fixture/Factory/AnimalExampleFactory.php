@@ -38,10 +38,18 @@ class AnimalExampleFactory extends AbstractExampleFactory
     /** @var OptionsResolver */
     private $optionsResolver;
 
-    public function __construct(FactoryInterface $animalImageFactory, RepositoryInterface $taxonRepository)
-    {
+    /** @var string */
+    private $testsDir;
+
+    public function __construct(
+        FactoryInterface $animalImageFactory,
+        RepositoryInterface $taxonRepository,
+        string $testsDir
+    ) {
         $this->animalImageFactory = $animalImageFactory;
         $this->taxonRepository = $taxonRepository;
+        $this->testsDir = $testsDir;
+
         $this->faker = \Faker\Factory::create();
         $this->optionsResolver = new OptionsResolver();
 
@@ -67,7 +75,7 @@ class AnimalExampleFactory extends AbstractExampleFactory
                 return $this->faker->randomElement(Colors::ALL);
             })
             ->setDefault('images', LazyOption::randomOnesImage(
-                __DIR__.'/../../../tests/Resources/animals', 3
+                $this->testsDir.'/Resources/animals', 3
             ))
             ->setDefault('taxon', LazyOption::randomOne($this->taxonRepository))
         ;
