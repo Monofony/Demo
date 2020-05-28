@@ -30,7 +30,11 @@ sylius_fixtures:
 
                 taxon:
                     options:
-                        random: 10
+                        custom:
+                            -
+                                name: Cats
+                            -
+                                name: Dogs
 
                 animal:
                     options:

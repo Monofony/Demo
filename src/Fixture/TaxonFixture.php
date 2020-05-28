@@ -16,6 +16,7 @@ namespace App\Fixture;
 use App\Fixture\Factory\TaxonExampleFactory;
 use Doctrine\Common\Persistence\ObjectManager;
 use Monofony\Plugin\FixturesPlugin\Fixture\AbstractResourceFixture;
+use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 
 final class TaxonFixture extends AbstractResourceFixture
 {
@@ -29,4 +30,14 @@ final class TaxonFixture extends AbstractResourceFixture
         return 'taxon';
     }
 
+    /**
+     * {@inheritdoc}
+     */
+    protected function configureResourceNode(ArrayNodeDefinition $resourceNode)
+    {
+        $resourceNode
+            ->children()
+                ->scalarNode('name')->cannotBeEmpty()->end()
+        ;
+    }
 }
