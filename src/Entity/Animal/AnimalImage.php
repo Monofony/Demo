@@ -52,4 +52,6 @@ class AnimalImage extends File implements AdminAvatarInterface
         $this->animal = $animal;
     }
 
+
+
 }

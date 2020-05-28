@@ -1,0 +1,23 @@
+sylius_grid:
+    grids:
+        app_frontend_animal:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: '%app.model.animal.class%'
+            sorting:
+                name: asc
+            fields:
+                image:
+                    type: twig
+                    label: sylius.ui.image
+                    path: .
+                    options:
+                        template: "backend/animal/grid/field/image.html.twig"
+                name:
+                    type: string
+                    label: sylius.ui.name
+                    sortable: null
+                description:
+                    type: string
+                    label: sylius.ui.description

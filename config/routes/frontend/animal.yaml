@@ -1,0 +1,11 @@
+app_frontend_animal_index:
+    methods: [GET]
+    path: /animals/
+    defaults:
+        _controller: app.controller.animal::indexAction
+        _sylius:
+            grid: app_frontend_animal
+            paginate: 12
+            template: frontend/animal/index.html.twig
+            sorting:
+                name: desc

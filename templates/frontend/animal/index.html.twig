@@ -1,0 +1,40 @@
+{% extends 'frontend/layout.html.twig' %}
+
+{% import 'backend/macro/image.html.twig' as images %}
+
+{% from 'frontend/macro/pagination.html.twig' import simple as pagination %}
+
+{% set pageTitle = 'app.ui.animals'| trans %}
+
+{% block content %}
+<div style="padding-left: 50px" class="ui link cards">
+    {% for animal in animals.data %}
+        <div class="card">
+            <div class="image">
+                {% if animal.firstImage is not null %}
+                    {% set path = vich_uploader_asset(animal.firstImage, 'file') %}
+                    {{ images.render(path, 'default', animal.name) }}
+                {% endif %}
+            </div>
+            <div class="content">
+                <div class="header">{{ animal.name }}</div>
+                <div class="meta">
+                    <a>{{ animal.taxon }}</a>
+                </div>
+                <div class="description">
+                    {{ animal.description }}
+                </div>
+            </div>
+            <div class="extra content">
+          <span class="right floated">
+            {{ animal.size }} {{ animal.sizeUnit }}
+          </span>
+                <span>
+            <i class="eye icon"></i>
+            {{ animal.mainColor }}
+          </span>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock content %}
