@@ -2,7 +2,7 @@
 
 {% import 'backend/macro/image.html.twig' as images %}
 
-{% from 'frontend/macro/pagination.html.twig' import simple as pagination %}
+{% import '@SyliusUi/Macro/pagination.html.twig' as pagination %}
 
 {% set pageTitle = 'app.ui.animals'| trans %}
 
@@ -36,5 +36,8 @@
             </div>
         </div>
     {% endfor %}
+</div>
+<div class="sylius-grid-nav__pagination">
+    {{ pagination.simple(animals.data) }}
 </div>
 {% endblock content %}
