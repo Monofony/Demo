@@ -1,5 +1,5 @@
 parameters:
-    locale: 'en'
+    locale: 'en_US'
     email_contact: 'contact@example.com'
     email_name: 'Contact AppName'
     email_sender: 'no-reply@example.com'
