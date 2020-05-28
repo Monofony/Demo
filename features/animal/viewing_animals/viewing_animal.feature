@@ -6,10 +6,6 @@ Feature: Viewing an animal details
 
     Background:
         Given animals are classified under "Cats" and "Dogs" categories
-        And there is an animal with name "Kitty"
-        And this animal belongs to "Cats"
-        And there is also an animal with name "Winnie"
-        And this animal belongs to "Cats"
         And there is also an animal with name "Gizmo"
         And this animal belongs to "Dogs"
 
