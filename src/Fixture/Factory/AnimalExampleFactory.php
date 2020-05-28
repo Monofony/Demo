@@ -65,7 +65,7 @@ class AnimalExampleFactory extends AbstractExampleFactory
                 return $this->faker->firstName;
             })
             ->setDefault('description', function (Options $options) {
-                return $this->faker->text;
+                return $this->faker->paragraphs(3, true);
             })
             ->setDefault('size', function (Options $options) {
                 return $this->faker->randomFloat(2, 1.00, 10.00);
