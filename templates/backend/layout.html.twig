@@ -1,6 +1,6 @@
 {% extends 'SyliusUiBundle:Layout:sidebar.html.twig' %}
 
-{% block title %}AppName | {% endblock %}
+{% block title %}Monofony demo | {% endblock %}
 
 {% block stylesheets %}
     {% include 'SyliusUiBundle::_stylesheets.html.twig' with {'path': 'assets/backend/app.css'} %}
@@ -28,7 +28,7 @@
 {% endblock %}
 
 {% block footer %}
-    AppName v{{ app_name_meta.version }} -
+    Monofony v{{ app_name_meta.version }} -
     {{ 'sylius.ui.powered_by'|trans }} <a href="https://ressources.mobizel.com/monofony" target="_blank">Monofony</a>.
 {% endblock %}
 

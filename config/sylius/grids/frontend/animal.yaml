@@ -5,6 +5,7 @@ sylius_grid:
                 name: doctrine/orm
                 options:
                     class: '%app.model.animal.class%'
+            limits: [15]
             sorting:
                 name: asc
             fields:

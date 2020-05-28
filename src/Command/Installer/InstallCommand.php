@@ -60,9 +60,9 @@ class InstallCommand extends Command
     {
         $this
             ->setName('app:install')
-            ->setDescription('Installs AppName in your preferred environment.')
+            ->setDescription('Installs Monofony in your preferred environment.')
             ->setHelp(<<<EOT
-The <info>%command.name%</info> command installs AppName.
+The <info>%command.name%</info> command installs Monofony.
 EOT
             );
     }
@@ -83,7 +83,7 @@ EOT
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $outputStyle = new SymfonyStyle($input, $output);
-        $outputStyle->writeln('<info>Installing AppName...</info>');
+        $outputStyle->writeln('<info>Installing Monofony...</info>');
         $outputStyle->writeln($this->getLogo());
 
         $this->directoryChecker->ensureDirectoryExistsAndIsWritable($this->cacheDir, $output, $this->getName());
@@ -117,10 +117,10 @@ EOT
     private function getProperFinalMessage($errored)
     {
         if ($errored) {
-            return '<info>AppName has been installed, but some error occurred.</info>';
+            return '<info>Monofony has been installed, but some error occurred.</info>';
         }
 
-        return '<info>AppName has been successfully installed.</info>';
+        return '<info>Monofony has been successfully installed.</info>';
     }
 
     /**

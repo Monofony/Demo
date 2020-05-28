@@ -3,17 +3,17 @@ app:
         animal: Animal
         animals: Animals
         avatar: Avatar
-        black: Noir
+        black: Black
         booking: Booking
         bookings: Bookings
-        brown: Marron
+        brown: Brown
         cancel: Cancel
         centimeter: Centimeter
         create_user: Create an user
         edit_animal: Edit animal
         forgotten_password: Forgotten password
-        ginger: Roux
-        grey: Gris
+        ginger: Ginger
+        grey: Grey
         legal_notices: Legal notices
         main_color: Main color
         managing_animals: Managing animals
@@ -28,7 +28,7 @@ app:
         validate: Validate
         validation_date: Validation date
         view_website: View website
-        white: Blanc
+        white: White
 sylius:
     ui:
         canceled: Canceled
