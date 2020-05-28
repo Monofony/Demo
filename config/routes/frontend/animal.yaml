@@ -6,3 +6,11 @@ app_frontend_animal_index:
         _sylius:
             grid: app_frontend_animal
             template: frontend/animal/index.html.twig
+
+app_frontend_animal_show:
+    methods: [GET]
+    path: /animal/{slug}
+    defaults:
+        _controller: app.controller.animal::showAction
+        _sylius:
+            template: frontend/animal/show.html.twig

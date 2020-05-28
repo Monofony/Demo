@@ -1,0 +1,39 @@
+{% extends 'frontend/layout.html.twig' %}
+
+{% import 'backend/macro/image.html.twig' as images %}
+
+{% set pageTitle = 'app.ui.animals'| trans %}
+
+{% block content %}
+<div class="ui two column stackable grid">
+    <div class="column">
+        <a class="ui fluid image">
+            {% if animal.firstImage is not null %}
+                {% for animalImage in animal.images %}
+                    {% set path = vich_uploader_asset(animalImage, 'file') %}
+                    {{ images.render(path, 'default', animal.name) }}
+                {% endfor %}
+            {% endif %}
+        </a>
+    </div>
+    <div class="column">
+            <h1 id="animal-name" class="ui monster dividing header">{{ animal.name }}</h1>
+            <div class="ui stackable grid">
+                <div class="four wide column">
+                    <span class="ui huge header" id="animal-taxon">
+                    {{ animal.taxon.code }}
+                    </span>
+            </div>
+        </div>
+        <div class="ui basic segment">
+            <p>{{ animal.description }}</p>
+        </div>
+        <div class="ui segment">
+            <form class="ui loadable form">
+                <button type="submit" class="ui huge primary icon labeled button"><i class="cart icon"></i> Réserver cet animal</button>
+            </form>
+        </div>
+        <div class="ui hidden divider"></div>
+    </div>
+</div>
+{% endblock content %}
