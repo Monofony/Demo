@@ -12,7 +12,9 @@ declare(strict_types=1);
 
 namespace App\Tests\Behat\Context\Ui\Frontend;
 
+use App\Entity\Animal\Animal;
 use App\Tests\Behat\Page\Frontend\Animal\IndexPage;
+use App\Tests\Behat\Page\Frontend\Animal\ShowPage;
 use Behat\Behat\Context\Context;
 use Webmozart\Assert\Assert;
 
@@ -21,9 +23,13 @@ final class AnimalContext implements Context
     /** @var IndexPage */
     private $indexPage;
 
-    public function __construct(IndexPage $indexPage)
+    /** @var ShowPage */
+    private $showPage;
+
+    public function __construct(IndexPage $indexPage, ShowPage $showPage)
     {
         $this->indexPage = $indexPage;
+        $this->showPage = $showPage;
     }
 
     /**
@@ -40,5 +46,21 @@ final class AnimalContext implements Context
     public function iShouldSeeTheAnimal(string $name)
     {
         Assert::true($this->indexPage->isAnimalOnList($name));
+    }
+
+    /**
+     * @Then /^I check (this animal)'s details$/
+     */
+    public function iCheckThisAnimalsDetails(Animal $animal)
+    {
+        $this->showPage->open(['slug' => $animal->getSlug()]);
+    }
+
+    /**
+     * @Then I should see the animal name :animalName
+     */
+    public function iShouldSeeTheAnimalName(string $animalName)
+    {
+        Assert::same($this->showPage->getName(), $animalName);
     }
 }

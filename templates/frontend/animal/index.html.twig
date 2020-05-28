@@ -17,7 +17,7 @@
                 {% endif %}
             </div>
             <div class="content">
-                <div class="header">{{ animal.name }}</div>
+                <a class="header" href="{{ path('app_frontend_animal_show', { 'slug': animal.slug }) }}">{{ animal.name }}</a>
                 <div class="meta">
                     <a>{{ animal.taxon.code }}</a>
                 </div>
