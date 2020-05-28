@@ -1,7 +1,7 @@
 parameters:
     locale: 'en_US'
     email_contact: 'contact@example.com'
-    email_name: 'Contact AppName'
+    email_name: 'Contact Monofony'
     email_sender: 'no-reply@example.com'
 
 services:

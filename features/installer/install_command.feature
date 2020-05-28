@@ -1,6 +1,6 @@
 @installer @cli
 Feature: Install feature
-    In order to install AppName via CLI
+    In order to install Monofony via CLI
     As a Developer
     I want to run an installation command
 
