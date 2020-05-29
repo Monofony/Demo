@@ -38,6 +38,7 @@ final class TaxonFixture extends AbstractResourceFixture
         $resourceNode
             ->children()
                 ->scalarNode('name')->cannotBeEmpty()->end()
+                ->variableNode('children')->cannotBeEmpty()->defaultValue([])->end()
         ;
     }
 }

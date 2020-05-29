@@ -31,10 +31,10 @@ sylius_fixtures:
                 taxon:
                     options:
                         custom:
-                            -
-                                name: Cats
-                            -
-                                name: Dogs
+                                -
+                                    name: Cats
+                                -
+                                    name: Dogs
 
                 animal:
                     options:
