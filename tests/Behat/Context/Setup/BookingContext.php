@@ -61,4 +61,22 @@ final class BookingContext implements Context
     {
         $booking->setStatus(BookingStates::CANCELED);
     }
+
+    /**
+     * @Given there are :numbersOfBookings bookings
+     */
+    public function thereAreBookings(int $numbersOfBookings)
+    {
+        for ($i = 0; $i < $numbersOfBookings; ++$i) {
+            $this->createWithOptions();
+        }
+    }
+
+    private function createWithOptions(): void
+    {
+        $booking = $this->bookingFactory->create();
+        $this->manager->persist($booking);
+        $this->manager->flush();
+        $this->sharedStorage->set('booking', $booking);
+    }
 }

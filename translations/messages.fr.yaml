@@ -1,6 +1,7 @@
 app:
     ui:
         animal: Animal
+        animal_name: Nom de l'animal
         animals: Animaux
         avatar: Avatar
         black: Noir
@@ -10,6 +11,7 @@ app:
         cancel: Annuler
         centimeter: Centimètre
         create_user: Créer un utilisateur
+        customer_name: Nom du client
         edit_animal: Edition d'un animal
         forgotten_password: Mot de passe oublié
         ginger: Roux
@@ -21,6 +23,8 @@ app:
         meter: Mètre
         millimeter: Millimètre
         new_animal: Ajout d'un animal
+        new_animals: Nouveaux animaux
+        new_bookings: Nouvelles réservations
         overview_of_your_website: Aperçu de votre site web
         search_customers: Chercher des clients
         size: Taille
