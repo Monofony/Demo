@@ -13,8 +13,13 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Dashboard\BookingsDataProvider;
+use App\Entity\Booking\Booking;
+use App\Repository\BookingRepository;
 use Monofony\Bundle\AdminBundle\Dashboard\DashboardStatisticsProviderInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Templating\EngineInterface;
 
 final class DashboardController
@@ -25,17 +30,47 @@ final class DashboardController
     /** @var EngineInterface */
     private $templating;
 
-    public function __construct(DashboardStatisticsProviderInterface $statisticsProvider, EngineInterface $templating)
-    {
+    /** @var BookingsDataProvider */
+    private $bookingsDataProvider;
+
+    /** @var BookingRepository */
+    private $bookingRepository;
+
+    /** @var RouterInterface */
+    private $router;
+
+    public function __construct(
+        DashboardStatisticsProviderInterface $statisticsProvider,
+        EngineInterface $templating,
+        BookingRepository $bookingRepository,
+        RouterInterface $router,
+        BookingsDataProvider $bookingsDataProvider
+    ) {
         $this->statisticsProvider = $statisticsProvider;
         $this->templating = $templating;
+        $this->bookingRepository = $bookingRepository;
+        $this->router = $router;
+        $this->bookingsDataProvider = $bookingsDataProvider;
     }
 
     public function indexAction(): Response
     {
-        $statistics = $this->statisticsProvider->getStatistics();
-        $content = $this->templating->render('backend/index.html.twig', ['statistics' => $statistics]);
+        $booking = $this->findBooking();
 
-        return new Response($content);
+        if (null === $booking) {
+            return new RedirectResponse($this->router->generate('app_backend_dashboard'));
+        }
+
+        $statistics = $this->statisticsProvider->getStatistics();
+        $data = ['statistics' => $statistics, 'booking' => $booking];
+
+        $data['bookings_summary'] = $this->bookingsDataProvider->getLastYearBookingsSummary($booking);
+
+        return new Response($this->templating->render('backend/index.html.twig', $data));
+    }
+
+    private function findBooking(): ?Booking
+    {
+        return $this->bookingRepository->findOneBy([]);
     }
 }

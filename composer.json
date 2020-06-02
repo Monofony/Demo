@@ -5,6 +5,7 @@
     "license": "proprietary",
     "require": {
         "php": "^7.2",
+        "beberlei/doctrineextensions": "^1.2",
         "mobizel/symfony-capistrano": "^0.2.0",
         "monofony/admin-bundle": "^0.2",
         "monofony/api-bundle": "^0.2",

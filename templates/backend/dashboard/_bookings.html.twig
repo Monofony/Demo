@@ -16,7 +16,7 @@
             {% for booking in bookings %}
                 <tr>
                     <td>
-                        <strong>{{ booking.animal.name }}</strong><br>
+                        {{ booking.animal.name }}
                     </td>
                     <td>
                         {{ booking.customer.fullName }}
