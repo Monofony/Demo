@@ -4,7 +4,10 @@ default:
             contexts:
                 - App\Tests\Behat\Context\Hook\DoctrineORMContext
 
+                - App\Tests\Behat\Context\Setup\AnimalContext
+                - App\Tests\Behat\Context\Setup\BookingContext
                 - App\Tests\Behat\Context\Setup\CustomerContext
+                - App\Tests\Behat\Context\Setup\TaxonContext
                 - App\Tests\Behat\Context\Setup\AdminSecurityContext
 
                 - App\Tests\Behat\Context\Ui\Backend\DashboardContext

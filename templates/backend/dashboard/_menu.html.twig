@@ -1,6 +1,18 @@
 <div class="ui grid">
     <div class="center aligned doubling four column row">
         <div class="column">
+            <a href="{{ path('app_backend_animal_index') }}" class="ui basic big fluid button">
+                <i class="cat icon"></i>
+                {{ 'app.ui.animals'|trans }}
+            </a>
+        </div>
+        <div class="column">
+            <a href="{{ path('app_backend_booking_index') }}" class="ui basic big fluid button">
+                <i class="fax icon"></i>
+                {{ 'app.ui.bookings'|trans }}
+            </a>
+        </div>
+        <div class="column">
             <a href="{{ path('sylius_backend_customer_index') }}" class="ui basic big fluid button">
                 <i class="users icon"></i>
                 {{ 'sylius.ui.customers'|trans }}

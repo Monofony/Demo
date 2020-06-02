@@ -4,9 +4,11 @@ sylius_resource:
             classes:
                 model: App\Entity\Animal\Animal
                 form: App\Form\Type\Animal\AnimalType
+                repository: App\Repository\AnimalRepository
         app.animal_image:
             classes:
                 model: App\Entity\Animal\AnimalImage
         app.booking:
             classes:
                 model: App\Entity\Booking\Booking
+                repository: App\Repository\BookingRepository

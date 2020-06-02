@@ -1,3 +1,11 @@
+app_backend_partial_animal:
+    resource: partial/animal.yaml
+    prefix: /animals
+
+app_backend_partial_booking:
+    resource: partial/booking.yaml
+    prefix: /bookings
+
 sylius_backend_partial_customer:
     resource: partial/customer.yaml
     prefix: /customers

@@ -60,4 +60,22 @@ class AnimalContext implements Context
         $animal->setTaxon($taxon);
         $this->manager->flush();
     }
+
+    /**
+     * @Given there are :numbersOfAnimals animals
+     */
+    public function thereAreAnimals(int $numbersOfAnimals): void
+    {
+        for ($i = 0; $i < $numbersOfAnimals; ++$i) {
+            $this->createWithOptions();
+        }
+    }
+
+    private function createWithOptions(): void
+    {
+        $animal = $this->animalFactory->create();
+        $this->manager->persist($animal);
+        $this->manager->flush();
+        $this->sharedStorage->set('animal', $animal);
+    }
 }
