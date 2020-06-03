@@ -7,6 +7,7 @@ app:
         black: Noir
         booking: Réservation
         bookings: Réservations
+        bookings_summary: Sommaire des réservations
         brown: Marron
         cancel: Annuler
         centimeter: Centimètre

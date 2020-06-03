@@ -7,6 +7,7 @@ import 'sylius/ui/js/sylius-auto-complete';
 import './app-date-time-picker';
 import './app-images-preview';
 import './sylius-compound-form-errors';
+import './sylius-chart';
 
 import '../scss/main.scss';
 

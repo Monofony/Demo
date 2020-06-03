@@ -27,9 +27,23 @@ Feature: Statistics dashboard
         Then I should see 3 new animals
 
     @ui
+    Scenario: Seeing recent animals
+        Given there are 4 animals
+        When I open administration dashboard
+        Then I should see 4 new animals in the list
+
+    @ui
     Scenario: Seeing booking statistics
         Given there are 3 animals
         And there are 2 customers
         And there are 2 bookings
         When I open administration dashboard
         Then I should see 2 new bookings
+
+    @ui
+    Scenario: Seeing recent bookings
+        Given there are 3 animals
+        And there are 2 customers
+        And there are 2 bookings
+        When I open administration dashboard
+        Then I should see 2 new bookings in the list

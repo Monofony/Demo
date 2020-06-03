@@ -16,10 +16,13 @@
             {% for booking in bookings %}
                 <tr>
                     <td>
-                        <strong>{{ booking.animal.name }}</strong><br>
+                        {{ booking.animal.name }}
                     </td>
                     <td>
                         {{ booking.customer.fullName }}
+                    </td>
+                    <td>
+                        {% include 'backend/grid/field/_state.html.twig' with {'data': booking.status,'options': {'vars': {'labels': 'backend/booking/label/state'}}} %}
                     </td>
                     <td>
                         <div class="ui right floated buttons">

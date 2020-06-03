@@ -61,10 +61,16 @@ final class BookingExampleFactory extends AbstractExampleFactory
                 return $this->faker->randomElement(BookingStates::ALL);
             })
             ->setDefault('createdAt', function (Options $options) {
-                return $this->faker->dateTime;
+                return $this->faker->dateTimeBetween('-2 years');
             })
             ->setDefault('validateAt', function (Options $options) {
-                return $this->faker->dateTime;
+                /** @var \DateTime $createdAt */
+                $createdAt = $options['createdAt'];
+                $validatedAt = clone ($createdAt);
+
+                $validatedAt->add(new \DateInterval('P1D'));
+
+                return $validatedAt;
             })
         ;
     }

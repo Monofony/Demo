@@ -13,8 +13,13 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Dashboard\BookingsDataProvider;
+use App\Entity\Booking\Booking;
+use App\Repository\BookingRepository;
 use Monofony\Bundle\AdminBundle\Dashboard\DashboardStatisticsProviderInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Templating\EngineInterface;
 
 final class DashboardController
@@ -25,17 +30,36 @@ final class DashboardController
     /** @var EngineInterface */
     private $templating;
 
-    public function __construct(DashboardStatisticsProviderInterface $statisticsProvider, EngineInterface $templating)
-    {
+    /** @var BookingsDataProvider */
+    private $bookingsDataProvider;
+
+    /** @var BookingRepository */
+    private $bookingRepository;
+
+    /** @var RouterInterface */
+    private $router;
+
+    public function __construct(
+        DashboardStatisticsProviderInterface $statisticsProvider,
+        EngineInterface $templating,
+        BookingRepository $bookingRepository,
+        RouterInterface $router,
+        BookingsDataProvider $bookingsDataProvider
+    ) {
         $this->statisticsProvider = $statisticsProvider;
         $this->templating = $templating;
+        $this->bookingRepository = $bookingRepository;
+        $this->router = $router;
+        $this->bookingsDataProvider = $bookingsDataProvider;
     }
 
     public function indexAction(): Response
     {
         $statistics = $this->statisticsProvider->getStatistics();
-        $content = $this->templating->render('backend/index.html.twig', ['statistics' => $statistics]);
+        $data = ['statistics' => $statistics];
 
-        return new Response($content);
+        $data['bookings_summary'] = $this->bookingsDataProvider->getLastYearBookingsSummary();
+
+        return new Response($this->templating->render('backend/index.html.twig', $data));
     }
 }
