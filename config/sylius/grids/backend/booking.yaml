@@ -8,11 +8,11 @@ sylius_grid:
             sorting:
                 createdAt: desc
             fields:
-                animal:
+                pet:
                     type: string
-                    label: app.ui.animal
+                    label: app.ui.pet
                     sortable: null
-                    path: animal.name
+                    path: pet.name
                 customer:
                     type: string
                     label: sylius.ui.customer
@@ -42,7 +42,7 @@ sylius_grid:
                     type: string
                     label: sylius.ui.search
                     options:
-                        fields: [animal.name, customer.email]
+                        fields: [pet.name, customer.email]
                 status:
                     type: select
                     form_options:
