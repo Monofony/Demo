@@ -101,7 +101,7 @@ final class ManagingAnimalsContext implements Context
     }
 
     /**
-     * @When /^I want to edit (this animal)$/
+     * @When /^I want to edit (this pet)$/
      */
     public function iWantToEditThisAnimal(Pet $animal): void
     {
@@ -125,7 +125,7 @@ final class ManagingAnimalsContext implements Context
     }
 
     /**
-     * @Then this animal should not be added
+     * @Then this pet should not be added
      */
     public function thisAnimalShouldNotBeAdded()
     {

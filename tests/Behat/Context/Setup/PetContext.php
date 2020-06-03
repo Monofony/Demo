@@ -27,8 +27,7 @@ class PetContext implements Context
     private $animalFactory;
 
     /** @var EntityManagerInterface*/
-    protected $manager;
-
+    private $manager;
 
     public function __construct(
         SharedStorageInterface $sharedStorage,
@@ -53,7 +52,7 @@ class PetContext implements Context
     }
 
     /**
-     * @Given /^(it|this animal) (belongs to "[^"]+")$/
+     * @Given /^(it|this pet) (belongs to "[^"]+")$/
      */
     public function thisAnimalBelongsTo(Pet $animal, TaxonInterface $taxon)
     {
@@ -62,20 +61,20 @@ class PetContext implements Context
     }
 
     /**
-     * @Given there are :numbersOfAnimals animals
+     * @Given there are :numbersOfPets animals
      */
-    public function thereAreAnimals(int $numbersOfAnimals): void
+    public function thereArePets(int $numbersOfPets): void
     {
-        for ($i = 0; $i < $numbersOfAnimals; ++$i) {
+        for ($i = 0; $i < $numbersOfPets; ++$i) {
             $this->createWithOptions();
         }
     }
 
     private function createWithOptions(): void
     {
-        $animal = $this->animalFactory->create();
-        $this->manager->persist($animal);
+        $pet = $this->animalFactory->create();
+        $this->manager->persist($pet);
         $this->manager->flush();
-        $this->sharedStorage->set('animal', $animal);
+        $this->sharedStorage->set('pet', $pet);
     }
 }

@@ -13,7 +13,7 @@ Feature: Family projects validation
         When I do not specify any name
         And I try to add it
         Then I should be notified that the name is required
-        And this animal should not be added
+        And this pet should not be added
 
     @ui
     Scenario: Trying to add a new animal with size but without size unit
@@ -23,4 +23,4 @@ Feature: Family projects validation
         But I do not specify any size unit
         And I try to add it
         Then I should be notified that the "size unit" is required
-        And this animal should not be added
+        And this pet should not be added

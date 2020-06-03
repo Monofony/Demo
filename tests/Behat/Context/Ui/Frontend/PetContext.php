@@ -49,7 +49,7 @@ final class PetContext implements Context
     }
 
     /**
-     * @Then /^I check (this animal)'s details$/
+     * @Then /^I check (this pet)'s details$/
      */
     public function iCheckThisAnimalsDetails(Pet $animal)
     {

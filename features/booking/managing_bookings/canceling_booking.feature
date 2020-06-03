@@ -7,8 +7,8 @@ Feature: Canceling booking
     Background:
         Given animals are classified under "Cats" and "Dogs" categories
         And there is a pet with name "Kitty"
-        And this animal belongs to "Cats"
-        And this animal has been booked by customer "cruella@101dalamatiens.com"
+        And this pet belongs to "Cats"
+        And this pet has been booked by customer "cruella@101dalamatiens.com"
         And I am logged in as an administrator
 
     @ui @email

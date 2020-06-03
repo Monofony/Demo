@@ -43,7 +43,7 @@ final class BookingContext implements Context
     }
 
     /**
-     * @Given /^(this animal) has been booked by (customer "([^"]+)")$/
+     * @Given /^(this pet) has been booked by (customer "([^"]+)")$/
      */
     public function thereIsABookingForTheAnimal(Pet $animal, CustomerInterface $customer)
     {

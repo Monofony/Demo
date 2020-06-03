@@ -7,11 +7,11 @@ Feature: Browsing animals
     Background:
         Given animals are classified under "Cats" and "Dogs" categories
         And there is a pet with name "Kitty"
-        And this animal belongs to "Cats"
+        And this pet belongs to "Cats"
         And there is also a pet with name "Winnie"
-        And this animal belongs to "Cats"
+        And this pet belongs to "Cats"
         And there is also a pet with name "Gizmo"
-        And this animal belongs to "Dogs"
+        And this pet belongs to "Dogs"
         And I am logged in as an administrator
 
     @ui

@@ -7,14 +7,14 @@ Feature: Filtering inventory by code
     Background:
         Given animals are classified under "Cats" and "Dogs" categories
         And there is a pet with name "Kitty"
-        And this animal belongs to "Cats"
-        And this animal has been booked by customer "cruella@101dalamatiens.com"
+        And this pet belongs to "Cats"
+        And this pet has been booked by customer "cruella@101dalamatiens.com"
         And there is a pet with name "Garfield"
-        And this animal belongs to "Cats"
-        And this animal has been booked by customer "cruella@101dalamatiens.com"
+        And this pet belongs to "Cats"
+        And this pet has been booked by customer "cruella@101dalamatiens.com"
         And there is a pet with name "Tom"
-        And this animal belongs to "Dogs"
-        And this animal has been booked by customer "cruella@101dalamatiens.com"
+        And this pet belongs to "Dogs"
+        And this pet has been booked by customer "cruella@101dalamatiens.com"
         And this booking has been canceled
         And I am logged in as an administrator
 

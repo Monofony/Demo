@@ -8,11 +8,11 @@ Feature: Editing an animal
         Given I am logged in as an administrator
         And animals are classified under "Axolotls" and "Dogs" categories
         And there is a pet with name "Homer"
-        And this animal belongs to "Axolotls"
+        And this pet belongs to "Axolotls"
 
     @ui
     Scenario: Renaming an existing animal
-        When I want to edit this animal
+        When I want to edit this pet
         And I change its name to "Pangolin"
         And I save my changes
         Then I should be notified that it has been successfully edited

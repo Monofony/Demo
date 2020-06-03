@@ -8,9 +8,9 @@ Feature: Deleting an animal
         Given I am logged in as an administrator
         And animals are classified under "Axolotls" and "Dogs" categories
         And there is a pet with name "Homer"
-        And this animal belongs to "Axolotls"
+        And this pet belongs to "Axolotls"
         And there is a pet with name "Poivron"
-        And this animal belongs to "Dogs"
+        And this pet belongs to "Dogs"
 
     @ui
     Scenario: Deleting an animal

@@ -7,9 +7,9 @@ Feature: Viewing an animal details
     Background:
         Given animals are classified under "Cats" and "Dogs" categories
         And there is also a pet with name "Gizmo"
-        And this animal belongs to "Dogs"
+        And this pet belongs to "Dogs"
 
     @ui
     Scenario: Viewing a detailed page with animal's name
-        Given I check this animal's details
+        Given I check this pet's details
         And I should see the animal name "Gizmo"
