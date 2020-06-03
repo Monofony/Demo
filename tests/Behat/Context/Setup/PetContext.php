@@ -11,14 +11,14 @@
 
 namespace App\Tests\Behat\Context\Setup;
 
-use App\Entity\Animal\Animal;
+use App\Entity\Animal\Pet;
 use App\Fixture\Factory\AnimalExampleFactory;
 use Behat\Behat\Context\Context;
 use Doctrine\ORM\EntityManagerInterface;
 use Monofony\Bundle\CoreBundle\Tests\Behat\Service\SharedStorageInterface;
 use Sylius\Component\Taxonomy\Model\TaxonInterface;
 
-class AnimalContext implements Context
+class PetContext implements Context
 {
     /** @var SharedStorageInterface */
     private $sharedStorage;
@@ -41,9 +41,9 @@ class AnimalContext implements Context
     }
 
     /**
-     * @Given there is (also )an animal with name :name
+     * @Given there is (also )a pet with name :name
      */
-    public function thereIsAnAnimalWithName(string $name): void
+    public function thereIsAPetWithName(string $name): void
     {
         $animal = $this->animalFactory->create(['name' => $name]);
 
@@ -55,7 +55,7 @@ class AnimalContext implements Context
     /**
      * @Given /^(it|this animal) (belongs to "[^"]+")$/
      */
-    public function thisAnimalBelongsTo(Animal $animal, TaxonInterface $taxon)
+    public function thisAnimalBelongsTo(Pet $animal, TaxonInterface $taxon)
     {
         $animal->setTaxon($taxon);
         $this->manager->flush();

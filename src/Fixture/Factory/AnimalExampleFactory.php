@@ -12,7 +12,7 @@
 namespace App\Fixture\Factory;
 
 use App\Colors;
-use App\Entity\Animal\Animal;
+use App\Entity\Animal\Pet;
 use App\Entity\Animal\AnimalImage;
 use App\Fixture\OptionsResolver\LazyOption;
 use App\SizeUnits;
@@ -91,11 +91,11 @@ class AnimalExampleFactory extends AbstractExampleFactory
         ;
     }
 
-    public function create(array $options = []): Animal
+    public function create(array $options = []): Pet
     {
         $options = $this->optionsResolver->resolve($options);
 
-        $animal = new Animal();
+        $animal = new Pet();
         $animal->setName($options['name']);
         $animal->setSlug($options['name']);
         $animal->setDescription($options['description']);
@@ -109,7 +109,7 @@ class AnimalExampleFactory extends AbstractExampleFactory
         return $animal;
     }
 
-    private function createImages(Animal $animal, array $options)
+    private function createImages(Pet $animal, array $options)
     {
         $filesystem = new Filesystem();
 

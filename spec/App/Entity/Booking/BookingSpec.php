@@ -2,7 +2,7 @@
 
 namespace spec\App\Entity\Booking;
 
-use App\Entity\Animal\Animal;
+use App\Entity\Animal\Pet;
 use App\Entity\Booking\Booking;
 use Monofony\Component\Core\Model\Customer\CustomerInterface;
 use PhpSpec\ObjectBehavior;
@@ -30,7 +30,7 @@ class BookingSpec extends ObjectBehavior
         $this->getAnimal()->shouldReturn(null);
     }
 
-    function it_has_a_animal(Animal $animal)
+    function it_has_a_animal(Pet $animal)
     {
         $this->setAnimal($animal);
         $this->getAnimal()->shouldReturn($animal);

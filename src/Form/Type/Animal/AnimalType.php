@@ -12,7 +12,7 @@
 namespace App\Form\Type\Animal;
 
 use App\Colors;
-use App\Entity\Animal\Animal;
+use App\Entity\Animal\Pet;
 use App\Entity\Taxonomy\Taxon;
 use App\SizeUnits;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -76,7 +76,7 @@ class AnimalType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Animal::class
+            'data_class' => Pet::class
         ]);
     }
 

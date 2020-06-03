@@ -4,15 +4,15 @@ default:
             contexts:
                 - App\Tests\Behat\Context\Hook\DoctrineORMContext
 
-                - App\Tests\Behat\Context\Domain\AnimalContext
+                - App\Tests\Behat\Context\Domain\PetContext
 
-                - App\Tests\Behat\Context\Setup\AnimalContext
+                - App\Tests\Behat\Context\Setup\PetContext
                 - App\Tests\Behat\Context\Setup\TaxonContext
 
-                - App\Tests\Behat\Context\Transform\AnimalContext
+                - App\Tests\Behat\Context\Transform\PetContext
                 - App\Tests\Behat\Context\Transform\SharedStorageContext
                 - App\Tests\Behat\Context\Transform\TaxonContext
 
-                - App\Tests\Behat\Context\Ui\Frontend\AnimalContext
+                - App\Tests\Behat\Context\Ui\Frontend\PetContext
             filters:
                 tags: "@viewing_animals && @ui"

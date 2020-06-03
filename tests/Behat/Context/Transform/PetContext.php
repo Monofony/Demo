@@ -12,13 +12,13 @@ declare(strict_types=1);
 
 namespace App\Tests\Behat\Context\Transform;
 
-use App\Entity\Animal\Animal;
+use App\Entity\Animal\Pet;
 use Behat\Behat\Context\Context;
 use Monofony\Bundle\CoreBundle\Tests\Behat\Service\SharedStorageInterface;
 use Sylius\Component\Resource\Repository\RepositoryInterface;
 use Webmozart\Assert\Assert;
 
-final class AnimalContext implements Context
+final class PetContext implements Context
 {
     /** @var RepositoryInterface */
     private $animalRepository;
@@ -38,15 +38,16 @@ final class AnimalContext implements Context
      * @Transform :animal
      * @Transform /^animal "([^"]+)"$/
      */
-    public function getAnimalByName(string $animalName): Animal
+    public function getPetByName(string $petName): Pet
     {
-        $animal = $this->animalRepository->findOneBy(['name' => $animalName]);
+        /** @var Pet $pet */
+        $pet = $this->animalRepository->findOneBy(['name' => $petName]);
         Assert::notNull(
-            $animal,
-            sprintf('Animal with name "%s" does not exist', $animalName)
+            $pet,
+            sprintf('Pet with name "%s" does not exist', $petName)
         );
 
-        return $animal;
+        return $pet;
     }
 
 

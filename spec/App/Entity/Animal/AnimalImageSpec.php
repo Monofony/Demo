@@ -2,7 +2,7 @@
 
 namespace spec\App\Entity\Animal;
 
-use App\Entity\Animal\Animal;
+use App\Entity\Animal\Pet;
 use App\Entity\Animal\AnimalImage;
 use App\Entity\Media\File;
 use PhpSpec\ObjectBehavior;
@@ -48,7 +48,7 @@ class AnimalImageSpec extends ObjectBehavior
         $this->getAnimal()->shouldReturn(null);
     }
 
-    function its_animal_is_mutable(Animal $animal): void
+    function its_animal_is_mutable(Pet $animal): void
     {
         $this->setAnimal($animal);
 

@@ -36,18 +36,18 @@ class AnimalImage extends File implements AdminAvatarInterface
     protected $file;
 
     /**
-     * @var Animal | null
+     * @var Pet | null
      *
-     * @ORM\ManyToOne(targetEntity="App\Entity\Animal\Animal", inversedBy="images")
+     * @ORM\ManyToOne(targetEntity="Pet", inversedBy="images")
      */
     private $animal;
 
-    public function getAnimal(): ?Animal
+    public function getAnimal(): ?Pet
     {
         return $this->animal;
     }
 
-    public function setAnimal(?Animal $animal): void
+    public function setAnimal(?Pet $animal): void
     {
         $this->animal = $animal;
     }

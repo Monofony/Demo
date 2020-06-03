@@ -5,10 +5,10 @@ default:
                 - App\Tests\Behat\Context\Hook\DoctrineORMContext
                 - App\Tests\Behat\Context\Hook\EmailSpoolContext
 
-                - App\Tests\Behat\Context\Domain\AnimalContext
+                - App\Tests\Behat\Context\Domain\PetContext
 
                 - App\Tests\Behat\Context\Setup\AdminSecurityContext
-                - App\Tests\Behat\Context\Setup\AnimalContext
+                - App\Tests\Behat\Context\Setup\PetContext
                 - App\Tests\Behat\Context\Setup\BookingContext
                 - App\Tests\Behat\Context\Setup\TaxonContext
 

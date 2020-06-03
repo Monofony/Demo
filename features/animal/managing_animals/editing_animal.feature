@@ -7,7 +7,7 @@ Feature: Editing an animal
     Background:
         Given I am logged in as an administrator
         And animals are classified under "Axolotls" and "Dogs" categories
-        And there is an animal with name "Homer"
+        And there is a pet with name "Homer"
         And this animal belongs to "Axolotls"
 
     @ui

@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace App\Tests\Behat\Context\Ui\Backend;
 
-use App\Entity\Animal\Animal;
+use App\Entity\Animal\Pet;
 use App\Tests\Behat\Page\Backend\Animal\CreatePage;
 use App\Tests\Behat\Page\Backend\Animal\IndexPage;
 use App\Tests\Behat\Page\Backend\Animal\UpdatePage;
@@ -103,7 +103,7 @@ final class ManagingAnimalsContext implements Context
     /**
      * @When /^I want to edit (this animal)$/
      */
-    public function iWantToEditThisAnimal(Animal $animal): void
+    public function iWantToEditThisAnimal(Pet $animal): void
     {
         $this->updatePage->open(['id' => $animal->getId()]);
     }

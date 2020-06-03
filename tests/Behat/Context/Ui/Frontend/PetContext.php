@@ -12,13 +12,13 @@ declare(strict_types=1);
 
 namespace App\Tests\Behat\Context\Ui\Frontend;
 
-use App\Entity\Animal\Animal;
+use App\Entity\Animal\Pet;
 use App\Tests\Behat\Page\Frontend\Animal\IndexPage;
 use App\Tests\Behat\Page\Frontend\Animal\ShowPage;
 use Behat\Behat\Context\Context;
 use Webmozart\Assert\Assert;
 
-final class AnimalContext implements Context
+final class PetContext implements Context
 {
     /** @var IndexPage */
     private $indexPage;
@@ -51,7 +51,7 @@ final class AnimalContext implements Context
     /**
      * @Then /^I check (this animal)'s details$/
      */
-    public function iCheckThisAnimalsDetails(Animal $animal)
+    public function iCheckThisAnimalsDetails(Pet $animal)
     {
         $this->showPage->open(['slug' => $animal->getSlug()]);
     }

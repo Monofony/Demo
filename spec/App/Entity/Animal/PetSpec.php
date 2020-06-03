@@ -2,17 +2,17 @@
 
 namespace spec\App\Entity\Animal;
 
-use App\Entity\Animal\Animal;
+use App\Entity\Animal\Pet;
 use App\Entity\Animal\AnimalImage;
 use Doctrine\Common\Collections\Collection;
 use PhpSpec\ObjectBehavior;
 use Sylius\Component\Taxonomy\Model\TaxonInterface;
 
-class AnimalSpec extends ObjectBehavior
+class PetSpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
-        $this->shouldHaveType(Animal::class);
+        $this->shouldHaveType(Pet::class);
     }
 
     function it_has_no_default_id(): void

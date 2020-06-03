@@ -24,7 +24,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity
  * @ORM\Table(name="app_animal")
  */
-class Animal implements ResourceInterface
+class Pet implements ResourceInterface
 {
     use IdentifiableTrait;
 
