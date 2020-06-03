@@ -15,7 +15,7 @@ namespace App\Dashboard;
 
 final class BookingsSummary
 {
-    /** @psalm-var array<string, string> */
+    /** @var array */
     private $monthsBookingsMap = [];
 
     public function __construct(
