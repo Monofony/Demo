@@ -9,3 +9,7 @@ app_backend_partial_booking:
 sylius_backend_partial_customer:
     resource: partial/customer.yaml
     prefix: /customers
+
+sylius_admin_partial_taxon:
+    resource: partial/taxon.yaml
+    prefix: /taxons

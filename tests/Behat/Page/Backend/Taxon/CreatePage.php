@@ -14,12 +14,31 @@ namespace App\Tests\Behat\Page\Backend\Taxon;
 
 use Monofony\Bundle\AdminBundle\Tests\Behat\Crud\AbstractCreatePage;
 use Monofony\Bundle\AdminBundle\Tests\Behat\Crud\CreatePageInterface;
+use Sylius\Component\Core\Model\TaxonInterface;
 
 final class CreatePage extends AbstractCreatePage implements CreatePageInterface
 {
     public function getRouteName(): string
     {
         return 'sylius_backend_taxon_create';
+    }
+
+    public function countTaxons(): int
+    {
+        return count($this->getLeaves());
+    }
+
+    public function countTaxonsByName(string $name): int
+    {
+        $matchedLeavesCounter = 0;
+        $leaves = $this->getLeaves();
+        foreach ($leaves as $leaf) {
+            if (strpos($leaf->getText(), $name) !== false) {
+                ++$matchedLeavesCounter;
+            }
+        }
+
+        return $matchedLeavesCounter;
     }
 
     public function specifyCode(?string $code): void
@@ -41,6 +60,11 @@ final class CreatePage extends AbstractCreatePage implements CreatePageInterface
     public function specifySlug(?string $slug): void
     {
         $this->getElement('slug')->setValue($slug);
+    }
+
+    public function getLeaves(TaxonInterface $parentTaxon = null): array
+    {
+        return $this->getDocument()->findAll('css', '.sylius-tree__item');
     }
 
     /**

@@ -9,6 +9,8 @@ import './app-images-preview';
 import './sylius-compound-form-errors';
 import './sylius-chart';
 
+import SyliusTaxonomyTree from './sylius-taxon-tree';
+
 import '../scss/main.scss';
 
 $(document).ready(function () {
@@ -22,4 +24,6 @@ $(document).ready(function () {
 
     $('.app-date-picker').datePicker();
     $('.app-date-time-picker').dateTimePicker();
+
+    new SyliusTaxonomyTree();
 });

@@ -10,5 +10,5 @@ sylius_backend_taxon:
                 subheader: sylius.ui.managing_taxons
                 templates:
                     form: backend/taxon/_form.html.twig
-        templates: backend/crud
+        templates: backend/taxon
     type: sylius.resource
