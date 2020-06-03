@@ -2,6 +2,7 @@
 
 namespace spec\App\Entity\Booking;
 
+use App\BookingStates;
 use App\Entity\Animal\Pet;
 use App\Entity\Booking\Booking;
 use Monofony\Component\Core\Model\Customer\CustomerInterface;
@@ -25,15 +26,15 @@ class BookingSpec extends ObjectBehavior
         $this->getId()->shouldReturn(null);
     }
 
-    function it_has_no_default_animal()
+    function it_has_no_default_pet()
     {
-        $this->getAnimal()->shouldReturn(null);
+        $this->getPet()->shouldReturn(null);
     }
 
-    function it_has_a_animal(Pet $animal)
+    function it_has_a_pet(Pet $pet)
     {
-        $this->setAnimal($animal);
-        $this->getAnimal()->shouldReturn($animal);
+        $this->setPet($pet);
+        $this->getPet()->shouldReturn($pet);
     }
 
     function it_has_no_default_customer()
@@ -54,8 +55,8 @@ class BookingSpec extends ObjectBehavior
 
     function it_has_a_status()
     {
-        $this->setStatus('En cours');
-        $this->getStatus()->shouldReturn('En cours');
+        $this->setStatus(BookingStates::CANCELED);
+        $this->getStatus()->shouldReturn(BookingStates::CANCELED);
     }
 
     function it_has_no_default_creation_date()

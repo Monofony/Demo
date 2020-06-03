@@ -55,7 +55,7 @@ final class BookingExampleFactory extends AbstractExampleFactory
     protected function configureOptions(OptionsResolver $resolver): void
     {
         $resolver
-            ->setDefault('animal', LazyOption::randomOne($this->animalRepository))
+            ->setDefault('pet', LazyOption::randomOne($this->animalRepository))
             ->setDefault('customer', LazyOption::randomOne($this->customerRepository))
             ->setDefault('status', function (Options $options) {
                 return $this->faker->randomElement(BookingStates::ALL);
@@ -81,7 +81,7 @@ final class BookingExampleFactory extends AbstractExampleFactory
 
         /** @var Booking $booking */
         $booking = $this->bookingFactory->createNew();
-        $booking->setAnimal($options['animal']);
+        $booking->setPet($options['pet']);
         $booking->setCustomer($options['customer']);
         $booking->setStatus($options['status']);
         $booking->setCreatedAt($options['createdAt']);

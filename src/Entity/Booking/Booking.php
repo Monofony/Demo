@@ -41,7 +41,7 @@ class Booking implements ResourceInterface
      *
      * @ORM\ManyToOne(targetEntity="App\Entity\Animal\Pet")
      */
-    private $animal;
+    private $pet;
 
     /**
      * @var CustomerInterface|null
@@ -64,14 +64,14 @@ class Booking implements ResourceInterface
      */
     private $validatedAt;
 
-    public function getAnimal(): ?Pet
+    public function getPet(): ?Pet
     {
-        return $this->animal;
+        return $this->pet;
     }
 
-    public function setAnimal(?Pet $animal): void
+    public function setPet(?Pet $pet): void
     {
-        $this->animal = $animal;
+        $this->pet = $pet;
     }
 
     public function getCustomer(): ?CustomerInterface
