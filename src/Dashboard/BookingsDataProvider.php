@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace App\Dashboard;
 
-use App\Entity\Booking\Booking;
 use App\Repository\BookingRepository;
 use Doctrine\ORM\EntityManagerInterface;
 
@@ -31,7 +30,7 @@ final class BookingsDataProvider
         $this->bookingRepository = $bookingRepository;
     }
 
-    public function getLastYearBookingsSummary(Booking $booking): BookingsSummary
+    public function getLastYearBookingsSummary(): BookingsSummary
     {
         $startDate = (new \DateTime('first day of next month last year'));
         $startDate->setTime(0, 0, 0);

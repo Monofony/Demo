@@ -55,22 +55,11 @@ final class DashboardController
 
     public function indexAction(): Response
     {
-        $booking = $this->findBooking();
-
-        if (null === $booking) {
-            return new RedirectResponse($this->router->generate('app_backend_dashboard'));
-        }
-
         $statistics = $this->statisticsProvider->getStatistics();
-        $data = ['statistics' => $statistics, 'booking' => $booking];
+        $data = ['statistics' => $statistics];
 
-        $data['bookings_summary'] = $this->bookingsDataProvider->getLastYearBookingsSummary($booking);
+        $data['bookings_summary'] = $this->bookingsDataProvider->getLastYearBookingsSummary();
 
         return new Response($this->templating->render('backend/index.html.twig', $data));
-    }
-
-    private function findBooking(): ?Booking
-    {
-        return $this->bookingRepository->findOneBy([]);
     }
 }

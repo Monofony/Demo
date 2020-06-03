@@ -30,6 +30,16 @@ class DashboardPage extends SymfonyPage
         return 'app_backend_dashboard';
     }
 
+    public function getNumberOfNewAnimalsInTheList(): int
+    {
+        return $this->tableAccessor->countTableBodyRows($this->getElement('animal_list'));
+    }
+
+    public function getNumberOfNewBookingsInTheList(): int
+    {
+        return $this->tableAccessor->countTableBodyRows($this->getElement('booking_list'));
+    }
+
     public function getNumberOfNewCustomersInTheList(): int
     {
         return $this->tableAccessor->countTableBodyRows($this->getElement('customer_list'));
@@ -58,6 +68,8 @@ class DashboardPage extends SymfonyPage
     protected function getDefinedElements(): array
     {
         return array_merge(parent::getDefinedElements(), [
+            'animal_list' => '#animals',
+            'booking_list' => '#bookings',
             'customer_list' => '#customers',
             'logout' => '#sylius-logout-button',
             'new_animals' => '#new-animals',

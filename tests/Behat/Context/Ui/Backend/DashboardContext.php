@@ -27,6 +27,22 @@ class DashboardContext implements Context
     }
 
     /**
+     * @Then I should see :number new animals in the list
+     */
+    public function iShouldSeeNewAnimalsInTheList($number)
+    {
+        Assert::same($this->dashboardPage->getNumberOfNewAnimalsInTheList(), (int) $number);
+    }
+
+    /**
+     * @Then I should see :number new bookings in the list
+     */
+    public function iShouldSeeNewBookingsInTheList($number)
+    {
+        Assert::same($this->dashboardPage->getNumberOfNewBookingsInTheList(), (int) $number);
+    }
+
+    /**
      * @Then I should see :number new customers in the list
      */
     public function iShouldSeeNewCustomersInTheList($number)
