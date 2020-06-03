@@ -51,6 +51,10 @@ final class AdminMenuBuilder implements AdminMenuBuilderInterface
             ->setLabel('app.ui.animals')
             ->setLabelAttribute('icon', 'cat');
 
+        $animal->addChild('backend_taxon', ['route' => 'sylius_backend_taxon_create'])
+            ->setLabel('sylius.ui.taxons')
+            ->setLabelAttribute('icon', 'fax');
+
         return $animal;
     }
 

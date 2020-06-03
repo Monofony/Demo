@@ -35,6 +35,7 @@ final class ManagingTaxonsContext implements Context
 
     /**
      * @Given I want to create a new taxon
+     * @Given I want to see all taxons in the list
      */
     public function iWantToCreateANewTaxon()
     {
@@ -112,5 +113,21 @@ final class ManagingTaxonsContext implements Context
     public function thisTaxonElementShouldBe($element, $value)
     {
         Assert::true($this->updatePage->hasResourceValues([$element => $value]));
+    }
+
+    /**
+     * @Then I should see :number taxons on the list
+     */
+    public function iShouldSeeTaxonsOnTheList(int $number)
+    {
+        Assert::same($this->createPage->countTaxons(), (int) $number);
+    }
+
+    /**
+     * @Then I should see the taxon named :name in the list
+     */
+    public function iShouldSeeTheTaxonNamedInTheList(string $name)
+    {
+        Assert::same($this->createPage->countTaxonsByName($name), 1);
     }
 }
