@@ -44,11 +44,7 @@ class PetContext implements Context
      */
     public function thereIsAPetWithName(string $name): void
     {
-        $animal = $this->animalFactory->create(['name' => $name]);
-
-        $this->manager->persist($animal);
-        $this->manager->flush();
-        $this->sharedStorage->set('animal', $animal);
+        $this->createWithOptions(['name' => $name]);
     }
 
     /**
@@ -70,9 +66,9 @@ class PetContext implements Context
         }
     }
 
-    private function createWithOptions(): void
+    private function createWithOptions(array $options): void
     {
-        $pet = $this->animalFactory->create();
+        $pet = $this->animalFactory->create($options);
         $this->manager->persist($pet);
         $this->manager->flush();
         $this->sharedStorage->set('pet', $pet);
