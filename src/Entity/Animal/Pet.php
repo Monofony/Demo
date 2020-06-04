@@ -81,7 +81,7 @@ class Pet implements ResourceInterface
     /**
      * @var Collection
      *
-     * @ORM\OneToMany(targetEntity="PetImage", mappedBy="animal", orphanRemoval=true, cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="PetImage", mappedBy="pet", orphanRemoval=true, cascade={"persist"})
      */
     private $images;
 
