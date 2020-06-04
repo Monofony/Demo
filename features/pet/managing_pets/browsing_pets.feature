@@ -1,11 +1,11 @@
-@managing_animals
-Feature: Browsing animals
-    In order to see all animals
+@managing_pets
+Feature: Browsing pets
+    In order to see all pets
     As an Administrator
-    I want to browse animals
+    I want to browse pets
 
     Background:
-        Given animals are classified under "Cats" and "Dogs" categories
+        Given pets are classified under "Cats" and "Dogs" categories
         And there is a pet with name "Kitty"
         And this pet belongs to "Cats"
         And there is also a pet with name "Winnie"
@@ -15,7 +15,7 @@ Feature: Browsing animals
         And I am logged in as an administrator
 
     @ui
-    Scenario: Browsing animals
-        When I want to see all animals
-        Then I should see 3 animals in the list
-        And I should see the animal "Kitty" in the list
+    Scenario: Browsing pets
+        When I want to see all pets
+        Then I should see 3 pets in the list
+        And I should see the pet "Kitty" in the list

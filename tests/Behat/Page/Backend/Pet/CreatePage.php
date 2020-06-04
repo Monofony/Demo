@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace App\Tests\Behat\Page\Backend\Animal;
+namespace App\Tests\Behat\Page\Backend\Pet;
 
 use App\Formatter\StringInflector;
 use Behat\Mink\Driver\Selenium2Driver;
@@ -56,11 +56,13 @@ class CreatePage extends AbstractCreatePage implements CreatePageInterface
 
     public function specifyTaxon(?string $taxon): void
     {
+        $this->clickTabIfItsNotActive('taxonomy');
         $this->getElement('taxon')->selectOption($taxon);
     }
 
     public function attachImage(string $path): void
     {
+        $this->clickTabIfItsNotActive('media');
         $filesPath = $this->getParameter('files_path');
 
         $this->getDocument()->clickLink('Add');
@@ -68,18 +70,6 @@ class CreatePage extends AbstractCreatePage implements CreatePageInterface
         $imageForm = $this->getLastImageElement();
 
         $imageForm->find('css', 'input[type="file"]')->attachFile($filesPath . $path);
-    }
-
-    public function clickTabIfItsNotActive(string $tabName)
-    {
-        if (!$this->getDriver() instanceof Selenium2Driver) {
-            return;
-        }
-
-        $attributesTab = $this->getElement('tab', ['%name%' => $tabName]);
-        if (!$attributesTab->hasClass('active')) {
-            $attributesTab->click();
-        }
     }
 
     /**
@@ -105,5 +95,17 @@ class CreatePage extends AbstractCreatePage implements CreatePageInterface
         Assert::notEmpty($items);
 
         return end($items);
+    }
+
+    private function clickTabIfItsNotActive(string $tabName): void
+    {
+        if (!$this->getDriver() instanceof Selenium2Driver) {
+            return;
+        }
+
+        $attributesTab = $this->getElement('tab', ['%name%' => $tabName]);
+        if (!$attributesTab->hasClass('active')) {
+            $attributesTab->click();
+        }
     }
 }

@@ -5,7 +5,7 @@ Feature: Canceling booking
     I want to cancel a booking
 
     Background:
-        Given animals are classified under "Cats" and "Dogs" categories
+        Given pets are classified under "Cats" and "Dogs" categories
         And there is a pet with name "Kitty"
         And this pet belongs to "Cats"
         And this pet has been booked by customer "cruella@101dalamatiens.com"

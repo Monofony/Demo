@@ -81,7 +81,7 @@ class AnimalExampleFactory extends AbstractExampleFactory
                 /** @var TaxonInterface $taxon */
                 $taxon = $options['taxon'];
 
-                $directory = $this->testsDir.'/Resources/animals/'.strtolower($taxon->getCode());
+                $directory = $this->testsDir.'/Resources/pets/'.strtolower($taxon->getCode());
                 if (!file_exists($directory)) {
                     return [];
                 }

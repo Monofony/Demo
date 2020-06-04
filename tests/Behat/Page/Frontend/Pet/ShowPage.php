@@ -10,7 +10,7 @@
  */
 declare(strict_types=1);
 
-namespace App\Tests\Behat\Page\Frontend\Animal;
+namespace App\Tests\Behat\Page\Frontend\Pet;
 
 use FriendsOfBehat\PageObjectExtension\Page\SymfonyPage;
 

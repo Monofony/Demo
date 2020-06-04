@@ -19,11 +19,11 @@ use Webmozart\Assert\Assert;
 final class PetContext implements Context
 {
     /**
-     * @Then the animal :animal should have one image
-     * @Then the animal :animal should have one :amountOfImages images
+     * @Then the pet :pet should have one image
+     * @Then the pet :pet should have one :amountOfImages images
      */
-    public function theAnimalShouldHaveAnImage(Pet $animal, int $amountOfImages = 1)
+    public function thePetShouldHaveAnImage(Pet $pet, int $amountOfImages = 1)
     {
-        Assert::eq(count($animal->getImages()), $amountOfImages);
+        Assert::eq(count($pet->getImages()), $amountOfImages);
     }
 }

@@ -14,7 +14,6 @@ namespace App\Tests\Behat\Context\Transform;
 
 use App\Entity\Animal\Pet;
 use Behat\Behat\Context\Context;
-use Monofony\Bundle\CoreBundle\Tests\Behat\Service\SharedStorageInterface;
 use Sylius\Component\Resource\Repository\RepositoryInterface;
 use Webmozart\Assert\Assert;
 
@@ -23,20 +22,14 @@ final class PetContext implements Context
     /** @var RepositoryInterface */
     private $animalRepository;
 
-    /** @var SharedStorageInterface */
-    private $sharedStorage;
-
-    public function __construct(
-        RepositoryInterface $animalRepository,
-        SharedStorageInterface $sharedStorage
-    ) {
+    public function __construct(RepositoryInterface $animalRepository)
+    {
         $this->animalRepository = $animalRepository;
-        $this->sharedStorage = $sharedStorage;
     }
 
     /**
-     * @Transform :animal
-     * @Transform /^animal "([^"]+)"$/
+     * @Transform :pet
+     * @Transform /^pet "([^"]+)"$/
      */
     public function getPetByName(string $petName): Pet
     {
@@ -49,6 +42,4 @@ final class PetContext implements Context
 
         return $pet;
     }
-
-
 }

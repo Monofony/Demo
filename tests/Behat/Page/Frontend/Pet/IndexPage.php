@@ -10,7 +10,7 @@
  */
 declare(strict_types=1);
 
-namespace App\Tests\Behat\Page\Frontend\Animal;
+namespace App\Tests\Behat\Page\Frontend\Pet;
 
 use FriendsOfBehat\PageObjectExtension\Page\SymfonyPage;
 
@@ -21,7 +21,7 @@ final class IndexPage extends SymfonyPage
         return 'app_frontend_animal_index';
     }
 
-    public function isAnimalOnList($name)
+    public function isPetOnList($name)
     {
         return null !== $this->getDocument()->find('css', sprintf('.header:contains("%s")', $name));
     }

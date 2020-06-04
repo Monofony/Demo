@@ -1,12 +1,11 @@
 default:
     suites:
-        ui_managing_animals:
+        ui_viewing_pets:
             contexts:
                 - App\Tests\Behat\Context\Hook\DoctrineORMContext
 
                 - App\Tests\Behat\Context\Domain\PetContext
 
-                - App\Tests\Behat\Context\Setup\AdminSecurityContext
                 - App\Tests\Behat\Context\Setup\PetContext
                 - App\Tests\Behat\Context\Setup\TaxonContext
 
@@ -14,7 +13,6 @@ default:
                 - App\Tests\Behat\Context\Transform\SharedStorageContext
                 - App\Tests\Behat\Context\Transform\TaxonContext
 
-                - App\Tests\Behat\Context\Ui\Backend\ManagingAnimalsContext
-                - App\Tests\Behat\Context\Ui\Backend\NotificationContext
+                - App\Tests\Behat\Context\Ui\Frontend\PetContext
             filters:
-                tags: "@managing_animals && @ui"
+                tags: "@viewing_pets && @ui"

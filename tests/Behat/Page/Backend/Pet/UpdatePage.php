@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace App\Tests\Behat\Page\Backend\Animal;
+namespace App\Tests\Behat\Page\Backend\Pet;
 
 use Monofony\Bundle\AdminBundle\Tests\Behat\Crud\AbstractUpdatePage;
 use Monofony\Bundle\AdminBundle\Tests\Behat\Crud\UpdatePageInterface;

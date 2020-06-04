@@ -13,8 +13,8 @@ declare(strict_types=1);
 namespace App\Tests\Behat\Context\Ui\Frontend;
 
 use App\Entity\Animal\Pet;
-use App\Tests\Behat\Page\Frontend\Animal\IndexPage;
-use App\Tests\Behat\Page\Frontend\Animal\ShowPage;
+use App\Tests\Behat\Page\Frontend\Pet\IndexPage;
+use App\Tests\Behat\Page\Frontend\Pet\ShowPage;
 use Behat\Behat\Context\Context;
 use Webmozart\Assert\Assert;
 
@@ -33,19 +33,19 @@ final class PetContext implements Context
     }
 
     /**
-     * @Given I want to browse animals
+     * @Given I want to browse pets
      */
-    public function iWantToBrowseAnimals()
+    public function iWantToBrowsePets()
     {
         $this->indexPage->open();
     }
 
     /**
-     * @Then I should see the animal :name
+     * @Then I should see the pet :name
      */
-    public function iShouldSeeTheAnimal(string $name)
+    public function iShouldSeeThePet(string $name)
     {
-        Assert::true($this->indexPage->isAnimalOnList($name));
+        Assert::true($this->indexPage->isPetOnList($name));
     }
 
     /**
@@ -57,10 +57,10 @@ final class PetContext implements Context
     }
 
     /**
-     * @Then I should see the animal name :animalName
+     * @Then I should see the pet name :petName
      */
-    public function iShouldSeeTheAnimalName(string $animalName)
+    public function iShouldSeeTheAnimalName(string $petName)
     {
-        Assert::same($this->showPage->getName(), $animalName);
+        Assert::same($this->showPage->getName(), $petName);
     }
 }
