@@ -45,7 +45,7 @@ class DashboardPage extends SymfonyPage
         return $this->tableAccessor->countTableBodyRows($this->getElement('customer_list'));
     }
 
-    public function getNumberOfNewAnimals(): int
+    public function getNumberOfNewPets(): int
     {
         return (int) $this->getElement('new_animals')->getText();
     }

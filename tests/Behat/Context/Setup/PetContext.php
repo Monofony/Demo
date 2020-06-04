@@ -57,7 +57,7 @@ class PetContext implements Context
     }
 
     /**
-     * @Given there are :numbersOfPets animals
+     * @Given there are :numbersOfPets pets
      */
     public function thereArePets(int $numbersOfPets): void
     {
