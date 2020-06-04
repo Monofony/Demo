@@ -130,4 +130,28 @@ final class ManagingTaxonsContext implements Context
     {
         Assert::same($this->createPage->countTaxonsByName($name), 1);
     }
+
+    /**
+     * @When I move up :name taxon
+     */
+    public function iMoveUpTaxon(string $name)
+    {
+        $this->createPage->moveUpTaxon($name);
+    }
+
+    /**
+     * @When I move down :name taxon
+     */
+    public function iMoveDownTaxon(string $name)
+    {
+        $this->createPage->moveDownTaxon($name);
+    }
+
+    /**
+     * @Then the first taxon on the list should be :name
+     */
+    public function theFirstTaxonOnTheListShouldBe(string $name)
+    {
+        Assert::same($this->createPage->getFirstTaxonOnTheList(), $name);
+    }
 }

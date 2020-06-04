@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace App\Tests\Behat\Page\Backend\Taxon;
 
+use App\Tests\Behat\Service\JQueryHelper;
 use Monofony\Bundle\AdminBundle\Tests\Behat\Crud\AbstractCreatePage;
 use Monofony\Bundle\AdminBundle\Tests\Behat\Crud\CreatePageInterface;
 use Sylius\Component\Core\Model\TaxonInterface;
@@ -41,6 +42,26 @@ final class CreatePage extends AbstractCreatePage implements CreatePageInterface
         return $matchedLeavesCounter;
     }
 
+    public function moveUpTaxon(string $name)
+    {
+        $taxonElement = $this->getElement('tree_item', ['%taxon%' => $name]);
+        $treeAction = $taxonElement->getParent()->getParent()->find('css', '.sylius-tree__action');
+        $treeAction->click();
+        JQueryHelper::waitForAsynchronousActionsToFinish($this->getSession());
+        $treeAction->find('css', '.sylius-taxon-move-up .up')->click();
+        JQueryHelper::waitForAsynchronousActionsToFinish($this->getSession());
+    }
+
+    public function moveDownTaxon(string $name)
+    {
+        $taxonElement = $this->getElement('tree_item', ['%taxon%' => $name]);
+        $treeAction = $taxonElement->getParent()->getParent()->find('css', '.sylius-tree__action');
+        $treeAction->click();
+        JQueryHelper::waitForAsynchronousActionsToFinish($this->getSession());
+        $treeAction->find('css', '.sylius-taxon-move-down .down')->click();
+        JQueryHelper::waitForAsynchronousActionsToFinish($this->getSession());
+    }
+
     public function specifyCode(?string $code): void
     {
         $this->getElement('code')->setValue($code);
@@ -56,10 +77,14 @@ final class CreatePage extends AbstractCreatePage implements CreatePageInterface
         $this->getElement('name')->setValue($name);
     }
 
-
     public function specifySlug(?string $slug): void
     {
         $this->getElement('slug')->setValue($slug);
+    }
+
+    public function getFirstTaxonOnTheList(): string
+    {
+        return $this->getLeaves()[0]->getText();
     }
 
     public function getLeaves(TaxonInterface $parentTaxon = null): array
@@ -75,8 +100,11 @@ final class CreatePage extends AbstractCreatePage implements CreatePageInterface
         return array_merge(parent::getDefinedElements(), [
             'code' => '#sylius_taxon_code',
             'description' => '#sylius_taxon_translations_en_US_description',
+            'move_up' => '.sylius-taxon-move-up',
+            'move_down' => '.sylius-taxon-move-down',
             'name' => '#sylius_taxon_translations_en_US_name',
             'slug' => '#sylius_taxon_translations_en_US_slug',
+            'tree_item' => '.sylius-tree__item a:contains("%taxon%")',
         ]);
     }
 }

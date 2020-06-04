@@ -8,6 +8,9 @@ app_backend_partial:
     resource: "partial.yaml"
     prefix: /_partial
 
+sylius_backend_ajax:
+    resource: "ajax.yaml"
+
 sylius_backend_admin_user:
     resource: "admin_user.yaml"
 
