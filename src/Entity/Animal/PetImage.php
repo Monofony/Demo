@@ -15,16 +15,16 @@ namespace App\Entity\Animal;
 
 use App\Entity\Media\File;
 use Doctrine\ORM\Mapping as ORM;
-use Monofony\Component\Core\Model\User\AdminAvatarInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+
 /**
  * @ORM\Entity
  * @ORM\Table(name="app_animal_image")
  *
  * @Vich\Uploadable
  */
-class AnimalImage extends File implements AdminAvatarInterface
+class PetImage extends File
 {
     /**
      * {@inheritdoc}
@@ -36,20 +36,20 @@ class AnimalImage extends File implements AdminAvatarInterface
     protected $file;
 
     /**
-     * @var Pet | null
+     * @var Pet|null
      *
-     * @ORM\ManyToOne(targetEntity="Pet", inversedBy="images")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Animal\Pet", inversedBy="images")
      */
-    private $animal;
+    private $pet;
 
-    public function getAnimal(): ?Pet
+    public function getPet(): ?Pet
     {
-        return $this->animal;
+        return $this->pet;
     }
 
-    public function setAnimal(?Pet $animal): void
+    public function setPet(?Pet $pet): void
     {
-        $this->animal = $animal;
+        $this->pet = $pet;
     }
 
 

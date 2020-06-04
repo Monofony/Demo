@@ -3,7 +3,7 @@
 namespace spec\App\Entity\Animal;
 
 use App\Entity\Animal\Pet;
-use App\Entity\Animal\AnimalImage;
+use App\Entity\Animal\PetImage;
 use Doctrine\Common\Collections\Collection;
 use PhpSpec\ObjectBehavior;
 use Sylius\Component\Taxonomy\Model\TaxonInterface;
@@ -91,20 +91,20 @@ class PetSpec extends ObjectBehavior
         $this->getImages()->shouldHaveType(Collection::class);
     }
 
-    function it_adds_images(AnimalImage $image)
+    function it_adds_images(PetImage $image)
     {
-        $image->setAnimal($this)->shouldBeCalled();
+        $image->setPet($this)->shouldBeCalled();
 
         $this->addImage($image);
 
         $this->hasImage($image)->shouldReturn(true);
     }
 
-    function it_removes_images(AnimalImage $image)
+    function it_removes_images(PetImage $image)
     {
         $this->addImage($image);
 
-        $image->setAnimal(null)->shouldBeCalled();
+        $image->setPet(null)->shouldBeCalled();
 
         $this->removeImage($image);
 
@@ -116,7 +116,7 @@ class PetSpec extends ObjectBehavior
         $this->getFirstImage()->shouldReturn(null);
     }
 
-    function it_can_get_first_image(AnimalImage $firstImage, AnimalImage $secondImage): void
+    function it_can_get_first_image(PetImage $firstImage, PetImage $secondImage): void
     {
         $this->addImage($firstImage);
         $this->addImage($secondImage);

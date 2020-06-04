@@ -3,15 +3,15 @@
 namespace spec\App\Entity\Animal;
 
 use App\Entity\Animal\Pet;
-use App\Entity\Animal\AnimalImage;
+use App\Entity\Animal\PetImage;
 use App\Entity\Media\File;
 use PhpSpec\ObjectBehavior;
 
-class AnimalImageSpec extends ObjectBehavior
+class PetImageSpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
-        $this->shouldHaveType(AnimalImage::class);
+        $this->shouldHaveType(PetImage::class);
     }
 
     function it_is_a_file(): void
@@ -43,15 +43,15 @@ class AnimalImageSpec extends ObjectBehavior
         $this->getPath()->shouldReturn('avatar.png');
     }
 
-    function it_has_no_animal_by_defaut(): void
+    function it_has_no_pet_by_defaut(): void
     {
-        $this->getAnimal()->shouldReturn(null);
+        $this->getPet()->shouldReturn(null);
     }
 
-    function its_animal_is_mutable(Pet $animal): void
+    function its_pet_is_mutable(Pet $animal): void
     {
-        $this->setAnimal($animal);
+        $this->setPet($animal);
 
-        $this->getAnimal()->shouldReturn($animal);
+        $this->getPet()->shouldReturn($animal);
     }
 }

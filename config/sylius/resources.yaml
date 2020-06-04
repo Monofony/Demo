@@ -3,11 +3,11 @@ sylius_resource:
         app.animal:
             classes:
                 model: App\Entity\Animal\Pet
-                form: App\Form\Type\Animal\AnimalType
+                form: App\Form\Type\Animal\PetType
                 repository: App\Repository\AnimalRepository
         app.animal_image:
             classes:
-                model: App\Entity\Animal\AnimalImage
+                model: App\Entity\Animal\PetImage
         app.booking:
             classes:
                 model: App\Entity\Booking\Booking

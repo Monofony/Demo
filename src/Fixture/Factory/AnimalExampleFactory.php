@@ -13,7 +13,7 @@ namespace App\Fixture\Factory;
 
 use App\Colors;
 use App\Entity\Animal\Pet;
-use App\Entity\Animal\AnimalImage;
+use App\Entity\Animal\PetImage;
 use App\Fixture\OptionsResolver\LazyOption;
 use App\SizeUnits;
 use Monofony\Plugin\FixturesPlugin\Fixture\Factory\AbstractExampleFactory;
@@ -118,7 +118,7 @@ class AnimalExampleFactory extends AbstractExampleFactory
             $filesystem->copy($imagePath, '/tmp/'.$basename);
             $file = new UploadedFile('/tmp/'.$basename, $basename, null, null, true);
 
-            /** @var AnimalImage $image */
+            /** @var PetImage $image */
             $image = $this->animalImageFactory->createNew();
             $image->setFile($file);
 

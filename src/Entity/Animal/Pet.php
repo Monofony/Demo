@@ -81,7 +81,7 @@ class Pet implements ResourceInterface
     /**
      * @var Collection
      *
-     * @ORM\OneToMany(targetEntity="App\Entity\Animal\AnimalImage", mappedBy="animal", orphanRemoval=true, cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="PetImage", mappedBy="animal", orphanRemoval=true, cascade={"persist"})
      */
     private $images;
 
@@ -172,23 +172,23 @@ class Pet implements ResourceInterface
         return false !== $this->getImages()->first() ? $this->getImages()->first() : null;
     }
 
-    public function hasImage(AnimalImage $image): bool
+    public function hasImage(PetImage $image): bool
     {
         return $this->images->contains($image);
     }
 
-    public function addImage(AnimalImage $image): void
+    public function addImage(PetImage $image): void
     {
         if (!$this->hasImage($image)) {
             $this->images->add($image);
-            $image->setAnimal($this);
+            $image->setPet($this);
         }
     }
 
-    public function removeImage(AnimalImage $image): void
+    public function removeImage(PetImage $image): void
     {
         $this->images->removeElement($image);
-        $image->setAnimal(null);
+        $image->setPet(null);
     }
 
     public function getTaxon(): ?TaxonInterface

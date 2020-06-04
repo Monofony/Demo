@@ -35,7 +35,7 @@ class UpdatePage extends AbstractUpdatePage implements UpdatePageInterface
     protected function getDefinedElements(): array
     {
         return array_merge(parent::getDefinedElements(), [
-            'name' => '#app_animal_name',
+            'name' => '#app_pet_name',
         ]);
     }
 }

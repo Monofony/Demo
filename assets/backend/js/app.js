@@ -19,6 +19,7 @@ global.$ = global.jQuery = $;
 
 $(document).ready(function () {
     $(document).previewUploadedImage('#sylius_admin_user_avatar');
+    $(document).previewUploadedImage('#app_pet_images');
     $('.sylius-autocomplete').autoComplete();
     $('.sylius-tabular-form').addTabErrors();
     $('.ui.accordion').addAccordionErrors();

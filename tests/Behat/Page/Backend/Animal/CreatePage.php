@@ -88,12 +88,12 @@ class CreatePage extends AbstractCreatePage implements CreatePageInterface
     protected function getDefinedElements(): array
     {
         return array_merge(parent::getDefinedElements(), [
-            'name' => '#app_animal_name',
-            'size' => '#app_animal_size',
-            'size_unit' => '#app_animal_sizeUnit',
-            'images' => '#app_animal_images',
+            'name' => '#app_pet_name',
+            'size' => '#app_pet_size',
+            'size_unit' => '#app_pet_sizeUnit',
+            'images' => '#app_pet_images',
             'tab' => '.menu [data-tab="%name%"]',
-            'taxon' => '#app_animal_taxon',
+            'taxon' => '#app_pet_taxon',
         ]);
     }
 

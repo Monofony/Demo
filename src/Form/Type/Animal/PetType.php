@@ -25,7 +25,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class AnimalType extends AbstractType
+class PetType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -55,7 +55,7 @@ class AnimalType extends AbstractType
             ])
             ->add('images', CollectionType::class, [
                 'label' => 'sylius.ui.images',
-                'entry_type' => AnimalImageType::class,
+                'entry_type' => PetImageType::class,
                 'allow_add' => true,
                 'allow_delete' => true,
                 'by_reference' => false,
@@ -70,7 +70,7 @@ class AnimalType extends AbstractType
 
     public function getBlockPrefix(): string
     {
-        return 'app_animal';
+        return 'app_pet';
     }
 
     public function configureOptions(OptionsResolver $resolver): void

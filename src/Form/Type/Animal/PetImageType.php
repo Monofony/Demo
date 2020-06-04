@@ -13,13 +13,13 @@ declare(strict_types=1);
 
 namespace App\Form\Type\Animal;
 
-use App\Entity\Animal\AnimalImage;
+use App\Entity\Animal\PetImage;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-final class AnimalImageType extends AbstractType
+final class PetImageType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -36,13 +36,13 @@ final class AnimalImageType extends AbstractType
     {
         $resolver
             ->setDefaults([
-                'data_class' => AnimalImage::class,
+                'data_class' => PetImage::class,
             ])
         ;
     }
 
     public function getBlockPrefix(): string
     {
-        return 'app_animal_image';
+        return 'app_pet_image';
     }
 }
