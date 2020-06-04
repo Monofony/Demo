@@ -15,5 +15,5 @@ Feature: Canceling booking
     Scenario: Canceling booking
         Given I want to cancel this booking
         When I cancel it
-        And the email with reset token should be sent to "cruella@101dalamatiens.com"
+        And the email for canceled booking should be sent to "cruella@101dalamatiens.com"
         Then this booking should be canceled

@@ -90,11 +90,11 @@ final class ManagingBookingsContext implements Context
     }
 
     /**
-     * @Then I should see the booking for the animal :name in the list
+     * @Then I should see the booking for the pet :name in the list
      */
-    public function iShouldSeeTheBookingForTheAnimalInTheList(string $name)
+    public function iShouldSeeTheBookingForThePetInTheList(string $name)
     {
-        Assert::true($this->indexPage->isSingleResourceOnPage(['animal' => $name]));
+        Assert::true($this->indexPage->isSingleResourceOnPage(['pet' => $name]));
     }
 
     /**

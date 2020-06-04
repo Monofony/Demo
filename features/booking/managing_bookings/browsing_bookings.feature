@@ -15,4 +15,4 @@ Feature: Browsing bookings
     Scenario: Browsing bookings
         When I want to see all bookings
         Then I should see 1 bookings in the list
-        And I should see the booking for the animal "Kitty" in the list
+        And I should see the booking for the pet "Kitty" in the list
