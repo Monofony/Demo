@@ -1,0 +1,9 @@
+sylius_backend_ajax_taxon_move:
+    path: /{id}/move
+    methods: [PUT]
+    defaults:
+        _controller: sylius.controller.taxon:updateAction
+        _format: json
+        _sylius:
+            permission: true
+            form: App\Form\Type\Taxonomy\TaxonPositionType

@@ -8,10 +8,14 @@ import './app-date-time-picker';
 import './app-images-preview';
 import './sylius-compound-form-errors';
 import './sylius-chart';
+import './sylius-move-taxon';
 
 import SyliusTaxonomyTree from './sylius-taxon-tree';
 
 import '../scss/main.scss';
+
+const $ = require('jquery');
+global.$ = global.jQuery = $;
 
 $(document).ready(function () {
     $(document).previewUploadedImage('#sylius_admin_user_avatar');
@@ -26,4 +30,7 @@ $(document).ready(function () {
     $('.app-date-time-picker').dateTimePicker();
 
     new SyliusTaxonomyTree();
+
+    $('.sylius-taxon-move-up').taxonMoveUp();
+    $('.sylius-taxon-move-down').taxonMoveDown();
 });

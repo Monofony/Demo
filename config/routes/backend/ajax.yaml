@@ -1,0 +1,3 @@
+sylius_backend_ajax_taxon:
+    resource: ajax/taxon.yaml
+    prefix: /taxons

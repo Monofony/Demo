@@ -12,3 +12,11 @@ sylius_backend_taxon:
                     form: backend/taxon/_form.html.twig
         templates: backend/taxon
     type: sylius.resource
+
+sylius_backend_taxon_index:
+    path: /taxons/
+    methods: [GET]
+    defaults:
+        _controller: FrameworkBundle:Redirect:redirect
+        route: sylius_backend_taxon_create
+        permanent: true
