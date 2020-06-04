@@ -1,0 +1,16 @@
+app_frontend_pet_index:
+    methods: [GET]
+    path: /pets/
+    defaults:
+        _controller: app.controller.pet::indexAction
+        _sylius:
+            grid: app_frontend_pet
+            template: frontend/animal/index.html.twig
+
+app_frontend_pet_show:
+    methods: [GET]
+    path: /pets/{slug}
+    defaults:
+        _controller: app.controller.pet::showAction
+        _sylius:
+            template: frontend/animal/show.html.twig

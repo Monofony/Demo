@@ -18,7 +18,7 @@ class UpdatePage extends AbstractUpdatePage implements UpdatePageInterface
 {
     public function getRouteName(): string
     {
-        return 'app_backend_animal_update';
+        return 'app_backend_pet_update';
     }
 
     /**

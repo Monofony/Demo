@@ -1,10 +1,10 @@
 sylius_grid:
     grids:
-        app_frontend_animal:
+        app_frontend_pet:
             driver:
                 name: doctrine/orm
                 options:
-                    class: '%app.model.animal.class%'
+                    class: '%app.model.pet.class%'
             limits: [15]
             sorting:
                 name: asc

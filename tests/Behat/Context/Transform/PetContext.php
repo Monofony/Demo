@@ -20,11 +20,11 @@ use Webmozart\Assert\Assert;
 final class PetContext implements Context
 {
     /** @var RepositoryInterface */
-    private $animalRepository;
+    private $petRepository;
 
-    public function __construct(RepositoryInterface $animalRepository)
+    public function __construct(RepositoryInterface $petRepository)
     {
-        $this->animalRepository = $animalRepository;
+        $this->petRepository = $petRepository;
     }
 
     /**
@@ -34,7 +34,7 @@ final class PetContext implements Context
     public function getPetByName(string $petName): Pet
     {
         /** @var Pet $pet */
-        $pet = $this->animalRepository->findOneBy(['name' => $petName]);
+        $pet = $this->petRepository->findOneBy(['name' => $petName]);
         Assert::notNull(
             $pet,
             sprintf('Pet with name "%s" does not exist', $petName)

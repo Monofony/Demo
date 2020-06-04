@@ -27,6 +27,8 @@ app:
         new_animals: New animals
         new_bookings: New bookings
         overview_of_your_website: Overview of you website
+        pet: Pet
+        pets: Pets
         search_customers: Search customers
         size: Size
         size_unit: Size unit

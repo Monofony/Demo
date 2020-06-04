@@ -14,8 +14,8 @@ sylius_backend_ajax:
 sylius_backend_admin_user:
     resource: "admin_user.yaml"
 
-app_backend_animal:
-    resource: "animal.yaml"
+app_backend_pet:
+    resource: "pet.yaml"
 
 app_backend_booking:
     resource: "booking.yaml"

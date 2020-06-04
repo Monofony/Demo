@@ -27,6 +27,8 @@ app:
         new_animals: Nouveaux animaux
         new_bookings: Nouvelles réservations
         overview_of_your_website: Aperçu de votre site web
+        pet: Animal domestique
+        pets: Animaux domestiques
         search_customers: Chercher des clients
         size: Taille
         size_unit: Unité de taille

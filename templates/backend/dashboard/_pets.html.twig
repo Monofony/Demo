@@ -5,7 +5,7 @@
 <h3 class="ui top attached header">{{ 'app.ui.new_animals'|trans }}</h3>
 <div class="ui attached segment">
 
-    {% if animals|length > 0 %}
+    {% if pets|length > 0 %}
         <table class="ui stackable very basic table" id="animals">
             <thead>
             <th>{{ 'sylius.ui.name'|trans }}</th>
@@ -13,15 +13,15 @@
             <th></th>
             </thead>
             <tbody>
-            {% for animal in animals %}
+            {% for pet in pets %}
                 <tr>
                     <td>
-                        <strong>{{ animal.name }}</strong><br>
-                        <div style="color: #ababab;">{{ animal.taxon.name }}</div>
+                        <strong>{{ pet.name }}</strong><br>
+                        <div style="color: #ababab;">{{ pet.taxon.name }}</div>
                     </td>
                     <td>
                         <div class="ui right floated buttons">
-                            {{ buttons.edit(path('app_backend_animal_update', {'id': animal.id})) }}
+                            {{ buttons.edit(path('app_backend_pet_update', {'id': pet.id})) }}
                         </div>
                     </td>
                 </tr>

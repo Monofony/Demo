@@ -23,7 +23,7 @@ class CreatePage extends AbstractCreatePage implements CreatePageInterface
 {
     public function getRouteName(): string
     {
-        return 'app_backend_animal_create';
+        return 'app_backend_pet_create';
     }
 
     public function checkValidationMessageFor($element, $message): bool

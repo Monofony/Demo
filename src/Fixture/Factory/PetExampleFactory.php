@@ -32,7 +32,7 @@ class PetExampleFactory extends AbstractExampleFactory
     private $faker;
 
     /** @var FactoryInterface */
-    private $animalImageFactory;
+    private $petImageFactory;
 
     /** @var RepositoryInterface */
     private $taxonRepository;
@@ -44,11 +44,11 @@ class PetExampleFactory extends AbstractExampleFactory
     private $testsDir;
 
     public function __construct(
-        FactoryInterface $animalImageFactory,
+        FactoryInterface $petImageFactory,
         RepositoryInterface $taxonRepository,
         string $testsDir
     ) {
-        $this->animalImageFactory = $animalImageFactory;
+        $this->petImageFactory = $petImageFactory;
         $this->taxonRepository = $taxonRepository;
         $this->testsDir = $testsDir;
 
@@ -119,7 +119,7 @@ class PetExampleFactory extends AbstractExampleFactory
             $file = new UploadedFile('/tmp/'.$basename, $basename, null, null, true);
 
             /** @var PetImage $image */
-            $image = $this->animalImageFactory->createNew();
+            $image = $this->petImageFactory->createNew();
             $image->setFile($file);
 
             $animal->addImage($image);

@@ -21,7 +21,7 @@ class IndexPage extends AbstractIndexPage implements IndexPageInterface
      */
     public function getRouteName(): string
     {
-        return 'app_backend_animal_index';
+        return 'app_backend_pet_index';
     }
 
     public function filterByTaxon(string $name): void

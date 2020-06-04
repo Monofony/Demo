@@ -1,8 +1,8 @@
-app_backend_partial_animal_latest:
+app_backend_partial_pet_latest:
     path: /latest/{count}
     methods: [GET]
     defaults:
-        _controller: app.controller.animal::indexAction
+        _controller: app.controller.pet::indexAction
         _sylius:
             repository:
                 method: findLatest

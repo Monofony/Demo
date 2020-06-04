@@ -1,10 +1,10 @@
-app_backend_animal:
+app_backend_pet:
     resource: |
-        alias: app.animal
+        alias: app.pet
         section: backend
         except: ['show', 'index']
         redirect: update
-        grid: app_backend_animal
+        grid: app_backend_pet
         vars:
             all:
                 subheader: app.ui.managing_animals
