@@ -5,7 +5,7 @@ Feature: Browsing taxons
     I want to browse taxons
 
     Background:
-        Given animals are classified under "Cats" and "Dogs" categories
+         Given pets are classified under "Cats" and "Dogs" categories
         And I am logged in as an administrator
 
     @ui
