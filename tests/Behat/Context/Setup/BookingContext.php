@@ -45,9 +45,9 @@ final class BookingContext implements Context
     /**
      * @Given /^(this pet) has been booked by (customer "([^"]+)")$/
      */
-    public function thereIsABookingForTheAnimal(Pet $animal, CustomerInterface $customer)
+    public function thereIsABookingForTheAnimal(Pet $pet, CustomerInterface $customer)
     {
-        $booking = $this->bookingFactory->create(['animal' => $animal, 'customer' => $customer, 'status' => BookingStates::NEW]);
+        $booking = $this->bookingFactory->create(['pet' => $pet, 'customer' => $customer, 'status' => BookingStates::NEW]);
 
         $this->manager->persist($booking);
         $this->manager->flush();
