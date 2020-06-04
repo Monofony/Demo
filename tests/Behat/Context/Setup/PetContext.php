@@ -12,7 +12,7 @@
 namespace App\Tests\Behat\Context\Setup;
 
 use App\Entity\Animal\Pet;
-use App\Fixture\Factory\AnimalExampleFactory;
+use App\Fixture\Factory\PetExampleFactory;
 use Behat\Behat\Context\Context;
 use Doctrine\ORM\EntityManagerInterface;
 use Monofony\Bundle\CoreBundle\Tests\Behat\Service\SharedStorageInterface;
@@ -23,7 +23,7 @@ class PetContext implements Context
     /** @var SharedStorageInterface */
     private $sharedStorage;
 
-    /** @var AnimalExampleFactory */
+    /** @var PetExampleFactory */
     private $animalFactory;
 
     /** @var EntityManagerInterface*/
@@ -31,7 +31,7 @@ class PetContext implements Context
 
     public function __construct(
         SharedStorageInterface $sharedStorage,
-        AnimalExampleFactory $animalFactory,
+        PetExampleFactory $animalFactory,
         EntityManagerInterface $manager
     ) {
         $this->sharedStorage = $sharedStorage;

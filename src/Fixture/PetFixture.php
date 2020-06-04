@@ -11,19 +11,19 @@
 
 namespace App\Fixture;
 
-use App\Fixture\Factory\AnimalExampleFactory;
+use App\Fixture\Factory\PetExampleFactory;
 use Doctrine\Common\Persistence\ObjectManager;
 use Monofony\Plugin\FixturesPlugin\Fixture\AbstractResourceFixture;
 
-class AnimalFixture extends AbstractResourceFixture
+class PetFixture extends AbstractResourceFixture
 {
-    public function __construct(ObjectManager $objectManager, AnimalExampleFactory $animalExampleFactory)
+    public function __construct(ObjectManager $objectManager, PetExampleFactory $animalExampleFactory)
     {
         parent::__construct($objectManager, $animalExampleFactory);
     }
 
     public function getName(): string
     {
-        return 'animal';
+        return 'pet';
     }
 }
