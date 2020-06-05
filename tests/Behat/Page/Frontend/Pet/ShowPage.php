@@ -18,7 +18,7 @@ final class ShowPage extends SymfonyPage
 {
     public function getRouteName(): string
     {
-        return 'app_frontend_animal_show';
+        return 'app_frontend_pet_show';
     }
 
     public function getName()
@@ -29,7 +29,7 @@ final class ShowPage extends SymfonyPage
     protected function getDefinedElements(): array
     {
         return array_merge(parent::getDefinedElements(), [
-            'name' => '#animal-name',
+            'name' => '#pet-name',
         ]);
     }
 }

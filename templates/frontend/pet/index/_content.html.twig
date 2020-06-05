@@ -3,8 +3,8 @@
 <div class="ui stackable centered grid">
     <div class="twelve wide column">
         <div class="ui five link cards">
-            {% for animal in animals.data %}
-                {% include 'frontend/animal/_card.html.twig' with {'animal': animal} only %}
+            {% for pet in pets.data %}
+                {% include 'frontend/pet/_card.html.twig' with {'pet': pet} only %}
             {% endfor %}
         </div>
 

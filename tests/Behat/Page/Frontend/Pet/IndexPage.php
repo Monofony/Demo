@@ -18,7 +18,7 @@ final class IndexPage extends SymfonyPage
 {
     public function getRouteName(): string
     {
-        return 'app_frontend_animal_index';
+        return 'app_frontend_pet_index';
     }
 
     public function isPetOnList($name)

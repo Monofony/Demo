@@ -1,0 +1,28 @@
+{% import 'backend/macro/image.html.twig' as images %}
+
+<div class="card">
+    <div class="image">
+        {% if pet.firstImage is not null %}
+            {% set path = vich_uploader_asset(pet.firstImage, 'file') %}
+            {{ images.render(path, 'animal_grid', pet.name) }}
+        {% endif %}
+    </div>
+    <div class="content">
+        <a class="header" href="{{ path('app_frontend_pet_show', { 'slug': pet.slug }) }}">{{ pet.name }}</a>
+        <div class="meta">
+            <a>{{ pet.taxon.name }}</a>
+        </div>
+        <div class="description">
+            {{ pet.description|truncate(100, true) }}
+        </div>
+    </div>
+    <div class="extra content">
+          <span class="right floated">
+            {{ pet.size }} {{ pet.sizeUnit }}
+          </span>
+        <span>
+            <i class="eye icon"></i>
+            {{ ('app.ui.' ~ pet.mainColor)|trans }}
+          </span>
+    </div>
+</div>

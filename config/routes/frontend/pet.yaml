@@ -5,7 +5,7 @@ app_frontend_pet_index:
         _controller: app.controller.pet::indexAction
         _sylius:
             grid: app_frontend_pet
-            template: frontend/animal/index.html.twig
+            template: frontend/pet/index.html.twig
 
 app_frontend_pet_show:
     methods: [GET]
@@ -13,4 +13,4 @@ app_frontend_pet_show:
     defaults:
         _controller: app.controller.pet::showAction
         _sylius:
-            template: frontend/animal/show.html.twig
+            template: frontend/pet/show.html.twig

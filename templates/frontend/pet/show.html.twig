@@ -1,27 +1,27 @@
 {% extends 'frontend/layout.html.twig' %}
 
-{% set pageTitle = 'app.ui.animals'| trans %}
+{% set pageTitle = 'app.ui.pets'| trans %}
 
 {% block content %}
     <div class="ui two column stackable grid">
         <div class="column">
-            {% include 'frontend/animal/show/_images.html.twig' %}
+            {% include 'frontend/pet/show/_images.html.twig' %}
         </div>
         <div class="column">
-                <h1 id="animal-name" class="ui monster dividing header">{{ animal.name }}</h1>
+                <h1 id="pet-name" class="ui monster dividing header">{{ pet.name }}</h1>
                 <div class="ui stackable grid">
                     <div class="four wide column">
-                        <span class="ui huge header" id="animal-taxon">
-                        {{ animal.taxon.code }}
+                        <span class="ui huge header" id="pet-taxon">
+                        {{ pet.taxon.code }}
                         </span>
                 </div>
             </div>
             <div class="ui basic segment">
-                <p>{{ animal.description|nl2br }}</p>
+                <p>{{ pet.description|nl2br }}</p>
             </div>
             <div class="ui segment">
                 <form class="ui loadable form">
-                    <button type="submit" class="ui huge primary icon labeled button"><i class="cart icon"></i> Réserver cet animal</button>
+                    <button type="submit" class="ui huge primary icon labeled button"><i class="cart icon"></i> Réserver cet pet</button>
                 </form>
             </div>
             <div class="ui hidden divider"></div>
