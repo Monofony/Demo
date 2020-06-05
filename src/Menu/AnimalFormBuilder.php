@@ -33,20 +33,20 @@ final class AnimalFormBuilder
 
         $menu
             ->addChild('details')
-            ->setAttribute('template', 'backend/animal/tab/_details.html.twig')
+            ->setAttribute('template', 'backend/pet/tab/_details.html.twig')
             ->setLabel('sylius.ui.details')
             ->setCurrent(true)
         ;
 
         $menu
             ->addChild('taxonomy')
-            ->setAttribute('template', 'backend/animal/tab/_taxonomy.html.twig')
+            ->setAttribute('template', 'backend/pet/tab/_taxonomy.html.twig')
             ->setLabel('sylius.ui.taxonomy')
         ;
 
         $menu
             ->addChild('media')
-            ->setAttribute('template', 'backend/animal/tab/_media.html.twig')
+            ->setAttribute('template', 'backend/pet/tab/_media.html.twig')
             ->setLabel('sylius.ui.media')
         ;
 

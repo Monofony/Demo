@@ -7,9 +7,9 @@ app_backend_pet:
         grid: app_backend_pet
         vars:
             all:
-                subheader: app.ui.managing_animals
+                subheader: app.ui.managing_pets
                 templates:
-                    form: "backend/animal/_form.html.twig"
+                    form: "backend/pet/_form.html.twig"
         templates: backend/crud
     type: sylius.resource
 
@@ -22,9 +22,9 @@ app_backend_pet_index:
             section: backend
             permission: true
             grid: app_backend_pet
-            template: "backend/animal/index.html.twig"
+            template: "backend/pet/index.html.twig"
             vars:
-                subheader: sylius.ui.manage_your_product_catalog
+                subheader: app.ui.managing_pets
                 icon: cat
 
 app_backend_pet_per_taxon_index:
@@ -36,7 +36,7 @@ app_backend_pet_per_taxon_index:
             section: backend
             permission: true
             grid: app_backend_pet
-            template: "backend/animal/index.html.twig"
+            template: "backend/pet/index.html.twig"
             vars:
-                subheader: sylius.ui.manage_your_product_catalog
+                subheader: app.ui.managing_pets
                 icon: cat

@@ -36,7 +36,7 @@ final class AnimalStatistic implements StatisticInterface
         $amountAnimals = $this->petRepository->countAnimals();
 
         return $this->engine->render('backend/dashboard/statistics/_amount_of_animals.html.twig', [
-            'amountOfAnimals' => $amountAnimals,
+            'amountOfPets' => $amountAnimals,
         ]);
     }
 }

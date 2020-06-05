@@ -8,13 +8,20 @@
     {% if bookings|length > 0 %}
         <table class="ui stackable very basic table" id="bookings">
             <thead>
-            <th>{{ 'app.ui.animal_name'|trans }}</th>
+            <th>{{ 'app.ui.pet_name'|trans }}</th>
             <th>{{ 'app.ui.customer_name'|trans }}</th>
+            <th>{{ 'sylius.ui.status'|trans }}</th>
+            <th></th>
             <th></th>
             </thead>
             <tbody>
             {% for booking in bookings %}
                 <tr>
+                    <td>
+                        {% if booking.pet %}
+                            {% include 'backend/pet/grid/field/image.html.twig' with {'data': booking.pet} only %}
+                        {% endif %}
+                    </td>
                     <td>
                         {{ booking.pet.name }}
                     </td>

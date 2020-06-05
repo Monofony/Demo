@@ -13,7 +13,7 @@ app:
         centimeter: Centimètre
         create_user: Créer un utilisateur
         customer_name: Nom du client
-        edit_animal: Edition d'un animal
+        edit_pet: Edition d'un animal domestique
         forgotten_password: Mot de passe oublié
         ginger: Roux
         grey: Gris
@@ -28,12 +28,15 @@ app:
         new_animals: Nouveaux animaux
         new_bookings: Nouvelles réservations
         new_pet: Nouvel animal domestique
+        new_pets: Nouveaux animaux domestiques
         overview_of_your_website: Aperçu de votre site web
         pet: Animal domestique
+        pet_name: Nom de l'animal
         pets: Animaux domestiques
         search_customers: Chercher des clients
         size: Taille
         size_unit: Unité de taille
+        taxon: Taxon
         validate: Valider
         validation_date: Date de validation
         view_website: Voir le site
