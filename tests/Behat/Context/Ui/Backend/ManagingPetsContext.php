@@ -153,6 +153,13 @@ final class ManagingPetsContext implements Context
 
     /**
      * @Then I should see the pet :name in the list
+     */
+    public function iShouldSeeThePetNameInTheList(string $name): void
+    {
+        Assert::true($this->indexPage->isSingleResourceOnPage(['name' => $name]));
+    }
+
+    /**
      * @Then the pet :name should appear in the list
      */
     public function iShouldSeeThePetInTheList(string $name): void
@@ -199,7 +206,7 @@ final class ManagingPetsContext implements Context
     }
 
     /**
-     * @Then I should not see any animal with name :name
+     * @Then I should not see any pet with name :name
      */
     public function iShouldNotSeeAnyAnimalWithName(string $name)
     {

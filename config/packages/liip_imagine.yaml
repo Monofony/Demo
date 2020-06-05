@@ -13,7 +13,7 @@ liip_imagine:
             filters:
                 auto_rotate: ~
                 thumbnail: { size: [60, 60], mode: outbound }
-        animal_grid:
+        pet_grid:
             filters:
                 auto_rotate: ~
                 upscale: { min: [500, 344] }

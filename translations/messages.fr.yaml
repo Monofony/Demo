@@ -1,8 +1,5 @@
 app:
     ui:
-        animal: Animal
-        animal_name: Nom de l'animal
-        animals: Animaux
         avatar: Avatar
         black: Noir
         booking: Réservation
@@ -19,13 +16,10 @@ app:
         grey: Gris
         legal_notices: Mentions légales
         main_color: Couleur dominante
-        managing_animals: Gestion des animaux
         managing_bookings: Gestion des réservations
         managing_pets: Gérer les animaux domestiques
         meter: Mètre
         millimeter: Millimètre
-        new_animal: Ajout d'un animal
-        new_animals: Nouveaux animaux
         new_bookings: Nouvelles réservations
         new_pet: Nouvel animal domestique
         new_pets: Nouveaux animaux domestiques
