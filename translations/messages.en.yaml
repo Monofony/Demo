@@ -13,7 +13,7 @@ app:
         centimeter: Centimeter
         create_user: Create an user
         customer_name: Customer name
-        edit_animal: Edit animal
+        edit_pet: Edit pet
         forgotten_password: Forgotten password
         ginger: Ginger
         grey: Grey
@@ -28,12 +28,15 @@ app:
         new_animals: New animals
         new_bookings: New bookings
         new_pet: New pet
+        new_pets: New pets
         overview_of_your_website: Overview of you website
         pet: Pet
+        pet_name: Pet name
         pets: Pets
         search_customers: Search customers
         size: Size
         size_unit: Size unit
+        taxon: Taxon
         validate: Validate
         validation_date: Validation date
         view_website: View website
