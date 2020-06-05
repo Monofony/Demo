@@ -4,7 +4,7 @@
     <div class="image">
         {% if pet.firstImage is not null %}
             {% set path = vich_uploader_asset(pet.firstImage, 'file') %}
-            {{ images.render(path, 'animal_grid', pet.name) }}
+            {{ images.render(path, 'pet_grid', pet.name) }}
         {% endif %}
     </div>
     <div class="content">

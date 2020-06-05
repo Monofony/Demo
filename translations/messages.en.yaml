@@ -1,8 +1,5 @@
 app:
     ui:
-        animal: Animal
-        animal_name: Animal name
-        animals: Animals
         avatar: Avatar
         black: Black
         booking: Booking
@@ -19,13 +16,10 @@ app:
         grey: Grey
         legal_notices: Legal notices
         main_color: Main color
-        managing_animals: Managing animals
         managing_bookings: Managing bookings
         managing_pets: Managing pets
         meter: Meter
         millimeter: Millimeter
-        new_animal: New animal
-        new_animals: New animals
         new_bookings: New bookings
         new_pet: New pet
         new_pets: New pets
