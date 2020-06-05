@@ -8,5 +8,6 @@
 {% block title %}{{ header|trans }} {{ parent() }}{% endblock %}
 
 {% block content %}
+    {{ include('backend/crud/index/_header.html.twig') }}
     {{ include('backend/pet/index/_content.html.twig') }}
 {% endblock %}
