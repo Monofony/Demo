@@ -201,4 +201,20 @@ final class ManagingAnimalsContext implements Context
         $this->createPage->clickTabIfItsNotActive('taxonomy');
         $this->createPage->specifyTaxon($name);
     }
+
+    /**
+     * @When I filter them by :taxonName taxon
+     */
+    public function iFilterThemByTaxon(string $taxonName)
+    {
+        $this->indexPage->filterByTaxon($taxonName);
+    }
+
+    /**
+     * @Then I should not see any animal with name :name
+     */
+    public function iShouldNotSeeAnyAnimalWithName(string $name)
+    {
+        Assert::false($this->indexPage->isSingleResourceOnPage(["name" => $name]));
+    }
 }
