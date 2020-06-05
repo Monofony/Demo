@@ -21,11 +21,13 @@ app:
         main_color: Couleur dominante
         managing_animals: Gestion des animaux
         managing_bookings: Gestion des réservations
+        managing_pets: Gérer les animaux domestiques
         meter: Mètre
         millimeter: Millimètre
         new_animal: Ajout d'un animal
         new_animals: Nouveaux animaux
         new_bookings: Nouvelles réservations
+        new_pet: Nouvel animal domestique
         overview_of_your_website: Aperçu de votre site web
         pet: Animal domestique
         pets: Animaux domestiques

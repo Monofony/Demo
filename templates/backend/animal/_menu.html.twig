@@ -20,7 +20,7 @@
             {{ form_errors(form) }}
             <div>
                 {% for item in item.children %}
-                    {% include item.attribute('template') with {'form': form, 'animal': options.animal} %}
+                    {% include item.attribute('template') with {'form': form, 'pet': options.pet} %}
                 {% endfor %}
             </div>
         </div>
