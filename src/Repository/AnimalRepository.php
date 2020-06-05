@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace App\Repository;
 
+use Doctrine\ORM\QueryBuilder;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 
 final class AnimalRepository extends EntityRepository
@@ -32,5 +33,20 @@ final class AnimalRepository extends EntityRepository
             ->setMaxResults($count)
             ->getQuery()
             ->getResult();
+    }
+
+    public function createListQueryBuilder($taxonId = null): QueryBuilder
+    {
+        $queryBuilder = $this->createQueryBuilder('o');
+
+        if (null !== $taxonId) {
+            $queryBuilder
+                ->innerJoin('o.taxon', 'animalTaxon')
+                ->andWhere('animalTaxon.id = :taxonId')
+                ->setParameter('taxonId', $taxonId)
+            ;
+        }
+
+        return $queryBuilder;
     }
 }

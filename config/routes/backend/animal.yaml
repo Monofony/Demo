@@ -2,7 +2,7 @@ app_backend_animal:
     resource: |
         alias: app.animal
         section: backend
-        except: ['show']
+        except: ['show', 'index']
         redirect: update
         grid: app_backend_animal
         vars:
@@ -10,7 +10,33 @@ app_backend_animal:
                 subheader: app.ui.managing_animals
                 templates:
                     form: "backend/animal/_form.html.twig"
-            index:
-                icon: 'cat' # choose an icon that will be displayed next to the subheader
         templates: backend/crud
     type: sylius.resource
+
+app_backend_animal_index:
+    path: /animals/
+    methods: [GET]
+    defaults:
+        _controller: app.controller.animal:indexAction
+        _sylius:
+            section: backend
+            permission: true
+            grid: app_backend_animal
+            template: "backend/animal/index.html.twig"
+            vars:
+                subheader: sylius.ui.manage_your_product_catalog
+                icon: cat
+
+app_backend_animal_per_taxon_index:
+    path: /animals/taxon/{taxonId}
+    methods: [GET]
+    defaults:
+        _controller: app.controller.animal:indexAction
+        _sylius:
+            section: backend
+            permission: true
+            grid: app_backend_animal
+            template: "backend/animal/index.html.twig"
+            vars:
+                subheader: sylius.ui.manage_your_product_catalog
+                icon: cat

@@ -23,4 +23,16 @@ class IndexPage extends AbstractIndexPage implements IndexPageInterface
     {
         return 'app_backend_animal_index';
     }
+
+    public function filterByTaxon(string $name): void
+    {
+        $this->getElement('taxon_filter', ['%taxon%' => $name])->click();
+    }
+
+    protected function getDefinedElements(): array
+    {
+        return array_merge(parent::getDefinedElements(), [
+            'taxon_filter' => '.sylius-tree__item a:contains("%taxon%")',
+        ]);
+    }
 }

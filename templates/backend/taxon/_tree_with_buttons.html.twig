@@ -14,7 +14,7 @@
                         <i class="{{ taxon.children is not empty ? 'caret down' : 'angle left' }} icon"></i>
                     </div>
                     <div class="sylius-tree__title">
-                        <a href="#">
+                        <a href="{{ path('app_backend_animal_per_taxon_index', {'taxonId': taxon.id}) }}">
                             {{ taxon.name }}
                         </a>
                     </div>
