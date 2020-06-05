@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace App\Entity\Booking;
 
-use App\Entity\Animal\Animal;
+use App\Entity\Animal\Pet;
 use App\Entity\IdentifiableTrait;
 use Doctrine\ORM\Mapping as ORM;
 use Monofony\Component\Core\Model\Customer\CustomerInterface;
@@ -37,11 +37,11 @@ class Booking implements ResourceInterface
     protected $createdAt;
 
     /**
-     * @var Animal|null
+     * @var Pet|null
      *
-     * @ORM\ManyToOne(targetEntity="App\Entity\Animal\Animal")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Animal\Pet")
      */
-    private $animal;
+    private $pet;
 
     /**
      * @var CustomerInterface|null
@@ -64,14 +64,14 @@ class Booking implements ResourceInterface
      */
     private $validatedAt;
 
-    public function getAnimal(): ?Animal
+    public function getPet(): ?Pet
     {
-        return $this->animal;
+        return $this->pet;
     }
 
-    public function setAnimal(?Animal $animal): void
+    public function setPet(?Pet $pet): void
     {
-        $this->animal = $animal;
+        $this->pet = $pet;
     }
 
     public function getCustomer(): ?CustomerInterface

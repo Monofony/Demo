@@ -1,0 +1,14 @@
+{% import 'backend/macro/image.html.twig' as images %}
+
+<a class="ui fluid image">
+    {% if pet.firstImage is not null %}
+        {% set path = vich_uploader_asset(pet.firstImage, 'file') %}
+        {{ images.render(path, 'default', pet.name) }}
+    {% endif %}
+</a>
+<div class="ui small images">
+    {% for petImage in pet.images %}
+        {% set path = vich_uploader_asset(petImage, 'file') %}
+        {{ images.render(path, 'default', pet.name) }}
+    {% endfor %}
+</div>

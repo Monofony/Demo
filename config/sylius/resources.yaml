@@ -1,13 +1,13 @@
 sylius_resource:
     resources:
-        app.animal:
+        app.pet:
             classes:
-                model: App\Entity\Animal\Animal
-                form: App\Form\Type\Animal\AnimalType
-                repository: App\Repository\AnimalRepository
-        app.animal_image:
+                model: App\Entity\Animal\Pet
+                form: App\Form\Type\Animal\PetType
+                repository: App\Repository\PetRepository
+        app.pet_image:
             classes:
-                model: App\Entity\Animal\AnimalImage
+                model: App\Entity\Animal\PetImage
         app.booking:
             classes:
                 model: App\Entity\Booking\Booking

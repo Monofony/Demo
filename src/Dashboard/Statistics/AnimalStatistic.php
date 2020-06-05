@@ -13,27 +13,27 @@ declare(strict_types=1);
 
 namespace App\Dashboard\Statistics;
 
-use App\Repository\AnimalRepository;
+use App\Repository\PetRepository;
 use Monofony\Bundle\AdminBundle\Dashboard\Statistics\StatisticInterface;
 use Symfony\Component\Templating\EngineInterface;
 
 final class AnimalStatistic implements StatisticInterface
 {
-    /** @var AnimalRepository */
-    private $animalRepository;
+    /** @var PetRepository */
+    private $petRepository;
 
     /** @var EngineInterface */
     private $engine;
 
-    public function __construct(AnimalRepository $animalRepository, EngineInterface $engine)
+    public function __construct(PetRepository $petRepository, EngineInterface $engine)
     {
-        $this->animalRepository = $animalRepository;
+        $this->petRepository = $petRepository;
         $this->engine = $engine;
     }
 
     public function generate(): string
     {
-        $amountAnimals = $this->animalRepository->countAnimals();
+        $amountAnimals = $this->petRepository->countAnimals();
 
         return $this->engine->render('backend/dashboard/statistics/_amount_of_animals.html.twig', [
             'amountOfAnimals' => $amountAnimals,

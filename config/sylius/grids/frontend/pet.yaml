@@ -1,0 +1,14 @@
+sylius_grid:
+    grids:
+        app_frontend_pet:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: '%app.model.pet.class%'
+            limits: [15]
+            sorting:
+                name: asc
+            fields:
+                name:
+                    type: string
+                    sortable: null

@@ -29,7 +29,7 @@ final class BookingExampleFactory extends AbstractExampleFactory
     private $bookingFactory;
 
     /** @var RepositoryInterface */
-    private $animalRepository;
+    private $petRepository;
 
     /** @var CustomerRepository */
     private $customerRepository;
@@ -40,10 +40,10 @@ final class BookingExampleFactory extends AbstractExampleFactory
     /** @var OptionsResolver */
     private $optionsResolver;
 
-    public function __construct(FactoryInterface $bookingFactory, RepositoryInterface $animalRepository, CustomerRepository $customerRepository)
+    public function __construct(FactoryInterface $bookingFactory, RepositoryInterface $petRepository, CustomerRepository $customerRepository)
     {
         $this->bookingFactory = $bookingFactory;
-        $this->animalRepository = $animalRepository;
+        $this->petRepository = $petRepository;
         $this->customerRepository = $customerRepository;
 
         $this->faker = \Faker\Factory::create();
@@ -55,7 +55,7 @@ final class BookingExampleFactory extends AbstractExampleFactory
     protected function configureOptions(OptionsResolver $resolver): void
     {
         $resolver
-            ->setDefault('animal', LazyOption::randomOne($this->animalRepository))
+            ->setDefault('pet', LazyOption::randomOne($this->petRepository))
             ->setDefault('customer', LazyOption::randomOne($this->customerRepository))
             ->setDefault('status', function (Options $options) {
                 return $this->faker->randomElement(BookingStates::ALL);
@@ -81,7 +81,7 @@ final class BookingExampleFactory extends AbstractExampleFactory
 
         /** @var Booking $booking */
         $booking = $this->bookingFactory->createNew();
-        $booking->setAnimal($options['animal']);
+        $booking->setPet($options['pet']);
         $booking->setCustomer($options['customer']);
         $booking->setStatus($options['status']);
         $booking->setCreatedAt($options['createdAt']);

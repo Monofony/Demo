@@ -1,0 +1,17 @@
+{% import '@SyliusUi/Macro/pagination.html.twig' as pagination %}
+
+<div class="ui stackable centered grid">
+    <div class="twelve wide column">
+        <div class="ui five link cards">
+            {% for pet in pets.data %}
+                {% include 'frontend/pet/_card.html.twig' with {'pet': pet} only %}
+            {% endfor %}
+        </div>
+
+        <div class="ui hidden divider"></div>
+
+        {{ pagination.simple(resources.data) }}
+    </div>
+</div>
+
+

@@ -21,12 +21,16 @@ app:
         main_color: Main color
         managing_animals: Managing animals
         managing_bookings: Managing bookings
+        managing_pets: Managing pets
         meter: Meter
         millimeter: Millimeter
         new_animal: New animal
         new_animals: New animals
         new_bookings: New bookings
+        new_pet: New pet
         overview_of_your_website: Overview of you website
+        pet: Pet
+        pets: Pets
         search_customers: Search customers
         size: Size
         size_unit: Size unit

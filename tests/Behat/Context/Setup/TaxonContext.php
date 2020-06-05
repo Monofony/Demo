@@ -52,9 +52,9 @@ final class TaxonContext implements Context
     }
 
     /**
-     * @Given animals are classified under :firstTaxonName and :secondTaxonName categories
+     * @Given pets are classified under :firstTaxonName and :secondTaxonName categories
      */
-    public function animalsAreClassifiedUnderAndCategories(...$taxonNames)
+    public function petsAreClassifiedUnderAndCategories(...$taxonNames)
     {
         foreach ($taxonNames as $taxonName) {
             $taxon = $this->taxonFactory->create(['name' => $taxonName]);

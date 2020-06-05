@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace App\Tests\Behat\Context\Setup;
 
 use App\BookingStates;
-use App\Entity\Animal\Animal;
+use App\Entity\Animal\Pet;
 use App\Entity\Booking\Booking;
 use App\Fixture\Factory\BookingExampleFactory;
 use Behat\Behat\Context\Context;
@@ -43,11 +43,11 @@ final class BookingContext implements Context
     }
 
     /**
-     * @Given /^(this animal) has been booked by (customer "([^"]+)")$/
+     * @Given /^(this pet) has been booked by (customer "([^"]+)")$/
      */
-    public function thereIsABookingForTheAnimal(Animal $animal, CustomerInterface $customer)
+    public function thereIsABookingForTheAnimal(Pet $pet, CustomerInterface $customer)
     {
-        $booking = $this->bookingFactory->create(['animal' => $animal, 'customer' => $customer, 'status' => BookingStates::NEW]);
+        $booking = $this->bookingFactory->create(['pet' => $pet, 'customer' => $customer, 'status' => BookingStates::NEW]);
 
         $this->manager->persist($booking);
         $this->manager->flush();

@@ -5,7 +5,7 @@ Feature: Statistics dashboard
     I want to see overall statistics on my admin dashboard
 
     Background:
-        Given animals are classified under "Cats" and "Dogs" categories
+        Given pets are classified under "Cats" and "Dogs" categories
         And I am logged in as an administrator
 
     @ui
@@ -22,19 +22,19 @@ Feature: Statistics dashboard
 
     @ui
     Scenario: Seeing animal statistics
-        Given there are 3 animals
+        Given there are 3 pets
         When I open administration dashboard
-        Then I should see 3 new animals
+        Then I should see 3 new pets
 
     @ui
     Scenario: Seeing recent animals
-        Given there are 4 animals
+        Given there are 4 pets
         When I open administration dashboard
         Then I should see 4 new animals in the list
 
     @ui
     Scenario: Seeing booking statistics
-        Given there are 3 animals
+        Given there are 3 pets
         And there are 2 customers
         And there are 2 bookings
         When I open administration dashboard
@@ -42,7 +42,7 @@ Feature: Statistics dashboard
 
     @ui
     Scenario: Seeing recent bookings
-        Given there are 3 animals
+        Given there are 3 pets
         And there are 2 customers
         And there are 2 bookings
         When I open administration dashboard

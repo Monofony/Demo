@@ -5,7 +5,7 @@ Feature: Reordering taxons
     I want to browse ordered taxons
 
     Background:
-        Given animals are classified under "Cats" and "Dogs" categories
+         Given pets are classified under "Cats" and "Dogs" categories
         And I am logged in as an administrator
 
     @ui @javascript

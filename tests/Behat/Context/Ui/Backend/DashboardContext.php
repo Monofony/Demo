@@ -59,11 +59,11 @@ class DashboardContext implements Context
     }
 
     /**
-     * @Then I should see :number new animals
+     * @Then I should see :number new pets
      */
-    public function iShouldSeeNewAnimals($number)
+    public function iShouldSeeNewPets($number)
     {
-        Assert::same($this->dashboardPage->getNumberOfNewAnimals(), (int) $number);
+        Assert::same($this->dashboardPage->getNumberOfNewPets(), (int) $number);
     }
 
     /**

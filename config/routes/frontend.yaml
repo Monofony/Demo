@@ -8,8 +8,8 @@ app_account:
     resource: "frontend/account.yaml"
     prefix: "mon-compte"
 
-app_frontend_animal:
-    resource: "frontend/animal.yaml"
+app_frontend_pet:
+    resource: "frontend/pet.yaml"
 
 sylius_security:
     resource: "frontend/security.yaml"
