@@ -8,7 +8,7 @@ sylius_grid:
                     repository:
                         method: createListQuerySlugBuilder
                         arguments: ['%locale%', $slug]
-            limits: [15]
+            limits: [12]
             sorting:
                 name: asc
             fields:
