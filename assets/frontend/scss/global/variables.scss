@@ -1,54 +1,7 @@
-$green: #14c474;
-$dark-blue: #141846;
-$blue: #5260ff;
-$very-light-gray: #f2f7f9;
-$light-gray: #f0f0f2;
-$medium-gray: #d8d9df;
-$dark-gray: #b2b3bf;
-$black: #0a0a0a;
-$white: #ffffff;
-$orange: #e49925;
-$red: #f15656;
-
-$body-background: $white;
-$body-font-color: $dark-blue;
-
 $foundation-palette: (
-    primary: $green,
-    secondary: $dark-blue,
-    success: $green,
-    warning: $orange,
-    alert: $red,
-    body-color: $body-font-color,
-    "very-light-gray": $very-light-gray,
-    "light-gray": $light-gray,
-    "medium-gray": $medium-gray,
-    "dark-gray": $dark-gray,
-    "white": $white,
-    "black": $black,
-    "blue": $blue
-);
-
-$font-sizes: (
-    0: rem-calc(10),
-    1: rem-calc(11),
-    2: rem-calc(12),
-    3: rem-calc(13),
-    4: rem-calc(14),
-    5: rem-calc(15),
-    6: rem-calc(16),
-    7: rem-calc(18),
-    8: rem-calc(28),
-    9: rem-calc(38),
-    10: rem-calc(44)
-);
-
-$spacing-scale: (
-    0: 0,
-    1: 0.25rem,
-    2: 0.5rem,
-    3: 1rem,
-    4: 2rem,
-    5: 4rem,
-    auto: auto
+  primary: #1779ba,
+  secondary: #767676,
+  success: #3adb76,
+  warning: #ffae00,
+  alert: #cc4b37,
 );

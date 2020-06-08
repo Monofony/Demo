@@ -60,21 +60,8 @@
 @include motion-ui-transitions;
 @include motion-ui-animations;
 
-// Components
-@import "components/breadcrumbs";
-@import "components/buttons";
-@import "components/callouts";
-@import "components/forms";
-@import "components/loader";
-@import "components/reveal";
-@import "components/pagination";
-@import "components/searchbar";
-@import "components/tables";
-@import "components/tooltip";
-
 // Global
 @import "global/global";
-@import "global/typography";
 @import "global/variables";
 
 // Pages
@@ -83,14 +70,3 @@
 // Patterns
 @import "patterns/footer";
 @import "patterns/header";
-
-// Util
-@import "util/border";
-@import "util/color";
-@import "util/display";
-@import "util/font";
-@import "util/opacity";
-@import "util/position";
-@import "util/sizing";
-@import "util/spacing";
-@import "util/transform";
