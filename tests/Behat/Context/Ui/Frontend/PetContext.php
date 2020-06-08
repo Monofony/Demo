@@ -16,6 +16,7 @@ use App\Entity\Animal\Pet;
 use App\Tests\Behat\Page\Frontend\Pet\IndexPage;
 use App\Tests\Behat\Page\Frontend\Pet\ShowPage;
 use Behat\Behat\Context\Context;
+use Sylius\Component\Taxonomy\Model\TaxonInterface;
 use Webmozart\Assert\Assert;
 
 final class PetContext implements Context
@@ -41,11 +42,11 @@ final class PetContext implements Context
     }
 
     /**
-     * @Then I should see the pet :name
+     * @Then I should see the pet :petName
      */
-    public function iShouldSeeThePet(string $name)
+    public function iShouldSeeThePet(string $petName)
     {
-        Assert::true($this->indexPage->isPetOnList($name));
+        Assert::true($this->indexPage->isPetOnList($petName));
     }
 
     /**
@@ -62,5 +63,21 @@ final class PetContext implements Context
     public function iShouldSeeTheAnimalName(string $petName)
     {
         Assert::same($this->showPage->getName(), $petName);
+    }
+
+    /**
+     * @When /^I browse pets from (taxon "([^"]+)")$/
+     */
+    public function iBrowsePetsFromTaxon(TaxonInterface $taxon)
+    {
+        $this->indexPage->open(['slug' => $taxon->getSlug()]);
+    }
+
+    /**
+     * @Then I should not see the pet :petName
+     */
+    public function iShouldNotSeeThePet(string $petName)
+    {
+        Assert::false($this->indexPage->isPetOnList($petName));
     }
 }
