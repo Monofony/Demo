@@ -15,14 +15,13 @@ app_frontend_pet_show:
         _sylius:
             template: frontend/pet/show.html.twig
 
-
 app_frontend_pet_per_taxon_index:
     methods: [GET]
-    path: /pets/taxon/{code}
+    path: /pets/taxon/{slug}
     defaults:
         _controller: app.controller.pet::indexAction
         _sylius:
             grid: app_frontend_pet
             template: frontend/pet/index.html.twig
     requirements:
-        code: .+
+        slug: .+

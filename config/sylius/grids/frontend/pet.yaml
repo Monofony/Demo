@@ -6,8 +6,8 @@ sylius_grid:
                 options:
                     class: '%app.model.pet.class%'
                     repository:
-                        method: createListQueryCodeBuilder
-                        arguments: [$code]
+                        method: createListQuerySlugBuilder
+                        arguments: ['%locale%', $slug]
             limits: [15]
             sorting:
                 name: asc

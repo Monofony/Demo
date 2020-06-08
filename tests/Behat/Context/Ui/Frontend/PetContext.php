@@ -70,7 +70,7 @@ final class PetContext implements Context
      */
     public function iBrowsePetsFromTaxon(TaxonInterface $taxon)
     {
-        $this->indexPage->open(['code' => $taxon->getCode()]);
+        $this->indexPage->open(['slug' => $taxon->getSlug()]);
     }
 
     /**

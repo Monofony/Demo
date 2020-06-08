@@ -12,7 +12,7 @@
             </div>
         </div>
     {% else %}
-        <a href="{{ path('app_frontend_pet_per_taxon_index', {'code': taxon.code}) }}" class="item">{{ taxon.name }}</a>
+        <a href="{{ path('app_frontend_pet_per_taxon_index', {'slug': taxon.slug}) }}" class="item">{{ taxon.name }}</a>
     {% endif %}
 {% endmacro %}
 
