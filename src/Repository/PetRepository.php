@@ -49,4 +49,19 @@ final class PetRepository extends EntityRepository
 
         return $queryBuilder;
     }
+
+    public function createListQueryCodeBuilder($code = null): QueryBuilder
+    {
+        $queryBuilder = $this->createQueryBuilder('o');
+
+        if (null !== $code) {
+            $queryBuilder
+                ->innerJoin('o.taxon', 'animalTaxon')
+                ->andWhere('animalTaxon.code = :code')
+                ->setParameter('code', $code)
+            ;
+        }
+
+        return $queryBuilder;
+    }
 }

@@ -5,6 +5,9 @@ sylius_grid:
                 name: doctrine/orm
                 options:
                     class: '%app.model.pet.class%'
+                    repository:
+                        method: createListQueryCodeBuilder
+                        arguments: [$code]
             limits: [15]
             sorting:
                 name: asc
