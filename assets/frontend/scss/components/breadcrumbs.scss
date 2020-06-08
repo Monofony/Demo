@@ -1,0 +1,11 @@
+.breadcrumbs{
+    font-weight: 500;
+    li{
+        a{
+            text-decoration: underline;
+        }
+        @include breakpoint(small only){
+            font-size: rem-calc(10);
+        }
+    }
+}

@@ -1,0 +1,45 @@
+@each $font-index, $font-size in $font-sizes {
+    .f-#{$font-index} {
+        font-size: $font-size;
+    }
+}
+
+$alignements: (center, left, right, justify);
+
+@each $alignement in $alignements {
+    .ta-#{$alignement} {
+        text-align: $alignement;
+    }
+}
+
+$font-weights: (
+    normal: 300,
+    medium: 500,
+    bold: 700
+);
+
+@each $font-index, $font-weight in $font-weights {
+    .fw-#{$font-index} {
+        font-weight: $font-weight;
+    }
+}
+
+.ff-body {
+    font-family: $body-font-family;
+}
+
+.ff-head {
+    font-family: $header-font-family;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.upper {
+    text-transform: uppercase;
+}

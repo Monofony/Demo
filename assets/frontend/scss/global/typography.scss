@@ -1,0 +1,52 @@
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+    .primary {
+        color: $primary-color;
+    }
+    &.content-title {
+        font-size: rem-calc(16);
+        padding-bottom: rem-calc(7);
+        margin-bottom: 1.2rem;
+        border-bottom: 1px solid $light-gray;
+        font-family: $body-font-family;
+        display: flex;
+        align-items: center;
+        .icon {
+            margin-right: rem-calc(10);
+            svg {
+                width: rem-calc(18);
+                height: rem-calc(18);
+            }
+        }
+    }
+}
+h3,
+.h3 {
+    font-family: $body-font-family;
+    font-weight: $global-weight-bold;
+}
+a {
+    &.link {
+        transition: 0.25s;
+        &:hover {
+            transition: 0.25s;
+        }
+        &.with-icon{
+            display: flex;
+            align-items: center;
+        }
+    }
+    &:not(.button) {
+        font-weight: $global-weight-bold;
+    }
+}

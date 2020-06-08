@@ -1,0 +1,12 @@
+$rotations: (
+    left: -180deg,
+    right: 180deg,
+    up: -90deg,
+    down: 90deg
+);
+
+@each $rotation, $value in $rotations {
+    .rotate-#{$rotation} {
+        transform: rotate($value);
+    }
+}

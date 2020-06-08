@@ -1,0 +1,77 @@
+$displays: (
+    db: block,
+    di: inline,
+    dib: inline-block,
+    df: flex,
+    dif: inline-flex
+);
+
+$visibilities: (hidden, visible);
+
+@each $name, $display in $displays {
+    .#{$name} {
+        display: $display;
+    }
+    @each $breakpoint in $breakpoint-classes {
+        .#{$name}-for-#{$breakpoint} {
+            @include breakpoint(#{$breakpoint} up) {
+                display: $display;
+            }
+        }
+    }
+}
+
+@each $visibility in $visibilities {
+    .v-#{$visibility} {
+        visibility: $visibility;
+    }
+}
+
+.justify-center {
+    justify-content: center;
+}
+.align-items-center {
+    align-items: center;
+}
+.justify-between {
+    justify-content: space-between;
+}
+.justify-around {
+    justify-content: space-around;
+}
+
+.align-start {
+    align-items: flex-start;
+}
+
+.fl-row {
+    flex-direction: row;
+}
+
+.fl-col {
+    flex-direction: column;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.no-pointer {
+    cursor: auto !important;
+}
+
+.center-v {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.center-h {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.center-both {
+    @extend .center-h, .center-v;
+    transform: translate(-50%, -50%);
+}

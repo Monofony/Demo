@@ -1,0 +1,110 @@
+$sizes-scale: (
+    "0": 0,
+    "1": 1em,
+    "2": 2em,
+    "3": 3em,
+    "4": 4em,
+    "6": 6em,
+    "10": 10%,
+    "15": 15%,
+    "17": 17%,
+    "1-8": 12.5%,
+    "20": 20%,
+    "1-4": 25%,
+    "30": 30%,
+    "1-3": 33.33333%,
+    "40": 40%,
+    "45": 45%,
+    "50": 50%,
+    "1-2": 50%,
+    "60": 60%,
+    "5-8": 62.5%,
+    "2-3": 66.66667%,
+    "70": 70%,
+    "3-4": 75%,
+    "80": 80%,
+    "7-8": 87.5%,
+    "90": 90%,
+    "95": 95%,
+    "100": 100%,
+    auto: auto,
+    fit: fit-content
+);
+
+$size-types: (
+    h: height,
+    w: width,
+    h-max: max-height,
+    w-max: max-width,
+    h-min: min-height,
+    w-min: min-width
+);
+$viewport-direction-name: (
+    h: h,
+    w: w,
+    h-max: h,
+    w-max: w,
+    h-min: h,
+    w-min: w
+);
+
+$sizes-directions: left, right, top, bottom;
+
+.fill {
+    width: 100%;
+    height: 100%;
+}
+
+@each $name, $attr in $size-types {
+    @each $scale-name, $scale in $sizes-scale {
+        .#{$name}-#{$scale-name} {
+            #{$attr}: $scale;
+        }
+    }
+}
+
+@each $scale-name, $scale in $sizes-scale {
+    @each $direction in $sizes-directions {
+        .#{$direction}-#{$scale-name} {
+            #{$direction}: $scale;
+        }
+    }
+
+    .fb-#{$scale-name} {
+        flex-basis: $scale;
+    }
+}
+
+$viewport-scales: (
+    "5": 5,
+    "10": 10,
+    "14": 14,
+    "20": 20,
+    "1-4": 25,
+    "30": 30,
+    "1-3": 33.33333,
+    "40": 40,
+    "50": 50,
+    "1-2": 50,
+    "60": 60,
+    "2-3": 66.66667,
+    "3-4": 75,
+    "80": 80,
+    "90": 90,
+    "100": 100
+);
+
+@each $scale-name, $scale in $viewport-scales {
+    @each $direction-name, $direction in $size-types {
+        .#{$direction-name}-#{$scale-name}v {
+            #{$direction}: #{$scale}v#{map-get($viewport-direction-name, $direction-name)};
+        }
+    }
+}
+
+.fullwidth {
+    width: 100vw;
+    position: relative;
+    margin-left: -50vw;
+    left: 50%;
+}

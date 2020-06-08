@@ -1,0 +1,50 @@
+$states: (hover, focus);
+
+$radius-scale: (
+    0: 0,
+    1: 0.15rem,
+    2: 0.25rem,
+    3: 0.5rem,
+    default: rem-calc(20),
+    50: 50%,
+    full: 9999px,
+    global: $global-radius,
+    global2: $global-radius*2
+);
+
+$directions: (
+    t: top,
+    b: bottom,
+    l: left,
+    r: right
+);
+
+@each $scale-name, $scale in $radius-scale {
+    .rounded-#{$scale-name} {
+        border-radius: $scale;
+    }
+}
+
+@each $direction-name, $direction-value in $directions {
+    .b#{$direction-name} {
+        border-#{$direction-value}: 1px solid $secondary-color;
+    }
+}
+@each $color-name, $color in $foundation-palette {
+    .ba-#{$color-name} {
+        border: 1px solid $color;
+    }
+    .ba-#{$color-name}-w {
+        border: 2px solid $color;
+    }
+
+    @each $state in $states {
+        .ba-#{$color-name}-#{$state}:#{$state} {
+            border: 1px solid $color;
+        }
+
+        .ba-#{$color-name}-#{$state}-w:#{$state} {
+            border: 2px solid $color;
+        }
+    }
+}
