@@ -18,6 +18,14 @@
     {% endblock %}
 
     <div id="ui container" style="z-index: 1; position: relative;">
+        {% block header %}
+            <header>
+                {% include 'frontend/_header.html.twig' %}
+            </header>
+        {% endblock %}
+
+        {% include 'frontend/_flashes.html.twig' %}
+
         {% block content %}
         {% endblock %}
     </div>
