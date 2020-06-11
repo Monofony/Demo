@@ -1,5 +1,49 @@
 {% extends 'frontend/layout.html.twig' %}
 
 {% block content %}
-
+    <div style="background-color: #f4f8f9;">
+        <div style="display: flex">
+            <div class="adopt-the-perfect-pet">
+                <h2>{{ 'app.ui.adopt_the_perfect_pet_for_you_and_your_family'|trans }}</h2>
+            </div>
+            <div class="couple-with-dog">
+            </div>
+        </div>
+        <div>
+            <h1 id="text-they-cant-wait-to-meet-you-homepage">{{ 'app.ui.they_cant_wait_to_meet_you'|trans }}</h1>
+            {{ render(url('app_frontend_partial_animal_latest', {'count': 4, 'template': 'frontend/homepage/_pets.html.twig'})) }}
+            <a href="{{ path('app_frontend_pet_index') }}" class="button primary homepage">{{ 'app.ui.show_me_more'|trans }}</a>
+        </div>
+        <div id="blue-rectangle">
+            <h1 id="what-kind-of-animal">{{ 'app.ui.what_kind_of_animal_are_you_looking_for'|trans }}</h1>
+            <div class="grid-container">
+                <div class="grid-x grid-margin-x" style="padding-top: 90px">
+                    <div class="cell small-4">
+                        <div id="white-rectangle">
+                            <img class="card-img-pet-homepage" src="{{ asset('assets/frontend/img/dog.svg', 'frontend') }}"/>
+                            <h1 class="card-h1-pet-homepage">{{ 'app.ui.a_dog'|trans }}</h1>
+                            <p class="card-p-pet-homepage">{{ 'app.ui.a_dog_desc'|trans }}</p>
+                            <a href="{{ path('app_frontend_pet_index') }}" class="button primary homepage">{{ 'app.ui.lets_find_a_dog'|trans }}</a>
+                        </div>
+                    </div>
+                    <div class="cell small-4">
+                        <div id="white-rectangle">
+                            <img class="card-img-pet-homepage" src="{{ asset('assets/frontend/img/cat.svg', 'frontend') }}"/>
+                            <h1 class="card-h1-pet-homepage">{{ 'app.ui.a_cat'|trans }}</h1>
+                            <p class="card-p-pet-homepage">{{ 'app.ui.a_cat_desc'|trans }}</p>
+                            <a href="{{ path('app_frontend_pet_index') }}" class="button primary homepage">{{ 'app.ui.lets_find_a_cat'|trans }}</a>
+                        </div>
+                    </div>
+                    <div class="cell small-4">
+                        <div id="white-rectangle">
+                            <img class="card-img-pet-homepage" src="{{ asset('assets/frontend/img/bunny.svg', 'frontend') }}"/>
+                            <h1 class="card-h1-pet-homepage">{{ 'app.ui.a_rodent'|trans }}</h1>
+                            <p class="card-p-pet-homepage">{{ 'app.ui.a_rodent_desc'|trans }}</p>
+                            <a href="{{ path('app_frontend_pet_index') }}" class="button primary homepage">{{ 'app.ui.lets_find_a_rodent'|trans }}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

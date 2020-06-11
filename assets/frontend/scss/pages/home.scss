@@ -1,2 +1,123 @@
 .homepage {
 }
+
+#they-cant-wait-to-m {
+   width: 367px;
+   height: 40px;
+   font-family: Poppins;
+   font-size: 24px;
+   text-align: center;
+   color: #133e56;
+   margin-left: auto;
+   margin-right: auto;
+ }
+
+#blue-rectangle{
+   width: auto;
+   height: 700px;
+   background-color: #133e56;
+}
+
+#white-rectangle{
+   width: 372px;
+   height: 412px;
+   border-radius: 10px;
+   box-shadow: 0 8px 14px 0 rgba(19, 62, 86, 0.08), 0 2px 6px 0 rgba(19, 62, 86, 0.08);
+   background-color: #ffffff;
+}
+
+#what-kind-of-animal{
+   text-align: center;
+   font-family: Poppins;
+   font-size: 24px;
+   color: #ffffff;
+   padding-top: 70px;
+}
+
+.card-img-pet-homepage{
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   padding-top: 83px;
+}
+
+.card-h1-pet-homepage{
+   text-align: center;
+   font-family: Poppins;
+   font-size: 25px;
+   color: #133e56;
+   padding-top: 20px;
+}
+
+.card-p-pet-homepage{
+   text-align: center;
+   font-size: 18px;
+   text-align: center;
+   color: #8da2b0;
+   padding-top: 10px;
+}
+
+#last-pets {
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.button.homepage {
+   width: 200px;
+   height: 50px;
+   border-radius: 5px;
+   box-shadow: 0 2px 6px 0 rgba(19, 62, 86, 0.08);
+   background-color: #4baeb4;
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   margin-bottom: 50px;
+   text-align: center;
+   font-size: 16px;
+   font-weight: bold;
+   color: #ffffff;
+}
+
+#text-they-cant-wait-to-meet-you-homepage{
+   font-family: Poppins;
+   font-size: 24px;
+   text-align: center;
+   color: #133e56;
+   padding-bottom: 50px;
+}
+
+.grid-homepage{
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.adopt-the-perfect-pet{
+   background-image: linear-gradient(rgba(75, 174, 180, 0.33), rgba(75, 174, 180, 0.33)), url("../../img/pattern.svg");
+   background-position-x: 50%;
+   background-position-y: 50%;
+   margin-bottom: 20vh;
+   display: flex;
+}
+
+.adopt-the-perfect-pet > h2{
+   color: #133e56;
+   align-self: center;
+   font-size: 50px;
+   margin-left: 10vw;
+   margin-right: 17vw;
+   font-family: Poppins;
+}
+
+.couple-with-dog{
+   position: relative;
+   background-image: url("../../img/img_header.png");
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: cover;
+   width: 75vw;
+   height: 70vh;
+   overflow: hidden;
+   border-bottom-left-radius: 180px;
+}

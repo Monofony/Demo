@@ -12,20 +12,12 @@
 <body class="pushable">
 <div class="pusher">
     {% block top %}
-        <div id="menu" class="ui large sticky inverted stackable menu">
+        <div class="top-bar menu-top-bar" id="responsive-menu" style="z-index: 2; position: relative;">
             {% include 'frontend/_menu.html.twig' %}
         </div>
     {% endblock %}
 
-    <div id="ui container">
-        {% block header %}
-            <header>
-                {% include 'frontend/_header.html.twig' %}
-            </header>
-        {% endblock %}
-
-        {% include 'frontend/_flashes.html.twig' %}
-
+    <div id="ui container" style="z-index: 1; position: relative;">
         {% block content %}
         {% endblock %}
     </div>

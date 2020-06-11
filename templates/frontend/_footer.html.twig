@@ -1,25 +1,19 @@
-<footer id="footer" class="ui inverted vertical footer segment">
-    <div class="ui container">
-        <div class="ui inverted divided equal height stackable grid">
-            <div class="three wide column">
-                <h4 class="ui inverted header">{{ 'sylius.ui.your_store'|trans }}</h4>
-                <div class="ui inverted link list">
-                    <a href="#" class="item">{{ 'sylius.ui.about'|trans }}</a>
-                    <a href="#" class="item">{{ 'sylius.ui.terms_and_conditions'|trans }}</a>
-                    <a href="#" class="item">{{ 'sylius.ui.privacy_policy'|trans }}</a>
-                </div>
+<footer id="footer">
+    <div style="padding-top: 70px">
+        <div id="footer-rectangle">
+            <h1 id="about-us">{{ 'app.ui.about_us'|trans }}</h1>
+            <p id="monofony-is-nananini">{{ 'app.ui.monofony_is_nananini'|trans }}</p>
+            <h2 id="any-question-lets-talk">{{ 'app.ui.any_questions_lets_talk'|trans }}</h2>
+        </div>
+        <div id="monofony-footer">
+            <div>
+                <img src="{{ asset('assets/frontend/img/logo.svg', 'frontend') }}"/>
             </div>
-            <div class="three wide column">
-                <h4 class="ui inverted header">{{ 'sylius.ui.customer_care'|trans  }}</h4>
-                <div class="ui inverted link list">
-                    <a href="#" class="item">{{ 'sylius.ui.faqs'|trans  }}</a>
-                    <a href="#" class="item">{{ 'sylius.ui.delivery_and_shipping'|trans  }}</a>
-                    <a href="#" class="item">{{ 'sylius.ui.returns_policy'|trans  }}</a>
-                </div>
+            <div>
+                <img src="{{ asset('assets/frontend/img/github.svg', 'frontend') }}"/>
             </div>
-            <div class="eight wide column">
-                <h4 class="ui inverted header">&copy; Monofony</h4>
-                <p>{{ 'sylius.ui.powered_by'|trans }} <a href="https://github.com/Monofony/SymfonyStarter" target="_blank" style="color: #1abb9c;">Monofony</a>.</p>
+            <div>
+                <img src="{{ asset('assets/frontend/img/mobizel.svg', 'frontend') }}"/>
             </div>
         </div>
     </div>
