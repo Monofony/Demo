@@ -12,16 +12,14 @@
             </div>
         </div>
     {% else %}
-        <a href="{{ path('app_frontend_pet_per_taxon_index', {'slug': taxon.slug}) }}" class="item">{{ taxon.name }}</a>
+        <li><a class="a-taxon" href="{{ path('app_frontend_pet_per_taxon_index', {'slug': taxon.slug}) }}">{{ taxon.name }}</a></li>
     {% endif %}
 {% endmacro %}
 
 {% import _self as macros %}
 
 {% if resources|length > 0 %}
-    <div class="ui large inverted stackable menu">
         {% for taxon in resources %}
             {{ macros.item(taxon) }}
         {% endfor %}
-    </div>
 {% endif %}

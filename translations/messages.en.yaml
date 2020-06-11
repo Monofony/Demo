@@ -1,5 +1,15 @@
 app:
     ui:
+        about_us: About us
+        admin: Admin
+        adopt_the_perfect_pet_for_you_and_your_family: Adopt the perfect pet for you and your family!
+        any_questions_lets_talk: Any question? Let’s talk!
+        a_cat: A cat!
+        a_cat_desc: We could talk about their behavior for hours.
+        a_dog: A dog!
+        a_dog_desc: They will bring you the ball back. Eventually.
+        a_rodent: A rodent!
+        a_rodent_desc: « They’re so fluffy I’m gonna die! »
         avatar: Avatar
         black: Black
         booking: Booking
@@ -8,6 +18,7 @@ app:
         brown: Brown
         cancel: Cancel
         centimeter: Centimeter
+        contact: Contact
         create_user: Create an user
         customer_name: Customer name
         edit_pet: Edit pet
@@ -15,11 +26,15 @@ app:
         ginger: Ginger
         grey: Grey
         legal_notices: Legal notices
+        lets_find_a_cat: Let’s find a cat!
+        lets_find_a_dog: Let’s find a dog!
+        lets_find_a_rodent: Let’s find a rodent!
         main_color: Main color
         managing_bookings: Managing bookings
         managing_pets: Managing pets
         meter: Meter
         millimeter: Millimeter
+        monofony_is_nananini: Monofony is nananinininin powered by Mobizel blablabla
         new_bookings: New bookings
         new_pet: New pet
         new_pets: New pets
@@ -28,12 +43,15 @@ app:
         pet_name: Pet name
         pets: Pets
         search_customers: Search customers
+        show_me_more: Show me more!
         size: Size
         size_unit: Size unit
         taxon: Taxon
+        they_cant_wait_to_meet_you: They can’t wait to meet you!
         validate: Validate
         validation_date: Validation date
         view_website: View website
+        what_kind_of_animal_are_you_looking_for: What kind of animal are you looking for?
         white: White
 sylius:
     ui:

@@ -1,5 +1,15 @@
 app:
     ui:
+        about_us: À propos de nous
+        admin: Admin
+        adopt_the_perfect_pet_for_you_and_your_family: Adoptez l'animal parfait pour vous et votre famille!
+        any_questions_lets_talk: Des questions? Parlons!
+        a_cat: Un chat!
+        a_cat_desc: Nous pourrions parler de leur comportement pendant des heures.
+        a_dog: Un chien!
+        a_dog_desc: Ils vous ramèneront le ballon. Finalement.
+        a_rodent: Un rongeur!
+        a_rodent_desc: «Ils sont tellement moelleux que je vais mourir! »
         avatar: Avatar
         black: Noir
         booking: Réservation
@@ -8,6 +18,7 @@ app:
         brown: Marron
         cancel: Annuler
         centimeter: Centimètre
+        contact: Contact
         create_user: Créer un utilisateur
         customer_name: Nom du client
         edit_pet: Edition d'un animal domestique
@@ -15,11 +26,15 @@ app:
         ginger: Roux
         grey: Gris
         legal_notices: Mentions légales
+        lets_find_a_cat: Trouvons un chat!
+        lets_find_a_dog: Trouvons un chien!
+        lets_find_a_rodent: Trouvons un rongeur!
         main_color: Couleur dominante
         managing_bookings: Gestion des réservations
         managing_pets: Gérer les animaux domestiques
         meter: Mètre
         millimeter: Millimètre
+        monofony_is_nananini: Monofony est une nananinininin propulsée par Mobizel blablabla
         new_bookings: Nouvelles réservations
         new_pet: Nouvel animal domestique
         new_pets: Nouveaux animaux domestiques
@@ -28,12 +43,15 @@ app:
         pet_name: Nom de l'animal
         pets: Animaux domestiques
         search_customers: Chercher des clients
+        show_me_more: En voir plus!
         size: Taille
         size_unit: Unité de taille
         taxon: Taxon
+        they_cant_wait_to_meet_you: Ils ont hâte de vous rencontrer!
         validate: Valider
         validation_date: Date de validation
         view_website: Voir le site
+        what_kind_of_animal_are_you_looking_for: Quel genre d'animal recherchez-vous?
         white: Blanc
 sylius:
     ui:

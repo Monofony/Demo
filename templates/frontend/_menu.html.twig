@@ -1,5 +1,8 @@
-<div class="ui right stackable inverted menu">
+<a href="{{ path('app_frontend_homepage') }}"><img src="{{ asset('assets/frontend/img/logo.svg', 'frontend') }}" class="ui medium image logo"/></a>
+<ul class="menu align-center-middle align-center">
     {{ render(url('sylius_frontend_partial_taxon_root_nodes', {'template': 'frontend/taxon/_horizontal_menu.html.twig'})) }}
+</ul>
+<div class="top-bar-right" style="margin-left: 0%;">
     {% if is_granted('ROLE_USER') %}
         <div class="item">{{ 'sylius.ui.hello'|trans }} {{ app.user.customer.fullName }}!</div>
         <a href="{{ path('sylius_frontend_account_dashboard') }}" class="item">{{ 'sylius.ui.my_account'|trans }}</a>
@@ -8,4 +11,6 @@
         <a href="{{ path('app_frontend_login') }}" class="item">{{ 'sylius.ui.login'|trans }}</a>
         <a href="{{ path('app_frontend_register') }}" class="item">{{ 'sylius.ui.register'|trans }}</a>
     {% endif %}
+    <a class="button primary contact" type="button" href="">{{ 'app.ui.contact'|trans }}</a>
+    <a class="button primary admin" type="button" href="{{ path('sylius_backend_login') }}"><i class="fas fa-lock"></i>  {{ 'app.ui.admin'|trans }}</a>
 </div>

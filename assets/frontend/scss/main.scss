@@ -1,6 +1,8 @@
 @import "~foundation-sites/scss/foundation";
 @import '~motion-ui/src/motion-ui';
 @import "settings";
+@import "font";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
 // Global styles
 @include foundation-global-styles;
@@ -70,3 +72,6 @@
 // Patterns
 @import "patterns/footer";
 @import "patterns/header";
+@import "patterns/menu";
+
+@import "~@fortawesome/fontawesome-free/css/all.css";

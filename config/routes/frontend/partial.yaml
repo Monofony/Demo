@@ -9,3 +9,16 @@ sylius_frontend_partial_taxon_root_nodes:
                 method: findRootNodes
     requirements:
         template: "[^?]+"
+
+app_frontend_partial_animal_latest:
+    path: /latest/{count}
+    methods: [GET]
+    defaults:
+        _controller: app.controller.pet::indexAction
+        _sylius:
+            repository:
+                method: findLatest
+                arguments: ['!!int $count']
+            template: $template
+    requirements:
+        template: "[^?]+"
