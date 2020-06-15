@@ -43,6 +43,7 @@ app:
         pet_name: Nom de l'animal
         pets: Animaux domestiques
         search_customers: Chercher des clients
+        sex: Sexe
         show_me_more: En voir plus!
         size: Taille
         size_unit: Unité de taille

@@ -42,3 +42,9 @@ services:
     app.sender.email:
         class: App\Sender\EmailSender
         public: true
+
+    App\View\FoundationTranslatedView:
+        arguments:
+            $view: '@App\View\FoundationView'
+        tags:
+            - { name: 'pagerfanta.view', alias: 'foundation_translated' }

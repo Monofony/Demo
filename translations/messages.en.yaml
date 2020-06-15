@@ -43,6 +43,7 @@ app:
         pet_name: Pet name
         pets: Pets
         search_customers: Search customers
+        sex: Sex
         show_me_more: Show me more!
         size: Size
         size_unit: Size unit

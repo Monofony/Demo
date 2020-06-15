@@ -1,6 +1,6 @@
 {% import 'backend/macro/image.html.twig' as images %}
 
-<div class="card">
+<div id="pet-card" class="card">
     <div class="image">
         {% if pet.firstImage is not null %}
             {% set path = vich_uploader_asset(pet.firstImage, 'file') %}
@@ -8,9 +8,9 @@
         {% endif %}
     </div>
     <div class="content">
-        <a class="header" href="{{ path('app_frontend_pet_show', { 'slug': pet.slug }) }}">{{ pet.name }}</a>
+        <a id="pet-card-name" class="header" href="{{ path('app_frontend_pet_show', { 'slug': pet.slug }) }}">{{ pet.name }}</a>
         <div class="meta">
-            <a>{{ pet.taxon.name }}</a>
+            <a id="pet-card-taxon">{{ pet.taxon.name }}</a>
         </div>
     </div>
 </div>
