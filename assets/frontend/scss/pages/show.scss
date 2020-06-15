@@ -1,0 +1,97 @@
+.bottom-show {
+  background-color: #f4f8f9;
+  display: flex;
+  justify-content: center;
+  margin-top: 5vh;
+}
+
+#taxon-name {
+  font-family: Poppins;
+  font-size: 24px;
+  text-align: center;
+  color: #133e56;
+}
+
+#taxon-description {
+  font-family: Inter regular;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  color: rgba(29, 71, 98, 0.5);
+}
+
+#taxon-big-description {
+  width: 581px;
+  font-family: Inter regular;
+  font-size: 14px;
+  line-height: 1.71;
+  color: #1d4762;
+}
+
+#pet-name {
+  font-family: Poppins;
+  font-size: 40px;
+  line-height: 1.25;
+  color: #133e56;
+}
+
+#pet-taxon {
+  font-family: Inter regular;
+  font-size: 18px;
+  color: rgba(29, 71, 98, 0.5);
+}
+
+#pet-description {
+  font-family: Inter regular;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #1d4762;
+}
+
+.button.pet {
+  border-radius: 5px;
+  box-shadow: 0 2px 6px 0 rgba(19, 62, 86, 0.08);
+  background-color: #4baeb4;
+  font-family: Inter regular;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+#show-breadcrumb {
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+}
+
+#pet-info {
+  width: 38vh;
+  height: 8vh;
+  border-radius: 10px;
+  background-color: #f4f8f9;
+}
+
+.info-title {
+  padding-top: 1.8vh;
+  font-family: Inter regular;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  color: rgba(29, 71, 98, 0.5);
+}
+
+.info-content {
+  font-family: Inter regular;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+  color: #1d4762;
+}
+
+.border-image{
+  border-radius: 2%;
+}
+
+.other-image {
+  border-radius: 10%;
+  opacity: 0.5;
+}

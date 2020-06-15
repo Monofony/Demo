@@ -1,14 +1,22 @@
 {% import 'backend/macro/image.html.twig' as images %}
 
-<a class="ui fluid image">
-    {% if pet.firstImage is not null %}
-        {% set path = vich_uploader_asset(pet.firstImage, 'file') %}
-        {{ images.render(path, 'default', pet.name) }}
-    {% endif %}
-</a>
-<div class="ui small images">
-    {% for petImage in pet.images %}
-        {% set path = vich_uploader_asset(petImage, 'file') %}
-        {{ images.render(path, 'default', pet.name) }}
-    {% endfor %}
+<div class="grid-x grid-margin-x">
+        <div class="cell small-2">
+        <div class="ui small images">
+            {% for petImage in pet.images %}
+                {% set path = vich_uploader_asset(petImage, 'file') %}
+                {% set class = "other-image" %}
+                {{ images.render(path, 'app_frontend_pet_show', pet.name, class) }}
+            {% endfor %}
+        </div>
+    </div>
+    <div class="cell small-10">
+        <a class="ui fluid image">
+            {% if pet.firstImage is not null %}
+                {% set path = vich_uploader_asset(pet.firstImage, 'file') %}
+                {% set class = "border-image" %}
+                {{ images.render(path, 'app_frontend_pet_show', pet.name, class) }}
+            {% endif %}
+        </a>
+    </div>
 </div>
