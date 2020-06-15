@@ -68,10 +68,16 @@
 
 // Pages
 @import "pages/home";
+@import "pages/pet";
 
 // Patterns
 @import "patterns/footer";
 @import "patterns/header";
 @import "patterns/menu";
+
+// Components
+@import "components/button";
+@import "components/pet_card";
+@import "components/pagination";
 
 @import "~@fortawesome/fontawesome-free/css/all.css";
