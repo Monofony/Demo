@@ -78,7 +78,7 @@ final class FoundationTemplate extends Template
      *
      * @return string
      */
-    public function pageWithTextAndClass($page, $text, $class, $ariaLabel = null)
+    public function pageWithTextAndClass($page, $text, $class = null, $ariaLabel = null)
     {
         $href = $this->generateRoute($page);
 
