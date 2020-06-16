@@ -80,4 +80,12 @@ final class PetContext implements Context
     {
         Assert::false($this->indexPage->isPetOnList($petName));
     }
+
+    /**
+     * @Then I filter from taxon :taxonName
+     */
+    public function iFilterFromTaxon(string $taxonName)
+    {
+        $this->indexPage->filterByTaxon($taxonName);
+    }
 }

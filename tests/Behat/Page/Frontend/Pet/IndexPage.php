@@ -25,4 +25,19 @@ final class IndexPage extends SymfonyPage
     {
         return null !== $this->getDocument()->find('css', sprintf('.header:contains("%s")', $name));
     }
+
+    public function filterByTaxon($taxonName)
+    {
+        $label = $this->getElement('taxon_filter', ['%taxon%' => $taxonName]);
+        $label->getParent()->find('css', 'input')->check();
+        $this->getElement('taxon_button')->click();
+    }
+
+    protected function getDefinedElements(): array
+    {
+        return array_merge(parent::getDefinedElements(), [
+            'taxon_filter' => '#criteria_taxon .checkbox label:contains("%taxon%")',
+            'taxon_button' => '.button.blue.labeled'
+        ]);
+    }
 }

@@ -38,13 +38,6 @@
     </div>
 {%- endblock radio_row %}
 
-{% block money_widget -%}
-    <div class="ui labeled input">
-        <div class="ui label">{{ currency }}</div>
-        {{- form_widget(form) -}}
-    </div>
-{%- endblock money_widget %}
-
 {% block choice_row -%}
     <div class="{% if required %}required {% endif %}field{% if (not compound or force_error|default(false)) and not valid %} error{% endif %}">
         {{- form_label(form) -}}
@@ -59,9 +52,9 @@
         <div class="{% if required %}required {% endif %}grouped fields">
             {%- for child in form %}
                 <div class="field">
-                    <div class="ui toggle checkbox">
-                        {{- form_label(child, null, {translation_domain: choice_translation_domain}) -}}
+                    <div class="checkbox">
                         {{- form_widget(child) -}}
+                        {{- form_label(child, null, {translation_domain: choice_translation_domain}) -}}
                     </div>
                 </div>
             {% endfor -%}

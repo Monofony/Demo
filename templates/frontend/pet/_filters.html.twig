@@ -2,15 +2,7 @@
     <h2>{{ 'sylius.ui.filters'|trans }}</h2>
     <div class="animal-animal-filter">
         <h3>{{ 'app.ui.pet'|trans }}</h3>
-        <div class="checkbox">
-            <input type="checkbox"><label>Cat</label>
-        </div>
-        <div class="checkbox">
-            <input type="checkbox"><label>Dog</label>
-        </div>
-        <div class="checkbox">
-            <input type="checkbox"><label>Rodent</label>
-        </div>
+        {% include 'frontend/grid/filter/_filters.html.twig' with { 'grid': resources } %}
     </div>
     <div class="animal-sex-filter">
         <h3>{{ 'app.ui.sex'|trans }}</h3>
