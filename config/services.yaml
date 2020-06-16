@@ -16,6 +16,7 @@ services:
         bind:
             $cacheDir: '%kernel.cache_dir%'
             $environment: '%kernel.environment%'
+            $locale: '%locale%'
             $publicDir: '%kernel.project_dir%/public'
             $testsDir: '%kernel.project_dir%/tests'
 
@@ -48,3 +49,7 @@ services:
             $view: '@App\View\FoundationView'
         tags:
             - { name: 'pagerfanta.view', alias: 'foundation_translated' }
+
+    App\Grid\Filter\TaxonFilter:
+        tags:
+            - { name: 'sylius.grid_filter', type: 'taxon_filter', form_type: App\Grid\Filter\TaxonFilterType }

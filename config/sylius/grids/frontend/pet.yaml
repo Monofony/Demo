@@ -15,3 +15,9 @@ sylius_grid:
                 name:
                     type: string
                     sortable: null
+            filters:
+                taxon:
+                    type: taxon_filter
+    templates:
+        filter:
+            taxon_filter: 'frontend/pet/filters/_taxon_filter.html.twig'
