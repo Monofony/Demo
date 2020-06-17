@@ -54,6 +54,11 @@ class CreatePage extends AbstractCreatePage implements CreatePageInterface
         $this->getElement('size_unit')->setValue($sizeUnit);
     }
 
+    public function specifySex(?string $sex): void
+    {
+        $this->getElement('sex')->setValue($sex);
+    }
+
     public function specifyTaxon(?string $taxon): void
     {
         $this->clickTabIfItsNotActive('taxonomy');
@@ -79,6 +84,7 @@ class CreatePage extends AbstractCreatePage implements CreatePageInterface
     {
         return array_merge(parent::getDefinedElements(), [
             'name' => '#app_pet_name',
+            'sex' => '#app_pet_sex',
             'size' => '#app_pet_size',
             'size_unit' => '#app_pet_sizeUnit',
             'images' => '#app_pet_images',
