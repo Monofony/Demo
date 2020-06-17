@@ -3,22 +3,20 @@
     <h2>{{ 'app.ui.adopt_the_perfect_pet_for_you_and_your_family'|trans }}</h2>
 </div>
 <div class="grid-x grid-margin-x petpage">
-    <div class="cell small-2">
+    <div class="cell small-2 large-offset-2 animal-filter">
+        <h2>{{ 'sylius.ui.filters'|trans }}</h2>
+        {% include 'frontend/pet/_filters.html.twig' %}
     </div>
-    {% include 'frontend/pet/_filters.html.twig' %}
-    <div class="cell small-1">
-    </div>
-    <div class="cell small-6">
-        <div class="ui three link cards">
-            {% for pet in pets.data %}
-                {% include 'frontend/pet/_card.html.twig' with {'pet': pet} only %}
-            {% endfor %}
+    <div class="cell small-6 large-offset-1">
+        <div class="grid-container">
+            <div class="grid-x grid-margin-x">
+                {% for pet in pets.data %}
+                    {% include 'frontend/pet/_card.html.twig' with {'pet': pet} only %}
+                {% endfor %}
+            </div>
         </div>
-
-        <div class="ui hidden divider"></div>
+        <hr>
         {{ pagination.simple(resources.data) }}
-    </div>
-    <div class="cell small-1">
     </div>
 </div>
 
