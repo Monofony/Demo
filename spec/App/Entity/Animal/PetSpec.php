@@ -140,7 +140,7 @@ class PetSpec extends ObjectBehavior
         $this->getSex()->shouldReturn(null);
     }
 
-    function it_has_a_sex()
+    function its_sex_is_mutable()
     {
         $this->setSex('Male');
         $this->getSex()->shouldReturn('Male');
