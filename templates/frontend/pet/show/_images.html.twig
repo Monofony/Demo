@@ -2,19 +2,19 @@
 
 <div class="grid-x grid-margin-x">
         <div class="cell small-2">
-        <div class="ui small images">
+        <div>
             {% for petImage in pet.images %}
                 {% set path = vich_uploader_asset(petImage, 'file') %}
-                {% set class = "other-image" %}
+                {% set class = "image border low-opacity" %}
                 {{ images.render(path, 'app_frontend_pet_show', pet.name, class) }}
             {% endfor %}
         </div>
     </div>
-    <div class="cell small-10">
-        <a class="ui fluid image">
+    <div class="cell small-8">
+        <a>
             {% if pet.firstImage is not null %}
                 {% set path = vich_uploader_asset(pet.firstImage, 'file') %}
-                {% set class = "border-image" %}
+                {% set class = "image border" %}
                 {{ images.render(path, 'app_frontend_pet_show', pet.name, class) }}
             {% endif %}
         </a>

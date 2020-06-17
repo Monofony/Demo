@@ -1,97 +1,79 @@
-.bottom-show {
-  background-color: #f4f8f9;
+@import "../global/variables";
+
+.bottom {
+  background-color: map-get($monofony-color, light-grey);
   display: flex;
   justify-content: center;
   margin-top: 5vh;
 }
 
-#taxon-name {
-  font-family: Poppins;
+.taxon h1 {
   font-size: 24px;
   text-align: center;
-  color: #133e56;
+  color: map-get($monofony-color, dark-blue);
 }
 
-#taxon-description {
-  font-family: Inter regular;
-  font-size: 16px;
+.taxon h3 {
   font-weight: bold;
   text-align: center;
-  color: rgba(29, 71, 98, 0.5);
+  color: map-get($monofony-color, monofony-grey);
 }
 
-#taxon-big-description {
+.taxon p {
   width: 581px;
-  font-family: Inter regular;
   font-size: 14px;
   line-height: 1.71;
-  color: #1d4762;
+  color: map-get($monofony-color, dark-blue-bis);
 }
 
-#pet-name {
-  font-family: Poppins;
-  font-size: 40px;
+.pet h1 {
   line-height: 1.25;
-  color: #133e56;
+  color: map-get($monofony-color, dark-blue);
 }
 
-#pet-taxon {
-  font-family: Inter regular;
-  font-size: 18px;
-  color: rgba(29, 71, 98, 0.5);
+.pet h3 {
+  color: map-get($monofony-color, light-grey);
 }
 
-#pet-description {
-  font-family: Inter regular;
-  font-size: 16px;
+.pet p {
   line-height: 1.5;
-  color: #1d4762;
+  color: map-get($monofony-color, dark-blue-bis);
 }
 
 .button.pet {
   border-radius: 5px;
   box-shadow: 0 2px 6px 0 rgba(19, 62, 86, 0.08);
-  background-color: #4baeb4;
-  font-family: Inter regular;
-  font-size: 16px;
+  background-color: map-get($monofony-color, monofony-blue);
   font-weight: bold;
   color: #ffffff;
 }
 
-#show-breadcrumb {
+.info {
+  border-radius: 10px;
+  background-color: map-get($monofony-color, light-grey);
+  text-align: center;
+}
+
+.info h2 {
+  color: map-get($monofony-color, monofony-grey);
+}
+
+.info h3 {
+  color: map-get($monofony-color, dark-blue);
+  line-height: 1.5;
+}
+
+.image.border {
+  border-radius: 8%;
+}
+
+.image.low-opacity {
+  opacity: 0.5;
+  margin-bottom: 1vh;
+}
+
+.breadcrumb {
+  display: flex;
   margin-top: 2vh;
   margin-bottom: 2vh;
-}
-
-#pet-info {
-  width: 38vh;
-  height: 8vh;
-  border-radius: 10px;
-  background-color: #f4f8f9;
-}
-
-.info-title {
-  padding-top: 1.8vh;
-  font-family: Inter regular;
-  font-size: 16px;
-  font-weight: bold;
-  text-align: center;
-  color: rgba(29, 71, 98, 0.5);
-}
-
-.info-content {
-  font-family: Inter regular;
-  font-size: 16px;
-  line-height: 1.5;
-  text-align: center;
-  color: #1d4762;
-}
-
-.border-image{
-  border-radius: 2%;
-}
-
-.other-image {
-  border-radius: 10%;
-  opacity: 0.5;
 }

@@ -4,63 +4,56 @@
 
 {% block content %}
     <div>
-        <div id="show-breadcrumb" class="grid-x grid-margin-x">
-            <div class="cell small-1"></div>
-            <div class="cell small-11">
+        <div class="grid-x grid-margin-x">
+            <div class="cell small-11 large-offset-1">
                 {% include 'frontend/pet/show/_breadcrumb.html.twig' %}
             </div>
         </div>
     </div>
-    <div class="top-show">
+    <div>
         <div class="grid-x grid-margin-x">
-            <div class="cell small-1"></div>
-            <div class="cell small-5">
+            <div class="cell small-5 large-offset-1">
                 {% include 'frontend/pet/show/_images.html.twig' %}
             </div>
             <div class="cell small-5">
-                <h1 id="pet-name">{{ pet.name }}</h1>
-                <div class="ui stackable grid">
-                    <div class="four wide column">
-                        <span class="ui huge header" id="pet-taxon">
-                        {{ pet.taxon.code }}
-                        </span>
+                <div class="pet">
+                    <h1 data-name>{{ pet.name }}</h1>
+                    <h3>{{ pet.taxon.code }}</h3>
+                    <div>
+                        <p>{{ pet.description|nl2br }}</p>
                     </div>
                 </div>
-                <div id="pet-description" class="ui basic segment">
-                    <p>{{ pet.description|nl2br }}</p>
-                </div>
-                <div id="pet-info">
+                <div class="info">
                     <div class="grid-x grid-margin-x">
                         <div class="cell small-4">
-                            <h2 class="info-title">{{ 'app.ui.sex'|trans }}</h2>
-                            <h3 class="info-content">Female</h3>
+                            <h2>{{ 'app.ui.sex'|trans }}</h2>
+                            <h3>Female</h3>
                         </div>
                         <div class="cell small-4">
-                            <h2 class="info-title">{{ 'app.ui.main_color'|trans }}</h2>
-                            <h3 class="info-content">{{ pet.mainColor }}</h3>
+                            <h2>{{ 'app.ui.main_color'|trans }}</h2>
+                            <h3>{{ pet.mainColor }}</h3>
                         </div>
                         <div class="cell small-4">
-                            <h2 class="info-title">{{ 'app.ui.size'|trans }}</h2>
-                            <h3 class="info-content">{{ pet.size }} {{ pet.sizeUnit }}</h3>
+                            <h2>{{ 'app.ui.size'|trans }}</h2>
+                            <h3>{{ pet.size }} {{ pet.sizeUnit }}</h3>
                         </div>
                     </div>
                 </div>
-                <div class="ui hidden divider"></div>
+                <hr>
                 <div>
                     <a type="button" class="button primary pet">{{ 'app.ui.ask_for_a_visit'|trans }}</a>
                 </div>
-                <div class="ui hidden divider"></div>
+                <hr>
             </div>
-            <div class="cell small-1"></div>
         </div>
     </div>
-    <div class="bottom-show">
-        <div>
-            <div class="ui hidden divider"></div>
-            <h1 id="taxon-name">{{ pet.taxon.code }}</h1>
-            <h3 id="taxon-description">Some text</h3>
-            <div class="ui hidden divider"></div>
-            <p id="taxon-big-description">Cocker spaniels are known for being gentle, easy-going and affectionate yet lively. They are generally considered good with children. They tend to be non-aggressive toward other animals and people, but that also means they are not particularly good watchdogs.<br><br>
+    <div class="bottom">
+        <div class="taxon">
+            <hr>
+            <h1>{{ pet.taxon.code }}</h1>
+            <h3>Some text</h3>
+            <hr>
+            <p>Cocker spaniels are known for being gentle, easy-going and affectionate yet lively. They are generally considered good with children. They tend to be non-aggressive toward other animals and people, but that also means they are not particularly good watchdogs.<br><br>
 
                 One note of caution is warranted. At one time, cocker spaniels became so popular they were overbred, which resulted in some high-strung dogs and dogs with health problems.<br><br>
 
