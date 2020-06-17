@@ -16,6 +16,15 @@ Feature: Adding a new pet
         And the pet "Axolotl" should appear in the list
 
     @ui
+    Scenario: Adding a new pet with sex
+        Given I want to create a new pet
+        When I specify its name as "Axolotl"
+        And I specify its sex as "male"
+        And I add it
+        Then I should be notified that it has been successfully created
+        And the pet "Axolotl" should appear in the list
+
+    @ui
     Scenario: Adding a new pet with its characteristic fields
         Given I want to create a new pet
         When I specify its name as "Axolotl"

@@ -134,4 +134,15 @@ class PetSpec extends ObjectBehavior
         $this->setTaxon($taxon);
         $this->getTaxon()->shouldReturn($taxon);
     }
+
+    function it_has_no_default_sex()
+    {
+        $this->getSex()->shouldReturn(null);
+    }
+
+    function it_has_a_sex()
+    {
+        $this->setSex('Male');
+        $this->getSex()->shouldReturn('Male');
+    }
 }

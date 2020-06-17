@@ -96,6 +96,14 @@ final class ManagingPetsContext implements Context
     }
 
     /**
+     * @When I specify its sex as :sex
+     */
+    public function iSpecifyItsSexAs(string $sex)
+    {
+        $this->createPage->specifySex($sex);
+    }
+
+    /**
      * @When I specify its taxon as :name
      */
     public function iSpecifyItsTaxonAs(string $name): void

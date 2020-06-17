@@ -79,6 +79,13 @@ class Pet implements ResourceInterface
     private $mainColor;
 
     /**
+     * @var string|null
+     *
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $sex;
+
+    /**
      * @var Collection
      *
      * @ORM\OneToMany(targetEntity="PetImage", mappedBy="pet", orphanRemoval=true, cascade={"persist"})
@@ -199,5 +206,15 @@ class Pet implements ResourceInterface
     public function setTaxon(?TaxonInterface $taxon): void
     {
         $this->taxon = $taxon;
+    }
+
+    public function getSex(): ?string
+    {
+        return $this->sex;
+    }
+
+    public function setSex(?string $sex): void
+    {
+        $this->sex = $sex;
     }
 }

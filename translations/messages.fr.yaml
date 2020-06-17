@@ -22,6 +22,7 @@ app:
         create_user: Créer un utilisateur
         customer_name: Nom du client
         edit_pet: Edition d'un animal domestique
+        female: Femelle
         forgotten_password: Mot de passe oublié
         ginger: Roux
         grey: Gris
@@ -30,6 +31,7 @@ app:
         lets_find_a_dog: Trouvons un chien!
         lets_find_a_rodent: Trouvons un rongeur!
         main_color: Couleur dominante
+        male: Mâle
         managing_bookings: Gestion des réservations
         managing_pets: Gérer les animaux domestiques
         meter: Mètre

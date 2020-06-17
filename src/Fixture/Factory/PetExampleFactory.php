@@ -15,6 +15,7 @@ use App\Colors;
 use App\Entity\Animal\Pet;
 use App\Entity\Animal\PetImage;
 use App\Fixture\OptionsResolver\LazyOption;
+use App\Sex;
 use App\SizeUnits;
 use Monofony\Plugin\FixturesPlugin\Fixture\Factory\AbstractExampleFactory;
 use phpDocumentor\Reflection\Types\Array_;
@@ -76,6 +77,9 @@ class PetExampleFactory extends AbstractExampleFactory
             ->setDefault('mainColor', function (Options $options) {
                 return $this->faker->randomElement(Colors::ALL);
             })
+            ->setDefault('sex', function (Options $options) {
+                return $this->faker->randomElement(Sex::ALL);
+            })
             ->setDefault('taxon', LazyOption::randomOne($this->taxonRepository))
             ->setDefault('images', function (Options $options): array {
                 /** @var TaxonInterface $taxon */
@@ -102,6 +106,7 @@ class PetExampleFactory extends AbstractExampleFactory
         $animal->setSize($options['size']);
         $animal->setSizeUnit($options['sizeUnit']);
         $animal->setMainColor($options['mainColor']);
+        $animal->setSex($options['sex']);
         $animal->setTaxon($options['taxon']);
 
         $this->createImages($animal, $options);

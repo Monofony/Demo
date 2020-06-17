@@ -22,6 +22,7 @@ app:
         create_user: Create an user
         customer_name: Customer name
         edit_pet: Edit pet
+        female: Female
         forgotten_password: Forgotten password
         ginger: Ginger
         grey: Grey
@@ -30,6 +31,7 @@ app:
         lets_find_a_dog: Let’s find a dog!
         lets_find_a_rodent: Let’s find a rodent!
         main_color: Main color
+        male: Male
         managing_bookings: Managing bookings
         managing_pets: Managing pets
         meter: Meter

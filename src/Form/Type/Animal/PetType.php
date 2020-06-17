@@ -14,6 +14,7 @@ namespace App\Form\Type\Animal;
 use App\Colors;
 use App\Entity\Animal\Pet;
 use App\Entity\Taxonomy\Taxon;
+use App\Sex;
 use App\SizeUnits;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -46,6 +47,12 @@ class PetType extends AbstractType
                 'required' => false,
                 'placeholder' => '---',
                 'choices' => $this->getSizeUnitChoices(),
+            ])
+            ->add('sex', ChoiceType::class, [
+                'label' => 'app.ui.sex',
+                'required' => false,
+                'placeholder' => '---',
+                'choices' => $this->getSexChoices(),
             ])
             ->add('mainColor', ChoiceType::class, [
                 'label' => 'app.ui.main_color',
@@ -83,6 +90,11 @@ class PetType extends AbstractType
     private function getColorChoices(): array
     {
         return $this->getChoices(Colors::ALL);
+    }
+
+    private function getSexChoices(): array
+    {
+        return $this->getChoices(Sex::ALL);
     }
 
     private function getSizeUnitChoices(): array
