@@ -2,15 +2,13 @@
 <ul class="menu align-center-middle align-center">
     {{ render(url('sylius_frontend_partial_taxon_root_nodes', {'template': 'frontend/taxon/_horizontal_menu.html.twig'})) }}
 </ul>
-<div class="top-bar-right" style="margin-left: 0%;">
+<div class="top-bar-right">
     {% if is_granted('ROLE_USER') %}
         <div class="item">{{ 'sylius.ui.hello'|trans }} {{ app.user.customer.fullName }}!</div>
-        <a href="{{ path('sylius_frontend_account_dashboard') }}" class="item">{{ 'sylius.ui.my_account'|trans }}</a>
-        <a href="{{ path('app_frontend_logout') }}" class="item app-logout-button">{{ 'sylius.ui.logout'|trans }}</a>
+        <a href="{{ path('sylius_frontend_account_dashboard') }}" class="item button primary login">{{ 'sylius.ui.my_account'|trans }}</a>
+        <a href="{{ path('app_frontend_logout') }}" class="item app-logout-button button primary register">{{ 'sylius.ui.logout'|trans }}</a>
     {% else %}
-        <a href="{{ path('app_frontend_login') }}" class="item">{{ 'sylius.ui.login'|trans }}</a>
-        <a href="{{ path('app_frontend_register') }}" class="item">{{ 'sylius.ui.register'|trans }}</a>
+        <a href="{{ path('app_frontend_login') }}" class="item button primary login">{{ 'sylius.ui.login'|trans }}</a>
+        <a href="{{ path('app_frontend_register') }}" class="item button primary register">{{ 'sylius.ui.register'|trans }}</a>
     {% endif %}
-    <a class="button primary contact" type="button" href="">{{ 'app.ui.contact'|trans }}</a>
-    <a class="button primary admin" type="button" href="{{ path('sylius_backend_login') }}"><i class="fas fa-lock"></i>  {{ 'app.ui.admin'|trans }}</a>
 </div>
