@@ -4,15 +4,6 @@
         <h3>{{ 'app.ui.pet'|trans }}</h3>
         {% include 'frontend/grid/filter/_filters.html.twig' with { 'grid': resources } %}
     </div>
-    <div class="animal-sex-filter">
-        <h3>{{ 'app.ui.sex'|trans }}</h3>
-        <div class="checkbox">
-            <input type="checkbox"><label>Female</label>
-        </div>
-        <div class="checkbox">
-            <input type="checkbox"><label>Male</label>
-        </div>
-    </div>
     <div class="animal-color-filter">
         <h3>{{ 'app.ui.main_color'|trans }}</h3>
         <div class="grid-x">

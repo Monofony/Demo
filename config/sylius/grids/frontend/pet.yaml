@@ -18,6 +18,14 @@ sylius_grid:
             filters:
                 taxon:
                     type: taxon_filter
+                Sex:
+                    type: frontend_select
+                    form_options:
+                        choices:
+                            app.ui.male: Male
+                            app.ui.female: Female
+                        multiple: true
+                        expanded: true
     templates:
         filter:
             taxon_filter: 'frontend/pet/filters/_taxon_filter.html.twig'

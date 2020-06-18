@@ -10,3 +10,11 @@ body {
 .top-bar ul{
   background-color: #ffffff;
 }
+
+.sylius-filters__field > div > label{
+    font-family: Inter regular;
+    font-size: 16px;
+    font-weight: bold;
+    color: rgba(29, 71, 98, 0.5);
+    margin-bottom: 1vw;
+}

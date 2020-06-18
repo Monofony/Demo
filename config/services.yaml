@@ -53,3 +53,8 @@ services:
     App\Grid\Filter\TaxonFilter:
         tags:
             - { name: 'sylius.grid_filter', type: 'taxon_filter', form_type: App\Grid\Filter\TaxonFilterType }
+
+    app.grid.filter.frontend_select:
+        class: Sylius\Component\Grid\Filter\SelectFilter
+        tags:
+            - { name: 'sylius.grid_filter', type: 'frontend_select', form_type: Sylius\Bundle\GridBundle\Form\Type\Filter\SelectFilterType }
