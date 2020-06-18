@@ -18,8 +18,10 @@ sylius_grid:
             filters:
                 taxon:
                     type: taxon_filter
-                Sex:
+                    label: app.ui.pet
+                sex:
                     type: frontend_select
+                    label: app.ui.sex
                     form_options:
                         choices:
                             app.ui.male: Male
