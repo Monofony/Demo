@@ -2,8 +2,8 @@
 
 {% block form_row -%}
     <div class="{% if required %}required {% endif %}field{% if (not compound or force_error|default(false)) and not valid %} error{% endif %}">
-        {{- form_label(form) -}}
         {{- form_widget(form) -}}
+        {{- form_label(form) -}}
         {{- form_errors(form) -}}
     </div>
 {%- endblock form_row %}
@@ -22,8 +22,8 @@
     <div class="{% if required %}required {% endif %}field{% if (not compound or force_error|default(false)) and not valid %} error{% endif %}">
         <div class="ui toggle checkbox">
             {{- form_widget(form) -}}
-            {{- form_label(form) -}}
             {{- form_errors(form) -}}
+            {{- form_label(form) -}}
         </div>
     </div>
 {%- endblock checkbox_row %}
@@ -31,8 +31,8 @@
 {% block radio_row -%}
     <div class="field{% if (not compound or force_error|default(false)) and not valid %} error{% endif %}">
         <div class="ui radio checkbox">
-            {{- form_label(form) -}}
             {{- form_widget(form) -}}
+            {{- form_label(form) -}}
             {{- form_errors(form) -}}
         </div>
     </div>
