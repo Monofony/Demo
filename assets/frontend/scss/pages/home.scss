@@ -2,96 +2,8 @@
    background-color: #f4f8f9;
 }
 
-#they-cant-wait-to-m {
-   width: 367px;
-   height: 40px;
-   font-family: Poppins;
-   font-size: 24px;
-   text-align: center;
-   color: #133e56;
-   margin-left: auto;
-   margin-right: auto;
- }
-
-#blue-rectangle{
-   width: auto;
-   height: 700px;
-   background-color: #133e56;
-}
-
-#white-rectangle{
-   width: 372px;
-   height: 412px;
-   border-radius: 10px;
-   box-shadow: 0 8px 14px 0 rgba(19, 62, 86, 0.08), 0 2px 6px 0 rgba(19, 62, 86, 0.08);
-   background-color: #ffffff;
-}
-
-#what-kind-of-animal{
-   text-align: center;
-   font-family: Poppins;
-   font-size: 24px;
-   color: #ffffff;
-   padding-top: 70px;
-}
-
-.card-img-pet-homepage{
-   display: block;
-   margin-left: auto;
-   margin-right: auto;
-   padding-top: 83px;
-}
-
-.card-h1-pet-homepage{
-   text-align: center;
-   font-family: Poppins;
-   font-size: 25px;
-   color: #133e56;
-   padding-top: 20px;
-}
-
-.card-p-pet-homepage{
-   text-align: center;
-   font-size: 18px;
-   text-align: center;
-   color: #8da2b0;
-   padding-top: 10px;
-}
-
-#last-pets {
-   display: block;
-   margin-left: auto;
-   margin-right: auto;
-}
-
-.button.homepage {
-   width: 200px;
-   height: 50px;
-   border-radius: 5px;
-   box-shadow: 0 2px 6px 0 rgba(19, 62, 86, 0.08);
-   background-color: #4baeb4;
-   display: block;
-   margin-left: auto;
-   margin-right: auto;
-   margin-bottom: 50px;
-   text-align: center;
-   font-size: 16px;
-   font-weight: bold;
-   color: #ffffff;
-}
-
-#text-they-cant-wait-to-meet-you-homepage{
-   font-family: Poppins;
-   font-size: 24px;
-   text-align: center;
-   color: #133e56;
-   padding-bottom: 50px;
-}
-
-.grid-homepage{
-   display: block;
-   margin-left: auto;
-   margin-right: auto;
+.header {
+   display: flex;
 }
 
 .adopt-the-perfect-pet{
@@ -121,4 +33,82 @@
    height: 70vh;
    overflow: hidden;
    border-bottom-left-radius: 180px;
+}
+
+.latest-pets > h1 {
+   width: 367px;
+   height: 40px;
+   font-family: Poppins;
+   font-size: 24px;
+   text-align: center;
+   color: #133e56;
+   margin-left: auto;
+   margin-right: auto;
+ }
+
+.rectangle.blue{
+   width: auto;
+   height: 700px;
+   background-color: #133e56;
+}
+
+.card.home {
+   width: 372px;
+   height: 412px;
+   border-radius: 10px;
+   box-shadow: 0 8px 14px 0 rgba(19, 62, 86, 0.08), 0 2px 6px 0 rgba(19, 62, 86, 0.08);
+   background-color: #ffffff;
+}
+
+.rectangle.blue > h1{
+   text-align: center;
+   font-family: Poppins;
+   font-size: 24px;
+   color: #ffffff;
+   padding-top: 70px;
+}
+
+.card.home img{
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   padding-top: 83px;
+}
+
+.card.home h1{
+   text-align: center;
+   font-family: Poppins;
+   font-size: 25px;
+   color: #133e56;
+   padding-top: 20px;
+}
+
+.card.home p{
+   text-align: center;
+   font-size: 18px;
+   text-align: center;
+   color: #8da2b0;
+   padding-top: 10px;
+}
+
+.button.homepage {
+   width: 200px;
+   height: 50px;
+   border-radius: 5px;
+   box-shadow: 0 2px 6px 0 rgba(19, 62, 86, 0.08);
+   background-color: #4baeb4;
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   margin-bottom: 50px;
+   text-align: center;
+   font-size: 16px;
+   font-weight: bold;
+   color: #ffffff;
+}
+
+.grid-homepage{
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
 }

@@ -1,13 +1,9 @@
 {% import '@SyliusUi/Macro/pagination.html.twig' as pagination %}
 
-<div class="grid-x grid-margin-x" style="padding-bottom: 50px">
-    <div id="last-pets" class="cell small-6">
-        <div class="ui four link cards">
-            {% for pet in resources %}
-                {% include 'frontend/pet/_card.html.twig' with {'pet': pet} only %}
-            {% endfor %}
-        </div>
-
-        <div class="ui hidden divider"></div>
+<div class="grid-container">
+    <div class="grid-x grid-margin-x">
+        {% for pet in resources %}
+            {% include 'frontend/homepage/_card.html.twig' with {'pet': pet} only %}
+        {% endfor %}
     </div>
 </div>
