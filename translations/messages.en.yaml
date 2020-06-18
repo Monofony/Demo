@@ -35,6 +35,7 @@ app:
         male: Male
         managing_bookings: Managing bookings
         managing_pets: Managing pets
+        medium: Medium
         meter: Meter
         millimeter: Millimeter
         monofony_is_nananini: Monofony is nananinininin powered by Mobizel blablabla
@@ -50,6 +51,8 @@ app:
         show_me_more: Show me more!
         size: Size
         size_unit: Size unit
+        small: Small
+        tall: Tall
         taxon: Taxon
         they_cant_wait_to_meet_you: They can’t wait to meet you!
         validate: Validate
