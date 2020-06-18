@@ -53,11 +53,7 @@
             <h1>{{ pet.taxon.code }}</h1>
             <h3>Some text</h3>
             <hr>
-            <p>Cocker spaniels are known for being gentle, easy-going and affectionate yet lively. They are generally considered good with children. They tend to be non-aggressive toward other animals and people, but that also means they are not particularly good watchdogs.<br><br>
-
-                One note of caution is warranted. At one time, cocker spaniels became so popular they were overbred, which resulted in some high-strung dogs and dogs with health problems.<br><br>
-
-                When it comes to housebreaking and obedience training, reports are mixed. Some sources say that cocker spaniels rank average when it comes to ease of training. Others say these dogs are very obedient, but others say they can be stubborn, particularly about housebreaking.</p>
+            <p>{{ pet.taxon.description|nl2br }}</p>
         </div>
     </div>
 {% endblock content %}
