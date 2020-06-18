@@ -81,7 +81,7 @@ class PetExampleFactory extends AbstractExampleFactory
             ->setDefault('sex', function (Options $options) {
                 return $this->faker->randomElement(Sex::ALL);
             })
-            ->setDefault('sizeRange', function (Options $options) {
+            ->setDefault('size_range', function (Options $options) {
                 return $this->faker->randomElement(SizeRanges::ALL);
             })
             ->setDefault('taxon', LazyOption::randomOne($this->taxonRepository))
@@ -112,7 +112,7 @@ class PetExampleFactory extends AbstractExampleFactory
         $animal->setMainColor($options['mainColor']);
         $animal->setSex($options['sex']);
         $animal->setTaxon($options['taxon']);
-        $animal->setSizeRange($options['sizeRange']);
+        $animal->setSizeRange($options['size_range']);
 
         $this->createImages($animal, $options);
 
