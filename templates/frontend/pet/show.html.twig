@@ -3,28 +3,57 @@
 {% set pageTitle = 'app.ui.pets'| trans %}
 
 {% block content %}
-    <div class="ui two column stackable grid">
-        <div class="column">
-            {% include 'frontend/pet/show/_images.html.twig' %}
+    <div>
+        <div class="grid-x grid-margin-x">
+            <div class="cell small-11 large-offset-1">
+                {% include 'frontend/pet/show/_breadcrumb.html.twig' %}
+            </div>
         </div>
-        <div class="column">
-                <h1 id="pet-name" class="ui monster dividing header">{{ pet.name }}</h1>
-                <div class="ui stackable grid">
-                    <div class="four wide column">
-                        <span class="ui huge header" id="pet-taxon">
-                        {{ pet.taxon.code }}
-                        </span>
+    </div>
+    <div>
+        <div class="grid-x grid-margin-x">
+            <div class="cell small-5 large-offset-1">
+                {% include 'frontend/pet/show/_images.html.twig' %}
+            </div>
+            <div class="cell small-5">
+                <div class="pet">
+                    <h1 data-name>{{ pet.name }}</h1>
+                    <h3>{{ pet.taxon.code }}</h3>
+                    <div>
+                        <p>{{ pet.description|nl2br }}</p>
+                    </div>
                 </div>
+                <div class="info">
+                    <div class="grid-x grid-margin-x">
+                        <div class="cell small-4">
+                            <h2>{{ 'app.ui.sex'|trans }}</h2>
+                            <h3>Female</h3>
+                        </div>
+                        <div class="cell small-4">
+                            <h2>{{ 'app.ui.main_color'|trans }}</h2>
+                            <h3>{{ pet.mainColor }}</h3>
+                        </div>
+                        <div class="cell small-4">
+                            <h2>{{ 'app.ui.size'|trans }}</h2>
+                            <h3>{{ pet.size }} {{ pet.sizeUnit }}</h3>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div>
+                    <a type="button" class="button primary pet">{{ 'app.ui.ask_for_a_visit'|trans }}</a>
+                </div>
+                <hr>
             </div>
-            <div class="ui basic segment">
-                <p>{{ pet.description|nl2br }}</p>
-            </div>
-            <div class="ui segment">
-                <form class="ui loadable form">
-                    <button type="submit" class="ui huge primary icon labeled button"><i class="cart icon"></i> Réserver cet pet</button>
-                </form>
-            </div>
-            <div class="ui hidden divider"></div>
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="taxon">
+            <hr>
+            <h1>{{ pet.taxon.code }}</h1>
+            <h3>Some text</h3>
+            <hr>
+            <p>{{ pet.taxon.description|nl2br }}</p>
         </div>
     </div>
 {% endblock content %}

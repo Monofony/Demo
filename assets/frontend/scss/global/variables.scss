@@ -1,7 +1,15 @@
 $foundation-palette: (
-  primary: #1779ba,
-  secondary: #767676,
+  primary: #4baeb4,
+  secondary: #133e56,
   success: #3adb76,
   warning: #ffae00,
   alert: #cc4b37,
+);
+
+$monofony-color: (
+  light-grey: #f4f8f9,
+  monofony-grey: rgba(29, 71, 98, 0.5),
+  monofony-blue: #4baeb4,
+  dark-blue: #133e56,
+  dark-blue-bis: #1d4762
 );

@@ -69,7 +69,7 @@
 $global-font-size: 87.5%;
 $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
-$body-font-family: "museo-sans", Helvetica, Roboto, Arial, sans-serif;
+$body-font-family: "Inter regular", Helvetica, Roboto, Arial, sans-serif;
 $body-antialiased: true;
 $global-margin: 1rem;
 $global-padding: 1rem;
@@ -118,10 +118,10 @@ $block-grid-max: 8;
 // 4. Base Typography
 // ------------------
 
-$header-font-family: "museo", serif;
+$header-font-family: Inter regular;
 $header-font-weight: 700;
 $header-font-style: normal;
-$font-family-monospace: Consolas, "Liberation Mono", Courier, monospace;
+$font-family-monospace: Inter regular;
 $header-color: inherit;
 $header-lineheight: 1.4;
 $header-margin-bottom: 0.5rem;
@@ -131,7 +131,7 @@ $header-styles: (
             "font-size": 30
         ),
         "h2": (
-            "font-size": 22
+            "font-size": 18
         ),
         "h3": (
             "font-size": 16
@@ -148,7 +148,7 @@ $header-styles: (
     ),
     medium: (
         "h1": (
-            "font-size": 35
+            "font-size": 30
         ),
         "h2": (
             "font-size": 26

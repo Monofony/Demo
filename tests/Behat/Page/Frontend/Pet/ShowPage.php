@@ -29,7 +29,7 @@ final class ShowPage extends SymfonyPage
     protected function getDefinedElements(): array
     {
         return array_merge(parent::getDefinedElements(), [
-            'name' => '#pet-name',
+            'name' => '[data-name]',
         ]);
     }
 }
