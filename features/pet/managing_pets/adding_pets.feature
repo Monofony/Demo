@@ -6,11 +6,13 @@ Feature: Adding a new pet
 
     Background:
         Given I am logged in as an administrator
+        And there is a taxon with name "Amphibie"
 
     @ui
     Scenario: Adding a new pet
         Given I want to create a new pet
         When I specify its name as "Axolotl"
+        And I specify its taxon as "Amphibie"
         And I add it
         Then I should be notified that it has been successfully created
         And the pet "Axolotl" should appear in the list
@@ -20,6 +22,7 @@ Feature: Adding a new pet
         Given I want to create a new pet
         When I specify its name as "Axolotl"
         And I specify its sex as "male"
+        And I specify its taxon as "Amphibie"
         And I add it
         Then I should be notified that it has been successfully created
         And the pet "Axolotl" should appear in the list
@@ -30,6 +33,7 @@ Feature: Adding a new pet
         When I specify its name as "Axolotl"
         And I specify its size as "12"
         And I specify its size unit as "centimeter"
+        And I specify its taxon as "Amphibie"
         And I add it
         Then I should be notified that it has been successfully created
         And the pet "Axolotl" should appear in the list
