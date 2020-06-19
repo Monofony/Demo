@@ -103,6 +103,8 @@ class Pet implements ResourceInterface
      * @var TaxonInterface|null
      *
      * @ORM\ManyToOne(targetEntity="App\Entity\Taxonomy\Taxon")
+     *
+     * @Assert\NotBlank()
      */
     private $taxon;
 
