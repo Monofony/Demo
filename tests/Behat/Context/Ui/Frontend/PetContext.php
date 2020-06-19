@@ -88,4 +88,20 @@ final class PetContext implements Context
     {
         $this->indexPage->filterByTaxon($taxonName);
     }
+
+    /**
+     * @Then I only want to see the males
+     */
+    public function iOnlyWantToSeeTheMales()
+    {
+        $this->indexPage->filterBySex("Male");
+    }
+
+    /**
+     * @Then I only want to see the small pets
+     */
+    public function iOnlyWantToSeeTheSmallPets()
+    {
+        $this->indexPage->filterBySize("Small");
+    }
 }
