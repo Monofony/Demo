@@ -35,13 +35,17 @@ final class PetRepository extends EntityRepository
             ->getResult();
     }
 
-    public function createListQueryBuilder($taxonId = null): QueryBuilder
+    public function createListQueryBuilder($taxonId = null, $locale): QueryBuilder
     {
         $queryBuilder = $this->createQueryBuilder('o');
-
+        $queryBuilder
+            ->innerJoin('o.taxon', 'animalTaxon')
+            ->innerJoin('animalTaxon.translations', 'translation')
+            ->andWhere('translation.locale = :locale')
+            ->setParameter('locale', $locale)
+        ;
         if (null !== $taxonId) {
             $queryBuilder
-                ->innerJoin('o.taxon', 'animalTaxon')
                 ->andWhere('animalTaxon.id = :taxonId')
                 ->setParameter('taxonId', $taxonId)
             ;
