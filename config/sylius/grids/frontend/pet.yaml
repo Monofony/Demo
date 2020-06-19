@@ -28,6 +28,16 @@ sylius_grid:
                             app.ui.female: Female
                         multiple: true
                         expanded: true
+                sizeRange:
+                    type: frontend_select
+                    label: app.ui.size
+                    form_options:
+                        choices:
+                            app.ui.small: Small
+                            app.ui.medium: Medium
+                            app.ui.tall: Tall
+                        multiple: true
+                        expanded: true
     templates:
         filter:
             taxon_filter: 'frontend/pet/filters/_taxon_filter.html.twig'

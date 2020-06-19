@@ -13,6 +13,8 @@ namespace App\Tests\Behat\Context\Setup;
 
 use App\Entity\Animal\Pet;
 use App\Fixture\Factory\PetExampleFactory;
+use App\Sex;
+use App\SizeRanges;
 use Behat\Behat\Context\Context;
 use Doctrine\ORM\EntityManagerInterface;
 use Monofony\Bundle\CoreBundle\Tests\Behat\Service\SharedStorageInterface;
@@ -53,6 +55,51 @@ class PetContext implements Context
     public function thisAnimalBelongsTo(Pet $animal, TaxonInterface $taxon)
     {
         $animal->setTaxon($taxon);
+        $this->manager->flush();
+    }
+
+    /**
+     * @Given /^(it|this pet) is a male$/
+     */
+    public function thisPetIsAMale(Pet $animal)
+    {
+        $animal->setSex(Sex::MALE);
+        $this->manager->flush();
+    }
+
+    /**
+     * @Given /^(it|this pet) is a female$/
+     */
+    public function thisPetIsAFemale(Pet $animal)
+    {
+        $animal->setSex(Sex::FEMALE);
+        $this->manager->flush();
+    }
+
+    /**
+     * @Given /^(it|this pet) is small$/
+     */
+    public function thisPetIsSmall(Pet $animal)
+    {
+        $animal->setSizeRange(SizeRanges::SMALL);
+        $this->manager->flush();
+    }
+
+    /**
+     * @Given /^(it|this pet) is medium$/
+     */
+    public function thisPetIsMedium(Pet $animal)
+    {
+        $animal->setSizeRange(SizeRanges::MEDIUM);
+        $this->manager->flush();
+    }
+
+    /**
+     * @Given /^(it|this pet) is tall$/
+     */
+    public function thisPetIsTall(Pet $animal)
+    {
+        $animal->setSizeRange(SizeRanges::TALL);
         $this->manager->flush();
     }
 
