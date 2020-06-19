@@ -21,6 +21,11 @@ sylius_grid:
                     type: string
                     label: sylius.ui.name
                     sortable: null
+                taxon:
+                    type: string
+                    label: app.ui.taxon
+                    sortable: null
+                    path: taxon.code
             filters:
                 search:
                     type: string
