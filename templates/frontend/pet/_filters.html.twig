@@ -1,6 +1,5 @@
 <div class="cell small-2 animal-filter">
     <div class="animal-animal-filter">
-        <h3>{{ 'app.ui.pet'|trans }}</h3>
         {% include 'frontend/grid/filter/_filters.html.twig' with { 'grid': resources } %}
     </div>
     <div class="animal-color-filter">
@@ -38,18 +37,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="animal-size-filter">
-        <h3>{{ 'app.ui.size'|trans }}</h3>
-        <div class="checkbox">
-            <input type="checkbox"><label>Small</label>
-        </div>
-        <div class="checkbox">
-            <input type="checkbox"><label>Medium</label>
-        </div>
-        <div class="checkbox">
-            <input type="checkbox"><label>Tall</label>
         </div>
     </div>
 </div>
