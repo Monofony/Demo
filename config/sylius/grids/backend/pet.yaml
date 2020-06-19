@@ -7,7 +7,7 @@ sylius_grid:
                     class: '%app.model.pet.class%'
                     repository:
                         method: createListQueryBuilder
-                        arguments: [$taxonId]
+                        arguments: [$taxonId, '%locale%']
             sorting:
                 name: asc
             fields:
@@ -25,7 +25,7 @@ sylius_grid:
                     type: string
                     label: app.ui.taxon
                     sortable: null
-                    path: taxon.code
+                    path: taxon.translation.name
             filters:
                 search:
                     type: string
