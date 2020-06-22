@@ -14,7 +14,7 @@
             {% endfor %}
 
             <li>
-                <a href="{{ path('app_frontend_pet_index', {'slug': taxon.slug}) }}" class="section">{{ taxon.name }}</a>
+                <a href="{{ path('app_frontend_pet_per_taxon_index', {'slug': taxon.slug}) }}" class="section">{{ taxon.name }}</a>
             </li>
         {% endif %}
         <li>
