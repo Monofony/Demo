@@ -19,6 +19,7 @@ use App\Repository\TaxonRepository;
 use App\Sex;
 use App\SizeRanges;
 use App\SizeUnits;
+use Doctrine\Common\Collections\Collection;
 use Monofony\Plugin\FixturesPlugin\Fixture\Factory\AbstractExampleFactory;
 use Sylius\Component\Resource\Factory\FactoryInterface;
 use Sylius\Component\Taxonomy\Model\TaxonInterface;
