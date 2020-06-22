@@ -6,13 +6,20 @@ Feature: Viewing pets from a specific taxon
 
     Background:
         Given pets are classified under "Cats" and "Dogs" categories
+        And the "Cats" category has children category "Persan" and "Siamese"
         And there is also a pet with name "Winnie"
-        And this pet belongs to "Cats"
+        And this pet belongs to "Persan"
         And there is also a pet with name "Gizmo"
         And this pet belongs to "Dogs"
 
     @ui
     Scenario: Viewing pets from a specific taxon
+        When I browse pets from taxon "Persan"
+        Then I should see the pet "Winnie"
+        And I should not see the pet "Gizmo"
+
+    @ui
+    Scenario: Viewing pets from a specific root taxon
         When I browse pets from taxon "Cats"
         Then I should see the pet "Winnie"
         And I should not see the pet "Gizmo"

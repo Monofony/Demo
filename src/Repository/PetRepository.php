@@ -15,6 +15,7 @@ namespace App\Repository;
 
 use Doctrine\ORM\QueryBuilder;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
+use Sylius\Component\Taxonomy\Model\TaxonInterface;
 
 final class PetRepository extends EntityRepository
 {
@@ -54,19 +55,20 @@ final class PetRepository extends EntityRepository
         return $queryBuilder;
     }
 
-    public function createListQuerySlugBuilder(string $localeCode, $slug = null): QueryBuilder
+    public function createListForFrontQueryBuilder(string $localeCode, TaxonInterface $taxon = null): QueryBuilder
     {
         $queryBuilder = $this->createQueryBuilder('o');
+        $queryBuilder
+            ->innerJoin('o.taxon', 'taxon');
 
-        if (null !== $slug) {
+        if (null !== $taxon) {
             $queryBuilder
-                ->innerJoin('o.taxon', 'taxon')
-                ->innerJoin('taxon.translations', 'translation')
-                ->andWhere('translation.locale = :localeCode')
-                ->andWhere('translation.slug = :slug')
-                ->setParameter('slug', $slug)
-                ->setParameter('localeCode', $localeCode)
-            ;
+                ->andWhere('taxon.left >= :taxonLeft')
+                ->andWhere('taxon.right <= :taxonRight')
+                ->andWhere('taxon.root = :taxonRoot')
+                ->setParameter('taxonLeft', $taxon->getLeft())
+                ->setParameter('taxonRight', $taxon->getRight())
+                ->setParameter('taxonRoot', $taxon->getRoot());
         }
 
         return $queryBuilder;

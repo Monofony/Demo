@@ -1,0 +1,16 @@
+sylius_grid:
+    grids:
+        app_frontend_pet_per_taxon:
+            extends: app_frontend_pet
+            driver:
+                name: doctrine/orm
+                options:
+                    class: '%app.model.pet.class%'
+                    repository:
+                        method: createListForFrontQueryBuilder
+                        arguments:
+                            locale: '%locale%'
+                            taxon: "expr:notFoundOnNull(service('sylius.repository.taxon').findOneBySlug($slug, '%locale%'))"
+            limits: [12]
+            sorting:
+                name: asc

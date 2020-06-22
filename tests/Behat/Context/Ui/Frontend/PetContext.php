@@ -14,6 +14,7 @@ namespace App\Tests\Behat\Context\Ui\Frontend;
 
 use App\Entity\Animal\Pet;
 use App\Tests\Behat\Page\Frontend\Pet\IndexPage;
+use App\Tests\Behat\Page\Frontend\Pet\IndexPerTaxonPage;
 use App\Tests\Behat\Page\Frontend\Pet\ShowPage;
 use Behat\Behat\Context\Context;
 use Sylius\Component\Taxonomy\Model\TaxonInterface;
@@ -24,12 +25,16 @@ final class PetContext implements Context
     /** @var IndexPage */
     private $indexPage;
 
+    /** @var IndexPerTaxonPage */
+    private $indexPerTaxonPage;
+
     /** @var ShowPage */
     private $showPage;
 
-    public function __construct(IndexPage $indexPage, ShowPage $showPage)
+    public function __construct(IndexPage $indexPage, IndexPerTaxonPage $indexPerTaxonPage, ShowPage $showPage)
     {
         $this->indexPage = $indexPage;
+        $this->indexPerTaxonPage = $indexPerTaxonPage;
         $this->showPage = $showPage;
     }
 
@@ -70,7 +75,7 @@ final class PetContext implements Context
      */
     public function iBrowsePetsFromTaxon(TaxonInterface $taxon)
     {
-        $this->indexPage->open(['slug' => $taxon->getSlug()]);
+        $this->indexPerTaxonPage->open(['slug' => $taxon->getSlug()]);
     }
 
     /**

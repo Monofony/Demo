@@ -6,8 +6,9 @@ sylius_grid:
                 options:
                     class: '%app.model.pet.class%'
                     repository:
-                        method: createListQuerySlugBuilder
-                        arguments: ['%locale%', $slug]
+                        method: createListForFrontQueryBuilder
+                        arguments:
+                            locale: '%locale%'
             limits: [12]
             sorting:
                 name: asc
