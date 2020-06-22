@@ -153,7 +153,7 @@ class PetExampleFactory extends AbstractExampleFactory
     {
         $directory = $this->testsDir.'/Resources/pets/'.strtolower($taxon->getSlug());
         if (!is_dir($directory)) {
-            if ($taxon->isRoot) {
+            if ($taxon->isRoot()) {
                 return function(): array {
                     return [];
                 };
