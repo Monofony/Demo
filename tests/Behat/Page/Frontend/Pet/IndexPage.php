@@ -14,7 +14,7 @@ namespace App\Tests\Behat\Page\Frontend\Pet;
 
 use FriendsOfBehat\PageObjectExtension\Page\SymfonyPage;
 
-final class IndexPage extends SymfonyPage
+class IndexPage extends SymfonyPage
 {
     public function getRouteName(): string
     {

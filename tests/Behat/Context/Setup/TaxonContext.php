@@ -16,6 +16,7 @@ use App\Fixture\Factory\TaxonExampleFactory;
 use Behat\Behat\Context\Context;
 use Doctrine\ORM\EntityManagerInterface;
 use Monofony\Bundle\CoreBundle\Tests\Behat\Service\SharedStorageInterface;
+use Sylius\Component\Taxonomy\Model\TaxonInterface;
 
 final class TaxonContext implements Context
 {
@@ -44,11 +45,10 @@ final class TaxonContext implements Context
      */
     public function thereIsATaxonWithName(string $name): void
     {
-        $taxon = $this->taxonFactory->create(['name' => $name]);
+        $taxon = $this->createWithOptions(['name' => $name]);
 
         $this->manager->persist($taxon);
         $this->manager->flush();
-        $this->sharedStorage->set('taxon', $taxon);
     }
 
     /**
@@ -57,10 +57,30 @@ final class TaxonContext implements Context
     public function petsAreClassifiedUnderAndCategories(...$taxonNames)
     {
         foreach ($taxonNames as $taxonName) {
-            $taxon = $this->taxonFactory->create(['name' => $taxonName]);
+            $taxon = $this->createWithOptions(['name' => $taxonName]);
             $this->manager->persist($taxon);
         }
 
         $this->manager->flush();
+    }
+
+    /**
+     * @Given /^the ("[^"]+" category) has children category "([^"]+)" and "([^"]+)"$/
+     */
+    public function theTaxonHasChildrenTaxonAnd(TaxonInterface $taxon, $firstTaxonName, $secondTaxonName)
+    {
+        $taxon->addChild($this->createWithOptions(['name' => $firstTaxonName]));
+        $taxon->addChild($this->createWithOptions(['name' => $secondTaxonName]));
+
+        $this->manager->persist($taxon);
+        $this->manager->flush();
+    }
+
+    private function createWithOptions(array $options): TaxonInterface
+    {
+        $taxon = $this->taxonFactory->create($options);
+        $this->sharedStorage->set('taxon', $taxon);
+
+        return $taxon;
     }
 }
