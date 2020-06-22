@@ -1,18 +1,8 @@
 {% macro item(taxon) %}
-    {% import _self as macros %}
+    {% set currentTaxon = app.request.get('slug') %}
+
     <ul class="dropdown menu" data-dropdown-menu>
-    {% if taxon.children|length > 0 %}
-        <li>
-            <a class="text">{{ taxon.name }}</a>
-            <ul class="menu">
-                {% for childTaxon in taxon.children %}
-                    {{ macros.item(childTaxon) }}
-                {% endfor %}
-            </ul>
-        </li>
-    {% else %}
-        <li><a class="a-taxon" href="{{ path('app_frontend_pet_per_taxon_index', {'slug': taxon.slug}) }}">{{ taxon.name }}</a></li>
-    {% endif %}
+        <li><a class="a-taxon{% if currentTaxon == taxon.slug %} active{% endif %}" href="{{ path('app_frontend_pet_per_taxon_index', {'slug': taxon.slug}) }}">{{ taxon.name }}</a></li>
     </ul>
 {% endmacro %}
 
