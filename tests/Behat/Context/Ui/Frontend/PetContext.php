@@ -104,4 +104,12 @@ final class PetContext implements Context
     {
         $this->indexPage->filterBySize("Small");
     }
+
+    /**
+     * @Then I only want to see the black pets
+     */
+    public function iOnlyWantToSeeTheBlackPets()
+    {
+        $this->indexPage->filterByColor("Black");
+    }
 }

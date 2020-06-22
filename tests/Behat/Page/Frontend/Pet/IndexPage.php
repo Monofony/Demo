@@ -26,10 +26,17 @@ final class IndexPage extends SymfonyPage
         return null !== $this->getDocument()->find('css', sprintf('.header:contains("%s")', $name));
     }
 
+    public function filterByColor($color)
+    {
+        $select = $this->getElement('color_filter');
+        $select->selectOption($color);
+        $this->getElement('filter_button')->click();
+    }
+
     public function filterBySex($sex)
     {
-        $label = $this->getElement('sex_filter', ['%sex%' => $sex]);
-        $label->getParent()->find('css', 'input')->check();
+        $select = $this->getElement('sex_filter');
+        $select->selectOption($sex);
         $this->getElement('filter_button')->click();
     }
 
@@ -50,7 +57,8 @@ final class IndexPage extends SymfonyPage
     protected function getDefinedElements(): array
     {
         return array_merge(parent::getDefinedElements(), [
-            'sex_filter' => '#criteria_sex .checkbox label:contains("%sex%")',
+            'color_filter' => '#criteria_mainColor [name="criteria[mainColor]"]',
+            'sex_filter' => '#criteria_sex [name="criteria[sex]"]',
             'size_filter' => '#criteria_sizeRange .checkbox label:contains("%size%")',
             'taxon_filter' => '#criteria_taxon .checkbox label:contains("%taxon%")',
             'filter_button' => '.button.blue.labeled'

@@ -11,6 +11,7 @@
 
 namespace App\Tests\Behat\Context\Setup;
 
+use App\Colors;
 use App\Entity\Animal\Pet;
 use App\Fixture\Factory\PetExampleFactory;
 use App\Sex;
@@ -100,6 +101,24 @@ class PetContext implements Context
     public function thisPetIsTall(Pet $animal)
     {
         $animal->setSizeRange(SizeRanges::TALL);
+        $this->manager->flush();
+    }
+
+    /**
+     * @Given /^(it|this pet) is black$/
+     */
+    public function thisPetIsBlack(Pet $animal)
+    {
+        $animal->setMainColor(Colors::BLACK);
+        $this->manager->flush();
+    }
+
+    /**
+     * @Given /^(it|this pet) is white$/
+     */
+    public function thisPetIsWhite(Pet $animal)
+    {
+        $animal->setMainColor(Colors::WHITE);
         $this->manager->flush();
     }
 

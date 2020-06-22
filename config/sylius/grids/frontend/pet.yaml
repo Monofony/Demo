@@ -26,7 +26,17 @@ sylius_grid:
                         choices:
                             app.ui.male: Male
                             app.ui.female: Female
-                        multiple: true
+                        expanded: true
+                mainColor:
+                    type: frontend_select
+                    label: app.ui.main_color
+                    form_options:
+                        choices:
+                            app.ui.black: Black
+                            app.ui.brown: Brown
+                            app.ui.ginger: Ginger
+                            app.ui.grey: Grey
+                            app.ui.white: White
                         expanded: true
                 sizeRange:
                     type: frontend_select
