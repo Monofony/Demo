@@ -1,6 +1,6 @@
 {% macro item(taxon) %}
     {% import _self as macros %}
-    <ul class="dropdown menu">
+    <ul class="dropdown menu" data-dropdown-menu>
     {% if taxon.children|length > 0 %}
         <li>
             <a class="text">{{ taxon.name }}</a>

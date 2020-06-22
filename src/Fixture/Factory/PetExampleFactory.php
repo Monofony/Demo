@@ -155,7 +155,7 @@ class PetExampleFactory extends AbstractExampleFactory
             if ($taxon->isRoot) {
                 return function(): array {
                     return [];
-                }
+                };
             }
 
             return $this->randomImages($taxon->getParent(), $options);
