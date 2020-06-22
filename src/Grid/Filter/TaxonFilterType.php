@@ -60,7 +60,7 @@ final class TaxonFilterType extends AbstractType
                 ],
                 'class' => Taxon::class,
                 'multiple' => true,
-                'choice_value' => 'slug',
+                'choice_value' => 'code',
                 'choice_label' => 'name',
                 'query_builder' => function (EntityRepository $entityRepository) use ($taxon) {
                     $queryBuilder = $entityRepository->createQueryBuilder('o');

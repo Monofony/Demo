@@ -15,18 +15,18 @@ use App\Colors;
 use App\Entity\Animal\Pet;
 use App\Entity\Animal\PetImage;
 use App\Fixture\OptionsResolver\LazyOption;
+use App\Repository\TaxonRepository;
 use App\Sex;
 use App\SizeRanges;
 use App\SizeUnits;
 use Monofony\Plugin\FixturesPlugin\Fixture\Factory\AbstractExampleFactory;
-use phpDocumentor\Reflection\Types\Array_;
 use Sylius\Component\Resource\Factory\FactoryInterface;
-use Sylius\Component\Resource\Repository\RepositoryInterface;
 use Sylius\Component\Taxonomy\Model\TaxonInterface;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Webmozart\Assert\Assert;
 
 class PetExampleFactory extends AbstractExampleFactory
 {
@@ -36,7 +36,7 @@ class PetExampleFactory extends AbstractExampleFactory
     /** @var FactoryInterface */
     private $petImageFactory;
 
-    /** @var RepositoryInterface */
+    /** @var TaxonRepository */
     private $taxonRepository;
 
     /** @var OptionsResolver */
@@ -47,7 +47,7 @@ class PetExampleFactory extends AbstractExampleFactory
 
     public function __construct(
         FactoryInterface $petImageFactory,
-        RepositoryInterface $taxonRepository,
+        TaxonRepository $taxonRepository,
         string $testsDir
     ) {
         $this->petImageFactory = $petImageFactory;
@@ -84,17 +84,14 @@ class PetExampleFactory extends AbstractExampleFactory
             ->setDefault('size_range', function (Options $options) {
                 return $this->faker->randomElement(SizeRanges::ALL);
             })
-            ->setDefault('taxon', LazyOption::randomOne($this->taxonRepository))
+            ->setDefault('taxon', $this::randomOne($this->taxonRepository))
             ->setDefault('images', function (Options $options): array {
                 /** @var TaxonInterface $taxon */
                 $taxon = $options['taxon'];
 
-                $directory = $this->testsDir.'/Resources/pets/'.strtolower($taxon->getCode());
-                if (!file_exists($directory)) {
-                    return [];
-                }
+                $closure = $this->randomImages($taxon, $options);
 
-                return LazyOption::randomOnesImage($directory, 3)->call($this, $options);
+                return $closure->call($this, $options);
             })
         ;
     }
@@ -134,5 +131,32 @@ class PetExampleFactory extends AbstractExampleFactory
 
             $animal->addImage($image);
         }
+    }
+
+    private static function randomOne(TaxonRepository $repository): \Closure
+    {
+        return function (Options $options) use ($repository) {
+            $objects = $repository->findTaxonsWithoutChildren();
+
+            if ($objects instanceof Collection) {
+                $objects = $objects->toArray();
+            }
+
+            Assert::notEmpty($objects);
+
+            return $objects[array_rand($objects)];
+        };
+    }
+
+    private function randomImages(TaxonInterface $taxon, Options $options): \Closure
+    {
+        $directory = $this->testsDir.'/Resources/pets/'.strtolower($taxon->getSlug());
+        if (!is_dir($directory)) {
+            Assert::false($taxon->isRoot(), 'No images have been found');
+
+            return $this->randomImages($taxon->getParent(), $options);
+        }
+
+        return LazyOption::randomOnesImage($directory, 3);
     }
 }

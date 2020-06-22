@@ -5,3 +5,4 @@ sylius_taxonomy:
             classes:
                 model: App\Entity\Taxonomy\Taxon
                 form: App\Form\Type\Taxonomy\TaxonType
+                repository: App\Repository\TaxonRepository
