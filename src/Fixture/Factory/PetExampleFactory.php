@@ -152,7 +152,11 @@ class PetExampleFactory extends AbstractExampleFactory
     {
         $directory = $this->testsDir.'/Resources/pets/'.strtolower($taxon->getSlug());
         if (!is_dir($directory)) {
-            Assert::false($taxon->isRoot(), 'No images have been found');
+            if ($taxon->isRoot) {
+                return function(): array {
+                    return [];
+                }
+            }
 
             return $this->randomImages($taxon->getParent(), $options);
         }
