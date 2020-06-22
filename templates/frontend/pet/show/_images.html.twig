@@ -1,22 +1,40 @@
 {% import 'backend/macro/image.html.twig' as images %}
 
-<div class="grid-x grid-margin-x">
-        <div class="cell small-2">
-        <div>
-            {% for petImage in pet.images %}
-                {% set path = vich_uploader_asset(petImage, 'file') %}
-                {% set class = "image border low-opacity" %}
-                {{ images.render(path, 'app_frontend_pet_show', pet.name, class) }}
+{% if pet.firstImage %}
+    {% set source_path = pet.firstImage.path %}
+    {% set original_path = source_path|imagine_filter('app_frontend_pet_show') %}
+    {% set path = source_path|imagine_filter(filter|default('app_frontend_pet_show')) %}
+{% else %}
+    {% set original_path = '//placehold.it/400x300' %}
+    {% set path = original_path %}
+{% endif %}
+
+<div class="grid-x grid-margin-x orbit" data-orbit>
+    <div class="orbit-bullets cell small-2">
+        <nav>
+            {% for image in pet.images %}
+                {% set path = vich_uploader_asset(image, 'file') %}
+                <button class="thumbnail-item {{ loop.first ? 'is-active' : ''}}" data-slide="{{ loop.index - 1 }}">
+                    <div class="thumbnail-wrapper">
+                        {{ images.render(path, 'app_frontend_pet_show', pet.name) }}
+                    </div>
+                </button>
             {% endfor %}
-        </div>
+        </nav>
     </div>
-    <div class="cell small-8">
-        <a>
-            {% if pet.firstImage is not null %}
-                {% set path = vich_uploader_asset(pet.firstImage, 'file') %}
-                {% set class = "image border" %}
-                {{ images.render(path, 'app_frontend_pet_show', pet.name, class) }}
-            {% endif %}
-        </a>
+    <div class="orbit-wrapper cell small-8">
+        <ul class="orbit-container">
+            {% for image in pet.images %}
+                {% set path = vich_uploader_asset(image, 'file') %}
+                <li class="{{ loop.first ? 'is-active' : ''}} orbit-slide">
+                    <figure class="orbit-figure">
+                        <div class="orbit-image-wrapper">
+                            {% set class = "orbit-image" %}
+                            {{ images.render(path, 'app_frontend_pet_show', pet.name, class) }}
+                        </div>
+                    </figure>
+                </li>
+            {% endfor %}
+        </ul>
     </div>
 </div>
