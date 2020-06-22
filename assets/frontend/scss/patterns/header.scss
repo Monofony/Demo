@@ -1,2 +1,11 @@
-#header {
+@import "../global/variables";
+
+.menu-top-bar {
+  .a-taxon {
+    text-transform: uppercase;
+
+    &.active {
+      color: map-get($monofony-color, monofony-blue);
+    }
+  }
 }
