@@ -2,7 +2,7 @@
     {% set currentTaxon = app.request.get('slug') %}
 
     <ul class="dropdown menu" data-dropdown-menu>
-        <li><a class="a-taxon{% if currentTaxon == taxon.slug %} active{% endif %}" href="{{ path('app_frontend_pet_per_taxon_index', {'slug': taxon.slug}) }}">{{ taxon.name }}</a></li>
+        <li><a class="a-taxon{% if taxon.slug in currentTaxon %} active{% endif %}" href="{{ path('app_frontend_pet_per_taxon_index', {'slug': taxon.slug}) }}">{{ taxon.name }}</a></li>
     </ul>
 {% endmacro %}
 
