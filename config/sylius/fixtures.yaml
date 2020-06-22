@@ -33,8 +33,32 @@ sylius_fixtures:
                         custom:
                                 -
                                     name: Cats
+                                    children:
+                                        -
+                                            name: Persan
+                                        -
+                                            name: Siamese
+                                        -
+                                            name: Ragdoll
                                 -
                                     name: Dogs
+                                    children:
+                                        -
+                                            name: Labrador
+                                        -
+                                            name: Poodle
+                                        -
+                                            name: Husky
+                                -
+                                    name: Small pets
+                                    children:
+                                        -
+                                            name: Rodents
+                                            children:
+                                                -
+                                                    name: Hamster
+                                                -
+                                                    name: Rabbit
 
                 pet:
                     options:
