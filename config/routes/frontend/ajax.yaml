@@ -1,0 +1,2 @@
+app_frontend_ajax_pet:
+    resource: ajax/pet.yaml

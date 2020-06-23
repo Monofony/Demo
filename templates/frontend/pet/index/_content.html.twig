@@ -1,4 +1,3 @@
-{% import 'frontend/pet/pagination.html.twig' as pagination %}
 <div class="header-pets">
     <h2>{{ 'app.ui.adopt_the_perfect_pet_for_you_and_your_family'|trans }}</h2>
 </div>
@@ -7,16 +6,11 @@
         <h2>{{ 'sylius.ui.filters'|trans }}</h2>
         {% include 'frontend/pet/_filters.html.twig' %}
     </div>
-    <div class="cell small-6 large-offset-1">
-        <div class="grid-container">
-            <div class="grid-x grid-margin-x">
-                {% for pet in pets.data %}
-                    {% include 'frontend/pet/_card.html.twig' with {'pet': pet} only %}
-                {% endfor %}
-            </div>
-        </div>
-        <hr>
-        {{ pagination.simple(resources.data) }}
+    <div class="cell small-6 large-offset-1"
+         data-pets
+         data-url="{{ path('app_frontend_ajax_pet_index') }}"
+    >
+        {% include 'frontend/pet/index/_main.html.twig' %}
     </div>
 </div>
 
