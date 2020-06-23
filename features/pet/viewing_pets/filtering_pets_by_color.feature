@@ -13,7 +13,7 @@ Feature: Filtering pets from a specific color
         And this pet belongs to "Dogs"
         And this pet is white
 
-    @ui
+    @ui @javascript
     Scenario: Filtering pets from a specific color
         Given I want to browse pets
         Then I only want to see the black pets

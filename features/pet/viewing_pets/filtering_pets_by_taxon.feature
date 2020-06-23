@@ -12,7 +12,7 @@ Feature: Filtering pets from a specific taxon
         And there is also a pet with name "Gizmo"
         And this pet belongs to "Dogs"
 
-    @ui
+    @ui @javascript
     Scenario: Filtering pets from a specific taxon
         Given I want to browse pets
         Then I filter from taxon "Persan"

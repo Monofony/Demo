@@ -13,7 +13,7 @@ Feature: Filtering pets from a specific sex
         And this pet belongs to "Dogs"
         And this pet is a female
 
-    @ui
+    @ui @javascript
     Scenario: Filtering pets from a specific sex
         Given I want to browse pets
         Then I only want to see the males
