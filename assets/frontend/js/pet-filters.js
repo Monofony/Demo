@@ -9,8 +9,13 @@ $(document).ready(function () {
         $(el).click(() => {
             formData = getFormData();
             applyFilter(url);
+            updateWindowUrl(formData);
         });
     });
+
+    function updateWindowUrl(queryString) {
+        window.history.pushState('', window.title, `${window.location.href}?${queryString}`);
+    }
 
     function getFormData() {
         return $form.serialize();
