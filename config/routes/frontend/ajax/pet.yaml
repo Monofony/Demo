@@ -1,0 +1,8 @@
+app_frontend_ajax_pet_index:
+    path: /pets
+    methods: [GET]
+    defaults:
+        _controller: app.controller.pet:indexAction
+        _sylius:
+            template: "frontend/pet/index/_main.html.twig"
+            grid: app_frontend_pet

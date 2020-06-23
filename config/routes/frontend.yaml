@@ -17,3 +17,7 @@ sylius_security:
 app_frontend_partial:
     resource: "frontend/partial.yaml"
     prefix: "/_partial"
+
+app_frontend_ajax:
+    resource: "frontend/ajax.yaml"
+    prefix: "/_ajax"
