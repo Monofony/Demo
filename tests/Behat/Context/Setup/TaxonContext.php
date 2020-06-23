@@ -69,10 +69,11 @@ final class TaxonContext implements Context
      */
     public function theTaxonHasChildrenTaxonAnd(TaxonInterface $taxon, $firstTaxonName, $secondTaxonName)
     {
-        $taxon->addChild($this->createWithOptions(['name' => $firstTaxonName]));
-        $taxon->addChild($this->createWithOptions(['name' => $secondTaxonName]));
+        $firstTaxon = $this->createWithOptions(['name' => $firstTaxonName, 'parent' => $taxon]);
+        $secondTaxon = $this->createWithOptions(['name' => $secondTaxonName, 'parent' => $taxon]);
 
-        $this->manager->persist($taxon);
+        $this->manager->persist($firstTaxon);
+        $this->manager->persist($secondTaxon);
         $this->manager->flush();
     }
 
