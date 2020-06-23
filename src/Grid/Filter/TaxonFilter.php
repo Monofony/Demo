@@ -46,9 +46,9 @@ final class TaxonFilter implements FilterInterface
 
         $taxons = is_array($data) ? $data : [$data];
 
-        foreach ($taxons as $taxonSlug) {
+        foreach ($taxons as $taxonCode) {
             /** @var TaxonInterface $taxon */
-            $taxon = $this->taxonRepository->findOneBySlug($taxonSlug, $this->locale);
+            $taxon = $this->taxonRepository->findOneBy(['code' => $taxonCode]);
 
             if (null === $taxon) {
                 return;
