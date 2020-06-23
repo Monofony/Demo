@@ -4,6 +4,7 @@ $(document).ready(function () {
     const $form = $('form', '.animal-filter');
     const url = $grid.data('url');
     let formData = getFormData();
+    const currentUrl = window.location.origin + window.location.pathname;
 
     $('.sylius-filters input').each(function (index, el) {
         $(el).click(() => {
@@ -14,7 +15,14 @@ $(document).ready(function () {
     });
 
     function updateWindowUrl(queryString) {
-        window.history.pushState('', window.title, `${window.location.href}?${queryString}`);
+        window.history.pushState('', window.title, `${currentUrl}?${queryString}`);
+    }
+
+    function updatePaginationUrl() {
+        $('ul.pagination li a').each(function () {
+            const newHref = $(this).attr('href').replace(url, currentUrl);
+            $(this).attr('href', newHref);
+        });
     }
 
     function getFormData() {
@@ -24,6 +32,7 @@ $(document).ready(function () {
     function applyFilter(url) {
         $.get(`${url}?${formData}`, function (data) {
             $grid.html(data);
+            updatePaginationUrl();
         });
     }
 });
