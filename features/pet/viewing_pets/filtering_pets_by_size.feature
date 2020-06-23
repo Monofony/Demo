@@ -16,7 +16,7 @@ Feature: Filtering pets from a specific size
         And this pet belongs to "Dogs"
         And this pet is tall
 
-    @ui
+    @ui @javascript
     Scenario: Filtering pets from a specific size
         Given I want to browse pets
         Then I only want to see the small pets

@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace App\Tests\Behat\Page\Frontend\Pet;
 
+use App\Tests\Behat\Service\JQueryHelper;
 use FriendsOfBehat\PageObjectExtension\Page\SymfonyPage;
 
 class IndexPage extends SymfonyPage
@@ -30,28 +31,28 @@ class IndexPage extends SymfonyPage
     {
         $select = $this->getElement('color_filter');
         $select->selectOption($color);
-        $this->getElement('filter_button')->click();
+        JQueryHelper::waitForAsynchronousActionsToFinish($this->getSession());
     }
 
     public function filterBySex($sex)
     {
         $select = $this->getElement('sex_filter');
         $select->selectOption($sex);
-        $this->getElement('filter_button')->click();
+        JQueryHelper::waitForAsynchronousActionsToFinish($this->getSession());
     }
 
     public function filterBySize($size)
     {
         $label = $this->getElement('size_filter', ['%size%' => $size]);
         $label->getParent()->find('css', 'input')->check();
-        $this->getElement('filter_button')->click();
+        JQueryHelper::waitForAsynchronousActionsToFinish($this->getSession());
     }
 
     public function filterByTaxon($taxonName)
     {
         $label = $this->getElement('taxon_filter', ['%taxon%' => $taxonName]);
         $label->getParent()->find('css', 'input')->check();
-        $this->getElement('filter_button')->click();
+        JQueryHelper::waitForAsynchronousActionsToFinish($this->getSession());
     }
 
     protected function getDefinedElements(): array
@@ -61,7 +62,6 @@ class IndexPage extends SymfonyPage
             'sex_filter' => '#criteria_sex [name="criteria[sex]"]',
             'size_filter' => '#criteria_sizeRange .checkbox label:contains("%size%")',
             'taxon_filter' => '#criteria_taxon .checkbox label:contains("%taxon%")',
-            'filter_button' => '.button.blue.labeled'
         ]);
     }
 }
