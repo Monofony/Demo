@@ -6,7 +6,7 @@ $(document).ready(function () {
     let formData = getFormData();
 
     $('.sylius-filters input').each(function (index, el) {
-        $(el).click((e) => {
+        $(el).click(() => {
             formData = getFormData();
             applyFilter(url);
         });
