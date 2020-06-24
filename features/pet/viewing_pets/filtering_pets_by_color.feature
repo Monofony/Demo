@@ -10,12 +10,19 @@ Feature: Filtering pets from a specific color
         And this pet belongs to "Cats"
         And this pet is black
         And there is also a pet with name "Gizmo"
-        And this pet belongs to "Dogs"
+        And this pet belongs to "Cats"
         And this pet is white
 
     @ui @javascript
     Scenario: Filtering pets from a specific color
         Given I want to browse pets
+        Then I only want to see the black pets
+        And I should see the pet "Winnie"
+        But I should not see the pet "Gizmo"
+
+    @ui @javascript
+    Scenario: Filtering pets from a specific color with a specific taxon
+        Given I browse pets from taxon "Cats"
         Then I only want to see the black pets
         And I should see the pet "Winnie"
         But I should not see the pet "Gizmo"

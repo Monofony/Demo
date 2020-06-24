@@ -1,3 +1,6 @@
+{% set taxon_slug = app.request.get('slug') %}
+{% set taxon_slug = null %}
+
 <div class="header-pets">
     <h2>{{ 'app.ui.adopt_the_perfect_pet_for_you_and_your_family'|trans }}</h2>
 </div>
@@ -8,10 +11,8 @@
     </div>
     <div class="cell small-6 large-offset-1"
          data-pets
-         data-url="{{ path('app_frontend_ajax_pet_index') }}"
+         data-url="{{ taxon_slug is null ? path('app_frontend_ajax_pet_index') : path('app_frontend_ajax_pet_per_taxon_index', { 'slug': taxon_slug }) }}"
     >
         {% include 'frontend/pet/index/_main.html.twig' %}
     </div>
 </div>
-
-
