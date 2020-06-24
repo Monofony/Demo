@@ -1,9 +1,9 @@
-const $grid = $('[data-pets]');
-
 $(document).ready(function () {
+    const $grid = $('[data-pets]');
     const $form = $('form', '.animal-filter');
     const url = $grid.data('url');
     let formData = getFormData();
+    const $colorFilter = $('.filter-color');
     const currentUrl = window.location.origin + window.location.pathname;
 
     $('.sylius-filters input').each(function (index, el) {
@@ -35,4 +35,9 @@ $(document).ready(function () {
             updatePaginationUrl();
         });
     }
+
+    $('label', $colorFilter).click(function () {
+        $('label', $colorFilter).removeClass('active');
+        $(this).addClass('active');
+    })
 });

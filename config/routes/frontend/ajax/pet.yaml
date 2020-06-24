@@ -6,3 +6,14 @@ app_frontend_ajax_pet_index:
         _sylius:
             template: "frontend/pet/index/_main.html.twig"
             grid: app_frontend_pet
+
+app_frontend_ajax_pet_per_taxon_index:
+    path: /pets/taxon/{slug}
+    methods: [GET]
+    defaults:
+        _controller: app.controller.pet:indexAction
+        _sylius:
+            template: "frontend/pet/index/_main.html.twig"
+            grid: app_frontend_pet_per_taxon
+    requirements:
+        slug: .+

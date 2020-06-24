@@ -50,6 +50,14 @@ final class PetContext implements Context
     }
 
     /**
+     * @Given I want to browse cats
+     */
+    public function iWantToBrowseCats()
+    {
+        $this->indexPage->open();
+    }
+
+    /**
      * @Then I should see the pet :petName
      */
     public function iShouldSeeThePet(string $petName)
