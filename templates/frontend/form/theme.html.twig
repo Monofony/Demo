@@ -138,3 +138,15 @@
         {{- form_errors(form) -}}
     </div>
 {% endblock %}
+
+{% block _criteria_mainColor_widget %}
+<div class="grid-x grid-margin-x filter-color">
+    {%- for child in form %}
+        <div class="cell small-3">
+            <label class="container color-{{ child.vars.value }}">
+                {{ form_widget(child, { 'attr': {'class': 'color-radio'} }) }}
+            </label>
+        </div>
+    {% endfor -%}
+</div>
+{% endblock %}
