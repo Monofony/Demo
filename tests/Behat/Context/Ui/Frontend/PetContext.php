@@ -12,7 +12,10 @@ declare(strict_types=1);
 
 namespace App\Tests\Behat\Context\Ui\Frontend;
 
+use App\Colors;
 use App\Entity\Animal\Pet;
+use App\Sex;
+use App\SizeRanges;
 use App\Tests\Behat\Page\Frontend\Pet\IndexPage;
 use App\Tests\Behat\Page\Frontend\Pet\IndexPerTaxonPage;
 use App\Tests\Behat\Page\Frontend\Pet\ShowPage;
@@ -99,7 +102,7 @@ final class PetContext implements Context
      */
     public function iOnlyWantToSeeTheMales()
     {
-        $this->indexPage->filterBySex("Male");
+        $this->indexPage->filterBySex(Sex::MALE);
     }
 
     /**
@@ -115,6 +118,6 @@ final class PetContext implements Context
      */
     public function iOnlyWantToSeeTheBlackPets()
     {
-        $this->indexPage->filterByColor("Black");
+        $this->indexPage->filterByColor(Colors::BLACK);
     }
 }

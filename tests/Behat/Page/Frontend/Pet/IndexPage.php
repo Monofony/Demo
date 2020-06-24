@@ -29,8 +29,8 @@ class IndexPage extends SymfonyPage
 
     public function filterByColor($color)
     {
-        $select = $this->getElement('color_filter');
-        $select->selectOption($color);
+        $select = $this->getElement('color_filter', ['%color%' => $color]);
+        $select->click();
         JQueryHelper::waitForAsynchronousActionsToFinish($this->getSession());
     }
 
@@ -58,7 +58,7 @@ class IndexPage extends SymfonyPage
     protected function getDefinedElements(): array
     {
         return array_merge(parent::getDefinedElements(), [
-            'color_filter' => '#criteria_mainColor [name="criteria[mainColor]"]',
+            'color_filter' => '.filter-color .container.color-%color%',
             'sex_filter' => '#criteria_sex [name="criteria[sex]"]',
             'size_filter' => '#criteria_sizeRange .checkbox label:contains("%size%")',
             'taxon_filter' => '#criteria_taxon .checkbox label:contains("%taxon%")',

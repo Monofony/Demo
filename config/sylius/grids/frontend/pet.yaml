@@ -25,28 +25,28 @@ sylius_grid:
                     label: app.ui.sex
                     form_options:
                         choices:
-                            app.ui.male: Male
-                            app.ui.female: Female
+                            app.ui.male: !php/const App\Sex::MALE
+                            app.ui.female: !php/const App\Sex::FEMALE
                         expanded: true
                 mainColor:
                     type: frontend_select
                     label: app.ui.main_color
                     form_options:
                         choices:
-                            app.ui.black: Black
-                            app.ui.brown: Brown
-                            app.ui.ginger: Ginger
-                            app.ui.grey: Grey
-                            app.ui.white: White
+                            app.ui.black: !php/const App\Colors::BLACK
+                            app.ui.brown: !php/const App\Colors::BROWN
+                            app.ui.ginger: !php/const App\Colors::GINGER
+                            app.ui.grey: !php/const App\Colors::GREY
+                            app.ui.white: !php/const App\Colors::WHITE
                         expanded: true
                 sizeRange:
                     type: frontend_select
                     label: app.ui.size
                     form_options:
                         choices:
-                            app.ui.small: Small
-                            app.ui.medium: Medium
-                            app.ui.tall: Tall
+                            app.ui.small: !php/const App\SizeRanges::SMALL
+                            app.ui.medium: !php/const App\SizeRanges::MEDIUM
+                            app.ui.tall: !php/const App\SizeRanges::TALL
                         multiple: true
                         expanded: true
     templates:
