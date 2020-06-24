@@ -9,6 +9,9 @@ Feature: Filtering pets from a specific color
         And there is also a pet with name "Winnie"
         And this pet belongs to "Cats"
         And this pet is black
+        And there is also a pet with name "Albert"
+        And this pet belongs to "Dogs"
+        And this pet is black
         And there is also a pet with name "Gizmo"
         And this pet belongs to "Cats"
         And this pet is white
@@ -26,3 +29,4 @@ Feature: Filtering pets from a specific color
         Then I only want to see the black pets
         And I should see the pet "Winnie"
         But I should not see the pet "Gizmo"
+        But I should not see the pet "Albert"
