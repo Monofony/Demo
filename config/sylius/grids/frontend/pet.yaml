@@ -33,11 +33,14 @@ sylius_grid:
                     label: app.ui.main_color
                     form_options:
                         choices:
-                            app.ui.black: !php/const App\Colors::BLACK
-                            app.ui.brown: !php/const App\Colors::BROWN
+                            app.ui.beige: !php/const App\Colors::BEIGE
+                            app.ui.orange: !php/const App\Colors::ORANGE
                             app.ui.ginger: !php/const App\Colors::GINGER
-                            app.ui.grey: !php/const App\Colors::GREY
+                            app.ui.brown: !php/const App\Colors::BROWN
                             app.ui.white: !php/const App\Colors::WHITE
+                            app.ui.light_grey: !php/const App\Colors::LIGHTGREY
+                            app.ui.grey: !php/const App\Colors::GREY
+                            app.ui.black: !php/const App\Colors::BLACK
                         expanded: true
                 sizeRange:
                     type: frontend_select

@@ -42,6 +42,7 @@ app:
         new_bookings: Nouvelles réservations
         new_pet: Nouvel animal domestique
         new_pets: Nouveaux animaux domestiques
+        no_main_color: Pas de couleur dominante
         overview_of_your_website: Aperçu de votre site web
         pet: Animal domestique
         pet_name: Nom de l'animal

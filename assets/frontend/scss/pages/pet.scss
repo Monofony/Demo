@@ -90,6 +90,9 @@
   border-radius: 2px;
   box-shadow: 0 2px 6px 0 rgba(19, 62, 86, 0.08);
   border: solid 1px #d0d8dd;
+  &.color-beige {
+    background-color: #fceace;
+  }
   &.color-black {
     background-color: #000000;
   }
@@ -100,7 +103,13 @@
     background-color: #b35b1f;
   }
   &.color-grey {
+    background-color: #7c7c7c;
+  }
+  &.color-lightgrey {
     background-color: #d3d3d3;
+  }
+  &.color-orange {
+    background-color: #f39c12;
   }
   &.color-white {
     background-color: #ffffff;
