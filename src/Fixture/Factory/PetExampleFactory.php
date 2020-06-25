@@ -95,7 +95,11 @@ class PetExampleFactory extends AbstractExampleFactory
             })
             ->setDefault('main_color', function (Options $options): ?string {
                 /** @var File $firstImage */
-                $firstImage = $options['images'][0];
+                $firstImage = $options['images'][0] ?? null;
+
+                if (null === $firstImage) {
+                    return null;
+                }
 
                 return $this->getColor($firstImage);
             })
