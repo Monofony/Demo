@@ -2,17 +2,15 @@
 
 {% set pet_path = path('app_frontend_pet_show', { 'slug': pet.slug }) %}
 
-<div class="cell small-4">
-    <div class="card">
-        {% if pet.firstImage is not null %}
-            {% set path = vich_uploader_asset(pet.firstImage, 'file') %}
-            <a href="{{ pet_path }}">{{ images.render(path, 'pet_grid', pet.name) }}</a>
-        {% endif %}
-        <div class="card-section">
-            <a class="header" href="{{ pet_path }}">{{ pet.name }}</a>
-            <div class="meta">
-                <a href="{{ path('app_frontend_pet_per_taxon_index', { 'slug': pet.taxon.slug }) }}">{{ pet.taxon.name }}</a>
-            </div>
+<div class="card">
+    {% if pet.firstImage is not null %}
+        {% set path = vich_uploader_asset(pet.firstImage, 'file') %}
+        <a href="{{ pet_path }}">{{ images.render(path, 'pet_grid', pet.name) }}</a>
+    {% endif %}
+    <div class="card-section">
+        <a class="header" href="{{ pet_path }}">{{ pet.name }}</a>
+        <div class="meta">
+            <a href="{{ path('app_frontend_pet_per_taxon_index', { 'slug': pet.taxon.slug }) }}">{{ pet.taxon.name }}</a>
         </div>
     </div>
 </div>

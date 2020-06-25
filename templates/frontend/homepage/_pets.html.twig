@@ -3,7 +3,9 @@
 <div class="grid-container">
     <div class="grid-x grid-margin-x">
         {% for pet in resources %}
-            {% include 'frontend/homepage/_card.html.twig' with {'pet': pet} only %}
+            <div class="cell small-3">
+                {% include 'frontend/pet/_card.html.twig' with {'pet': pet} only %}
+            </div>
         {% endfor %}
     </div>
 </div>
