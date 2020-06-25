@@ -140,13 +140,21 @@
 {% endblock %}
 
 {% block _criteria_mainColor_widget %}
-<div class="grid-x grid-margin-x filter-color">
-    {%- for child in form %}
-        <div class="cell small-3">
-            <label class="container color-{{ child.vars.value }}">
-                {{ form_widget(child, { 'attr': {'class': 'color-radio'} }) }}
-            </label>
-        </div>
-    {% endfor -%}
+<div class="grid-container full">
+    <div class="grid-x grid-margin-x filter-color">
+            <div class="cell small-8">
+                <div class="grid-container full">
+                    <div class="grid-x grid-margin-x filter-color">
+                        {%- for child in form %}
+                            <div class="cell medium-6 large-3">
+                                <label class="container color-{{ child.vars.value }}">
+                                    {{ form_widget(child, { 'attr': {'class': 'color-radio'} }) }}
+                                </label>
+                            </div>
+                        {% endfor -%}
+                    </div>
+                </div>
+            </div>
+    </div>
 </div>
 {% endblock %}

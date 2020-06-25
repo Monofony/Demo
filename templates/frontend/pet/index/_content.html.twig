@@ -8,15 +8,17 @@
     {% endif %}
     <h2>{{ 'app.ui.adopt_the_perfect_pet_for_you_and_your_family'|trans }}</h2>
 </div>
-<div class="grid-x grid-margin-x petpage">
-    <div class="cell small-2 large-offset-2 animal-filter">
-        <h2>{{ 'sylius.ui.filters'|trans }}</h2>
-        {% include 'frontend/pet/_filters.html.twig' %}
-    </div>
-    <div class="cell small-6 large-offset-1"
-         data-pets
-         data-url="{{ taxon_slug is null ? path('app_frontend_ajax_pet_index') : path('app_frontend_ajax_pet_per_taxon_index', { 'slug': taxon_slug }) }}"
-    >
-        {% include 'frontend/pet/index/_main.html.twig' %}
+<div class="grid-container full">
+    <div class="grid-x grid-margin-x medium-margin-collapse petpage">
+        <div class="cell medium-2 small-12 small-offset-2 animal-filter">
+            <h2>{{ 'sylius.ui.filters'|trans }}</h2>
+            {% include 'frontend/pet/_filters.html.twig' %}
+        </div>
+        <div class="cell medium-6 small-12 small-offset-1"
+             data-pets
+             data-url="{{ taxon_slug is null ? path('app_frontend_ajax_pet_index') : path('app_frontend_ajax_pet_per_taxon_index', { 'slug': taxon_slug }) }}"
+        >
+            {% include 'frontend/pet/index/_main.html.twig' %}
+        </div>
     </div>
 </div>

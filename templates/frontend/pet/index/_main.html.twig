@@ -1,9 +1,9 @@
 {% import 'frontend/pet/pagination.html.twig' as pagination %}
 
-<div class="grid-container pets">
+<div class="grid-container full pets">
     <div class="grid-x grid-margin-x">
         {% for pet in pets.data %}
-            <div class="cell small-4">
+            <div class="cell medium medium-4">
                 {% include 'frontend/pet/_card.html.twig' with {'pet': pet} only %}
             </div>
         {% endfor %}
