@@ -19,11 +19,13 @@ use App\Repository\TaxonRepository;
 use App\Sex;
 use App\SizeRanges;
 use App\SizeUnits;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Monofony\Plugin\FixturesPlugin\Fixture\Factory\AbstractExampleFactory;
 use Sylius\Component\Resource\Factory\FactoryInterface;
 use Sylius\Component\Taxonomy\Model\TaxonInterface;
 use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -73,11 +75,8 @@ class PetExampleFactory extends AbstractExampleFactory
             ->setDefault('size', function (Options $options) {
                 return $this->faker->randomFloat(2, 1.00, 10.00);
             })
-            ->setDefault('sizeUnit', function (Options $options) {
+            ->setDefault('size_unit', function (Options $options) {
                 return $this->faker->randomElement(SizeUnits::ALL);
-            })
-            ->setDefault('mainColor', function (Options $options) {
-                return $this->faker->randomElement(Colors::ALL);
             })
             ->setDefault('sex', function (Options $options) {
                 return $this->faker->randomElement(Sex::ALL);
@@ -94,6 +93,12 @@ class PetExampleFactory extends AbstractExampleFactory
 
                 return $closure->call($this, $options);
             })
+            ->setDefault('main_color', function (Options $options): ?string {
+                /** @var File $firstImage */
+                $firstImage = $options['images'][0];
+
+                return $this->getColor($firstImage);
+            })
         ;
     }
 
@@ -106,8 +111,8 @@ class PetExampleFactory extends AbstractExampleFactory
         $animal->setSlug($options['name']);
         $animal->setDescription($options['description']);
         $animal->setSize($options['size']);
-        $animal->setSizeUnit($options['sizeUnit']);
-        $animal->setMainColor($options['mainColor']);
+        $animal->setSizeUnit($options['size_unit']);
+        $animal->setMainColor($options['main_color']);
         $animal->setSex($options['sex']);
         $animal->setTaxon($options['taxon']);
         $animal->setSizeRange($options['size_range']);
@@ -132,6 +137,15 @@ class PetExampleFactory extends AbstractExampleFactory
 
             $animal->addImage($image);
         }
+    }
+
+    private static function getColor(string $fileName): ?string {
+        foreach (Colors::ALL as $color) {
+            if (false !== strpos($fileName, $color)) {
+                return $color;
+            }
+        }
+        return null;
     }
 
     private static function randomOne(TaxonRepository $repository): \Closure
