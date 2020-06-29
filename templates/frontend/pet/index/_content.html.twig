@@ -1,6 +1,11 @@
 {% set taxon_slug = app.request.get('slug') %}
 
 <div class="header-pets">
+    {% if taxon_slug is null %}
+        {% include 'frontend/pet/index/_simple_breadcrumb.html.twig' %}
+    {% else %}
+        {{ render(url('app_frontend_partial_pet_show', {'template': 'frontend/pet/index/_breadcrumb.html.twig', 'slug': taxon_slug})) }}
+    {% endif %}
     <h2>{{ 'app.ui.adopt_the_perfect_pet_for_you_and_your_family'|trans }}</h2>
 </div>
 <div class="grid-x grid-margin-x petpage">
