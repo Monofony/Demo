@@ -110,7 +110,7 @@ final class PetContext implements Context
      */
     public function iOnlyWantToSeeTheMales()
     {
-        $this->indexPage->filterBySex(Sex::MALE);
+        $this->indexPage->filterBySex('Male');
     }
 
     /**

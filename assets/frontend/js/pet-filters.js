@@ -36,8 +36,8 @@ $(document).ready(function () {
         });
     }
 
-    $('label', $colorFilter).click(function () {
-        $('label', $colorFilter).removeClass('active');
-        $(this).addClass('active');
+    $('input', $colorFilter).change(function () {
+        const $label = $(this).parent();
+        $label.toggleClass('active');
     })
 });
