@@ -1,7 +1,6 @@
 @import "../global/variables";
 
 .bottom {
-  background-color: map-get($monofony-color, light-grey);
   display: flex;
   justify-content: center;
   margin-top: 5vh;
@@ -70,6 +69,10 @@
   display: flex;
   margin-top: 2vh;
   margin-bottom: 2vh;
+}
+
+.top {
+  background-color: #ffffff;
 }
 
 .orbit-bullets {

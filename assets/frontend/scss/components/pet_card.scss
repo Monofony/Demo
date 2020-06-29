@@ -1,18 +1,22 @@
 @import "../global/variables";
 
 .card {
-  margin-bottom: 1vh;
-}
-
-.card-section > a{
-  font-family: Poppins;
-  font-weight: bold;
-  font-size: 24px;
-  color: map-get($monofony-color, dark-blue);
-}
-
-.card-section .meta > a{
-  font-family: Inter regular;
-  font-size: 18px;
-  color: map-get($monofony-color, monofony-grey);
+  .card-section {
+    .meta > a{
+      font-family: Inter regular;
+      font-size: 18px;
+      color: map-get($monofony-color, monofony-grey);
+    }
+  }
+  a {
+    display: flex;
+    font-family: Poppins;
+    font-weight: bold;
+    font-size: 24px;
+    color: map-get($monofony-color, dark-blue);
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
 }

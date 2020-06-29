@@ -10,14 +10,12 @@
   display: flex;
 }
 
-.header-pets > h2 {
+.header-pets > h1 {
   display: flex;
   margin-left: auto;
   margin-right: auto;
   width: 590px;
   text-align: center;
-  font-family: Poppins;
-  font-size: 40px;
   line-height: 1.25;
   align-self: center;
   color: #133e56;
@@ -72,10 +70,6 @@
   background-color: #fceace;
 }
 
-.cell {
-  margin-bottom: 0.3vw;
-}
-
 .animal-color-filter{
   margin-bottom: 1vw;
 }
@@ -84,42 +78,50 @@
   display: none;
 }
 
-.filter-color .container {
-  width: 46px;
-  height: 46px;
-  border-radius: 2px;
-  box-shadow: 0 2px 6px 0 rgba(19, 62, 86, 0.08);
-  border: solid 1px #d0d8dd;
-  &.color-beige {
-    background-color: #fceace;
+.filter-color {
+  .cell {
+    margin: rem-calc(5);
   }
-  &.color-black {
-    background-color: #000000;
-  }
-  &.color-brown {
-    background-color: #765b41;
-  }
-  &.color-ginger {
-    background-color: #b35b1f;
-  }
-  &.color-grey {
-    background-color: #7c7c7c;
-  }
-  &.color-lightgrey {
-    background-color: #d3d3d3;
-  }
-  &.color-orange {
-    background-color: #f39c12;
-  }
-  &.color-white {
-    background-color: #ffffff;
-  }
-  &:hover {
-    border: solid 2px #ffffff;
-  }
-  &.active {
-    box-shadow: 0 2px 6px 0 rgba(19, 62, 86, 0.28);
-    border: solid 4px #ffffff;
+  .container {
+    width: 46px;
+    height: 46px;
+    border-radius: 2px;
+    box-shadow: 0 2px 6px 0 rgba(19, 62, 86, 0.08);
+    border: solid 1px #d0d8dd;
+    &.color-beige {
+      background-color: #fceace;
+    }
+    &.color-black {
+      background-color: #000000;
+    }
+    &.color-brown {
+      background-color: #765b41;
+    }
+    &.color-ginger {
+      background-color: #b35b1f;
+    }
+    &.color-grey {
+      background-color: #7c7c7c;
+    }
+    &.color-lightgrey {
+      background-color: #d3d3d3;
+    }
+    &.color-orange {
+      background-color: #f39c12;
+    }
+    &.color-white {
+      background-color: #ffffff;
+    }
+    input[type="radio"]:checked {
+      background-color: red;
+    }
+    &:hover {
+      border: solid 2px #ffffff;
+    }
+    &.active {
+      box-shadow: 0 2px 6px 0 rgba(19, 62, 86, 0.28);
+      border: solid 4px #ffffff;
+    }
   }
 }
 

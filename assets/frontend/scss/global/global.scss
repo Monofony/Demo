@@ -1,27 +1,12 @@
+@import "../global/variables";
+
 body {
-  font-size: 16px;
+  background-color: map-get($monofony-color, light-grey);
 }
 
-h1 {
-  font-family: Poppins;
-  font-size: 40px;
-}
-
-h2 {
-  font-size: 18px;
-}
-
-h3 {
-  font-size: 16px;
-}
-
-.top-bar{
-  box-shadow: 0 8px 14px 0 rgba(19, 62, 86, 0.08), 0 2px 6px 0 rgba(19, 62, 86, 0.08);
-  background-color: #ffffff;
-}
-
-.top-bar ul{
-  background-color: #ffffff;
+.container {
+  z-index: 1;
+  position: relative;
 }
 
 .sylius-filters__field > div > label{
