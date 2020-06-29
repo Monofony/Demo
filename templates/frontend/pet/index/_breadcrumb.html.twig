@@ -1,0 +1,16 @@
+{% set ancestors = taxon.ancestors|reverse %}
+
+<nav aria-label="You are here:" role="navigation" class="breadcrumb pet-page">
+    <ul class="breadcrumbs">
+        <li><a href="{{ path('app_frontend_homepage') }}" class="section">{{ 'sylius.ui.home'|trans }}</a></li>
+        <li><a href="{{ path('app_frontend_pet_index') }}" class="section">{{ 'sylius.ui.all'|trans }}</a></li>
+        {% for ancestor in ancestors %}
+            <li>
+                <a href="{{ path('app_frontend_pet_per_taxon_index', {'slug': ancestor.slug}) }}" class="section">{{ ancestor.name }}</a>
+            </li>
+        {% endfor %}
+        <li>
+            <span class="show-for-sr">Current: </span> {{ taxon.name }}
+        </li>
+    </ul>
+</nav>

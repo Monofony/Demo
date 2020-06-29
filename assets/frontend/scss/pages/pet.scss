@@ -114,9 +114,6 @@
   &.color-white {
     background-color: #ffffff;
   }
-  input[type="radio"]:checked {
-    background-color: red;
-  }
   &:hover {
     border: solid 2px #ffffff;
   }
@@ -124,4 +121,8 @@
     box-shadow: 0 2px 6px 0 rgba(19, 62, 86, 0.28);
     border: solid 4px #ffffff;
   }
+}
+
+.breadcrumb.pet-page {
+    padding-left: 4vh;
 }
