@@ -36,8 +36,8 @@ class IndexPage extends SymfonyPage
 
     public function filterBySex($sex)
     {
-        $select = $this->getElement('sex_filter');
-        $select->selectOption($sex);
+        $label = $this->getElement('sex_filter', ['%sex%' => $sex]);
+        $label->getParent()->find('css', 'input')->check();
         JQueryHelper::waitForAsynchronousActionsToFinish($this->getSession());
     }
 
@@ -59,7 +59,7 @@ class IndexPage extends SymfonyPage
     {
         return array_merge(parent::getDefinedElements(), [
             'color_filter' => '.filter-color .container.color-%color%',
-            'sex_filter' => '#criteria_sex [name="criteria[sex]"]',
+            'sex_filter' => '#criteria_sex .checkbox label:contains("%sex%")',
             'size_filter' => '#criteria_sizeRange .checkbox label:contains("%size%")',
             'taxon_filter' => '#criteria_taxon .checkbox label:contains("%taxon%")',
         ]);

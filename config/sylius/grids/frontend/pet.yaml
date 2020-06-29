@@ -27,6 +27,7 @@ sylius_grid:
                         choices:
                             app.ui.male: !php/const App\Sex::MALE
                             app.ui.female: !php/const App\Sex::FEMALE
+                        multiple: true
                         expanded: true
                 mainColor:
                     type: frontend_select
@@ -41,6 +42,7 @@ sylius_grid:
                             app.ui.light_grey: !php/const App\Colors::LIGHTGREY
                             app.ui.grey: !php/const App\Colors::GREY
                             app.ui.black: !php/const App\Colors::BLACK
+                        multiple: true
                         expanded: true
                 sizeRange:
                     type: frontend_select
