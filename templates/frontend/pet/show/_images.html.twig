@@ -9,8 +9,8 @@
     {% set path = original_path %}
 {% endif %}
 
-<div class="grid-x grid-margin-x orbit" data-orbit>
-    <div class="orbit-bullets cell small-2">
+<div class="grid-x orbit" data-orbit>
+    <div class="orbit-bullets cell medium-2 hide-for-small-only">
         <nav>
             {% for image in pet.images %}
                 {% set path = vich_uploader_asset(image, 'file') %}
