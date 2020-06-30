@@ -35,6 +35,7 @@ app:
         male: Male
         managing_bookings: Managing bookings
         managing_pets: Managing pets
+        managing_taxons: Managing taxons
         medium: Medium
         meter: Meter
         millimeter: Millimeter
