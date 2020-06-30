@@ -4,28 +4,27 @@
   display: flex;
   justify-content: center;
   margin-top: 5vh;
+  .taxon {
+    margin: 0 2rem;
+    h1 {
+      font-size: rem-calc(24);
+      text-align: center;
+      color: map-get($monofony-color, dark-blue);
+    }
+    h3 {
+      font-weight: bold;
+      text-align: center;
+      color: map-get($monofony-color, monofony-grey);
+    }
+    p {
+      font-size: rem-calc(14);
+      line-height: 1.71;
+      color: map-get($monofony-color, dark-blue-bis);
+    }
+  }
 }
 
-.taxon {
-  h1 {
-    font-size: 24px;
-    text-align: center;
-    color: map-get($monofony-color, dark-blue);
-  }
-  h3 {
-    font-weight: bold;
-    text-align: center;
-    color: map-get($monofony-color, monofony-grey);
-  }
-  p {
-    width: 581px;
-    font-size: 14px;
-    line-height: 1.71;
-    color: map-get($monofony-color, dark-blue-bis);
-  }
-}
-
-.pet {
+.pet-top {
   h1 {
     line-height: 1.25;
     color: map-get($monofony-color, dark-blue);
@@ -37,38 +36,41 @@
     line-height: 1.5;
     color: map-get($monofony-color, dark-blue-bis);
   }
+  @include breakpoint(medium down){
+    padding: 1rem 3rem;
+  }
 }
 
 .info {
   text-align: center;
-  border-radius: 10px;
+  border-radius: rem-calc(10);
   background-color: map-get($monofony-color, light-grey);
   h2 {
     color: map-get($monofony-color, monofony-grey);
     margin: auto;
     padding-top: 1vh;
-    font-size: 18px;
+    font-size: rem-calc(18);
   }
   h3 {
     color: map-get($monofony-color, dark-blue-bis);
     line-height: 1.5;
     margin: auto;
     padding-bottom: 1vh;
-    font-size: 16px;
+    font-size: rem-calc(16);
+  }
+  @include breakpoint(medium down){
+    margin: 1rem;
   }
 }
 
 .button.pet {
-  border-radius: 5px;
+  border-radius: rem-calc(5);
   box-shadow: 0 2px 6px 0 rgba(19, 62, 86, 0.08);
   font-weight: bold;
   color: #ffffff;
-}
-
-.breadcrumb {
-  display: flex;
-  margin-top: 2vh;
-  margin-bottom: 2vh;
+  @include breakpoint(medium down){
+    margin-left: 1rem;
+  }
 }
 
 .top {
@@ -91,10 +93,6 @@
       opacity: 0.5;
       transition: 0.25s;
       cursor: pointer;
-      @include breakpoint(medium down) {
-        border-radius: $global-radius;
-        margin: 0 $global-margin $global-margin 0;
-      }
       &.is-active {
         cursor: default;
         opacity: 1;
@@ -174,6 +172,10 @@
         }
       }
     }
+  }
+  @include breakpoint(small only){
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 }
 

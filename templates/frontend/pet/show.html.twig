@@ -4,19 +4,19 @@
 
 {% block content %}
     <div class="top">
-        <div class="grid-x grid-margin-x">
-            <div class="cell small-11 large-offset-1">
+        <div class="grid-x">
+            <div class="cell small-11 small-offset-1">
                 {% include 'frontend/pet/show/_breadcrumb.html.twig' %}
             </div>
         </div>
     </div>
     <div class="top">
-        <div class="grid-x grid-margin-x">
-            <div class="cell small-5 large-offset-1">
+        <div class="grid-x">
+            <div class="cell large-5 medium-offset-1">
                 {% include 'frontend/pet/show/_images.html.twig' %}
             </div>
-            <div class="cell small-5">
-                <div class="pet">
+            <div class="cell large-5">
+                <div class="pet-top">
                     <h1 data-name>{{ pet.name }}</h1>
                     <h3>{{ pet.taxon.code }}</h3>
                     <div>
