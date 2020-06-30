@@ -1,19 +1,17 @@
-<footer id="footer">
-    <div style="padding-top: 70px">
-        <div id="footer-rectangle">
-            <h1 id="about-us">{{ 'app.ui.about_us'|trans }}</h1>
-            <p id="monofony-is-nananini">{{ 'app.ui.monofony_is_nananini'|trans }}</p>
-            <h2 id="any-question-lets-talk">{{ 'app.ui.any_questions_lets_talk'|trans }}</h2>
-        </div>
-        <div id="monofony-footer">
-            <div>
+<footer class="footer">
+    <div class="rectangle">
+        <div class="h1">{{ 'app.ui.about_us'|trans }}</div>
+        <p>{{ 'app.ui.monofony_is_nananini'|trans }}</p>
+        <div class="h2">{{ 'app.ui.any_questions_lets_talk'|trans }}</div>
+    </div>
+    <div class="grid-container align-self-middle">
+        <div class="grid-x grid-padding-y">
+            <div class="cell medium-4 medium-offset-3">
                 <img src="{{ asset('assets/frontend/img/logo_png.png', 'frontend') }}"/>
             </div>
-            <div>
-                <img src="{{ asset('assets/frontend/img/github.svg', 'frontend') }}"/>
-            </div>
-            <div>
-                <img src="{{ asset('assets/frontend/img/mobizel.svg', 'frontend') }}"/>
+            <div class="cell medium-2">
+                <a href="https://github.com/Monofony/Demo"><img src="{{ asset('assets/frontend/img/github.svg', 'frontend') }}"/></a>
+                <a href="https://mobizel.com/"><img src="{{ asset('assets/frontend/img/mobizel.svg', 'frontend') }}"/></a>
             </div>
         </div>
     </div>
