@@ -14,7 +14,7 @@ Feature: Filtering pets from a specific taxon
 
     @ui @javascript
     Scenario: Filtering pets from a specific taxon
-        Given I want to browse pets
+        Given I browse pets from taxon "Cats"
         Then I filter from taxon "Persan"
         And I should see the pet "Winnie"
         But I should not see the pet "Gizmo"
