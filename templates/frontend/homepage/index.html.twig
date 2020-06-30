@@ -16,34 +16,7 @@
         </div>
         <div class="rectangle blue">
             <h1>{{ 'app.ui.what_kind_of_animal_are_you_looking_for'|trans }}</h1>
-            <div class="grid-container">
-                <div class="grid-x grid-margin-x" style="padding-top: 90px">
-                    <div class="cell small-4">
-                        <div class="card home">
-                            <img src="{{ asset('assets/frontend/img/dog.svg', 'frontend') }}"/>
-                            <h1>{{ 'app.ui.a_dog'|trans }}</h1>
-                            <p>{{ 'app.ui.a_dog_desc'|trans }}</p>
-                            <a href="{{ path('app_frontend_pet_index') }}" class="button primary homepage">{{ 'app.ui.lets_find_a_dog'|trans }}</a>
-                        </div>
-                    </div>
-                    <div class="cell small-4">
-                        <div class="card home">
-                            <img src="{{ asset('assets/frontend/img/cat.svg', 'frontend') }}"/>
-                            <h1>{{ 'app.ui.a_cat'|trans }}</h1>
-                            <p>{{ 'app.ui.a_cat_desc'|trans }}</p>
-                            <a href="{{ path('app_frontend_pet_index') }}" class="button primary homepage">{{ 'app.ui.lets_find_a_cat'|trans }}</a>
-                        </div>
-                    </div>
-                    <div class="cell small-4">
-                        <div class="card home">
-                            <img src="{{ asset('assets/frontend/img/bunny.svg', 'frontend') }}"/>
-                            <h1>{{ 'app.ui.a_rodent'|trans }}</h1>
-                            <p>{{ 'app.ui.a_rodent_desc'|trans }}</p>
-                            <a href="{{ path('app_frontend_pet_index') }}" class="button primary homepage">{{ 'app.ui.lets_find_a_rodent'|trans }}</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {{ render(url('sylius_frontend_partial_taxon_root_nodes', {'template': 'frontend/homepage/_categories.html.twig', 'slug': app.request.get('slug')})) }}
         </div>
     </div>
 {% endblock %}

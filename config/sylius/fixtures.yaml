@@ -33,6 +33,7 @@ sylius_fixtures:
                         custom:
                                 -
                                     name: Cats
+                                    description: We could talk about their behavior for hours.
                                     children:
                                         -
                                             name: Persan
@@ -42,6 +43,7 @@ sylius_fixtures:
                                             name: Ragdoll
                                 -
                                     name: Dogs
+                                    description: They will bring you the ball back. Eventually.
                                     children:
                                         -
                                             name: Labrador
@@ -51,6 +53,7 @@ sylius_fixtures:
                                             name: Husky
                                 -
                                     name: Small pets
+                                    description: « They’re so fluffy I’m gonna die! »
                                     children:
                                         -
                                             name: Rodents

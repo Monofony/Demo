@@ -28,9 +28,9 @@ app:
         ginger: Roux
         grey: Gris
         legal_notices: Mentions légales
-        lets_find_a_cat: Trouvons un chat!
-        lets_find_a_dog: Trouvons un chien!
-        lets_find_a_rodent: Trouvons un rongeur!
+        lets_find_a_cats: Trouvons un chat!
+        lets_find_a_dogs: Trouvons un chien!
+        lets_find_a_small_pets: Trouvons un rongeur!
         main_color: Couleur dominante
         male: Mâle
         managing_bookings: Gestion des réservations
