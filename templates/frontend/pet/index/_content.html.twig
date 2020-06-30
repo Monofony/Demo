@@ -8,12 +8,12 @@
     {% endif %}
     <h2>{{ 'app.ui.adopt_the_perfect_pet_for_you_and_your_family'|trans }}</h2>
 </div>
-<div class="grid-x grid-margin-x petpage">
-    <div class="cell small-2 large-offset-2 animal-filter">
+<div class="grid-container grid-x align-justify petpage">
+    <div class="cell large-2 medium-3 animal-filter">
         <h2>{{ 'sylius.ui.filters'|trans }}</h2>
         {% include 'frontend/pet/_filters.html.twig' %}
     </div>
-    <div class="cell small-6 large-offset-1"
+    <div class="cell medium-9"
          data-pets
          data-url="{{ taxon_slug is null ? path('app_frontend_ajax_pet_index') : path('app_frontend_ajax_pet_per_taxon_index', { 'slug': taxon_slug }) }}"
     >

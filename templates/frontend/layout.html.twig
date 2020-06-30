@@ -16,12 +16,10 @@
             <a class="" type="button" href=""><i class="fas fa-envelope"></i>  {{ 'app.ui.contact'|trans }}</a>
             <a class="" type="button" href="{{ path('sylius_backend_login') }}"><i class="fas fa-lock"></i>  {{ 'app.ui.admin'|trans }}</a>
         </div>
-        <div class="top-bar menu-top-bar" id="responsive-menu" style="z-index: 2; position: relative;">
-            {% include 'frontend/_menu.html.twig' %}
-        </div>
+        {% include 'frontend/_menu.html.twig' %}
     {% endblock %}
 
-    <div id="ui container" style="z-index: 1; position: relative;">
+    <div class="container">
         {% block header %}
         {% endblock %}
 

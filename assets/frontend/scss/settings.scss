@@ -118,7 +118,7 @@ $block-grid-max: 8;
 // 4. Base Typography
 // ------------------
 
-$header-font-family: Inter regular;
+$header-font-family: Poppins;
 $header-font-weight: 700;
 $header-font-style: normal;
 $font-family-monospace: Inter regular;
@@ -148,7 +148,7 @@ $header-styles: (
     ),
     medium: (
         "h1": (
-            "font-size": 30
+            "font-size": 40
         ),
         "h2": (
             "font-size": 26
