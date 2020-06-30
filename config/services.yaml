@@ -52,7 +52,7 @@ services:
 
     App\Grid\Filter\TaxonFilter:
         tags:
-            - { name: 'sylius.grid_filter', type: 'taxon_filter', form_type: App\Grid\Filter\TaxonFilterType }
+            - { name: 'sylius.grid_filter', type: 'taxon_filter', form_type: App\Form\Filter\TaxonFilterType }
 
     app.grid.filter.frontend_select:
         class: Sylius\Component\Grid\Filter\SelectFilter
