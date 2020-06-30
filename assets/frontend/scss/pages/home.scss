@@ -48,47 +48,43 @@
 
 .rectangle.blue{
    width: auto;
-   height: 700px;
+   height: auto;
    background-color: #133e56;
 }
 
 .card.home {
-   width: 372px;
-   height: 412px;
-   border-radius: 10px;
+   display: flex;
+   align-items: center;
+   height: rem-calc(412);
+   border-radius: rem-calc(10);
    box-shadow: 0 8px 14px 0 rgba(19, 62, 86, 0.08), 0 2px 6px 0 rgba(19, 62, 86, 0.08);
    background-color: #ffffff;
-}
-
-.rectangle.blue > h1{
    text-align: center;
-   font-family: Poppins;
-   font-size: 24px;
-   color: #ffffff;
-   padding-top: 70px;
-}
-
-.card.home img{
-   display: block;
-   margin-left: auto;
-   margin-right: auto;
-   padding-top: 83px;
-}
-
-.card.home h1{
-   text-align: center;
-   font-family: Poppins;
-   font-size: 25px;
-   color: #133e56;
-   padding-top: 20px;
-}
-
-.card.home p{
-   text-align: center;
-   font-size: 18px;
-   text-align: center;
-   color: #8da2b0;
-   padding-top: 10px;
+   img{
+      margin-left: auto;
+      margin-right: auto;
+      padding-top: rem-calc(83);
+   }
+   h1{
+      font-family: Poppins;
+      font-size: rem-calc(25);
+      color: #133e56;
+      padding-top: rem-calc(20);
+   }
+   p{
+      font-size: rem-calc(18);
+      color: #8da2b0;
+      padding-top: rem-calc(10);
+   }
+   a {
+      width: rem-calc(197);
+      border-radius: rem-calc(6);
+      box-shadow: 0 2px 6px 0 rgba(19, 62, 86, 0.08);
+      margin-bottom: rem-calc(50);
+      font-size: rem-calc(16);
+      font-weight: bold;
+      color: #ffffff;
+   }
 }
 
 .button.homepage {
@@ -105,6 +101,14 @@
    font-size: 16px;
    font-weight: bold;
    color: #ffffff;
+}
+
+.rectangle.blue > h1{
+   text-align: center;
+   font-family: Poppins;
+   font-size: rem-calc(24);
+   color: #ffffff;
+   padding-top: rem-calc(70);
 }
 
 .grid-homepage{
