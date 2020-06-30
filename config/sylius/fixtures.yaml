@@ -56,12 +56,9 @@ sylius_fixtures:
                                     description: « They’re so fluffy I’m gonna die! »
                                     children:
                                         -
-                                            name: Rodents
-                                            children:
-                                                -
-                                                    name: Hamster
-                                                -
-                                                    name: Rabbit
+                                            name: Hamster
+                                        -
+                                            name: Rabbit
 
                 pet:
                     options:
