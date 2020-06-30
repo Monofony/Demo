@@ -1,22 +1,19 @@
 {% extends 'frontend/layout.html.twig' %}
 
 {% block content %}
-    <div class="homepage">
-        <div class="header">
-            <div class="adopt-the-perfect-pet">
-                <h2>{{ 'app.ui.adopt_the_perfect_pet_for_you_and_your_family'|trans }}</h2>
-            </div>
-            <div class="couple-with-dog">
-            </div>
-        </div>
-        <div class="latest-pets">
-            <h1>{{ 'app.ui.they_cant_wait_to_meet_you'|trans }}</h1>
-            {{ render(url('app_frontend_partial_animal_latest', {'count': 4, 'template': 'frontend/homepage/_pets.html.twig'})) }}
-            <a href="{{ path('app_frontend_pet_index') }}" class="button primary homepage">{{ 'app.ui.show_me_more'|trans }}</a>
-        </div>
-        <div class="rectangle blue">
-            <h1>{{ 'app.ui.what_kind_of_animal_are_you_looking_for'|trans }}</h1>
-            {{ render(url('sylius_frontend_partial_taxon_root_nodes', {'template': 'frontend/homepage/_categories.html.twig', 'slug': app.request.get('slug')})) }}
-        </div>
+<div class="header">
+    <div class="adopt-the-perfect-pet">
+        <h1>{{ 'app.ui.adopt_the_perfect_pet_for_you_and_your_family'|trans }}</h1>
     </div>
+    <div class="couple-with-dog show-for-large"></div>
+</div>
+<div class="latest-pets">
+    <h1>{{ 'app.ui.they_cant_wait_to_meet_you'|trans }}</h1>
+    {{ render(url('app_frontend_partial_animal_latest', {'count': 4, 'template': 'frontend/homepage/_pets.html.twig'})) }}
+    <a href="{{ path('app_frontend_pet_index') }}" class="button primary homepage">{{ 'app.ui.show_me_more'|trans }}</a>
+</div>
+<div class="rectangle blue">
+    <h1>{{ 'app.ui.what_kind_of_animal_are_you_looking_for'|trans }}</h1>
+    {{ render(url('sylius_frontend_partial_taxon_root_nodes', {'template': 'frontend/homepage/_categories.html.twig', 'slug': app.request.get('slug')})) }}
+</div>
 {% endblock %}
