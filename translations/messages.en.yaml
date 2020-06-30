@@ -12,6 +12,7 @@ app:
         a_rodent: A rodent!
         a_rodent_desc: « They’re so fluffy I’m gonna die! »
         avatar: Avatar
+        beige: Beige
         black: Black
         booking: Booking
         bookings: Bookings
@@ -31,6 +32,7 @@ app:
         lets_find_a_cats: Let’s find a cat!
         lets_find_a_dogs: Let’s find a dog!
         lets_find_a_small_pets: Let’s find a small pet!
+        lightgrey: Light grey
         main_color: Main color
         male: Male
         managing_bookings: Managing bookings
@@ -43,6 +45,7 @@ app:
         new_pet: New pet
         new_pets: New pets
         no_main_color: No main color
+        orange: Orange
         overview_of_your_website: Overview of you website
         pet: Pet
         pet_name: Pet name
