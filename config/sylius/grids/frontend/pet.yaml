@@ -47,6 +47,8 @@ sylius_grid:
                 sizeRange:
                     type: frontend_select
                     label: app.ui.size
+                    options:
+                        field: taxon.sizeRange
                     form_options:
                         choices:
                             app.ui.small: !php/const App\SizeRanges::SMALL

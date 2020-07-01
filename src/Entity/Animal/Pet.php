@@ -86,13 +86,6 @@ class Pet implements ResourceInterface
     private $sex;
 
     /**
-     * @var string|null
-     *
-     * @ORM\Column(type="string", nullable=true)
-     */
-    private $sizeRange;
-
-    /**
      * @var Collection
      *
      * @ORM\OneToMany(targetEntity="PetImage", mappedBy="pet", orphanRemoval=true, cascade={"persist"})
@@ -225,15 +218,5 @@ class Pet implements ResourceInterface
     public function setSex(?string $sex): void
     {
         $this->sex = $sex;
-    }
-
-    public function getSizeRange(): ?string
-    {
-        return $this->sizeRange;
-    }
-
-    public function setSizeRange(?string $sizeRange): void
-    {
-        $this->sizeRange = $sizeRange;
     }
 }

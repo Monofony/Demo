@@ -5,16 +5,16 @@ Feature: Filtering pets from a specific size
     I want to be able to filter pets from a specific size
 
     Background:
-        Given pets are classified under "Cats" and "Dogs" categories
+        Given there is a taxon with name "Cats"
+        And this taxon contains small pets
+        And there is also a taxon with name "Dogs"
+        And this taxon contains medium pets
         And there is also a pet with name "Winnie"
         And this pet belongs to "Cats"
-        And this pet is small
         And there is also a pet with name "Gizmo"
         And this pet belongs to "Dogs"
-        And this pet is medium
         And there is also a pet with name "Miguel"
         And this pet belongs to "Dogs"
-        And this pet is tall
 
     @ui @javascript
     Scenario: Filtering pets from a specific size
@@ -22,3 +22,4 @@ Feature: Filtering pets from a specific size
         Then I only want to see the small pets
         And I should see the pet "Winnie"
         But I should not see the pet "Gizmo"
+        But I should not see the pet "Miguel"

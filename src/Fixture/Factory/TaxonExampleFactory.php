@@ -16,6 +16,7 @@ namespace App\Fixture\Factory;
 use App\Entity\Taxonomy\Taxon;
 use App\Fixture\OptionsResolver\LazyOption;
 use App\Formatter\StringInflector;
+use App\SizeRanges;
 use Monofony\Plugin\FixturesPlugin\Fixture\Factory\AbstractExampleFactory;
 use Monofony\Plugin\FixturesPlugin\Fixture\Factory\ExampleFactoryInterface;
 use Sylius\Component\Resource\Factory\FactoryInterface;
@@ -129,7 +130,9 @@ final class TaxonExampleFactory extends AbstractExampleFactory implements Exampl
             ->setDefault('description', function (Options $options) {
                 return $this->faker->paragraph;
             })
-
+            ->setDefault('size_range', function (Options $options) {
+                return $this->faker->randomElement(SizeRanges::ALL);
+            })
             ->setDefault('parent', null)
             ->setAllowedTypes('parent', ['null', 'string', TaxonInterface::class])
             ->setNormalizer('parent', LazyOption::findOneBy($this->taxonRepository, 'code'))
@@ -153,6 +156,8 @@ final class TaxonExampleFactory extends AbstractExampleFactory implements Exampl
         $taxon->setName($options['name']);
         $taxon->setDescription($options['description']);
         $taxon->setSlug($options['slug'] ?: $this->taxonSlugGenerator->generate($taxon, $localeCode));
+
+        $taxon->setSizeRange($options['size_range']);
     }
 
     private function getLocales(): iterable
