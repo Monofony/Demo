@@ -23,5 +23,20 @@ use Sylius\Component\Taxonomy\Model\TaxonInterface;
  */
 class Taxon extends BaseTaxon implements TaxonInterface
 {
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $sizeRange;
 
+    public function getSizeRange(): ?string
+    {
+        return $this->sizeRange;
+    }
+
+    public function setSizeRange(?string $sizeRange): void
+    {
+        $this->sizeRange = $sizeRange;
+    }
 }

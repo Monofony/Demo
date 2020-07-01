@@ -12,7 +12,9 @@ declare(strict_types=1);
 
 namespace App\Tests\Behat\Context\Setup;
 
+use App\Entity\Taxonomy\Taxon;
 use App\Fixture\Factory\TaxonExampleFactory;
+use App\SizeRanges;
 use Behat\Behat\Context\Context;
 use Doctrine\ORM\EntityManagerInterface;
 use Monofony\Bundle\CoreBundle\Tests\Behat\Service\SharedStorageInterface;
@@ -48,6 +50,24 @@ final class TaxonContext implements Context
         $taxon = $this->createWithOptions(['name' => $name]);
 
         $this->manager->persist($taxon);
+        $this->manager->flush();
+    }
+
+    /**
+     * @Given /^(it|this taxon) contains small pets/
+     */
+    public function thisTaxonIsSmall(Taxon $taxon)
+    {
+        $taxon->setSizeRange(SizeRanges::SMALL);
+        $this->manager->flush();
+    }
+
+    /**
+     * @Given /^(it|this taxon) contains medium pets/
+     */
+    public function thisTaxonIsMedium(Taxon $taxon)
+    {
+        $taxon->setSizeRange(SizeRanges::MEDIUM);
         $this->manager->flush();
     }
 

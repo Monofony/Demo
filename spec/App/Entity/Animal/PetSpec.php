@@ -145,15 +145,4 @@ class PetSpec extends ObjectBehavior
         $this->setSex('Male');
         $this->getSex()->shouldReturn('Male');
     }
-
-    function it_has_no_default_size_range()
-    {
-        $this->getSizeRange()->shouldReturn(null);
-    }
-
-    function it_has_a_size_range()
-    {
-        $this->setSizeRange('Small');
-        $this->getSizeRange()->shouldReturn('Small');
-    }
 }
