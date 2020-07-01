@@ -30,7 +30,7 @@ final class FoundationTemplate extends Template
         'css_next_class'      => 'button pagination_button',
         'css_dots_class'      => 'ellipsis',
         'css_active_class'    => 'current_page',
-        'css_disabled_class'  => 'disabled'
+        'css_disabled_class'  => 'invisible'
     );
 
     /**
