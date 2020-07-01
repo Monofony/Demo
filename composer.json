@@ -55,7 +55,8 @@
         ]
     },
     "conflict": {
-        "symfony/symfony": "*"
+        "symfony/symfony": "*",
+        "doctrine/inflector": "^1.4"
     },
     "extra": {
         "symfony": {
