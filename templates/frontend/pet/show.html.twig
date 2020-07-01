@@ -24,18 +24,18 @@
                     </div>
                 </div>
                 <div class="info">
-                    <div class="grid-x grid-margin-x">
-                        <div class="cell small-4">
-                            <h2>{{ 'app.ui.sex'|trans }}</h2>
-                            <h3>Female</h3>
+                    <div class="grid-x">
+                        <div class="cell medium-4">
+                            <h4>{{ 'app.ui.sex'|trans }}</h4>
+                            <h5>{{ ('app.ui.'~pet.sex)|trans }}</h5>
                         </div>
-                        <div class="cell small-4">
-                            <h2>{{ 'app.ui.main_color'|trans }}</h2>
-                            <h3>{{ pet.mainColor is not null ? pet.mainColor : 'app.ui.no_main_color'|trans }}</h3>
+                        <div class="cell medium-4">
+                            <h4>{{ 'app.ui.main_color'|trans }}</h4>
+                            <h5>{{ pet.mainColor is not null ? (('app.ui.'~pet.mainColor)|trans) : ('app.ui.no_main_color'|trans) }}</h5>
                         </div>
-                        <div class="cell small-4">
-                            <h2>{{ 'app.ui.size'|trans }}</h2>
-                            <h3>{{ pet.size }} {{ pet.sizeUnit }}</h3>
+                        <div class="cell medium-4">
+                            <h4>{{ 'app.ui.size'|trans }}</h4>
+                            <h5>{{ pet.size }} {{ pet.size > 1 ? (('app.ui.'~pet.sizeUnit)|trans)~'s' :  (('app.ui'~pet.sizeUnit)|trans) }}</h5>
                         </div>
                     </div>
                 </div>
