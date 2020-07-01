@@ -18,6 +18,7 @@ app:
         bookings: Bookings
         bookings_summary: Bookings summary
         brown: Brown
+        browse_all_pets: Browse all pets
         cancel: Cancel
         centimeter: Centimeter
         contact: Contact
