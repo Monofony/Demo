@@ -128,3 +128,14 @@
 .breadcrumb.pet-page {
     padding-left: 4vh;
 }
+#criteria_sex {
+  label {
+    margin-right: 0;
+  }
+  i {
+    margin-top: 0.4rem;
+    margin-left: 1rem;
+    opacity: 0.5;
+    color: #133e56;
+  }
+}
