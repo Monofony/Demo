@@ -10,6 +10,7 @@
   }
   a {
     display: flex;
+    align-items: center;
     font-family: Poppins;
     font-weight: bold;
     font-size: 24px;
@@ -17,6 +18,11 @@
     img {
       width: 100%;
       object-fit: cover;
+    }
+    i {
+      margin-left: 1rem;
+      opacity: 0.5;
+      color: #133e56;
     }
   }
 }

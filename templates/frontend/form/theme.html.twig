@@ -139,6 +139,26 @@
     </div>
 {% endblock %}
 
+{% block _criteria_sex_widget %}
+    <div id="criteria_sex" class="ui dropdown">
+        <div class="grouped fields">
+            {%- for child in form %}
+                <div class="field">
+                    <div class="checkbox">
+                        {{ form_widget(child) }}
+                        {{ form_label(child) }}
+                        {% if child.vars.value == 'female' %}
+                            <i class="fas fa-venus"></i>
+                        {% else %}
+                            <i class="fas fa-mars"></i>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor -%}
+        </div>
+    </div>
+{% endblock %}
+
 {% block _criteria_mainColor_widget %}
 <div class="grid-x filter-color">
     {%- for child in form %}
