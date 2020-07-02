@@ -45,18 +45,16 @@
   text-align: center;
   border-radius: rem-calc(10);
   background-color: map-get($monofony-color, light-grey);
-  h2 {
+  h4 {
     color: map-get($monofony-color, monofony-grey);
     margin: auto;
     padding-top: 1vh;
-    font-size: rem-calc(18);
   }
-  h3 {
+  h5 {
     color: map-get($monofony-color, dark-blue-bis);
     line-height: 1.5;
     margin: auto;
     padding-bottom: 1vh;
-    font-size: rem-calc(16);
   }
   @include breakpoint(medium down){
     margin: 1rem;
