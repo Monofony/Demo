@@ -1152,6 +1152,9 @@
     "winzou/state-machine-bundle": {
         "version": "v0.3.1"
     },
+    "xynnn/google-tag-manager-bundle": {
+            "version": "2.5.0"
+    },
     "zendframework/zend-code": {
         "version": "3.4.1"
     },

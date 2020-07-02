@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    {{ google_tag_manager_head() }}
     <meta charset="UTF-8"/>
     <title>{% block title %}Monofony demo{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
@@ -10,6 +11,7 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 </head>
 <body class="pushable">
+{{ google_tag_manager_body() }}
 <div class="pusher">
     {% block top %}
         <div class="admin-menu">
@@ -38,5 +40,6 @@
     <script type="text/javascript" src="{{ asset('assets/frontend/app.js', 'frontend') }}"></script>
     {{ sonata_block_render_event('sylius.shop.layout.javascripts') }}
 {% endblock %}
+{{ google_tag_manager_body_end() }}
 </body>
 </html>

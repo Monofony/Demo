@@ -15,7 +15,9 @@
         "sylius/locale-bundle": "^1.6",
         "sylius/taxonomy-bundle": "^1.6",
         "symfony/flex": "^1.6",
-        "symfony/polyfill-php80": "^1.15"
+        "symfony/polyfill-php80": "^1.15",
+        "twig/twig": "^2.7",
+        "xynnn/google-tag-manager-bundle": "^2.8"
     },
     "require-dev": {
         "monofony/test-pack": "^0.2",

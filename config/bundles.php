@@ -47,4 +47,5 @@ return [
     FriendsOfBehat\SymfonyExtension\Bundle\FriendsOfBehatSymfonyExtensionBundle::class => ['test' => true],
     Sylius\Bundle\TaxonomyBundle\SyliusTaxonomyBundle::class => ['all' => true],
     Sylius\Bundle\LocaleBundle\SyliusLocaleBundle::class => ['all' => true],
+    Xynnn\GoogleTagManagerBundle\GoogleTagManagerBundle::class => ['all' => true],
 ];
