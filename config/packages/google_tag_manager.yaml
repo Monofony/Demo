@@ -1,0 +1,4 @@
+google_tag_manager:
+    enabled: true
+    id: '%env(GOOGLE_TAG_MANAGER_ID)%'
+    autoAppend: false
