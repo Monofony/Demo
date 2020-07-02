@@ -9,7 +9,7 @@
         <a href="{{ pet_path }}">{{ images.render(path, 'pet_grid', pet.name) }}</a>
     {% endif %}
     <div class="card-section">
-        <a class="header" href="{{ pet_path }}">{{ pet.name }} {% if pet.sex == 'female' %}<i class="fas fa-venus"></i>{% else %}<i class="fas fa-mars"></i>{% endif %}</a>
+        <a class="header" href="{{ pet_path }}">{{ pet.name }} {% if constant('App\\Sex::FEMALE') == pet.sex %}<i class="fas fa-venus"></i>{% else %}<i class="fas fa-mars"></i>{% endif %}</a>
         <div class="meta">
             <a href="{{ path('app_frontend_pet_per_taxon_index', { 'slug': pet.taxon.slug }) }}">{{ pet.taxon.name }}</a>
         </div>
