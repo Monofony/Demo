@@ -11,6 +11,7 @@ app:
         a_dog_desc: They will bring you the ball back. Eventually.
         a_rodent: A rodent!
         a_rodent_desc: « They’re so fluffy I’m gonna die! »
+        at_least_8_characters_long: At least 8 characters long.
         avatar: Avatar
         beige: Beige
         black: Black

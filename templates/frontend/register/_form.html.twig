@@ -1,10 +1,40 @@
-<h4 class="ui dividing header">{{ 'sylius.ui.personal_information'|trans }}</h4>
-<div class="two fields">
-    {{ form_row(form.firstName) }}
-    {{ form_row(form.lastName) }}
+<div class="grid-x align-center registerpage">
+    <div class="large-10 small-10">
+        <h4>{{ 'sylius.ui.personal_information'|trans }}</h4>
+    </div>
+    <div class="large-10 small-10">
+        <hr>
+    </div>
+    <div class="large-10 small-10">
+        <div class="grid-x">
+            <div class="large-6 small-12">
+                {{ form_row(form.firstName) }}
+            </div>
+            <div class="large-5 small-12 large-offset-1">
+                {{ form_row(form.lastName) }}
+            </div>
+        </div>
+    </div>
+    <div class="large-10 small-10">
+        {{ form_row(form.email) }}
+    </div>
+    <div class="large-10 small-10">
+        {{ form_row(form.phoneNumber) }}
+    </div>
+    <div class="large-10 small-10">
+        <h4>{{ 'sylius.ui.account_credentials'|trans }}</h4>
+    </div>
+    <div class="large-10 small-10">
+        <hr>
+    </div>
+    <div class="large-10 small-10">
+        {{ form_row(form.user.plainPassword.first) }}
+        <h5>{{ 'app.ui.at_least_8_characters_long'|trans }}</h5>
+    </div>
+    <div class="large-10 small-10">
+        {{ form_row(form.user.plainPassword.second) }}
+    </div>
+    <button type="submit" class="button primary">
+        {{ 'sylius.ui.create_an_account'|trans }}
+    </button>
 </div>
-{{ form_row(form.email) }}
-{{ form_row(form.phoneNumber) }}
-<h4 class="ui dividing header">{{ 'sylius.ui.account_credentials'|trans }}</h4>
-{{ form_row(form.user.plainPassword.first) }}
-{{ form_row(form.user.plainPassword.second) }}
