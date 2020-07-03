@@ -7,8 +7,4 @@
 {{ form_row(form._username) }}
 {{ form_row(form._password) }}
 <a href="{{ path('sylius_user_request_password_reset_token') }}" class="remember">{{ 'app.ui.i_cant_remember_my_password'|trans }}</a>
-<div class="field">
-    <div class="checkbox">
-        {{ form_row(form._remember_me) }}
-    </div>
-</div>
+{{ form_row(form._remember_me) }}
