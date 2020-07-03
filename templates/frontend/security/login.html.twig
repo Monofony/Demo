@@ -12,15 +12,13 @@
             </div>
             <h2>{{ 'sylius.ui.login'|trans }}</h2>
             <h3>{{ 'app.ui.happy_to_see_you_again'|trans }}</h3>
-            <div class="form">
-                {{ form_start(form, {'action': path('app_frontend_login_check'), 'attr': {'class': 'ui loadable form', 'novalidate': 'novalidate'}}) }}
-                {% include 'frontend/login/_form.html.twig' %}
+            {{ form_start(form, {'action': path('app_frontend_login_check'), 'attr': {'class': 'form', 'novalidate': 'novalidate'}}) }}
+            {% include 'frontend/login/_form.html.twig' %}
 
-                <button type="submit" class="button primary">{{ 'sylius.ui.login'|trans }}</button>
-                <input type="hidden" name="_csrf_shop_security_token" value="{{ csrf_token('shop_authenticate') }}">
+            <button type="submit" class="button primary">{{ 'sylius.ui.login'|trans }}</button>
+            <input type="hidden" name="_csrf_shop_security_token" value="{{ csrf_token('shop_authenticate') }}">
 
-                {{ form_end(form, {'render_rest': true}) }}
-            </div>
+            {{ form_end(form, {'render_rest': true}) }}
         </div>
     </div>
     <div class="cell medium-3 register">
