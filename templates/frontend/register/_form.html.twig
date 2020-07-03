@@ -10,20 +10,24 @@
             <div class="large-6 small-12">
                 {{ form_label(form.firstName, '', {'label_attr': {'class': 'label_form'}}) }}
                 {{ form_widget(form.firstName) }}
+                {{ form_errors(form.firstName) }}
             </div>
             <div class="large-5 small-12 large-offset-1">
                 {{ form_label(form.lastName, '', {'label_attr': {'class': 'label_form'}}) }}
                 {{ form_widget(form.lastName) }}
+                {{ form_errors(form.lastName) }}
             </div>
         </div>
     </div>
     <div class="large-10 small-10">
         {{ form_label(form.email, '', {'label_attr': {'class': 'label_form'}}) }}
         {{ form_widget(form.email) }}
+        {{ form_errors(form.email) }}
     </div>
     <div class="large-10 small-10">
         {{ form_label(form.phoneNumber, '', {'label_attr': {'class': 'label_form'}}) }}
         {{ form_widget(form.phoneNumber) }}
+        {{ form_errors(form.phoneNumber) }}
     </div>
     <div class="large-10 small-10">
         <h4>{{ 'sylius.ui.account_credentials'|trans }}</h4>
@@ -34,11 +38,13 @@
     <div class="large-10 small-10">
         {{ form_label(form.user.plainPassword.first, '', {'label_attr': {'class': 'label_form'}}) }}
         {{ form_widget(form.user.plainPassword.first) }}
+        {{ form_errors(form.user.plainPassword.first) }}
         <h5>{{ 'app.ui.at_least_8_characters_long'|trans }}</h5>
     </div>
     <div class="large-10 small-10">
         {{ form_label(form.user.plainPassword.second, '', {'label_attr': {'class': 'label_form'}}) }}
         {{ form_widget(form.user.plainPassword.second) }}
+        {{ form_errors(form.user.plainPassword.second) }}
     </div>
     <button type="submit" class="button primary">
         {{ 'sylius.ui.create_an_account'|trans }}
