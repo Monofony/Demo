@@ -66,8 +66,11 @@ class PetExampleFactory extends AbstractExampleFactory
     protected function configureOptions(OptionsResolver $resolver): void
     {
         $resolver
+            ->setDefault('sex', function (Options $options) {
+                return $this->faker->randomElement(Sex::ALL);
+            })
             ->setDefault('name', function (Options $options) {
-                return $this->faker->firstName;
+                return Sex::FEMALE === $options['sex'] ? $this->faker->firstNameFemale : $this->faker->firstNameMale;
             })
             ->setDefault('description', function (Options $options) {
                 return $this->faker->paragraphs(3, true);
@@ -77,9 +80,6 @@ class PetExampleFactory extends AbstractExampleFactory
             })
             ->setDefault('size_unit', function (Options $options) {
                 return $this->faker->randomElement(SizeUnits::ALL);
-            })
-            ->setDefault('sex', function (Options $options) {
-                return $this->faker->randomElement(Sex::ALL);
             })
             ->setDefault('taxon', $this::randomOne($this->taxonRepository))
             ->setDefault('images', function (Options $options): array {
