@@ -30,7 +30,11 @@ app:
         forgotten_password: Forgotten password
         ginger: Ginger
         grey: Grey
+        happy_to_see_you_again: Happy to see you again
+        i_cant_remember_my_password: I can't remember my password
+        it_is_nice_to_meet_you: It's nice to meet you!
         legal_notices: Legal notices
+        lets_continue_on_a_more_comfortable_page: Let’s continue on a more comfortable page, would you?
         lets_find_a_cats: Let’s find a cat!
         lets_find_a_dogs: Let’s find a dog!
         lets_find_a_small_pets: Let’s find a small pet!
