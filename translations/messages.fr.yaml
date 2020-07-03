@@ -11,6 +11,7 @@ app:
         a_dog_desc: Ils vous ramèneront le ballon. Finalement.
         a_rodent: Un rongeur!
         a_rodent_desc: «Ils sont tellement moelleux que je vais mourir! »
+        at_least_8_characters_long: Minimum 8 caractères.
         avatar: Avatar
         beige: Beige
         black: Noir
