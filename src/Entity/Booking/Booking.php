@@ -16,6 +16,7 @@ namespace App\Entity\Booking;
 use App\Entity\Animal\Pet;
 use App\Entity\IdentifiableTrait;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 use Monofony\Component\Core\Model\Customer\CustomerInterface;
 use Sylius\Component\Resource\Model\ResourceInterface;
 use Sylius\Component\Resource\Model\TimestampableTrait;
@@ -60,7 +61,7 @@ class Booking implements ResourceInterface
     /**
      * @var \DateTimeInterface|null
      *
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="date", nullable=true)
      */
     private $validatedAt;
 

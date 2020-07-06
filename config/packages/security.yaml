@@ -90,3 +90,4 @@ security:
         - { path: ^/admin/dashboard, role: ROLE_ADMIN }
         - { path: "^/admin.*", role: ROLE_ADMIN }
         - { path: "^/mon-compte.*", role: ROLE_USER }
+        - { path: "^/bookings.*", role: ROLE_USER }

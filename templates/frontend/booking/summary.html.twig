@@ -1,0 +1,7 @@
+{% extends 'frontend/layout.html.twig' %}
+
+{% block content %}
+    <form class="confirmation_button" method="post" action="{{ path('app_frontend_booking_create', {'slug': app.request.get('slug')}) }}">
+        <button type="submit" class="button primary">{{ 'sylius.ui.confirmation'|trans }}</button>
+    </form>
+{% endblock content %}
