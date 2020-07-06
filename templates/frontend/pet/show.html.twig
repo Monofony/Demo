@@ -18,7 +18,7 @@
             <div class="cell large-5">
                 <div class="pet-top">
                     <h1 data-name>{{ pet.name }}</h1>
-                    <h3>{{ pet.taxon.code }}</h3>
+                    <h3>{{ pet.taxon.name }}</h3>
                     <div>
                         <p>{{ pet.description|nl2br }}</p>
                     </div>
@@ -50,7 +50,7 @@
     <div class="bottom">
         <div class="taxon">
             <hr>
-            <h1>{{ pet.taxon.code }}</h1>
+            <h1>{{ pet.taxon.name }}</h1>
             <h3>Some text</h3>
             <hr>
             <p>{{ pet.taxon.description|nl2br }}</p>
