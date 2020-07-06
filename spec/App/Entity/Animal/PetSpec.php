@@ -145,4 +145,15 @@ class PetSpec extends ObjectBehavior
         $this->setSex('Male');
         $this->getSex()->shouldReturn('Male');
     }
+
+    function it_has_no_default_birth_date()
+    {
+        $this->getBirthDate()->shouldReturn(null);
+    }
+
+    function it_has_a_birth_date(\DateTime $dateTime)
+    {
+        $this->setBirthDate($dateTime);
+        $this->getBirthDate()->shouldReturn($dateTime);
+    }
 }

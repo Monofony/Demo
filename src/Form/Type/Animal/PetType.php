@@ -14,6 +14,7 @@ namespace App\Form\Type\Animal;
 use App\Colors;
 use App\Entity\Animal\Pet;
 use App\Entity\Taxonomy\Taxon;
+use App\Form\Type\DatePickerType;
 use App\Sex;
 use App\SizeUnits;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -71,6 +72,10 @@ class PetType extends AbstractType
                 'class' => Taxon::class,
                 'placeholder' => '---',
                 'choice_label' => 'code',
+            ])
+            ->add('birthDate', DatePickerType::class, [
+                'label' => 'app.ui.birth_date',
+                'required' => false,
             ])
         ;
     }

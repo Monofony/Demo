@@ -14,6 +14,7 @@ app:
         at_least_8_characters_long: At least 8 characters long.
         avatar: Avatar
         beige: Beige
+        birth_date: Birthdate
         black: Black
         booking: Booking
         bookings: Bookings
