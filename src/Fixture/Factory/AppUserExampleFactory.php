@@ -46,8 +46,6 @@ class AppUserExampleFactory extends AbstractExampleFactory implements ExampleFac
     /**
      * AppUserExampleFactory constructor.
      *
-     * @param FactoryInterface $appUserFactory
-     * @param FactoryInterface $customerFactory
      */
     public function __construct(FactoryInterface $appUserFactory, FactoryInterface $customerFactory)
     {

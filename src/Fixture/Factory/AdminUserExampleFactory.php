@@ -40,7 +40,6 @@ class AdminUserExampleFactory extends AbstractExampleFactory implements ExampleF
     /**
      * AdminUserExampleFactory constructor.
      *
-     * @param FactoryInterface $adminUserFactory
      */
     public function __construct(FactoryInterface $adminUserFactory)
     {

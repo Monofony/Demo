@@ -30,7 +30,6 @@ final class CommandDirectoryChecker
     private $filesystem;
 
     /**
-     * @param Filesystem $filesystem
      */
     public function __construct(Filesystem $filesystem)
     {
@@ -62,7 +61,6 @@ final class CommandDirectoryChecker
 
     /**
      * @param string          $directory
-     * @param OutputInterface $output
      */
     private function createDirectory($directory, OutputInterface $output): void
     {
@@ -79,7 +77,6 @@ final class CommandDirectoryChecker
 
     /**
      * @param string          $directory
-     * @param OutputInterface $output
      */
     private function changePermissionsRecursively($directory, OutputInterface $output): void
     {
@@ -102,7 +99,6 @@ final class CommandDirectoryChecker
 
     /**
      * @param string          $directory
-     * @param OutputInterface $output
      *
      * @throws AccessDeniedException if directory/file permissions cannot be changed
      */

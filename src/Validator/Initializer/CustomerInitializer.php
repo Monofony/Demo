@@ -23,7 +23,6 @@ final class CustomerInitializer implements ObjectInitializerInterface
     private $canonicalizer;
 
     /**
-     * @param CanonicalizerInterface $canonicalizer
      */
     public function __construct(CanonicalizerInterface $canonicalizer)
     {

@@ -189,7 +189,6 @@ EOT
 
     /**
      * @param string $message
-     * @param \Closure $validator
      *
      * @return Question
      */
