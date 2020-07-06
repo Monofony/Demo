@@ -101,6 +101,13 @@ class Pet implements ResourceInterface
      */
     private $taxon;
 
+    /**
+     * @var \DateTimeInterface|null
+     *
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $birthDate;
+
     public function __construct()
     {
         $this->images = new ArrayCollection();
@@ -218,5 +225,15 @@ class Pet implements ResourceInterface
     public function setSex(?string $sex): void
     {
         $this->sex = $sex;
+    }
+
+    public function getBirthDate(): ?\DateTimeInterface
+    {
+        return $this->birthDate;
+    }
+
+    public function setBirthDate(?\DateTimeInterface $birthDate): void
+    {
+        $this->birthDate = $birthDate;
     }
 }

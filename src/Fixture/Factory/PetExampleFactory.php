@@ -100,6 +100,9 @@ class PetExampleFactory extends AbstractExampleFactory
 
                 return $this->getColor($firstImage);
             })
+            ->setDefault('birth_date', function (Options $options) {
+                return $this->faker->dateTime;
+            })
         ;
     }
 
@@ -116,6 +119,7 @@ class PetExampleFactory extends AbstractExampleFactory
         $animal->setMainColor($options['main_color']);
         $animal->setSex($options['sex']);
         $animal->setTaxon($options['taxon']);
+        $animal->setBirthDate($options['birth_date']);
 
         $this->createImages($animal, $options);
 
