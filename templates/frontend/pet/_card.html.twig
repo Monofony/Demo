@@ -1,4 +1,5 @@
 {% import 'backend/macro/image.html.twig' as images %}
+{% import 'frontend/macro/age.html.twig' as ages %}
 
 
 {% set pet_path = path('app_frontend_pet_show', { 'slug': pet.slug }) %}
@@ -9,7 +10,12 @@
         <a href="{{ pet_path }}">{{ images.render(path, 'pet_grid', pet.name) }}</a>
     {% endif %}
     <div class="card-section">
-        <a class="header" href="{{ pet_path }}">{{ pet.name }} {% if constant('App\\Sex::FEMALE') == pet.sex %}<i class="fas fa-venus"></i>{% else %}<i class="fas fa-mars"></i>{% endif %}</a>
+        <div class="first-line">
+            <a class="header" href="{{ pet_path }}">{{ pet.name }} {% if constant('App\\Sex::FEMALE') == pet.sex %}<i class="fas fa-venus"></i>{% else %}<i class="fas fa-mars"></i>{% endif %}</a>
+            {% if pet.birthdate is not null %}
+                {{ ages.age(pet.age) }}
+            {% endif %}
+        </div>
         <div class="meta">
             <a href="{{ path('app_frontend_pet_per_taxon_index', { 'slug': pet.taxon.slug }) }}">{{ pet.taxon.name }}</a>
         </div>

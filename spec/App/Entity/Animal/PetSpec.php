@@ -156,4 +156,15 @@ class PetSpec extends ObjectBehavior
         $this->setBirthDate($dateTime);
         $this->getBirthDate()->shouldReturn($dateTime);
     }
+
+    function it_has_no_age_by_default()
+    {
+        $this->getAge()->shouldReturn(null);
+    }
+
+    function it_can_have_an_age()
+    {
+        $this->setBirthDate(new \DateTime('2001-01-01'));
+        $this->getAge()->shouldNotBeNull();
+    }
 }

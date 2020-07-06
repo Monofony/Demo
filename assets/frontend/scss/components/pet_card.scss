@@ -7,6 +7,17 @@
       font-size: 18px;
       color: map-get($monofony-color, monofony-grey);
     }
+    .first-line{
+      display: flex;
+      align-items: center;
+      h6 {
+        margin-bottom: 0;
+        font-size: rem-calc(20);
+        font-weight: 500;
+        color: #133e56;
+        margin-left: 0.5rem;
+      }
+    }
   }
   a {
     display: flex;

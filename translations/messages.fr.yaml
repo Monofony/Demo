@@ -49,6 +49,8 @@ app:
         meter: Mètre
         millimeter: Millimètre
         monofony_is_nananini: Monofony est une nananinininin propulsée par Mobizel blablabla
+        month: mois
+        months: mois
         new_bookings: Nouvelles réservations
         new_pet: Nouvel animal domestique
         new_pets: Nouveaux animaux domestiques
@@ -72,6 +74,8 @@ app:
         view_website: Voir le site
         what_kind_of_animal_are_you_looking_for: Quel genre d'animal recherchez-vous?
         white: Blanc
+        year_old: an
+        years_old: ans
 sylius:
     ui:
         canceled: Annulé

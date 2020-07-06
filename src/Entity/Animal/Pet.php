@@ -236,4 +236,9 @@ class Pet implements ResourceInterface
     {
         $this->birthDate = $birthDate;
     }
+
+    public function getAge(): ?\DateInterval
+    {
+        return null !== $this->birthDate ? (new \DateTime('now'))->diff($this->getBirthDate()) : null;
+    }
 }

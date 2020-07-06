@@ -49,6 +49,8 @@ app:
         meter: Meter
         millimeter: Millimeter
         monofony_is_nananini: Monofony is nananinininin powered by Mobizel blablabla
+        month: month
+        months: months
         new_bookings: New bookings
         new_pet: New pet
         new_pets: New pets
@@ -72,6 +74,8 @@ app:
         view_website: View website
         what_kind_of_animal_are_you_looking_for: What kind of animal are you looking for?
         white: White
+        year_old: yo
+        years_old: yo
 sylius:
     ui:
         canceled: Canceled
