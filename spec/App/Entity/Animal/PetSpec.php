@@ -167,6 +167,6 @@ class PetSpec extends ObjectBehavior
         $birthDate = new \DateTime('4 years ago'); 
         $this->setBirthDate(birthDate);
         
-        $this->getAge()->format('%y')->shouldReturn('4);
+        $this->getAge()->format('%y')->shouldReturn('4');
     }
 }
