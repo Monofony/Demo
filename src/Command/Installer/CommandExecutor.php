@@ -36,9 +36,6 @@ final class CommandExecutor
     private $application;
 
     /**
-     * @param InputInterface  $input
-     * @param OutputInterface $output
-     * @param Application     $application
      */
     public function __construct(InputInterface $input, OutputInterface $output, Application $application)
     {

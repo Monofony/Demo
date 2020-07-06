@@ -36,7 +36,6 @@ final class DefaultUsernameORMSubscriber implements EventSubscriber
     }
 
     /**
-     * @param OnFlushEventArgs $onFlushEventArgs
      */
     public function onFlush(OnFlushEventArgs $onFlushEventArgs): void
     {
@@ -49,7 +48,6 @@ final class DefaultUsernameORMSubscriber implements EventSubscriber
 
     /**
      * @param array                  $entities
-     * @param EntityManagerInterface $entityManager
      */
     private function processEntities($entities, EntityManagerInterface $entityManager, UnitOfWork $unitOfWork): void
     {

@@ -48,7 +48,6 @@ class AppUser extends BaseUser implements AppUserInterface
     }
 
     /**
-     * @return string|null
      */
     public function getEmail(): ?string
     {
@@ -60,7 +59,6 @@ class AppUser extends BaseUser implements AppUserInterface
     }
 
     /**
-     * @param string|null $email
      */
     public function setEmail(?string $email): void
     {
@@ -72,7 +70,6 @@ class AppUser extends BaseUser implements AppUserInterface
     }
 
     /**
-     * @return string|null
      */
     public function getEmailCanonical(): ?string
     {
@@ -84,7 +81,6 @@ class AppUser extends BaseUser implements AppUserInterface
     }
 
     /**
-     * @param string|null $emailCanonical
      */
     public function setEmailCanonical(?string $emailCanonical): void
     {
