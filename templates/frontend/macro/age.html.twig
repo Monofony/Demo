@@ -1,0 +1,15 @@
+{% macro age(dateInterval) %}
+    {% if (dateInterval|date("%y")) > 1 %}
+        <h6> • {{ dateInterval|date("%y") }} {{ 'app.ui.years_old'|trans }}</h6>
+    {% else %}
+        {% if (dateInterval|date("%y")) == 1 %}
+            <h6> • {{ dateInterval|date("%y") }} {{ 'app.ui.year_old'|trans }}</h6>
+        {% else %}
+            {% if (dateInterval|date("%m")) > 1 %}
+                <h6> • {{ dateInterval|date("%m") }} {{ 'app.ui.months'|trans }}</h6>
+            {% else %}
+                <h6> • {{ dateInterval|date("%m") }} {{ 'app.ui.month'|trans }}</h6>
+            {% endif %}
+        {% endif %}
+    {% endif %}
+{% endmacro %}

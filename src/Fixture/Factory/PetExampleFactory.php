@@ -101,7 +101,7 @@ class PetExampleFactory extends AbstractExampleFactory
                 return $this->getColor($firstImage);
             })
             ->setDefault('birth_date', function (Options $options) {
-                return $this->faker->dateTime;
+                return $this->faker->dateTimeBetween('-10 years');
             })
         ;
     }
