@@ -27,4 +27,15 @@ final class ListPetsApiTest extends JsonApiTestCase
         $response = $this->client->getResponse();
         $this->assertResponse($response, 'pet/list_pets_response', Response::HTTP_OK);
     }
+
+    /**
+     * @test
+     */
+    public function it_lists_pets_filtered_by_sex()
+    {
+        $this->loadFixturesFromFile('resources/fixtures.yaml');
+        $this->client->request('GET', '/api/pets?sex=male');
+        $response = $this->client->getResponse();
+        $this->assertResponse($response, 'pet/list_pets_filtered_by_sex_response', Response::HTTP_OK);
+    }
 }

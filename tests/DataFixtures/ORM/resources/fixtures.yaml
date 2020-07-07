@@ -55,4 +55,9 @@ App\Entity\Animal\Pet:
         sex: !php/const App\Sex::MALE
         birthdate: <dateTimeBetween('2 months ago', '2 months ago')>
         taxon: "@taxon_cat"
+    cat_mickey:
+        name: Mickey
+        sex: !php/const App\Sex::FEMALE
+        birthdate: <dateTimeBetween('2 months ago', '2 months ago')>
+        taxon: "@taxon_cat"
 

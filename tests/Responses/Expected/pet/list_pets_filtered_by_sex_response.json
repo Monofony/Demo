@@ -14,21 +14,13 @@
         "name": "Cats"
       },
       "age": "@string@.startsWith('-P0Y2M0DT')"
-    },
-    {
-      "@id": "@string@.startsWith('/api/pets/')",
-      "@type": "Pet",
-      "name": "Mickey",
-      "sex": "female",
-      "taxon": {
-        "@id": "@string@.startsWith('/api/taxons/')",
-        "@type": "Taxon",
-        "name": "Cats"
-      },
-      "age": "@string@.startsWith('-P0Y2M0DT')"
     }
   ],
-  "hydra:totalItems": 2,
+  "hydra:totalItems": 1,
+  "hydra:view": {
+    "@id": "/api/pets?sex=male",
+    "@type": "hydra:PartialCollectionView"
+  },
   "hydra:search": {
     "@type": "hydra:IriTemplate",
     "hydra:template": "/api/pets{?sex,sex[]}",
