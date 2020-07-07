@@ -58,3 +58,5 @@ services:
         class: Sylius\Component\Grid\Filter\SelectFilter
         tags:
             - { name: 'sylius.grid_filter', type: 'frontend_select', form_type: Sylius\Bundle\GridBundle\Form\Type\Filter\SelectFilterType }
+
+    Sylius\Component\Customer\Context\CustomerContextInterface: '@App\Context\CustomerContext'

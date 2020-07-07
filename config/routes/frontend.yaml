@@ -21,3 +21,6 @@ app_frontend_partial:
 app_frontend_ajax:
     resource: "frontend/ajax.yaml"
     prefix: "/_ajax"
+
+app_frontend_booking:
+    resource: "frontend/booking.yaml"
