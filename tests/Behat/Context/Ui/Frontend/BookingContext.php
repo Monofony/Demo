@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace App\Tests\Behat\Context\Ui\Frontend;
 
 use App\Entity\Animal\Pet;
+use App\Tests\Behat\Page\Frontend\Account\LoginPage;
 use App\Tests\Behat\Page\Frontend\Booking\ConfirmationPage;
 use App\Tests\Behat\Page\Frontend\Booking\SummaryPage;
 use Behat\Behat\Context\Context;
@@ -26,18 +27,26 @@ final class BookingContext implements Context
     /** @var SummaryPage */
     private $summaryPage;
 
-    public function __construct(ConfirmationPage $confirmationPage, SummaryPage $summaryPage)
-    {
+    /** @var LoginPage */
+    private $loginPage;
+
+    public function __construct(
+        ConfirmationPage $confirmationPage,
+        SummaryPage $summaryPage,
+        LoginPage $loginPage
+    ) {
         $this->confirmationPage = $confirmationPage;
         $this->summaryPage = $summaryPage;
+        $this->loginPage = $loginPage;
     }
 
     /**
      * @Given /^I want to ask for a visit (this pet)$/
+     * @Given /^I try to ask for a visit (this pet)$/
      */
     public function iWantToAskForAVisitThisPet(Pet $animal)
     {
-        $this->summaryPage->open(['slug' => $animal->getSlug()]);
+        $this->summaryPage->tryToOpen(['slug' => $animal->getSlug()]);
     }
 
     /**
@@ -56,4 +65,11 @@ final class BookingContext implements Context
         Assert::true($this->confirmationPage->isRequestSend());
     }
 
+    /**
+     * @Given I should be redirected to login page
+     */
+    public function iShouldBeRedirectedToLoginPage()
+    {
+        Assert::true($this->loginPage->isOpen(), 'User should be on login page but they are not.');
+    }
 }
