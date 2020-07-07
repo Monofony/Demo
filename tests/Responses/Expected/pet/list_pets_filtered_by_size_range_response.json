@@ -6,30 +6,6 @@
         {
             "@id": "@string@.startsWith('/api/pets/')",
             "@type": "Pet",
-            "name": "Winnie",
-            "sex": "male",
-            "taxon": {
-                "@id": "@string@.startsWith('/api/taxons/')",
-                "@type": "Taxon",
-                "name": "Cats"
-            },
-            "age": "@string@.startsWith('-P0Y2M0DT')"
-        },
-        {
-            "@id": "@string@.startsWith('/api/pets/')",
-            "@type": "Pet",
-            "name": "Mickey",
-            "sex": "female",
-            "taxon": {
-                "@id": "@string@.startsWith('/api/taxons/')",
-                "@type": "Taxon",
-                "name": "Cats"
-            },
-            "age": "@string@.startsWith('-P0Y2M0DT')"
-        },
-        {
-            "@id": "@string@.startsWith('/api/pets/')",
-            "@type": "Pet",
             "name": "Bill",
             "sex": "female",
             "taxon": {
@@ -40,7 +16,11 @@
             "age": "@string@.startsWith('-P0Y2M0DT')"
         }
     ],
-    "hydra:totalItems": 3,
+    "hydra:totalItems": 1,
+    "hydra:view": {
+        "@id": "/api/pets?taxon.sizeRange=tall",
+        "@type": "hydra:PartialCollectionView"
+    },
     "hydra:search": {
         "@type": "hydra:IriTemplate",
         "hydra:template": "/api/pets{?sex,sex[],mainColor,mainColor[],taxon.sizeRange,taxon.sizeRange[],taxon.code,taxon.code[]}",

@@ -26,7 +26,7 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 /**
  * @ORM\Entity
  * @ORM\Table(name="app_animal")
- * @ApiFilter(SearchFilter::class, properties={"sex": "exact"})
+ * @ApiFilter(SearchFilter::class, properties={"sex": "exact", "mainColor" : "exact", "taxon.sizeRange" : "exact", "taxon.code" : "exact"})
  */
 class Pet implements ResourceInterface
 {
