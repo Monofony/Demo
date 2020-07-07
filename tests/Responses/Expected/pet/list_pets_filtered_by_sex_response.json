@@ -1,43 +1,79 @@
 {
-  "@context": "/api/contexts/Pet",
-  "@id": "/api/pets",
-  "@type": "hydra:Collection",
-  "hydra:member": [
-    {
-      "@id": "@string@.startsWith('/api/pets/')",
-      "@type": "Pet",
-      "name": "Winnie",
-      "sex": "male",
-      "taxon": {
-        "@id": "@string@.startsWith('/api/taxons/')",
-        "@type": "Taxon",
-        "name": "Cats"
-      },
-      "age": "@string@.startsWith('-P0Y2M0DT')"
+    "@context": "/api/contexts/Pet",
+    "@id": "/api/pets",
+    "@type": "hydra:Collection",
+    "hydra:member": [
+        {
+            "@id": "@string@.startsWith('/api/pets/')",
+            "@type": "Pet",
+            "name": "Winnie",
+            "sex": "male",
+            "taxon": {
+                "@id": "@string@.startsWith('/api/taxons/')",
+                "@type": "Taxon",
+                "name": "Cats"
+            },
+            "age": "@string@.startsWith('-P0Y2M0DT')"
+        }
+    ],
+    "hydra:totalItems": 1,
+    "hydra:view": {
+        "@id": "/api/pets?sex=male",
+        "@type": "hydra:PartialCollectionView"
+    },
+    "hydra:search": {
+        "@type": "hydra:IriTemplate",
+        "hydra:template": "/api/pets{?sex,sex[],mainColor,mainColor[],taxon.sizeRange,taxon.sizeRange[],taxon.code,taxon.code[]}",
+        "hydra:variableRepresentation": "BasicRepresentation",
+        "hydra:mapping": [
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "sex",
+                "property": "sex",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "sex[]",
+                "property": "sex",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "mainColor",
+                "property": "mainColor",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "mainColor[]",
+                "property": "mainColor",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "taxon.sizeRange",
+                "property": "taxon.sizeRange",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "taxon.sizeRange[]",
+                "property": "taxon.sizeRange",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "taxon.code",
+                "property": "taxon.code",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "taxon.code[]",
+                "property": "taxon.code",
+                "required": false
+            }
+        ]
     }
-  ],
-  "hydra:totalItems": 1,
-  "hydra:view": {
-    "@id": "/api/pets?sex=male",
-    "@type": "hydra:PartialCollectionView"
-  },
-  "hydra:search": {
-    "@type": "hydra:IriTemplate",
-    "hydra:template": "/api/pets{?sex,sex[]}",
-    "hydra:variableRepresentation": "BasicRepresentation",
-    "hydra:mapping": [
-      {
-        "@type": "IriTemplateMapping",
-        "variable": "sex",
-        "property": "sex",
-        "required": false
-      },
-      {
-        "@type": "IriTemplateMapping",
-        "variable": "sex[]",
-        "property": "sex",
-        "required": false
-      }
-    ]
-  }
 }

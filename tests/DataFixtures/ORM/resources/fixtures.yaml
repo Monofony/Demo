@@ -41,23 +41,48 @@ Sylius\Component\Taxonomy\Model\TaxonTranslation:
         name: "Chats"
         slug: "chats"
         translatable: "@taxon_cat"
+    taxon_dog_translation_en_US:
+        locale: "en_US"
+        name: "Dogs"
+        slug: "dogs"
+        translatable: "@taxon_dog"
+    taxon_dog_translation_fr_FR:
+        locale: "fr_FR"
+        name: "Chiens"
+        slug: "chien"
+        translatable: "@taxon_dog"
 
 App\Entity\Taxonomy\Taxon:
     taxon_cat:
         code: Cats
+        sizeRange: !php/const App\SizeRanges::SMALL
         translations:
             - "@taxon_cat_translation_en_US"
             - "@taxon_cat_translation_fr_FR"
+    taxon_dog:
+        code: Dogs
+        sizeRange: !php/const App\SizeRanges::TALL
+        translations:
+            - "@taxon_dog_translation_en_US"
+            - "@taxon_dog_translation_fr_FR"
 
 App\Entity\Animal\Pet:
     cat_winnie:
         name: Winnie
         sex: !php/const App\Sex::MALE
+        mainColor: !php/const App\Colors::BLACK
         birthdate: <dateTimeBetween('2 months ago', '2 months ago')>
         taxon: "@taxon_cat"
     cat_mickey:
         name: Mickey
         sex: !php/const App\Sex::FEMALE
+        mainColor: !php/const App\Colors::WHITE
         birthdate: <dateTimeBetween('2 months ago', '2 months ago')>
         taxon: "@taxon_cat"
+    dog_bill:
+        name: Bill
+        sex: !php/const App\Sex::FEMALE
+        mainColor: !php/const App\Colors::BROWN
+        birthdate: <dateTimeBetween('2 months ago', '2 months ago')>
+        taxon: "@taxon_dog"
 
