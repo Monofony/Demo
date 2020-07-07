@@ -30,3 +30,29 @@ App\Entity\Customer\Customer:
         firstName: Sam
         lastName: Identifie
 
+Sylius\Component\Taxonomy\Model\TaxonTranslation:
+    taxon_cat_translation_en_US:
+        locale: "en_US"
+        name: "Cats"
+        slug: "cats"
+        translatable: "@taxon_cat"
+    taxon_cat_translation_fr_FR:
+        locale: "fr_FR"
+        name: "Chats"
+        slug: "chats"
+        translatable: "@taxon_cat"
+
+App\Entity\Taxonomy\Taxon:
+    taxon_cat:
+        code: Cats
+        translations:
+            - "@taxon_cat_translation_en_US"
+            - "@taxon_cat_translation_fr_FR"
+
+App\Entity\Animal\Pet:
+    cat_winnie:
+        name: Winnie
+        sex: !php/const App\Sex::MALE
+        birthdate: <dateTimeBetween('2 months ago', '2 months ago')>
+        taxon: "@taxon_cat"
+

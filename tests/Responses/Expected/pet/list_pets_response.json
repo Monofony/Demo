@@ -1,0 +1,20 @@
+{
+  "@context": "/api/contexts/Pet",
+  "@id": "/api/pets",
+  "@type": "hydra:Collection",
+  "hydra:member": [
+    {
+      "@id": "@string@.startsWith('/api/pets/')",
+      "@type": "Pet",
+      "name": "Winnie",
+      "sex": "male",
+      "taxon": {
+        "@id": "@string@.startsWith('/api/taxons/')",
+        "@type": "Taxon",
+        "name": "Cats"
+      },
+      "age": "@string@.startsWith('-P0Y2M0DT')"
+    }
+  ],
+  "hydra:totalItems": 1
+}

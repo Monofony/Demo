@@ -1,0 +1,10 @@
+App\Entity\Taxonomy\Taxon:
+    attributes:
+        normalization_context:
+            groups: ['taxon:read']
+    itemOperations:
+        get:
+            controller: ApiPlatform\Core\Action\NotFoundAction
+            read: false
+            output: false
+    collectionOperations: []
