@@ -1,0 +1,8 @@
+App\Entity\Animal\Pet:
+    attributes:
+        normalization_context:
+            groups: ['pet:read', 'taxon:read']
+    itemOperations:
+        get: null
+    collectionOperations:
+        get: null

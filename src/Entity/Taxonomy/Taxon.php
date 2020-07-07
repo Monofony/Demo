@@ -16,6 +16,7 @@ namespace App\Entity\Taxonomy;
 use Doctrine\ORM\Mapping as ORM;
 use Sylius\Component\Taxonomy\Model\Taxon as BaseTaxon;
 use Sylius\Component\Taxonomy\Model\TaxonInterface;
+use Symfony\Component\Serializer\Annotation as Serializer;
 
 /**
  * @ORM\Entity
@@ -38,5 +39,13 @@ class Taxon extends BaseTaxon implements TaxonInterface
     public function setSizeRange(?string $sizeRange): void
     {
         $this->sizeRange = $sizeRange;
+    }
+
+    /**
+     * @Serializer\Groups({"taxon:read"})
+     */
+    public function getName(): ?string
+    {
+        return parent::getName();
     }
 }

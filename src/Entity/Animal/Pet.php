@@ -18,6 +18,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
 use Sylius\Component\Resource\Model\ResourceInterface;
 use Sylius\Component\Taxonomy\Model\TaxonInterface;
+use Symfony\Component\Serializer\Annotation as Serializer;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -34,6 +35,8 @@ class Pet implements ResourceInterface
      * @ORM\Column(type="string")
      *
      * @Assert\NotBlank()
+     *
+     * @Serializer\Groups({"pet:read"})
      */
     private $name;
 
@@ -82,6 +85,8 @@ class Pet implements ResourceInterface
      * @var string|null
      *
      * @ORM\Column(type="string", nullable=true)
+     *
+     * @Serializer\Groups({"pet:read"})
      */
     private $sex;
 
@@ -98,6 +103,8 @@ class Pet implements ResourceInterface
      * @ORM\ManyToOne(targetEntity="App\Entity\Taxonomy\Taxon")
      *
      * @Assert\NotBlank()
+     *
+     * @Serializer\Groups({"pet:read"})
      */
     private $taxon;
 
@@ -237,6 +244,9 @@ class Pet implements ResourceInterface
         $this->birthDate = $birthDate;
     }
 
+    /**
+     * @Serializer\Groups({"pet:read"})
+     */
     public function getAge(): ?\DateInterval
     {
         return null !== $this->birthDate ? (new \DateTime('now'))->diff($this->getBirthDate()) : null;
