@@ -11,6 +11,7 @@
 
 namespace App\Entity\Animal;
 
+use ApiPlatform\Core\Annotation\ApiFilter;
 use App\Entity\IdentifiableTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -20,10 +21,12 @@ use Sylius\Component\Resource\Model\ResourceInterface;
 use Sylius\Component\Taxonomy\Model\TaxonInterface;
 use Symfony\Component\Serializer\Annotation as Serializer;
 use Symfony\Component\Validator\Constraints as Assert;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="app_animal")
+ * @ApiFilter(SearchFilter::class, properties={"sex": "exact"})
  */
 class Pet implements ResourceInterface
 {
