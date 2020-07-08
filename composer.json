@@ -15,6 +15,7 @@
         "sylius/locale-bundle": "^1.6",
         "sylius/taxonomy-bundle": "^1.6",
         "symfony/flex": "^1.6",
+        "symfony/messenger": "4.4.*",
         "symfony/polyfill-php80": "^1.15",
         "xynnn/google-tag-manager-bundle": "^2.8"
     },

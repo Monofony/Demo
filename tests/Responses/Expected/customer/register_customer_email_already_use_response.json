@@ -1,0 +1,600 @@
+{
+  "@context": "/api/contexts/Error",
+  "@type": "hydra:Error",
+  "hydra:title": "An error occurred",
+  "hydra:description": "User with email \"api@sylius.com\" is already registered",
+  "trace": [
+    {
+      "namespace": "",
+      "short_class": "",
+      "class": "",
+      "type": "",
+      "function": "",
+      "file": "/Users/thomasduchemin/Documents/DemoMonofony/Demo/src/Command/RegisterAppUserHandler.php",
+      "line": 83,
+      "args": []
+    },
+    {
+      "namespace": "App\\Command",
+      "short_class": "RegisterAppUserHandler",
+      "class": "App\\Command\\RegisterAppUserHandler",
+      "type": "->",
+      "function": "provideCustomer",
+      "file": "/Users/thomasduchemin/Documents/DemoMonofony/Demo/src/Command/RegisterAppUserHandler.php",
+      "line": 60,
+      "args": [
+        [
+          "string",
+          "smithdddsd@example.com"
+        ]
+      ]
+    },
+    {
+      "namespace": "App\\Command",
+      "short_class": "RegisterAppUserHandler",
+      "class": "App\\Command\\RegisterAppUserHandler",
+      "type": "->",
+      "function": "__invoke",
+      "file": "/Users/thomasduchemin/Documents/DemoMonofony/Demo/vendor/symfony/messenger/Middleware/HandleMessageMiddleware.php",
+      "line": 63,
+      "args": [
+        [
+          "object",
+          "App\\Command\\RegisterAppUser"
+        ]
+      ]
+    },
+    {
+      "namespace": "Symfony\\Component\\Messenger\\Middleware",
+      "short_class": "HandleMessageMiddleware",
+      "class": "Symfony\\Component\\Messenger\\Middleware\\HandleMessageMiddleware",
+      "type": "->",
+      "function": "handle",
+      "file": "/Users/thomasduchemin/Documents/DemoMonofony/Demo/vendor/symfony/messenger/Middleware/SendMessageMiddleware.php",
+      "line": 79,
+      "args": [
+        [
+          "object",
+          "Symfony\\Component\\Messenger\\Envelope"
+        ],
+        [
+          "object",
+          "Symfony\\Component\\Messenger\\Middleware\\TraceableStack"
+        ]
+      ]
+    },
+    {
+      "namespace": "Symfony\\Component\\Messenger\\Middleware",
+      "short_class": "SendMessageMiddleware",
+      "class": "Symfony\\Component\\Messenger\\Middleware\\SendMessageMiddleware",
+      "type": "->",
+      "function": "handle",
+      "file": "/Users/thomasduchemin/Documents/DemoMonofony/Demo/vendor/symfony/doctrine-bridge/Messenger/DoctrineTransactionMiddleware.php",
+      "line": 31,
+      "args": [
+        [
+          "object",
+          "Symfony\\Component\\Messenger\\Envelope"
+        ],
+        [
+          "object",
+          "Symfony\\Component\\Messenger\\Middleware\\TraceableStack"
+        ]
+      ]
+    },
+    {
+      "namespace": "Symfony\\Bridge\\Doctrine\\Messenger",
+      "short_class": "DoctrineTransactionMiddleware",
+      "class": "Symfony\\Bridge\\Doctrine\\Messenger\\DoctrineTransactionMiddleware",
+      "type": "->",
+      "function": "handleForManager",
+      "file": "/Users/thomasduchemin/Documents/DemoMonofony/Demo/vendor/symfony/doctrine-bridge/Messenger/AbstractDoctrineMiddleware.php",
+      "line": 45,
+      "args": [
+        [
+          "object",
+          "ContainerMRAxUvm\\EntityManager_9a5be93"
+        ],
+        [
+          "object",
+          "Symfony\\Component\\Messenger\\Envelope"
+        ],
+        [
+          "object",
+          "Symfony\\Component\\Messenger\\Middleware\\TraceableStack"
+        ]
+      ]
+    },
+    {
+      "namespace": "Symfony\\Bridge\\Doctrine\\Messenger",
+      "short_class": "AbstractDoctrineMiddleware",
+      "class": "Symfony\\Bridge\\Doctrine\\Messenger\\AbstractDoctrineMiddleware",
+      "type": "->",
+      "function": "handle",
+      "file": "/Users/thomasduchemin/Documents/DemoMonofony/Demo/vendor/symfony/messenger/Middleware/ValidationMiddleware.php",
+      "line": 48,
+      "args": [
+        [
+          "object",
+          "Symfony\\Component\\Messenger\\Envelope"
+        ],
+        [
+          "object",
+          "Symfony\\Component\\Messenger\\Middleware\\TraceableStack"
+        ]
+      ]
+    },
+    {
+      "namespace": "Symfony\\Component\\Messenger\\Middleware",
+      "short_class": "ValidationMiddleware",
+      "class": "Symfony\\Component\\Messenger\\Middleware\\ValidationMiddleware",
+      "type": "->",
+      "function": "handle",
+      "file": "/Users/thomasduchemin/Documents/DemoMonofony/Demo/vendor/symfony/messenger/Middleware/FailedMessageProcessingMiddleware.php",
+      "line": 34,
+      "args": [
+        [
+          "object",
+          "Symfony\\Component\\Messenger\\Envelope"
+        ],
+        [
+          "object",
+          "Symfony\\Component\\Messenger\\Middleware\\TraceableStack"
+        ]
+      ]
+    },
+    {
+      "namespace": "Symfony\\Component\\Messenger\\Middleware",
+      "short_class": "FailedMessageProcessingMiddleware",
+      "class": "Symfony\\Component\\Messenger\\Middleware\\FailedMessageProcessingMiddleware",
+      "type": "->",
+      "function": "handle",
+      "file": "/Users/thomasduchemin/Documents/DemoMonofony/Demo/vendor/symfony/messenger/Middleware/DispatchAfterCurrentBusMiddleware.php",
+      "line": 67,
+      "args": [
+        [
+          "object",
+          "Symfony\\Component\\Messenger\\Envelope"
+        ],
+        [
+          "object",
+          "Symfony\\Component\\Messenger\\Middleware\\TraceableStack"
+        ]
+      ]
+    },
+    {
+      "namespace": "Symfony\\Component\\Messenger\\Middleware",
+      "short_class": "DispatchAfterCurrentBusMiddleware",
+      "class": "Symfony\\Component\\Messenger\\Middleware\\DispatchAfterCurrentBusMiddleware",
+      "type": "->",
+      "function": "handle",
+      "file": "/Users/thomasduchemin/Documents/DemoMonofony/Demo/vendor/symfony/messenger/Middleware/RejectRedeliveredMessageMiddleware.php",
+      "line": 42,
+      "args": [
+        [
+          "object",
+          "Symfony\\Component\\Messenger\\Envelope"
+        ],
+        [
+          "object",
+          "Symfony\\Component\\Messenger\\Middleware\\TraceableStack"
+        ]
+      ]
+    },
+    {
+      "namespace": "Symfony\\Component\\Messenger\\Middleware",
+      "short_class": "RejectRedeliveredMessageMiddleware",
+      "class": "Symfony\\Component\\Messenger\\Middleware\\RejectRedeliveredMessageMiddleware",
+      "type": "->",
+      "function": "handle",
+      "file": "/Users/thomasduchemin/Documents/DemoMonofony/Demo/vendor/symfony/messenger/Middleware/AddBusNameStampMiddleware.php",
+      "line": 37,
+      "args": [
+        [
+          "object",
+          "Symfony\\Component\\Messenger\\Envelope"
+        ],
+        [
+          "object",
+          "Symfony\\Component\\Messenger\\Middleware\\TraceableStack"
+        ]
+      ]
+    },
+    {
+      "namespace": "Symfony\\Component\\Messenger\\Middleware",
+      "short_class": "AddBusNameStampMiddleware",
+      "class": "Symfony\\Component\\Messenger\\Middleware\\AddBusNameStampMiddleware",
+      "type": "->",
+      "function": "handle",
+      "file": "/Users/thomasduchemin/Documents/DemoMonofony/Demo/vendor/symfony/messenger/Middleware/TraceableMiddleware.php",
+      "line": 43,
+      "args": [
+        [
+          "object",
+          "Symfony\\Component\\Messenger\\Envelope"
+        ],
+        [
+          "object",
+          "Symfony\\Component\\Messenger\\Middleware\\TraceableStack"
+        ]
+      ]
+    },
+    {
+      "namespace": "Symfony\\Component\\Messenger\\Middleware",
+      "short_class": "TraceableMiddleware",
+      "class": "Symfony\\Component\\Messenger\\Middleware\\TraceableMiddleware",
+      "type": "->",
+      "function": "handle",
+      "file": "/Users/thomasduchemin/Documents/DemoMonofony/Demo/vendor/symfony/messenger/MessageBus.php",
+      "line": 80,
+      "args": [
+        [
+          "object",
+          "Symfony\\Component\\Messenger\\Envelope"
+        ],
+        [
+          "object",
+          "Symfony\\Component\\Messenger\\Middleware\\TraceableStack"
+        ]
+      ]
+    },
+    {
+      "namespace": "Symfony\\Component\\Messenger",
+      "short_class": "MessageBus",
+      "class": "Symfony\\Component\\Messenger\\MessageBus",
+      "type": "->",
+      "function": "dispatch",
+      "file": "/Users/thomasduchemin/Documents/DemoMonofony/Demo/vendor/symfony/messenger/TraceableMessageBus.php",
+      "line": 41,
+      "args": [
+        [
+          "object",
+          "App\\Command\\RegisterAppUser"
+        ],
+        [
+          "array",
+          []
+        ]
+      ]
+    },
+    {
+      "namespace": "Symfony\\Component\\Messenger",
+      "short_class": "TraceableMessageBus",
+      "class": "Symfony\\Component\\Messenger\\TraceableMessageBus",
+      "type": "->",
+      "function": "dispatch",
+      "file": "/Users/thomasduchemin/Documents/DemoMonofony/Demo/vendor/api-platform/core/src/Bridge/Symfony/Messenger/DispatchTrait.php",
+      "line": 44,
+      "args": [
+        [
+          "object",
+          "App\\Command\\RegisterAppUser"
+        ]
+      ]
+    },
+    {
+      "namespace": "ApiPlatform\\Core\\Bridge\\Symfony\\Messenger",
+      "short_class": "DataPersister",
+      "class": "ApiPlatform\\Core\\Bridge\\Symfony\\Messenger\\DataPersister",
+      "type": "->",
+      "function": "dispatch",
+      "file": "/Users/thomasduchemin/Documents/DemoMonofony/Demo/vendor/api-platform/core/src/Bridge/Symfony/Messenger/DataPersister.php",
+      "line": 78,
+      "args": [
+        [
+          "object",
+          "App\\Command\\RegisterAppUser"
+        ]
+      ]
+    },
+    {
+      "namespace": "ApiPlatform\\Core\\Bridge\\Symfony\\Messenger",
+      "short_class": "DataPersister",
+      "class": "ApiPlatform\\Core\\Bridge\\Symfony\\Messenger\\DataPersister",
+      "type": "->",
+      "function": "persist",
+      "file": "/Users/thomasduchemin/Documents/DemoMonofony/Demo/vendor/api-platform/core/src/Bridge/Symfony/Bundle/DataPersister/TraceableChainDataPersister.php",
+      "line": 56,
+      "args": [
+        [
+          "object",
+          "App\\Command\\RegisterAppUser"
+        ],
+        [
+          "array",
+          {
+            "resource_class": [
+              "string",
+              "App\\Command\\RegisterAppUser"
+            ],
+            "collection_operation_name": [
+              "string",
+              "post"
+            ],
+            "receive": [
+              "boolean",
+              true
+            ],
+            "respond": [
+              "boolean",
+              true
+            ],
+            "persist": [
+              "boolean",
+              true
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "namespace": "ApiPlatform\\Core\\Bridge\\Symfony\\Bundle\\DataPersister",
+      "short_class": "TraceableChainDataPersister",
+      "class": "ApiPlatform\\Core\\Bridge\\Symfony\\Bundle\\DataPersister\\TraceableChainDataPersister",
+      "type": "->",
+      "function": "persist",
+      "file": "/Users/thomasduchemin/Documents/DemoMonofony/Demo/vendor/api-platform/core/src/EventListener/WriteListener.php",
+      "line": 76,
+      "args": [
+        [
+          "object",
+          "App\\Command\\RegisterAppUser"
+        ],
+        [
+          "array",
+          {
+            "resource_class": [
+              "string",
+              "App\\Command\\RegisterAppUser"
+            ],
+            "collection_operation_name": [
+              "string",
+              "post"
+            ],
+            "receive": [
+              "boolean",
+              true
+            ],
+            "respond": [
+              "boolean",
+              true
+            ],
+            "persist": [
+              "boolean",
+              true
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "namespace": "ApiPlatform\\Core\\EventListener",
+      "short_class": "WriteListener",
+      "class": "ApiPlatform\\Core\\EventListener\\WriteListener",
+      "type": "->",
+      "function": "onKernelView",
+      "file": "/Users/thomasduchemin/Documents/DemoMonofony/Demo/vendor/symfony/event-dispatcher/Debug/WrappedListener.php",
+      "line": 126,
+      "args": [
+        [
+          "object",
+          "Symfony\\Component\\HttpKernel\\Event\\ViewEvent"
+        ],
+        [
+          "string",
+          "kernel.view"
+        ],
+        [
+          "object",
+          "Symfony\\Component\\HttpKernel\\Debug\\TraceableEventDispatcher"
+        ]
+      ]
+    },
+    {
+      "namespace": "Symfony\\Component\\EventDispatcher\\Debug",
+      "short_class": "WrappedListener",
+      "class": "Symfony\\Component\\EventDispatcher\\Debug\\WrappedListener",
+      "type": "->",
+      "function": "__invoke",
+      "file": "/Users/thomasduchemin/Documents/DemoMonofony/Demo/vendor/symfony/event-dispatcher/EventDispatcher.php",
+      "line": 264,
+      "args": [
+        [
+          "object",
+          "Symfony\\Component\\HttpKernel\\Event\\ViewEvent"
+        ],
+        [
+          "string",
+          "kernel.view"
+        ],
+        [
+          "object",
+          "Symfony\\Component\\HttpKernel\\Debug\\TraceableEventDispatcher"
+        ]
+      ]
+    },
+    {
+      "namespace": "Symfony\\Component\\EventDispatcher",
+      "short_class": "EventDispatcher",
+      "class": "Symfony\\Component\\EventDispatcher\\EventDispatcher",
+      "type": "->",
+      "function": "doDispatch",
+      "file": "/Users/thomasduchemin/Documents/DemoMonofony/Demo/vendor/symfony/event-dispatcher/EventDispatcher.php",
+      "line": 239,
+      "args": [
+        [
+          "array",
+          [
+            [
+              "object",
+              "Symfony\\Component\\EventDispatcher\\Debug\\WrappedListener"
+            ],
+            [
+              "object",
+              "Symfony\\Component\\EventDispatcher\\Debug\\WrappedListener"
+            ],
+            [
+              "object",
+              "Symfony\\Component\\EventDispatcher\\Debug\\WrappedListener"
+            ],
+            [
+              "object",
+              "Symfony\\Component\\EventDispatcher\\Debug\\WrappedListener"
+            ],
+            [
+              "object",
+              "Symfony\\Component\\EventDispatcher\\Debug\\WrappedListener"
+            ]
+          ]
+        ],
+        [
+          "string",
+          "kernel.view"
+        ],
+        [
+          "object",
+          "Symfony\\Component\\HttpKernel\\Event\\ViewEvent"
+        ]
+      ]
+    },
+    {
+      "namespace": "Symfony\\Component\\EventDispatcher",
+      "short_class": "EventDispatcher",
+      "class": "Symfony\\Component\\EventDispatcher\\EventDispatcher",
+      "type": "->",
+      "function": "callListeners",
+      "file": "/Users/thomasduchemin/Documents/DemoMonofony/Demo/vendor/symfony/event-dispatcher/EventDispatcher.php",
+      "line": 73,
+      "args": [
+        [
+          "array",
+          [
+            [
+              "object",
+              "Symfony\\Component\\EventDispatcher\\Debug\\WrappedListener"
+            ],
+            [
+              "object",
+              "Symfony\\Component\\EventDispatcher\\Debug\\WrappedListener"
+            ],
+            [
+              "object",
+              "Symfony\\Component\\EventDispatcher\\Debug\\WrappedListener"
+            ],
+            [
+              "object",
+              "Symfony\\Component\\EventDispatcher\\Debug\\WrappedListener"
+            ],
+            [
+              "object",
+              "Symfony\\Component\\EventDispatcher\\Debug\\WrappedListener"
+            ]
+          ]
+        ],
+        [
+          "string",
+          "kernel.view"
+        ],
+        [
+          "object",
+          "Symfony\\Component\\HttpKernel\\Event\\ViewEvent"
+        ]
+      ]
+    },
+    {
+      "namespace": "Symfony\\Component\\EventDispatcher",
+      "short_class": "EventDispatcher",
+      "class": "Symfony\\Component\\EventDispatcher\\EventDispatcher",
+      "type": "->",
+      "function": "dispatch",
+      "file": "/Users/thomasduchemin/Documents/DemoMonofony/Demo/vendor/symfony/event-dispatcher/Debug/TraceableEventDispatcher.php",
+      "line": 168,
+      "args": [
+        [
+          "object",
+          "Symfony\\Component\\HttpKernel\\Event\\ViewEvent"
+        ],
+        [
+          "string",
+          "kernel.view"
+        ]
+      ]
+    },
+    {
+      "namespace": "Symfony\\Component\\EventDispatcher\\Debug",
+      "short_class": "TraceableEventDispatcher",
+      "class": "Symfony\\Component\\EventDispatcher\\Debug\\TraceableEventDispatcher",
+      "type": "->",
+      "function": "dispatch",
+      "file": "/Users/thomasduchemin/Documents/DemoMonofony/Demo/vendor/symfony/http-kernel/HttpKernel.php",
+      "line": 163,
+      "args": [
+        [
+          "object",
+          "Symfony\\Component\\HttpKernel\\Event\\ViewEvent"
+        ],
+        [
+          "string",
+          "kernel.view"
+        ]
+      ]
+    },
+    {
+      "namespace": "Symfony\\Component\\HttpKernel",
+      "short_class": "HttpKernel",
+      "class": "Symfony\\Component\\HttpKernel\\HttpKernel",
+      "type": "->",
+      "function": "handleRaw",
+      "file": "/Users/thomasduchemin/Documents/DemoMonofony/Demo/vendor/symfony/http-kernel/HttpKernel.php",
+      "line": 80,
+      "args": [
+        [
+          "object",
+          "Symfony\\Component\\HttpFoundation\\Request"
+        ],
+        [
+          "integer",
+          1
+        ]
+      ]
+    },
+    {
+      "namespace": "Symfony\\Component\\HttpKernel",
+      "short_class": "HttpKernel",
+      "class": "Symfony\\Component\\HttpKernel\\HttpKernel",
+      "type": "->",
+      "function": "handle",
+      "file": "/Users/thomasduchemin/Documents/DemoMonofony/Demo/vendor/symfony/http-kernel/Kernel.php",
+      "line": 201,
+      "args": [
+        [
+          "object",
+          "Symfony\\Component\\HttpFoundation\\Request"
+        ],
+        [
+          "integer",
+          1
+        ],
+        [
+          "boolean",
+          true
+        ]
+      ]
+    },
+    {
+      "namespace": "Symfony\\Component\\HttpKernel",
+      "short_class": "Kernel",
+      "class": "Symfony\\Component\\HttpKernel\\Kernel",
+      "type": "->",
+      "function": "handle",
+      "file": "/Users/thomasduchemin/Documents/DemoMonofony/Demo/public/index.php",
+      "line": 25,
+      "args": [
+        [
+          "object",
+          "Symfony\\Component\\HttpFoundation\\Request"
+        ]
+      ]
+    }
+  ]
+}

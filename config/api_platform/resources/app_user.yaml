@@ -1,0 +1,16 @@
+App\Command\RegisterAppUser:
+    shortName: "RegisterAppUser"
+    attributes:
+        messenger: true
+        ouput: false
+    collectionOperations:
+        post:
+            path: /register
+            status: 204
+            openapi_context:
+                summary: Register a app user
+    property:
+        firstName: true
+        lastName: true
+        email: true
+        password: true
