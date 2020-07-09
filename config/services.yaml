@@ -60,3 +60,8 @@ services:
             - { name: 'sylius.grid_filter', type: 'frontend_select', form_type: Sylius\Bundle\GridBundle\Form\Type\Filter\SelectFilterType }
 
     Sylius\Component\Customer\Context\CustomerContextInterface: '@App\Context\CustomerContext'
+
+    App\Swagger\SwaggerDecorator:
+        decorates: 'api_platform.swagger.normalizer.documentation'
+        arguments: ['@App\Swagger\SwaggerDecorator.inner']
+        autoconfigure: false
