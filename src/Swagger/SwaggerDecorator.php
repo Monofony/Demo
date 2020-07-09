@@ -46,9 +46,6 @@ final class SwaggerDecorator implements NormalizerInterface
             'tags' => ['Token'],
             'operationId' => 'authentification',
             'summary' => 'Authenticate user',
-            'responses' => [
-                '400' => ['description' => 'Invalid input'],
-            ],
             'requestBody' => [
                 'content' => [
                     'application/json' => [
@@ -67,6 +64,7 @@ final class SwaggerDecorator implements NormalizerInterface
                 'description' => 'data',
             ],
             'responses' => [
+                '400' => ['description' => 'Invalid input'],
                 Response::HTTP_OK => [
                     'description' => 'Get OAuth2 token',
                     'content' => [
