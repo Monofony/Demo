@@ -2,7 +2,7 @@
     "type": "project",
     "name": "monofony/demo",
     "description": "Monofony demo edition that is deployed to monofony.mobizel.com",
-    "license": "proprietary",
+    "license": "MIT",
     "require": {
         "php": "^7.2",
         "beberlei/doctrineextensions": "^1.2",
