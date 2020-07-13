@@ -51,3 +51,16 @@ app_backend_pet_per_taxon_index:
             vars:
                 subheader: app.ui.managing_pets
                 icon: cat
+
+app_backend_pet_update_state:
+    methods: [PATCH]
+    path: /pets/{id}/status/{transition}
+    defaults:
+        _controller: app.controller.pet:applyStateMachineTransitionAction
+        _sylius:
+            section: backend
+            state_machine:
+                graph: app_pet
+                transition: $transition
+            csrf_protection: false
+            redirect: referer

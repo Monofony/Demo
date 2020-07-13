@@ -14,6 +14,7 @@ namespace App\Tests\Behat\Context\Setup;
 use App\Colors;
 use App\Entity\Animal\Pet;
 use App\Fixture\Factory\PetExampleFactory;
+use App\PetStates;
 use App\Sex;
 use App\SizeRanges;
 use Behat\Behat\Context\Context;
@@ -65,6 +66,15 @@ class PetContext implements Context
     public function thisPetIsAMale(Pet $animal)
     {
         $animal->setSex(Sex::MALE);
+        $this->manager->flush();
+    }
+
+    /**
+     * @Given /^(it|this pet) is a new pet$/
+     */
+    public function thisPetIsANewPet(Pet $animal)
+    {
+        $animal->setStatus(PetStates::NEW);
         $this->manager->flush();
     }
 

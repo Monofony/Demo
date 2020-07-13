@@ -15,6 +15,7 @@ use App\Colors;
 use App\Entity\Animal\Pet;
 use App\Entity\Animal\PetImage;
 use App\Fixture\OptionsResolver\LazyOption;
+use App\PetStates;
 use App\Repository\TaxonRepository;
 use App\Sex;
 use App\SizeRanges;
@@ -103,6 +104,9 @@ class PetExampleFactory extends AbstractExampleFactory
             ->setDefault('birth_date', function (Options $options) {
                 return $this->faker->dateTimeBetween('-10 years');
             })
+            ->setDefault('status', function (Options $options) {
+                return $this->faker->randomElement(PetStates::ALL);
+            })
         ;
     }
 
@@ -120,6 +124,7 @@ class PetExampleFactory extends AbstractExampleFactory
         $animal->setSex($options['sex']);
         $animal->setTaxon($options['taxon']);
         $animal->setBirthDate($options['birth_date']);
+        $animal->setStatus($options['status']);
 
         $this->createImages($animal, $options);
 

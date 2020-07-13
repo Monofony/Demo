@@ -4,6 +4,7 @@ namespace spec\App\Entity\Animal;
 
 use App\Entity\Animal\Pet;
 use App\Entity\Animal\PetImage;
+use App\PetStates;
 use Doctrine\Common\Collections\Collection;
 use PhpSpec\ObjectBehavior;
 use Sylius\Component\Taxonomy\Model\TaxonInterface;
@@ -164,9 +165,20 @@ class PetSpec extends ObjectBehavior
 
     function it_can_have_an_age()
     {
-        $birthDate = new \DateTime('4 years ago'); 
+        $birthDate = new \DateTime('4 years ago');
         $this->setBirthDate($birthDate);
-        
+
         $this->getAge()->format('%y')->shouldReturn('4');
+    }
+
+    function it_should_be_new_by_default()
+    {
+        $this->getStatus()->shouldReturn(PetStates::NEW);
+    }
+
+    function it_has_a_status()
+    {
+        $this->setStatus(PetStates::BOOKED);
+        $this->getStatus()->shouldReturn(PetStates::BOOKED);
     }
 }

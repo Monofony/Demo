@@ -37,3 +37,27 @@ winzou_state_machine:
                     on:   'cancel'
                     do:   ['@app.sender.email', 'sendEmailForCanceledBooking']
                     args: ['object']
+
+    my_bundle_pet:
+        class: App\Entity\Animal\Pet
+        property_path: status
+        graph: app_pet
+        states:
+            - new
+            - bookable
+            - booked
+            - adopted
+        transitions:
+            validate:
+                from: [new]
+                to: bookable
+            book:
+                from: [bookable]
+                to: booked
+            adopt:
+                from: [booked]
+                to: adopted
+            unbook:
+                from: [booked]
+                to: bookable
+
