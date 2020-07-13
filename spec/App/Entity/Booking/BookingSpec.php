@@ -70,14 +70,14 @@ class BookingSpec extends ObjectBehavior
         $this->getCreatedAt()->shouldReturn($dateTime);
     }
 
-    function it_has_no_default_validation_date()
+    function it_has_no_default_family_contact_date()
     {
-        $this->getValidatedAt()->shouldReturn(null);
+        $this->getFamilyContactedAt()->shouldReturn(null);
     }
 
-    function it_has_a_validation_date(\DateTime $dateTime)
+    function its_family_contact_date_is_mutable(\DateTime $dateTime)
     {
-        $this->setValidatedAt($dateTime);
-        $this->getValidatedAt()->shouldReturn($dateTime);
+        $this->setFamilyContactedAt($dateTime);
+        $this->getFamilyContactedAt()->shouldReturn($dateTime);
     }
 }

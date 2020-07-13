@@ -31,9 +31,9 @@ sylius_grid:
                     sortable: null
                     options:
                         format: Y-m-d
-                validatedAt:
+                familyContactedAt:
                     type: datetime
-                    label: app.ui.validation_date
+                    label: app.ui.family_contact_date
                     sortable: null
                     options:
                         format: Y-m-d
@@ -48,9 +48,11 @@ sylius_grid:
                     form_options:
                         choices:
                             sylius.ui.new: !php/const App\BookingStates::NEW
+                            app.ui.family_contacted: !php/const App\BookingStates::FAMILY_CONTACTED
+                            app.ui.visit_scheduled: !php/const App\BookingStates::VISIT_SCHEDULED
                             sylius.ui.canceled: !php/const App\BookingStates::CANCELED
-                            sylius.ui.validated: !php/const App\BookingStates::VALIDATED
                             sylius.ui.finished: !php/const App\BookingStates::FINISHED
+                            app.ui.refused: !php/const App\BookingStates::REFUSED
             actions:
                 item:
                     show:

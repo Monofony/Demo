@@ -63,14 +63,17 @@ final class BookingExampleFactory extends AbstractExampleFactory
             ->setDefault('createdAt', function (Options $options) {
                 return $this->faker->dateTimeBetween('-2 years');
             })
-            ->setDefault('validateAt', function (Options $options) {
+            ->setDefault('familyContactedAt', function (Options $options) {
+                /** @var string $status */
+                $status = $options['status'];
+
                 /** @var \DateTime $createdAt */
                 $createdAt = $options['createdAt'];
-                $validatedAt = clone ($createdAt);
+                $familyContactedAt = clone ($createdAt);
 
-                $validatedAt->add(new \DateInterval('P1D'));
+                $familyContactedAt->add(new \DateInterval('P1D'));
 
-                return $validatedAt;
+                return ('new' !== $status) ? $familyContactedAt : null;
             })
         ;
     }
@@ -85,7 +88,7 @@ final class BookingExampleFactory extends AbstractExampleFactory
         $booking->setCustomer($options['customer']);
         $booking->setStatus($options['status']);
         $booking->setCreatedAt($options['createdAt']);
-        $booking->setValidatedAt($options['validateAt']);
+        $booking->setFamilyContactedAt($options['familyContactedAt']);
 
         return $booking;
     }

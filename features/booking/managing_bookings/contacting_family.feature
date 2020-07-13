@@ -1,8 +1,8 @@
 @managing_bookings
-Feature: Validating booking
-    In order to validate a booking
+Feature: Contacting family
+    In order to contact family
     As an Administrator
-    I want to validate a booking
+    I want to contact family for a booking
 
     Background:
         Given pets are classified under "Cats" and "Dogs" categories
@@ -12,7 +12,7 @@ Feature: Validating booking
         And I am logged in as an administrator
 
     @ui
-    Scenario: Validating booking
-        Given I want to validate this booking
-        When I validate it
-        Then this booking should be validated
+    Scenario: Contacting family
+        Given I want to contact family for this booking
+        When I contact family for it
+        Then family of this booking should be contacted

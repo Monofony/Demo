@@ -24,8 +24,20 @@
             {{ self.updateStateButton(booking, 'cancel', 'ban') }}
         {% endif %}
 
-        {% if sm_can(booking, 'validate', 'app_booking') %}
-            {{ self.updateStateButton(booking, 'validate', 'checkmark') }}
+        {% if sm_can(booking, 'refuse', 'app_booking') %}
+            {{ self.updateStateButton(booking, 'refuse', 'ban') }}
+        {% endif %}
+
+        {% if sm_can(booking, 'finish', 'app_booking') %}
+            {{ self.updateStateButton(booking, 'finish', 'checkmark') }}
+        {% endif %}
+
+        {% if sm_can(booking, 'contact_family', 'app_booking') %}
+            {{ self.updateStateButton(booking, 'contact_family', 'checkmark') }}
+        {% endif %}
+
+        {% if sm_can(booking, 'schedule_a_visit', 'app_booking') %}
+            {{ self.updateStateButton(booking, 'schedule_a_visit', 'checkmark') }}
         {% endif %}
 
     </div>

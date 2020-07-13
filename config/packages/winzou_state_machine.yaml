@@ -5,21 +5,32 @@ winzou_state_machine:
         graph: app_booking
         states:
             - new
-            - validated
+            - family_contacted
+            - visit_scheduled
             - canceled
             - finished
+            - refused
         transitions:
-            validate:
+            contact_family:
                 from: [new]
-                to: validated
+                to: family_contacted
+            schedule_a_visit:
+                from: [family_contacted]
+                to: visit_scheduled
+            finish:
+                from: [visit_scheduled]
+                to: finished
             cancel:
-                from: [new]
+                from: [new, family_contacted, visit_scheduled]
                 to: canceled
+            refuse:
+                from: [new, family_contacted, visit_scheduled]
+                to: refused
         callbacks:
             before:
-                update_booking_validatation_date:
-                    on:   'validate'
-                    do:   ['@app.modifier.booking', 'updateValidationDate']
+                update_booking_family_contact_date:
+                    on:   'contact_family'
+                    do:   ['@app.modifier.booking', 'updateFamilyContactDate']
                     args: ['object']
             after:
                 email_on_cancel:

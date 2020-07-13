@@ -21,9 +21,9 @@ final class ShowPage extends SymfonyPage
         return 'app_backend_booking_show';
     }
 
-    public function validateBooking(): void
+    public function contactFamilyBooking(): void
     {
-        $this->getDocument()->pressButton('Validate');
+        $this->getDocument()->pressButton('Contact family');
     }
 
     public function cancelBooking(): void
