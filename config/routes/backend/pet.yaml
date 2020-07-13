@@ -2,7 +2,7 @@ app_backend_pet:
     resource: |
         alias: app.pet
         section: backend
-        except: ['show', 'index']
+        except: ['index']
         redirect: update
         grid: app_backend_pet
         vars:
@@ -12,6 +12,17 @@ app_backend_pet:
                     form: "backend/pet/_form.html.twig"
         templates: backend/crud
     type: sylius.resource
+
+app_backend_pet_show:
+    methods: [GET]
+    path: /pets/{id}
+    defaults:
+        _controller: app.controller.pet:showAction
+        _sylius:
+            section: backend
+            template: backend/pet/show.html.twig
+            vars:
+                toolbar: 'backend/pet/show/_toolbar.html.twig'
 
 app_backend_pet_index:
     path: /pets/

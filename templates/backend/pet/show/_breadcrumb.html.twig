@@ -2,8 +2,8 @@
 
 {% set breadcrumbs = [
     { label: 'sylius.ui.administration'|trans, url: path('app_backend_dashboard') },
-    { label: 'app.ui.bookings'|trans, url: path('app_backend_booking_index') },
-    { label: booking.id }
+    { label: 'app.ui.pets'|trans, url: path('app_backend_pet_index') },
+    { label: pet.name }
 ] %}
 
 {{ breadcrumb.crumble(breadcrumbs) }}

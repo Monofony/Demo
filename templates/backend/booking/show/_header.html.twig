@@ -4,7 +4,7 @@
     <div class="column">
         {{ headers.default(header|trans, configuration.vars.icon|default('fax'), configuration.vars.subheader|default(null)|trans) }}
 
-        {% include configuration.vars.templates.breadcrumb|default('backend/booking/show/_breadcrumb.html.twig') %}
+        {% include 'backend/booking/show/_breadcrumb.html.twig' %}
     </div>
     <div class="middle aligned column">
         {% include configuration.vars.templates.toolbar|default('backend/booking/show/_toolbar.html.twig') ignore missing %}

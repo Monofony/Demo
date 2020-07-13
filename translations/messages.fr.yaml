@@ -70,6 +70,7 @@ app:
         search_customers: Chercher des clients
         sex: Sexe
         show_booking: Voir la réservation
+        show_pet: Voir l'animal
         show_me_more: En voir plus!
         size: Taille
         size_unit: Unité de taille
