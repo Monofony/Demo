@@ -15,4 +15,4 @@ Feature: Contacting family
     Scenario: Contacting family
         Given I want to contact family for this booking
         When I contact family for it
-        Then this booking required contact with the family
+        Then family of this booking should be contacted
