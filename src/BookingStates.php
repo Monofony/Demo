@@ -15,16 +15,20 @@ namespace App;
 
 final class BookingStates
 {
+    public const NEW = 'new';
+    public const FAMILY_CONTACTED = 'family_contacted';
+    public const VISIT_SCHEDULED = 'visit_scheduled';
     public const CANCELED = 'canceled';
     public const FINISHED = 'finished';
-    public const NEW = 'new';
-    public const VALIDATED = 'validated';
+    public const REFUSED = 'refused';
 
     public const ALL = [
+        self::NEW,
+        self::FAMILY_CONTACTED,
+        self::VISIT_SCHEDULED,
         self::CANCELED,
         self::FINISHED,
-        self::NEW,
-        self::VALIDATED,
+        self::REFUSED,
     ];
 
     private function __construct()

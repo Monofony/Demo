@@ -17,8 +17,8 @@ use App\Entity\Booking\Booking;
 
 final class BookingModifier
 {
-    public function updateValidationDate(Booking $booking): void
+    public function updateFamilyContactDate(Booking $booking): void
     {
-        $booking->setValidatedAt(new \DateTimeImmutable());
+        $booking->setFamilyContactedAt(new \DateTimeImmutable());
     }
 }

@@ -24,10 +24,14 @@ app:
         cancel: Annuler
         centimeter: Centimètre
         contact: Contact
+        contact_family: Contacter la famille
         create_user: Créer un utilisateur
         customer_name: Nom du client
         edit_pet: Edition d'un animal domestique
+        family_contact_date: Date de contact avec la famille
+        family_contacted: Famille contactée
         female: Femelle
+        finish: Terminer
         forgotten_password: Mot de passe oublié
         ginger: Roux
         grey: Gris
@@ -60,8 +64,12 @@ app:
         pet: Animal domestique
         pet_name: Nom de l'animal
         pets: Animaux domestiques
+        refuse: Refuser
+        refused: Refusé
+        schedule_a_visit: Programmer une visite
         search_customers: Chercher des clients
         sex: Sexe
+        show_booking: Voir la réservation
         show_me_more: En voir plus!
         size: Taille
         size_unit: Unité de taille
@@ -72,6 +80,7 @@ app:
         validate: Valider
         validation_date: Date de validation
         view_website: Voir le site
+        visit_scheduled: Visite programmée
         what_kind_of_animal_are_you_looking_for: Quel genre d'animal recherchez-vous?
         white: Blanc
         year_old: an
@@ -79,6 +88,9 @@ app:
 sylius:
     ui:
         canceled: Annulé
+        family_contacted: Famille contactée
         finished: Terminé
+        refused: Refusé
         show: Afficher
         validated: Validé
+        visit_scheduled: Visite programmée

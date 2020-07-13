@@ -1,0 +1,97 @@
+{% set pet = resource.pet %}
+{% set customer = resource.customer %}
+
+<div class="ui grid">
+    <div class="sixteen wide mobile eight wide computer column">
+        <div id="taxonomy">
+            <h4 class="ui top attached large header">{{ 'app.ui.pet'|trans }}</h4>
+            <div class="ui attached segment">
+                <table class="ui very basic celled table">
+                    <tbody>
+                    <tr>
+                        <td class="five wide"><strong class="gray text">{{ 'sylius.ui.image'|trans }}</strong></td>
+                        <td style="display: flex">
+                            {% for image in pet.images %}
+                                {% set path = vich_uploader_asset(image, 'file') %}
+                                <img class="ui circular image" style="margin-right: 1rem" src="{{ path|imagine_filter('thumbnail') }}" alt="{{ pet.name }}">
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="five wide"><strong class="gray text">{{ 'sylius.ui.name'|trans }}</strong></td>
+                        <td>{{ pet.name }}</td>
+                    </tr>
+                    <tr>
+                        <td class="five wide"><strong class="gray text">{{ 'sylius.ui.taxonomy'|trans }}</strong></td>
+                        <td>{{ pet.taxon.name }}</td>
+                    </tr>
+                    <tr>
+                        <td class="five wide"><strong class="gray text">{{ 'app.ui.size'|trans }}</strong></td>
+                        <td>{{ pet.size }} {{ (('app.ui.'~pet.sizeUnit)|trans) }}</td>
+                    </tr>
+                    <tr>
+                        <td class="five wide"><strong class="gray text">{{ 'app.ui.main_color'|trans }}</strong></td>
+                        <td>{{ (('app.ui.'~pet.mainColor)|trans) }}</td>
+                    </tr>
+                    <tr>
+                        <td class="five wide"><strong class="gray text">{{ 'app.ui.sex'|trans }}</strong></td>
+                        <td>{{ (('app.ui.'~pet.sex)|trans) }}</td>
+                    </tr>
+                    <tr>
+                        <td class="five wide"><strong class="gray text">{{ 'app.ui.birth_date'|trans }}</strong></td>
+                        <td>{{ pet.birthDate|date("m/d/Y") }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="sixteen wide mobile eight wide computer column">
+        <div id="customer">
+            <h4 class="ui top attached large header">{{ 'sylius.ui.customer'|trans }}</h4>
+            <div class="ui attached segment">
+                <table class="ui very basic celled table">
+                    <tbody>
+                    <tr>
+                        <td class="five wide"><strong class="gray text">{{ 'sylius.ui.first_name'|trans }}</strong></td>
+                        <td>{{ customer.firstName }}</td>
+                    </tr>
+                    <tr>
+                        <td class="five wide"><strong class="gray text">{{ 'sylius.ui.last_name'|trans }}</strong></td>
+                        <td>{{ customer.lastName }}</td>
+                    </tr>
+                    <tr>
+                        <td class="five wide"><strong class="gray text">{{ 'sylius.ui.email'|trans }}</strong></td>
+                        <td>{{ customer.email }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="sixteen wide mobile sixteen wide computer column">
+        <div id="booking">
+            <h4 class="ui top attached large header">{{ 'app.ui.booking'|trans }}</h4>
+            <div class="ui attached segment">
+                <table class="ui very basic celled table">
+                    <tbody>
+                    <tr>
+                        <td class="five wide"><strong class="gray text">{{ 'sylius.ui.registration_date'|trans }}</strong></td>
+                        <td>{{ resource.createdAt|date("m/d/Y") }}</td>
+                    </tr>
+                    <tr>
+                        <td class="five wide"><strong class="gray text">{{ 'sylius.ui.status'|trans }}</strong></td>
+                        <td>{% include 'backend/grid/field/_state.html.twig' with {'data': resource.status,'options': {'vars': {'labels': 'backend/booking/label/state'}}} %}</td>
+                    </tr>
+                    {% if resource.familyContactedAt is not null %}
+                        <tr>
+                            <td class="five wide"><strong class="gray text">{{ 'app.ui.family_contact_date'|trans }}</strong></td>
+                            <td>{{ resource.familyContactedAt|date("m/d/Y") }}</td>
+                        </tr>
+                    {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

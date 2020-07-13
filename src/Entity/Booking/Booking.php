@@ -63,7 +63,7 @@ class Booking implements ResourceInterface
      *
      * @ORM\Column(type="date", nullable=true)
      */
-    private $validatedAt;
+    private $familyContactedAt;
 
     public function getPet(): ?Pet
     {
@@ -95,13 +95,13 @@ class Booking implements ResourceInterface
         $this->status = $status;
     }
 
-    public function getValidatedAt(): ?\DateTimeInterface
+    public function getFamilyContactedAt(): ?\DateTimeInterface
     {
-        return $this->validatedAt;
+        return $this->familyContactedAt;
     }
 
-    public function setValidatedAt(?\DateTimeInterface $validatedAt): void
+    public function setFamilyContactedAt(?\DateTimeInterface $familyContactedAt): void
     {
-        $this->validatedAt = $validatedAt;
+        $this->familyContactedAt = $familyContactedAt;
     }
 }

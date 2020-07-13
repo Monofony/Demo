@@ -24,10 +24,14 @@ app:
         cancel: Cancel
         centimeter: Centimeter
         contact: Contact
+        contact_family: Contact family
         create_user: Create an user
         customer_name: Customer name
         edit_pet: Edit pet
+        family_contact_date: Contact family date
+        family_contacted: Family contacted
         female: Female
+        finish: Finish
         forgotten_password: Forgotten password
         ginger: Ginger
         grey: Grey
@@ -60,8 +64,12 @@ app:
         pet: Pet
         pet_name: Pet name
         pets: Pets
+        refuse: Refuse
+        refused: Refused
+        schedule_a_visit: Schedule a visit
         search_customers: Search customers
         sex: Sex
+        show_booking: Show booking
         show_me_more: Show me more!
         size: Size
         size_unit: Size unit
@@ -72,6 +80,7 @@ app:
         validate: Validate
         validation_date: Validation date
         view_website: View website
+        visit_scheduled: Visit scheduled
         what_kind_of_animal_are_you_looking_for: What kind of animal are you looking for?
         white: White
         year_old: yo
@@ -79,5 +88,8 @@ app:
 sylius:
     ui:
         canceled: Canceled
+        family_contacted: Family contacted
         finished: Finished
+        refused: Refused
         validated: Validated
+        visit_scheduled: Visit scheduled
