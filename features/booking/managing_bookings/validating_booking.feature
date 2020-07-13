@@ -12,7 +12,7 @@ Feature: Contacting family
         And I am logged in as an administrator
 
     @ui
-    Scenario: Contact family booking
+    Scenario: Contacting family
         Given I want to contact family for this booking
         When I contact family for it
         Then this booking required contact with the family
