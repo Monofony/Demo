@@ -16,8 +16,8 @@ class BookingModifierSpec extends ObjectBehavior
 
     function it_updates_validation_date(Booking $booking)
     {
-        $booking->setValidatedAt(Argument::type(\DateTimeInterface::class))->shouldBeCalled();
+        $booking->setFamilyContactedAt(Argument::type(\DateTimeInterface::class))->shouldBeCalled();
 
-        $this->updateValidationDate($booking);
+        $this->updateFamilyContactDate($booking);
     }
 }
