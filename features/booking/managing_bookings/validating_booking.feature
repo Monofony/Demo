@@ -1,5 +1,5 @@
 @managing_bookings
-Feature: Contact family booking
+Feature: Contacting family
     In order to contact family
     As an Administrator
     I want to contact family for a booking
