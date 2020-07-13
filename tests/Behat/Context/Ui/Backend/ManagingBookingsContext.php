@@ -98,7 +98,7 @@ final class ManagingBookingsContext implements Context
     }
 
     /**
-     * @Then this booking required contact with the family
+     * @Then family of this booking should be contacted
      */
     public function iShouldSeeThisBookingHasBeenValidatedInTheList()
     {
