@@ -75,7 +75,7 @@ class BookingSpec extends ObjectBehavior
         $this->getFamilyContactedAt()->shouldReturn(null);
     }
 
-    function it_has_a_family_contact_date(\DateTime $dateTime)
+    function its_family_contact_date_is_mutable(\DateTime $dateTime)
     {
         $this->setFamilyContactedAt($dateTime);
         $this->getFamilyContactedAt()->shouldReturn($dateTime);
