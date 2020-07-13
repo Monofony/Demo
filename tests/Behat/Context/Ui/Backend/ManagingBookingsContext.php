@@ -58,7 +58,7 @@ final class ManagingBookingsContext implements Context
     }
 
     /**
-     * @Given /^I want to validate (this booking)$/
+     * @Given /^I want to contact family for (this booking)$/
      */
     public function iWantToValidateThisBooking(Booking $booking)
     {
@@ -66,11 +66,11 @@ final class ManagingBookingsContext implements Context
     }
 
     /**
-     * @When I validate it
+     * @When I contact family for it
      */
-    public function iValidateIt()
+    public function iContactFamilyIt()
     {
-        $this->showPage->validateBooking();
+        $this->showPage->contactFamilyBooking();
     }
 
     /**
@@ -98,12 +98,12 @@ final class ManagingBookingsContext implements Context
     }
 
     /**
-     * @Then this booking should be validated
+     * @Then this booking required contact with the family
      */
     public function iShouldSeeThisBookingHasBeenValidatedInTheList()
     {
         $this->indexPage->open();
-        Assert::true($this->indexPage->isSingleResourceOnPage(['status' => 'Validated']));
+        Assert::true($this->indexPage->isSingleResourceOnPage(['status' => 'Family contacted']));
     }
 
     /**
