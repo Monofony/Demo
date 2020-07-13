@@ -1,0 +1,48 @@
+{% set pet = resource %}
+
+<div class="ui grid">
+    <div class="sixteen wide mobile sixteen wide computer column">
+        <div id="pet">
+            <h4 class="ui top attached large header">{{ 'app.ui.pet'|trans }}</h4>
+            <div class="ui attached segment">
+                <table class="ui very basic celled table">
+                    <tbody>
+                    <tr>
+                        <td class="five wide"><strong class="gray text">{{ 'sylius.ui.image'|trans }}</strong></td>
+                        <td style="display: flex">
+                            {% for image in pet.images %}
+                                {% set path = vich_uploader_asset(image, 'file') %}
+                                <img class="ui circular image" style="margin-right: 1rem" src="{{ path|imagine_filter('thumbnail') }}" alt="{{ pet.name }}">
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="five wide"><strong class="gray text">{{ 'sylius.ui.name'|trans }}</strong></td>
+                        <td>{{ pet.name }}</td>
+                    </tr>
+                    <tr>
+                        <td class="five wide"><strong class="gray text">{{ 'sylius.ui.taxonomy'|trans }}</strong></td>
+                        <td>{{ pet.taxon.name }}</td>
+                    </tr>
+                    <tr>
+                        <td class="five wide"><strong class="gray text">{{ 'app.ui.size'|trans }}</strong></td>
+                        <td>{{ pet.size }} {{ (('app.ui.'~pet.sizeUnit)|trans) }}</td>
+                    </tr>
+                    <tr>
+                        <td class="five wide"><strong class="gray text">{{ 'app.ui.main_color'|trans }}</strong></td>
+                        <td>{{ (('app.ui.'~pet.mainColor)|trans) }}</td>
+                    </tr>
+                    <tr>
+                        <td class="five wide"><strong class="gray text">{{ 'app.ui.sex'|trans }}</strong></td>
+                        <td>{{ (('app.ui.'~pet.sex)|trans) }}</td>
+                    </tr>
+                    <tr>
+                        <td class="five wide"><strong class="gray text">{{ 'app.ui.birth_date'|trans }}</strong></td>
+                        <td>{{ pet.birthDate|date("m/d/Y") }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

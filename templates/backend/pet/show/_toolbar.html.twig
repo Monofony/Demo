@@ -1,0 +1,5 @@
+{% import '@SyliusUi/Macro/buttons.html.twig' as buttons %}
+
+<div class="ui right floated buttons">
+    {{ buttons.edit(path('app_backend_pet_update', {'id': pet.id})) }}
+</div>

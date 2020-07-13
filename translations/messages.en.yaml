@@ -70,6 +70,7 @@ app:
         search_customers: Search customers
         sex: Sex
         show_booking: Show booking
+        show_pet: Show pet
         show_me_more: Show me more!
         size: Size
         size_unit: Size unit
