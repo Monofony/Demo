@@ -13,6 +13,7 @@ namespace App\Entity\Animal;
 
 use ApiPlatform\Core\Annotation\ApiFilter;
 use App\Entity\IdentifiableTrait;
+use App\PetStates;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Gedmo\Mapping\Annotation as Gedmo;
@@ -118,9 +119,17 @@ class Pet implements ResourceInterface
      */
     private $birthDate;
 
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(type="string")
+     */
+    private $status;
+
     public function __construct()
     {
         $this->images = new ArrayCollection();
+        $this->status = PetStates::NEW;
     }
 
     public function getName(): ?string
@@ -245,6 +254,16 @@ class Pet implements ResourceInterface
     public function setBirthDate(?\DateTimeInterface $birthDate): void
     {
         $this->birthDate = $birthDate;
+    }
+
+    public function getStatus(): ?string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(?string $status): void
+    {
+        $this->status = $status;
     }
 
     /**

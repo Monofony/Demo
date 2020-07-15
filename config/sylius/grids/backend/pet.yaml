@@ -26,6 +26,14 @@ sylius_grid:
                     label: app.ui.taxon
                     sortable: null
                     path: taxon.translation.name
+                status:
+                    type: twig
+                    label: sylius.ui.status
+                    sortable: null
+                    options:
+                        template: "@SyliusUi/Grid/Field/state.html.twig"
+                        vars:
+                            labels: "backend/pet/label/state"
             filters:
                 search:
                     type: string

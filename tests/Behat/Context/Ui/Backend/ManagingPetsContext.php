@@ -16,6 +16,7 @@ namespace App\Tests\Behat\Context\Ui\Backend;
 use App\Entity\Animal\Pet;
 use App\Tests\Behat\Page\Backend\Pet\CreatePage;
 use App\Tests\Behat\Page\Backend\Pet\IndexPage;
+use App\Tests\Behat\Page\Backend\Pet\ShowPage;
 use App\Tests\Behat\Page\Backend\Pet\UpdatePage;
 use Behat\Behat\Context\Context;
 use Webmozart\Assert\Assert;
@@ -31,14 +32,19 @@ final class ManagingPetsContext implements Context
     /** @var UpdatePage */
     private $updatePage;
 
+    /** @var ShowPage */
+    private $showPage;
+
     public function __construct(
         CreatePage $createPage,
         IndexPage $indexPage,
-        UpdatePage $updatePage
+        UpdatePage $updatePage,
+        ShowPage $showPage
     ) {
         $this->createPage = $createPage;
         $this->indexPage = $indexPage;
         $this->updatePage = $updatePage;
+        $this->showPage = $showPage;
     }
 
     /**
@@ -220,5 +226,30 @@ final class ManagingPetsContext implements Context
     public function iShouldNotSeeAnyAnimalWithName(string $name)
     {
         Assert::false($this->indexPage->isSingleResourceOnPage(["name" => $name]));
+    }
+
+    /**
+     * @Given /^I want to validate (this pet)$/
+     */
+    public function iWantToValidateThisBooking(Pet $pet)
+    {
+        $this->showPage->open(['id' => $pet->getId()]);
+    }
+
+    /**
+     * @When I validate it
+     */
+    public function iValidateIt()
+    {
+        $this->showPage->validatePet();
+    }
+
+    /**
+     * @Then I should see the pet has been validated in the list
+     */
+    public function iShouldSeeThisBookingHasBeenValidatedInTheList()
+    {
+        $this->indexPage->open();
+        Assert::true($this->indexPage->isSingleResourceOnPage(['status' => 'Bookable']));
     }
 }

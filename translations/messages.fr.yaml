@@ -2,6 +2,8 @@ app:
     ui:
         about_us: À propos de nous
         admin: Admin
+        adopt: Adopter
+        adopted: Adopté
         adopt_the_perfect_pet_for_you_and_your_family: Adoptez l'animal parfait pour vous et votre famille!
         any_questions_lets_talk: Des questions? Parlons!
         ask_for_a_visit: Demandez une visite!
@@ -16,6 +18,9 @@ app:
         beige: Beige
         birth_date: Date de naissance
         black: Noir
+        book: Réserver
+        bookable: Réservable
+        booked: Réservé
         booking: Réservation
         bookings: Réservations
         bookings_summary: Sommaire des réservations
@@ -55,6 +60,7 @@ app:
         monofony_is_nananini: Monofony est une nananinininin propulsée par Mobizel blablabla
         month: mois
         months: mois
+        new: Nouveau
         new_bookings: Nouvelles réservations
         new_pet: Nouvel animal domestique
         new_pets: Nouveaux animaux domestiques
@@ -78,6 +84,7 @@ app:
         tall: Grand
         taxon: Taxon
         they_cant_wait_to_meet_you: Ils ont hâte de vous rencontrer!
+        unbook: Annuler la réservation
         validate: Valider
         validation_date: Date de validation
         view_website: Voir le site
@@ -88,6 +95,9 @@ app:
         years_old: ans
 sylius:
     ui:
+        adopted: Adopté
+        bookable: Réservable
+        booked: Réservé
         canceled: Annulé
         family_contacted: Famille contactée
         finished: Terminé

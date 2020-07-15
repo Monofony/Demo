@@ -40,6 +40,10 @@
                         <td class="five wide"><strong class="gray text">{{ 'app.ui.birth_date'|trans }}</strong></td>
                         <td>{{ pet.birthDate|date("m/d/Y") }}</td>
                     </tr>
+                    <tr>
+                        <td class="five wide"><strong class="gray text">{{ 'sylius.ui.status'|trans }}</strong></td>
+                        <td>{% include 'backend/grid/field/_state.html.twig' with {'data': pet.status,'options': {'vars': {'labels': 'backend/pet/label/state'}}} %}</td>
+                    </tr>
                     </tbody>
                 </table>
             </div>
