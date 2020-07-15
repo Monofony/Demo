@@ -13,12 +13,15 @@ declare(strict_types=1);
 
 namespace App\Repository;
 
+use ApiPlatform\Core\DataProvider\PaginatorInterface;
 use Doctrine\ORM\QueryBuilder;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 use Sylius\Component\Taxonomy\Model\TaxonInterface;
 
 final class PetRepository extends EntityRepository
 {
+    use ApiPaginatorTrait;
+
     public function countAnimals(): int
     {
         return (int) $this->createQueryBuilder('o')
@@ -74,5 +77,15 @@ final class PetRepository extends EntityRepository
         }
 
         return $queryBuilder;
+    }
+
+    public function createListForApiPaginator(string $localeCode, int $page): PaginatorInterface
+    {
+        $queryBuilder = $this->createQueryBuilder('o');
+        $queryBuilder
+            ->andWhere('o.enabled = :enabled')
+            ->setParameter('enabled', true);
+
+        return $this->createApiPaginatorForPage($queryBuilder, $page);
     }
 }

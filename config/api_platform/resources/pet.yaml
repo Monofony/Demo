@@ -5,4 +5,5 @@ App\Entity\Animal\Pet:
     itemOperations:
         get: null
     collectionOperations:
-        get: null
+        get:
+            controller: App\Controller\GetPetsAction
