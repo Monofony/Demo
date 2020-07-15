@@ -16,6 +16,7 @@ use App\BookingStates;
 use App\Entity\Animal\Pet;
 use App\Entity\Booking\Booking;
 use App\Fixture\Factory\BookingExampleFactory;
+use App\PetStates;
 use Behat\Behat\Context\Context;
 use Doctrine\ORM\EntityManagerInterface;
 use Monofony\Bundle\CoreBundle\Tests\Behat\Service\SharedStorageInterface;
@@ -48,6 +49,7 @@ final class BookingContext implements Context
     public function thereIsABookingForTheAnimal(Pet $pet, CustomerInterface $customer)
     {
         $booking = $this->bookingFactory->create(['pet' => $pet, 'customer' => $customer, 'status' => BookingStates::NEW]);
+        $pet->setStatus(PetStates::BOOKED);
 
         $this->manager->persist($booking);
         $this->manager->flush();
@@ -60,6 +62,14 @@ final class BookingContext implements Context
     public function thisBookingHasBeenCanceled(Booking $booking)
     {
         $booking->setStatus(BookingStates::CANCELED);
+    }
+
+    /**
+     * @Given /^(this booking) has visit scheduled$/
+     */
+    public function thisBookingHasVisitScheduled(Booking $booking)
+    {
+        $booking->setStatus(BookingStates::VISIT_SCHEDULED);
     }
 
     /**

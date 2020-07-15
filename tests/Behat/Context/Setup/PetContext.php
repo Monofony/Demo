@@ -21,6 +21,7 @@ use Behat\Behat\Context\Context;
 use Doctrine\ORM\EntityManagerInterface;
 use Monofony\Bundle\CoreBundle\Tests\Behat\Service\SharedStorageInterface;
 use Sylius\Component\Taxonomy\Model\TaxonInterface;
+use Webmozart\Assert\Assert;
 
 class PetContext implements Context
 {
@@ -85,6 +86,14 @@ class PetContext implements Context
     {
         $animal->setStatus(PetStates::BOOKABLE);
         $this->manager->flush();
+    }
+
+    /**
+     * @Given /^(it|this pet) should be booked/
+     */
+    public function thisPetShouldBeBooked(Pet $animal)
+    {
+        Assert::eq($animal->getStatus(), 'booked');
     }
 
     /**
