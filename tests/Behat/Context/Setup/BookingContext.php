@@ -65,7 +65,7 @@ final class BookingContext implements Context
     }
 
     /**
-     * @Given /^(this booking) has visit scheduled$/
+     * @Given /^(this booking) has a scheduled visit$/
      */
     public function thisBookingHasVisitScheduled(Booking $booking)
     {

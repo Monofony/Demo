@@ -10,7 +10,7 @@ Feature: Cancel booking
         And this pet belongs to "Cats"
         And this pet is bookable
         And this pet has been booked by customer "cruella@101dalamatiens.com"
-        And this booking has visit scheduled
+        And this booking has a scheduled visit
         And I am logged in as an administrator
 
     @ui
