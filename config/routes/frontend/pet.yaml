@@ -25,3 +25,17 @@ app_frontend_pet_per_taxon_index:
             template: frontend/pet/index.html.twig
     requirements:
         slug: .+
+
+app_frontend_pet_book:
+    methods: [POST]
+    path: /pets/{slug}/book
+    defaults:
+        _controller: app.controller.pet::applyStateMachineTransitionAction
+        _sylius:
+            state_machine:
+                graph: app_pet
+                transition: book
+            csrf_protection: false
+            redirect:
+                route: app_frontend_booking_confirmation
+                parameters: { id: resource.id }

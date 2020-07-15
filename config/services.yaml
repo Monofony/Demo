@@ -40,6 +40,10 @@ services:
         class: App\Modifier\BookingModifier
         public: true
 
+    app.modifier.pet:
+        class: App\Modifier\PetModifier
+        public: true
+
     app.sender.email:
         class: App\Sender\EmailSender
         public: true
@@ -65,3 +69,8 @@ services:
         decorates: 'api_platform.swagger.normalizer.documentation'
         arguments: ['@App\Swagger\SwaggerDecorator.inner']
         autoconfigure: false
+
+    App\Factory\BookingFactory:
+        decorates: app.factory.booking
+        arguments:
+            $factory: '@App\Factory\BookingFactory.inner'

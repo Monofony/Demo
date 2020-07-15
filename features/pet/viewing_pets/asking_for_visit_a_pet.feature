@@ -8,6 +8,7 @@ Feature: Asking for a visit for a pet
         Given pets are classified under "Cats" and "Dogs" categories
         And there is a pet with name "Gizmo"
         And this pet belongs to "Dogs"
+        And this pet is bookable
         And there is a user "francis@underwood.com" identified by "whitehouse"
 
     @ui

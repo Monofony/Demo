@@ -48,9 +48,9 @@ class BookingSpec extends ObjectBehavior
         $this->getCustomer()->shouldReturn($customer);
     }
 
-    function it_has_no_default_status()
+    function it_has_default_status()
     {
-        $this->getStatus()->shouldReturn(null);
+        $this->getStatus()->shouldReturn(BookingStates::NEW);
     }
 
     function it_has_a_status()
@@ -59,9 +59,9 @@ class BookingSpec extends ObjectBehavior
         $this->getStatus()->shouldReturn(BookingStates::CANCELED);
     }
 
-    function it_has_no_default_creation_date()
+    function it_has_default_creation_date()
     {
-        $this->getCreatedAt()->shouldReturn(null);
+        $this->getCreatedAt()->shouldNotBeNull();
     }
 
     function it_has_a_creation_date(\DateTime $dateTime)
