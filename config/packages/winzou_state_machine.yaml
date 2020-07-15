@@ -29,14 +29,22 @@ winzou_state_machine:
         callbacks:
             before:
                 update_booking_family_contact_date:
-                    on:   'contact_family'
+                    on:   ['contact_family']
                     do:   ['@app.modifier.booking', 'updateFamilyContactDate']
                     args: ['object']
             after:
                 email_on_cancel:
-                    on:   'cancel'
+                    on:   ['cancel']
                     do:   ['@app.sender.email', 'sendEmailForCanceledBooking']
                     args: ['object']
+                update_pet_status_on_cancel_or_refuse:
+                    on:   ['cancel', 'refuse']
+                    do:   ['@sm.callback.cascade_transition', 'apply']
+                    args: ['object.getPet()', 'event', "'unbook'", "'app_pet'"]
+                update_pet_status_on_finish:
+                    on:   ['finish']
+                    do:   ['@sm.callback.cascade_transition', 'apply']
+                    args: ['object.getPet()', 'event', "'adopt'", "'app_pet'"]
 
     app_pet:
         class: App\Entity\Animal\Pet
@@ -63,6 +71,6 @@ winzou_state_machine:
         callbacks:
             after:
                 create_booking_on_book:
-                    on:   'book'
+                    on:   ['book']
                     do:   ['@app.modifier.pet', 'createBooking']
                     args: ['object']

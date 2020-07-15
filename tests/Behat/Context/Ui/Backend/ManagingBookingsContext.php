@@ -59,6 +59,7 @@ final class ManagingBookingsContext implements Context
 
     /**
      * @Given /^I want to contact family for (this booking)$/
+     * @Given /^I want to finish (this booking)$/
      */
     public function iWantToValidateThisBooking(Booking $booking)
     {
@@ -69,6 +70,14 @@ final class ManagingBookingsContext implements Context
      * @When I contact family for it
      */
     public function iContactFamilyIt()
+    {
+        $this->showPage->contactFamilyBooking();
+    }
+
+    /**
+     * @When I finish it
+     */
+    public function iFinishIt()
     {
         $this->showPage->contactFamilyBooking();
     }
