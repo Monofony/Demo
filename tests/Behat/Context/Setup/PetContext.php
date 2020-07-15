@@ -79,6 +79,15 @@ class PetContext implements Context
     }
 
     /**
+     * @Given /^(it|this pet) is bookable$/
+     */
+    public function thisPetIsBookable(Pet $animal)
+    {
+        $animal->setStatus(PetStates::BOOKABLE);
+        $this->manager->flush();
+    }
+
+    /**
      * @Given /^(it|this pet) is a female$/
      */
     public function thisPetIsAFemale(Pet $animal)
