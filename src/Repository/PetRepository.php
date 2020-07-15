@@ -59,7 +59,9 @@ final class PetRepository extends EntityRepository
     {
         $queryBuilder = $this->createQueryBuilder('o');
         $queryBuilder
-            ->innerJoin('o.taxon', 'taxon');
+            ->innerJoin('o.taxon', 'taxon')
+            ->andWhere('o.enabled = :enabled')
+            ->setParameter('enabled', true);
 
         if (null !== $taxon) {
             $queryBuilder

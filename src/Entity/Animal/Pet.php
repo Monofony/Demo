@@ -126,10 +126,18 @@ class Pet implements ResourceInterface
      */
     private $status;
 
+    /**
+     * @var bool|null
+     *
+     * @ORM\Column(type="boolean")
+     */
+    private $enabled;
+
     public function __construct()
     {
         $this->images = new ArrayCollection();
         $this->status = PetStates::NEW;
+        $this->enabled = false;
     }
 
     public function getName(): ?string
@@ -264,6 +272,16 @@ class Pet implements ResourceInterface
     public function setStatus(?string $status): void
     {
         $this->status = $status;
+    }
+
+    public function getEnabled(): ?bool
+    {
+        return $this->enabled;
+    }
+
+    public function setEnabled(?bool $enabled): void
+    {
+        $this->enabled = $enabled;
     }
 
     /**
