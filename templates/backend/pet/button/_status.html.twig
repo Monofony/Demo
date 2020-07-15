@@ -24,10 +24,6 @@
             {{ self.updateStateButton(pet, 'validate', 'checkmark', 'green') }}
         {% endif %}
 
-        {% if sm_can(pet, 'book', 'app_pet') %}
-            {{ self.updateStateButton(pet, 'book', 'calendar', 'blue') }}
-        {% endif %}
-
         {% if sm_can(pet, 'adopt', 'app_pet') %}
             {{ self.updateStateButton(pet, 'adopt', 'heart', 'green') }}
         {% endif %}

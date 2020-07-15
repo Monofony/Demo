@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace App\Entity\Booking;
 
+use App\BookingStates;
 use App\Entity\Animal\Pet;
 use App\Entity\IdentifiableTrait;
 use Doctrine\ORM\Mapping as ORM;
@@ -64,6 +65,12 @@ class Booking implements ResourceInterface
      * @ORM\Column(type="date", nullable=true)
      */
     private $familyContactedAt;
+
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime('now');
+        $this->status = BookingStates::NEW;
+    }
 
     public function getPet(): ?Pet
     {

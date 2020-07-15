@@ -60,3 +60,9 @@ winzou_state_machine:
             unbook:
                 from: [booked]
                 to: bookable
+        callbacks:
+            after:
+                create_booking_on_book:
+                    on:   'book'
+                    do:   ['@app.modifier.pet', 'createBooking']
+                    args: ['object']
