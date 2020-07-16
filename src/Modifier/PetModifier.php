@@ -37,4 +37,14 @@ final class PetModifier
         $this->manager->persist($this->bookingFactory->createForPet($pet));
         $this->manager->flush();
     }
+
+    public function enablePet(Pet $pet): void
+    {
+        $pet->setEnabled(true);
+    }
+
+    public function disablePet(Pet $pet): void
+    {
+        $pet->setEnabled(false);
+    }
 }

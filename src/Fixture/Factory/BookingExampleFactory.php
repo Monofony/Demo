@@ -16,6 +16,7 @@ namespace App\Fixture\Factory;
 use App\BookingStates;
 use App\Entity\Booking\Booking;
 use App\Fixture\OptionsResolver\LazyOption;
+use App\PetStates;
 use App\Repository\CustomerRepository;
 use Monofony\Plugin\FixturesPlugin\Fixture\Factory\AbstractExampleFactory;
 use Sylius\Component\Resource\Factory\FactoryInterface;
@@ -89,6 +90,14 @@ final class BookingExampleFactory extends AbstractExampleFactory
         $booking->setStatus($options['status']);
         $booking->setCreatedAt($options['createdAt']);
         $booking->setFamilyContactedAt($options['familyContactedAt']);
+
+        if (
+            BookingStates::FINISHED !== $booking->getStatus()
+            && BookingStates::CANCELED !== $booking->getStatus()
+            && BookingStates::REFUSED !== $booking->getStatus()
+        ) {
+            $booking->getPet()->setStatus(PetStates::BOOKED);
+        }
 
         return $booking;
     }

@@ -74,3 +74,11 @@ winzou_state_machine:
                     on:   ['book']
                     do:   ['@app.modifier.pet', 'createBooking']
                     args: ['object']
+                enable_a_pet:
+                    on:   ['validate']
+                    do:   ['@app.modifier.pet', 'enablePet']
+                    args: ['object']
+                disable_a_pet:
+                    on:   ['adopt']
+                    do:   ['@app.modifier.pet', 'disablePet']
+                    args: ['object']

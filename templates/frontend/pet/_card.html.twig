@@ -7,7 +7,12 @@
 <div class="card">
     {% if pet.firstImage is not null %}
         {% set path = vich_uploader_asset(pet.firstImage, 'file') %}
-        <a href="{{ pet_path }}">{{ images.render(path, 'pet_grid', pet.name) }}</a>
+        {% if constant('App\\PetStates::BOOKED') == pet.status %}
+            <a href="{{ pet_path }}">{{ images.render(path, 'pet_grid', pet.name, 'bw') }}</a>
+            <p class="reserved"><i class="fas fa-lock"></i>{{ 'sylius.ui.reserved'|trans }}</p>
+        {% else %}
+            <a href="{{ pet_path }}">{{ images.render(path, 'pet_grid', pet.name) }}</a>
+        {% endif %}
     {% endif %}
     <div class="card-section">
         <div class="first-line">

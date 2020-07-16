@@ -73,6 +73,18 @@
 
 .top {
   background-color: #ffffff;
+  .clreserv {
+    display: flex;
+    align-items: center;
+    p {
+      font-size: rem-calc(13);
+      width: 13rem;
+      margin-left: 1rem;
+      margin-bottom: 0 !important;
+      color: map-get($monofony-color, monofony-grey);
+      opacity: 0.7;
+    }
+  }
 }
 
 .orbit-bullets {

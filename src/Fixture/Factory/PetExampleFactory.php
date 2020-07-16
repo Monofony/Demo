@@ -107,6 +107,9 @@ class PetExampleFactory extends AbstractExampleFactory
             ->setDefault('status', function (Options $options) {
                 return $this->faker->randomElement(PetStates::ALL);
             })
+            ->setDefault('enabled', function (Options $options) {
+                return ('bookable' === $options['status'] || 'booked' === $options['status']) ? true : false;
+            })
         ;
     }
 
@@ -125,6 +128,7 @@ class PetExampleFactory extends AbstractExampleFactory
         $animal->setTaxon($options['taxon']);
         $animal->setBirthDate($options['birth_date']);
         $animal->setStatus($options['status']);
+        $animal->setEnabled($options['enabled']);
 
         $this->createImages($animal, $options);
 

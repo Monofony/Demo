@@ -49,7 +49,7 @@ class PetContext implements Context
      */
     public function thereIsAPetWithName(string $name): void
     {
-        $this->createWithOptions(['name' => $name]);
+        $this->createWithOptions(['name' => $name, 'enabled' => true]);
     }
 
     /**
