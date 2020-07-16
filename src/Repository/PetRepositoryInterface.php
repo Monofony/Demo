@@ -25,5 +25,5 @@ interface PetRepositoryInterface
 
     public function createListForFrontQueryBuilder(string $localeCode, TaxonInterface $taxon = null): QueryBuilder;
 
-    public function createListForApiPaginator(string $localeCode, int $page): PaginatorInterface;
+    public function createListForApiPaginator(string $localeCode, int $page, array $filters = []): PaginatorInterface;
 }

@@ -79,12 +79,26 @@ final class PetRepository extends EntityRepository implements PetRepositoryInter
         return $queryBuilder;
     }
 
-    public function createListForApiPaginator(string $localeCode, int $page): PaginatorInterface
+    public function createListForApiPaginator(string $localeCode, int $page, array $filters = []): PaginatorInterface
     {
         $queryBuilder = $this->createQueryBuilder('o');
         $queryBuilder
+            ->innerJoin('o.taxon', 'taxon')
             ->andWhere('o.enabled = :enabled')
             ->setParameter('enabled', true);
+
+        if(!empty($filters)){
+            foreach ($filters as $key => $value){
+                if(str_contains($key, 'taxon')){
+                    $var = $key;
+                } else {
+                    $var = 'o.'.$key;
+                }
+                $queryBuilder
+                    ->andWhere($var.' = :value')
+                    ->setParameter('value', $value);
+            }
+        }
 
         return $this->createApiPaginatorForPage($queryBuilder, $page);
     }

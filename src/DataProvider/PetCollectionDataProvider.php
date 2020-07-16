@@ -43,11 +43,11 @@ final class PetCollectionDataProvider implements CollectionDataProviderInterface
         return Pet::class === $resourceClass;
     }
 
-    public function getCollection(string $resourceClass, string $operationName = null): PaginatorInterface
+    public function getCollection(string $resourceClass, string $operationName = null, array $context = []): PaginatorInterface
     {
         $request = $this->requestStack->getCurrentRequest();
 
-        return $this->petRepository->createListForApiPaginator($this->locale,  (int) $request->get('page', 1));
+        return $this->petRepository->createListForApiPaginator($this->locale,  (int) $request->get('page', 1), $context['filters']);
 
     }
 }
