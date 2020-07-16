@@ -1,9 +1,24 @@
 @import "../global/variables";
 
 .card {
+  position: relative;
+  .bw {
+    filter: grayscale(100%);
+  }
+  .reserved {
+    position: absolute;
+    bottom: 6.5rem;
+    left: 1.5rem;
+    color: white;
+    font-family: Inter regular;
+    i {
+      margin-right: 0.5rem;
+    }
+  }
   .card-section {
     .meta > a{
       font-family: Inter regular;
+      font-weight: bold;
       font-size: 18px;
       color: map-get($monofony-color, monofony-grey);
     }

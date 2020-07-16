@@ -1,5 +1,16 @@
+@import "../global/variables";
+
 .button {
   font-size: 14px;
   font-weight: bold;
   letter-spacing: 1px;
+  &.reserved {
+    background-color: map-get($monofony-color, monofony-grey);
+    i {
+      margin-right: 0.5rem;
+    }
+    &:hover{
+      background-color: map-get($monofony-color, monofony-grey);
+    }
+  }
 }
