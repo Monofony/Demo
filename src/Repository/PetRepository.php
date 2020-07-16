@@ -18,7 +18,7 @@ use Doctrine\ORM\QueryBuilder;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 use Sylius\Component\Taxonomy\Model\TaxonInterface;
 
-final class PetRepository extends EntityRepository
+final class PetRepository extends EntityRepository implements PetRepositoryInterface
 {
     use ApiPaginatorTrait;
 
