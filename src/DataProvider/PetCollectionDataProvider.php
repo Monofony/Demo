@@ -47,7 +47,7 @@ final class PetCollectionDataProvider implements CollectionDataProviderInterface
     {
         $request = $this->requestStack->getCurrentRequest();
 
-        return $this->petRepository->createListForApiPaginator($this->locale,  (int) $request->get('page', 1), $context['filters']);
+        return $this->petRepository->createListForApiPaginator($this->locale,  (int) $request->get('page', 1), (array_key_exists('filters', $context)) ? $context['filters'] : []);
 
     }
 }
