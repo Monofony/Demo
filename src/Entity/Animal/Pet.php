@@ -127,7 +127,7 @@ class Pet implements ResourceInterface
     private $status;
 
     /**
-     * @var bool|null
+     * @var bool
      *
      * @ORM\Column(type="boolean")
      */
@@ -274,12 +274,12 @@ class Pet implements ResourceInterface
         $this->status = $status;
     }
 
-    public function getEnabled(): ?bool
+    public function getEnabled(): bool
     {
         return $this->enabled;
     }
 
-    public function setEnabled(?bool $enabled): void
+    public function setEnabled(bool $enabled): void
     {
         $this->enabled = $enabled;
     }
