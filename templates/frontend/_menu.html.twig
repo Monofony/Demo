@@ -1,5 +1,5 @@
 <div class="top-bar menu-top-bar" id="responsive-menu">
-        <a href="{{ path('app_frontend_homepage') }}"><img src="{{ asset('assets/frontend/img/logo_png.png', 'frontend') }}" class="ui medium image logo"/></a>
+        <a href="{{ path('app_frontend_homepage') }}"><img src="{{ asset('assets/frontend/img/logo.svg', 'frontend') }}" class="ui medium image logo"/></a>
         <ul class="menu align-center-middle align-center">
             {{ render(url('sylius_frontend_partial_taxon_root_nodes', {'template': 'frontend/taxon/_horizontal_menu.html.twig', 'slug': app.request.get('slug')})) }}
         </ul>
