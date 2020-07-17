@@ -5,6 +5,7 @@ app:
         adopt: Adopt
         adopted: Adopted
         adopt_the_perfect_pet_for_you_and_your_family: Adopt the perfect pet for you and your family!
+        also_he_will_be_mark_as_reserved: Also, he will be mark as reserved.
         any_questions_lets_talk: Any question? Let’s talk!
         ask_for_a_visit: Ask for a visit!
         a_cat: A cat!
@@ -72,6 +73,7 @@ app:
         pets: Pets
         refuse: Refuse
         refused: Refused
+        reservation: Reservation
         schedule_a_visit: Schedule a visit
         search_customers: Search customers
         sex: Sex
@@ -94,6 +96,7 @@ app:
         white: White
         year_old: yo
         years_old: yo
+        you_will_be_contacted_soon_to_schedule_a_visit_for_this_pet: You will be contacted soon to schedule a visit for this pet.
 sylius:
     ui:
         adopted: Adopted

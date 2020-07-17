@@ -23,6 +23,6 @@ final class SummaryPage extends SymfonyPage
 
     public function confirmMyChoice()
     {
-        $this->getDocument()->pressButton('Confirmation');
+        $this->getDocument()->pressButton('Ask for a visit!');
     }
 }

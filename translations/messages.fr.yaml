@@ -5,6 +5,7 @@ app:
         adopt: Adopter
         adopted: Adopté
         adopt_the_perfect_pet_for_you_and_your_family: Adoptez l'animal parfait pour vous et votre famille!
+        also_he_will_be_mark_as_reserved: De plus, il sera marqué comme réservé.
         any_questions_lets_talk: Des questions? Parlons!
         ask_for_a_visit: Demandez une visite!
         a_cat: Un chat!
@@ -72,6 +73,7 @@ app:
         pets: Animaux domestiques
         refuse: Refuser
         refused: Refusé
+        reservation: Réservation
         schedule_a_visit: Programmer une visite
         search_customers: Chercher des clients
         sex: Sexe
@@ -94,6 +96,7 @@ app:
         white: Blanc
         year_old: an
         years_old: ans
+        you_will_be_contacted_soon_to_schedule_a_visit_for_this_pet: Vous serez bientôt contacté pour planifier une visite pour cet animal.
 sylius:
     ui:
         adopted: Adopté

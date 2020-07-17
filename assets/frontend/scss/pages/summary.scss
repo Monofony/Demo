@@ -1,0 +1,83 @@
+.header-summary {
+  background-image: linear-gradient(rgba(75, 174, 180, 0.33), rgba(0, 0, 0, 0)), url("../../img/pattern_1.svg");
+  height: 250px;
+  object-fit: contain;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  h1 {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    line-height: 1.25;
+    color: #133e56;
+  }
+  p {
+    margin-top: 1rem;
+    text-align: center;
+    color: #1d4762;
+  }
+}
+
+.pet-detail {
+  border-radius: rem-calc(10);
+  box-shadow: 0 2px 6px 0 rgba(19, 62, 86, 0.1);
+  background-color: #ffffff;
+  .img-container {
+    @include breakpoint(medium down){
+      text-align: center;
+    }
+    img {
+      border-radius: rem-calc(10);
+      margin: 1rem;
+    }
+  }
+  .pet-info {
+    .title {
+      display: flex;
+      font-family: Poppins;
+      align-items: center;
+      h2 {
+        font-size: rem-calc(40);
+        line-height: 1.25;
+        color: #133e56;
+        margin-right: 1rem;
+      }
+      h6 {
+        font-size: rem-calc(24);
+        font-weight: 500;
+        color: #133e56;
+      }
+    }
+    h3 {
+      font-family: Inter regular;
+      font-size: rem-calc(18);
+      color: rgba(29, 71, 98, 0.5);
+      margin-bottom: 3rem;
+    }
+    h4 {
+      font-family: Inter regular;
+      font-size: rem-calc(16);
+      font-weight: bold;
+      text-align: center;
+      color: rgba(29, 71, 98, 0.5);
+    }
+    h5 {
+      font-family: Inter regular;
+      font-size: rem-calc(16);
+      line-height: 1.5;
+      text-align: center;
+      color: #1d4762;
+    }
+  }
+}
+
+.confirmation_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  button {
+    margin-top: 3rem;
+  }
+}
