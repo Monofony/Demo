@@ -5,7 +5,6 @@ app:
         adopt: Adopter
         adopted: Adopté
         adopt_the_perfect_pet_for_you_and_your_family: Adoptez l'animal parfait pour vous et votre famille!
-        also_he_will_be_mark_as_reserved: De plus, il sera marqué comme réservé.
         any_questions_lets_talk: Des questions? Parlons!
         ask_for_a_visit: Demandez une visite!
         a_cat: Un chat!
@@ -61,6 +60,7 @@ app:
         monofony_is_nananini: Monofony est une nananinininin propulsée par Mobizel blablabla
         month: mois
         months: mois
+        moreover_he_will_be_marked_as_reserved: De plus, il sera marqué comme réservé.
         new: Nouveau
         new_bookings: Nouvelles réservations
         new_pet: Nouvel animal domestique

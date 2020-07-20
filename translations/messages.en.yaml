@@ -5,7 +5,6 @@ app:
         adopt: Adopt
         adopted: Adopted
         adopt_the_perfect_pet_for_you_and_your_family: Adopt the perfect pet for you and your family!
-        also_he_will_be_mark_as_reserved: Also, he will be mark as reserved.
         any_questions_lets_talk: Any question? Let’s talk!
         ask_for_a_visit: Ask for a visit!
         a_cat: A cat!
@@ -61,6 +60,7 @@ app:
         monofony_is_nananini: Monofony is nananinininin powered by Mobizel blablabla
         month: month
         months: months
+        moreover_he_will_be_marked_as_reserved: Moreover, he will be marked as reserved.
         new: New
         new_bookings: New bookings
         new_pet: New pet
