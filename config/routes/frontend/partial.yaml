@@ -23,7 +23,7 @@ app_frontend_partial_animal_latest:
     requirements:
         template: "[^?]+"
 
-app_frontend_partial_pet:
+app_frontend_partial_pet_show:
     path: /pets/{slug}/details
     methods: [GET]
     defaults:
@@ -34,3 +34,18 @@ app_frontend_partial_pet:
         template: "[^?]+"
         slug: "[^?]+"
 
+app_frontend_partial_taxon_show:
+    path: /taxons/{slug}
+    methods: [GET]
+    defaults:
+        _controller: sylius.controller.taxon::showAction
+        _sylius:
+            repository:
+                method: findOneBySlug
+                arguments:
+                    - $slug
+                    - '%locale%'
+            template: $template
+    requirements:
+        template: "[^?]+"
+        slug: "[^?]+"
