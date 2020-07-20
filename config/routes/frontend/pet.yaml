@@ -38,4 +38,4 @@ app_frontend_pet_book:
             csrf_protection: false
             redirect:
                 route: app_frontend_booking_confirmation
-                parameters: { id: resource.id }
+                parameters: { slug: resource.slug }

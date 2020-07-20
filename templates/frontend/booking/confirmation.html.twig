@@ -1,5 +1,20 @@
 {% extends 'frontend/layout.html.twig' %}
 
+{% set pet_slug = app.request.get('slug') %}
+
+{% block flashes %}
+{% endblock %}
+
 {% block content %}
-    <p class="confirmation_text">{{ 'sylius.ui.confirmation'|trans }}</p>
+<div class="confirmation">
+    <div class="header-confirmation">
+        <i class="fas fa-check"></i>
+        <h1>{{ pet_slug|capitalize }} {{ 'app.ui.is_reserved'|trans }}</h1>
+    </div>
+    <p>{{ 'app.ui.you_will_be_contacted_soon_to_schedule_a_visit'|trans }}</p>
+    {{ render(url('app_frontend_partial_pet', {'template': 'frontend/booking/_card.html.twig', 'slug': pet_slug})) }}
+    <div class="summary_button">
+        <a class="button primary confirmation_text">{{ 'app.ui.see_the_reservation_details'|trans }}</a>
+    </div>
+</div>
 {% endblock content %}

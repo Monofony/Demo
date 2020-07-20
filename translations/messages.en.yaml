@@ -42,6 +42,7 @@ app:
         grey: Grey
         happy_to_see_you_again: Happy to see you again
         i_cant_remember_my_password: I can't remember my password
+        is_reserved: is reserved
         it_is_nice_to_meet_you: It's nice to meet you!
         legal_notices: Legal notices
         lets_continue_on_a_more_comfortable_page: Let’s continue on a more comfortable page, would you?
@@ -76,6 +77,7 @@ app:
         reservation: Reservation
         schedule_a_visit: Schedule a visit
         search_customers: Search customers
+        see_the_reservation_details: See the reservation details
         sex: Sex
         show_booking: Show booking
         show_pet: Show pet
@@ -97,6 +99,7 @@ app:
         year_old: yo
         years_old: yo
         you_will_be_contacted_soon_to_schedule_a_visit_for_this_pet: You will be contacted soon to schedule a visit for this pet.
+        you_will_be_contacted_soon_to_schedule_a_visit: You will be contacted soon to schedule a visit
 sylius:
     ui:
         adopted: Adopted

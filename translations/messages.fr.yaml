@@ -42,6 +42,7 @@ app:
         grey: Gris
         happy_to_see_you_again: Heureux de vous revoir
         i_cant_remember_my_password: Je ne me souviens pas de mon mot de passe
+        is_reserved: est réservé
         it_is_nice_to_meet_you: Ravi de vous rencontrer!
         legal_notices: Mentions légales
         lets_continue_on_a_more_comfortable_page: Continuons sur une page plus confortable, voulez-vous?
@@ -76,6 +77,7 @@ app:
         reservation: Réservation
         schedule_a_visit: Programmer une visite
         search_customers: Chercher des clients
+        see_the_reservation_details: Voir les détails de la réservation
         sex: Sexe
         show_booking: Voir la réservation
         show_pet: Voir l'animal
@@ -97,6 +99,7 @@ app:
         year_old: an
         years_old: ans
         you_will_be_contacted_soon_to_schedule_a_visit_for_this_pet: Vous serez bientôt contacté pour planifier une visite pour cet animal.
+        you_will_be_contacted_soon_to_schedule_a_visit: Vous serez bientôt contacté pour planifier une visite
 sylius:
     ui:
         adopted: Adopté

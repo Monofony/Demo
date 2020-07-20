@@ -1,0 +1,40 @@
+.confirmation {
+  .header-confirmation {
+    background-image: linear-gradient(rgba(75, 174, 180, 0.33), rgba(0, 0, 0, 0)), url("../../img/pattern_1.svg");
+    height: 250px;
+    object-fit: contain;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    h1 {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      line-height: 1.25;
+      color: #133e56;
+      margin-top: 1rem;
+    }
+    i {
+      font-size: rem-calc(23);
+      padding: rem-calc(15);
+      background-color: #ffffff;
+      border-radius: 50%;
+      color: #4baeb4;
+    }
+  }
+  p {
+    margin: -3rem auto 3rem auto;
+    text-align: center;
+    color: #1d4762;
+  }
+  .summary_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    a {
+      margin-top: 3rem;
+    }
+  }
+}
+

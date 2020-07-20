@@ -25,7 +25,9 @@
         {% block header %}
         {% endblock %}
 
-        {% include 'frontend/_flashes.html.twig' %}
+        {% block flashes %}
+            {% include 'frontend/_flashes.html.twig' %}
+        {% endblock %}
 
         {% block content %}
         {% endblock %}
