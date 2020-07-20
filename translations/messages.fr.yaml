@@ -60,6 +60,7 @@ app:
         monofony_is_nananini: Monofony est une nananinininin propulsée par Mobizel blablabla
         month: mois
         months: mois
+        moreover_he_will_be_marked_as_reserved: De plus, il sera marqué comme réservé.
         new: Nouveau
         new_bookings: Nouvelles réservations
         new_pet: Nouvel animal domestique
@@ -72,6 +73,7 @@ app:
         pets: Animaux domestiques
         refuse: Refuser
         refused: Refusé
+        reservation: Réservation
         schedule_a_visit: Programmer une visite
         search_customers: Chercher des clients
         sex: Sexe
@@ -94,6 +96,7 @@ app:
         white: Blanc
         year_old: an
         years_old: ans
+        you_will_be_contacted_soon_to_schedule_a_visit_for_this_pet: Vous serez bientôt contacté pour planifier une visite pour cet animal.
 sylius:
     ui:
         adopted: Adopté

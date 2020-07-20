@@ -24,7 +24,18 @@ app_frontend_partial_animal_latest:
         template: "[^?]+"
 
 app_frontend_partial_pet_show:
-    path: /pets/{slug}
+    path: /pets/{slug}/details
+    methods: [GET]
+    defaults:
+        _controller: app.controller.pet:showAction
+        _sylius:
+            template: $template
+    requirements:
+        template: "[^?]+"
+        slug: "[^?]+"
+
+app_frontend_partial_taxon_show:
+    path: /taxons/{slug}
     methods: [GET]
     defaults:
         _controller: sylius.controller.taxon::showAction
