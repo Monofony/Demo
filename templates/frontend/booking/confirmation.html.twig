@@ -26,7 +26,7 @@
             <h6 class="inactive-state"><i class="far fa-clock"></i>{{ 'app.ui.adopted_pet'|trans }}</h6>
         </div>
     </div>
-    {{ render(url('app_frontend_partial_pet', {'template': 'frontend/booking/_card.html.twig', 'slug': pet_slug})) }}
+    {{ render(url('app_frontend_partial_pet_show', {'template': 'frontend/booking/_card.html.twig', 'slug': pet_slug})) }}
     <div class="summary_button">
         <a class="button primary confirmation_text">{{ 'app.ui.see_the_reservation_details'|trans }}</a>
     </div>
