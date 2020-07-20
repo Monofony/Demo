@@ -12,6 +12,20 @@
         <h1>{{ pet_slug|capitalize }} {{ 'app.ui.is_reserved'|trans }}</h1>
     </div>
     <p>{{ 'app.ui.you_will_be_contacted_soon_to_schedule_a_visit'|trans }}</p>
+    <div class="grid-container grid-x align-middle booking-state">
+        <div class="cell medium-3">
+            <h6 class="active-state"><i class="fas fa-check-circle"></i>{{ 'app.ui.requested_visit'|trans }}</h6>
+        </div>
+        <div class="cell medium-3">
+            <h6 class="inactive-state"><i class="far fa-clock"></i>{{ 'app.ui.accepted_visit'|trans }}</h6>
+        </div>
+        <div class="cell medium-3">
+            <h6 class="inactive-state"><i class="far fa-clock"></i>{{ 'app.ui.scheduled_visit'|trans }}</h6>
+        </div>
+        <div class="cell medium-3">
+            <h6 class="inactive-state"><i class="far fa-clock"></i>{{ 'app.ui.adopted_pet'|trans }}</h6>
+        </div>
+    </div>
     {{ render(url('app_frontend_partial_pet', {'template': 'frontend/booking/_card.html.twig', 'slug': pet_slug})) }}
     <div class="summary_button">
         <a class="button primary confirmation_text">{{ 'app.ui.see_the_reservation_details'|trans }}</a>

@@ -1,9 +1,11 @@
 app:
     ui:
         about_us: About us
+        accepted_visit: Accepted visit
         admin: Admin
         adopt: Adopt
         adopted: Adopted
+        adopted_pet: Adopted pet
         adopt_the_perfect_pet_for_you_and_your_family: Adopt the perfect pet for you and your family!
         any_questions_lets_talk: Any question? Let’s talk!
         ask_for_a_visit: Ask for a visit!
@@ -74,8 +76,10 @@ app:
         pets: Pets
         refuse: Refuse
         refused: Refused
+        requested_visit: Requested visit
         reservation: Reservation
         schedule_a_visit: Schedule a visit
+        scheduled_visit: Scheduled visit
         search_customers: Search customers
         see_the_reservation_details: See the reservation details
         sex: Sex

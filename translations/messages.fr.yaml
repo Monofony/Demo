@@ -1,9 +1,11 @@
 app:
     ui:
         about_us: À propos de nous
+        accepted_visit: Visite acceptée
         admin: Admin
         adopt: Adopter
         adopted: Adopté
+        adopted_pet: Animal adoptée
         adopt_the_perfect_pet_for_you_and_your_family: Adoptez l'animal parfait pour vous et votre famille!
         any_questions_lets_talk: Des questions? Parlons!
         ask_for_a_visit: Demandez une visite!
@@ -74,8 +76,10 @@ app:
         pets: Animaux domestiques
         refuse: Refuser
         refused: Refusé
+        requested_visit: Visite demandée
         reservation: Réservation
         schedule_a_visit: Programmer une visite
+        scheduled_visit: Visite programmée
         search_customers: Chercher des clients
         see_the_reservation_details: Voir les détails de la réservation
         sex: Sexe
