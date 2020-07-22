@@ -58,6 +58,6 @@ class CustomerSpec extends ObjectBehavior
 
     function it_has_bookings_collection_by_default()
     {
-        $this->getBookings()->shouldReturn(Collection::class);
+        $this->getBookings()->shouldHaveType(Collection::class);
     }
 }

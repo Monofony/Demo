@@ -126,17 +126,6 @@ final class AccountContext implements Context
     }
 
     /**
-     * @Then my email should be :email
-     * @Then my email should still be :email
-     */
-    public function myEmailShouldBe($email): void
-    {
-        $this->dashboardPage->open();
-
-        Assert::true($this->dashboardPage->hasCustomerEmail($email));
-    }
-
-    /**
      * @Then /^I should be notified that the (email|password|city|street|first name|last name) is required$/
      */
     public function iShouldBeNotifiedThatElementIsRequired($element): void
