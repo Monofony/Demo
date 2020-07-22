@@ -13,27 +13,51 @@
 {% endblock %}
 
 {% block subcontent %}
-    <div class="ui segment">
-        {{ form_start(form, {'action': path('sylius_frontend_account_profile_update'), 'attr': {'class': 'ui loadable form', 'novalidate': 'novalidate'}}) }}
-        <h1 class="ui dividing header">
-            {{ 'sylius.ui.your_profile'|trans }}
-            <div class="sub header">{{ 'sylius.ui.edit_your_personal_information'|trans }}</div>
-        </h1>
-
-        <input type="hidden" name="_method" value="PUT" />
-
-        <div class="two fields">
-            <div class="field">{{ form_row(form.firstName) }}</div>
-            <div class="field">{{ form_row(form.lastName) }}</div>
+    <div class="update-profile">
+        <div class="grid-x title-container">
+            <div class="cell small-2">
+                <div id="booking-logo" class="hide-for-small-only">
+                    <i class="fas fa-user"></i>
+                    <i class="fas fa-pencil-alt"></i>
+                </div>
+            </div>
+            <div class="cell auto">
+                <h3 class="title">{{ 'sylius.ui.personal_information'|trans }}</h3>
+                <h4 class="subtitle">{{ 'app.ui.tell_us_more_about_yourself'|trans }}</h4>
+            </div>
         </div>
-        {{ form_row(form.email) }}
-        <div class="two fields">
-            <div class="field">{{ form_row(form.birthday) }}</div>
-            <div class="field">{{ form_row(form.gender) }}</div>
+        {{ form_start(form, {'action': path('sylius_frontend_account_profile_update')}) }}
+        <div class="grid-x align-justify grid-form">
+            <div class="cell medium-12">
+                <h3>{{ 'app.ui.identity'|trans }}</h3>
+                <hr>
+            </div>
+            <div class="cell medium-6">
+                {{ form_row(form.firstName) }}
+            </div>
+            <div class="cell medium-5">
+                {{ form_row(form.lastName) }}
+            </div>
+            <div class="cell medium-6">
+                {{ form_row(form.birthday) }}
+            </div>
+            <div class="cell medium-5">
+                {{ form_row(form.gender) }}
+            </div>
+            <div class="cell medium-12">
+                <h3>{{ 'app.ui.contact'|trans }}</h3>
+                <hr>
+            </div>
+            <div class="cell medium-6">
+                {{ form_row(form.email) }}
+            </div>
+            <div class="cell medium-5">
+                {{ form_row(form.phoneNumber) }}
+            </div>
+            <div class="cell medium-12">
+                <button type="submit" class="ui large primary button">{{ 'sylius.ui.save_changes'|trans }}</button>
+            </div>
         </div>
-        {{ form_row(form.phoneNumber) }}
-
-        <button type="submit" class="ui large primary button">{{ 'sylius.ui.save_changes'|trans }}</button>
         {{ form_row(form._token) }}
         {{ form_end(form, {'render_rest': false}) }}
     </div>

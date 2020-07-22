@@ -45,6 +45,7 @@ app:
         grey: Gris
         happy_to_see_you_again: Heureux de vous revoir
         i_cant_remember_my_password: Je ne me souviens pas de mon mot de passe
+        identity: Identité
         pet_is_reserved: "%animal% est réservé"
         it_is_nice_to_meet_you: Ravi de vous rencontrer!
         legal_notices: Mentions légales
@@ -92,6 +93,7 @@ app:
         small: Petit
         tall: Grand
         taxon: Taxon
+        tell_us_more_about_yourself: Dites-nous en plus à propos de vous.
         they_cant_wait_to_meet_you: Ils ont hâte de vous rencontrer!
         this_one_is_about_to_meet_their_new_family: Celui-ci est sur le point de rencontrer sa nouvelle famille!
         unbook: Annuler la réservation

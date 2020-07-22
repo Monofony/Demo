@@ -46,6 +46,7 @@ app:
         happy_to_see_you_again: Happy to see you again
         i_cant_remember_my_password: I can't remember my password
         pet_is_reserved: "%animal% is reserved"
+        identity: Identity
         it_is_nice_to_meet_you: It's nice to meet you!
         legal_notices: Legal notices
         lets_continue_on_a_more_comfortable_page: Let’s continue on a more comfortable page, would you?
@@ -92,6 +93,7 @@ app:
         small: Small
         tall: Tall
         taxon: Taxon
+        tell_us_more_about_yourself: Tell us more about yourself.
         they_cant_wait_to_meet_you: They can’t wait to meet you!
         this_one_is_about_to_meet_their_new_family: This one is about to meet his new family!
         unbook: Unbook
