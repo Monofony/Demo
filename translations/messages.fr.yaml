@@ -15,7 +15,7 @@ app:
         a_dog_desc: Ils vous ramèneront le ballon. Finalement.
         a_rodent: Un rongeur!
         a_rodent_desc: «Ils sont tellement moelleux que je vais mourir! »
-        at_least_8_characters_long: Minimum 8 caractères.
+        at_least_4_characters_long: Minimum 4 caractères.
         avatar: Avatar
         beige: Beige
         birth_date: Date de naissance
@@ -107,6 +107,7 @@ app:
         years_old: ans
         you_will_be_contacted_soon_to_schedule_a_visit_for_this_pet: Vous serez bientôt contacté pour planifier une visite pour cet animal.
         you_will_be_contacted_soon_to_schedule_a_visit: Vous serez bientôt contacté pour planifier une visite
+        you_are_right_security_first: You’re right, security first!
 sylius:
     ui:
         adopted: Adopté
