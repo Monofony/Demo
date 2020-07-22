@@ -48,7 +48,7 @@ class Booking implements ResourceInterface
     /**
      * @var CustomerInterface|null
      *
-     * @ORM\ManyToOne(targetEntity="App\Entity\Customer\Customer")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Customer\Customer", inversedBy="bookings")
      */
     private $customer;
 

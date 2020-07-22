@@ -102,10 +102,10 @@ class PetExampleFactory extends AbstractExampleFactory
                 return $this->getColor($firstImage);
             })
             ->setDefault('birth_date', function (Options $options) {
-                return $this->faker->dateTimeBetween('-10 years');
+                return $this->faker->dateTimeBetween('-10 years', '-3 months');
             })
             ->setDefault('status', function (Options $options) {
-                return $this->faker->randomElement(PetStates::ALL);
+                return $this->faker->randomElement([PetStates::NEW, PetStates::BOOKABLE, PetStates::ADOPTED]);
             })
             ->setDefault('enabled', function (Options $options) {
                 return ('bookable' === $options['status'] || 'booked' === $options['status']) ? true : false;

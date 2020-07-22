@@ -58,6 +58,7 @@ final class BookingExampleFactory extends AbstractExampleFactory
         $resolver
             ->setDefault('pet', LazyOption::randomOne($this->petRepository))
             ->setDefault('customer', LazyOption::randomOne($this->customerRepository))
+            ->setNormalizer('customer', LazyOption::findOneBy($this->customerRepository, 'email'))
             ->setDefault('status', function (Options $options) {
                 return $this->faker->randomElement(BookingStates::ALL);
             })

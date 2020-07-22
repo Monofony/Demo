@@ -30,6 +30,7 @@ app:
         browse_all_pets: Browse all pets
         cancel: Cancel
         centimeter: Centimeter
+        check_all_your_reservations_statuses: Check all your reservations statuses
         contact: Contact
         contact_family: Contact family
         create_user: Create an user

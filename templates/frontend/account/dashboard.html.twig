@@ -3,47 +3,30 @@
 {% import 'frontend/macro/buttons.html.twig' as buttons %}
 
 {% block breadcrumb %}
-    <div class="ui breadcrumb">
-        <a href="{{ path('app_frontend_homepage') }}" class="section">{{ 'sylius.ui.home'|trans }}</a>
-        <div class="divider"> / </div>
-        <div class="active section">{{ 'sylius.ui.my_account'|trans }}</div>
-    </div>
+    <nav aria-label="You are here:" role="navigation" class="breadcrumb">
+        <ul class="breadcrumbs">
+            <li><a href="{{ path('app_frontend_homepage') }}" class="section">{{ 'sylius.ui.home'|trans }}</a></li>
+            <li><span class="show-for-sr">Current: </span>{{ 'sylius.ui.my_account'|trans }}</li>
+        </ul>
+    </nav>
 {% endblock %}
 
 {% block subcontent -%}
-    <h1 class="ui dividing header">
-        {{ 'sylius.ui.my_account'|trans }}
-        <div class="sub header">{{ 'sylius.ui.manage_your_personal_information_and_preferences'|trans }}</div>
-    </h1>
-
-    <div class="ui large list" id="customer-information">
-        <div class="item">
-            {{ customer.fullName }}
+    <div class="customer-bookings">
+        <div class="grid-x title-container">
+            <div class="cell small-2">
+                <div id="booking-logo" class="hide-for-small-only">
+                    <i class="fas fa-user"></i>
+                    <i class="fas fa-pencil-alt"></i>
+                </div>
+            </div>
+            <div class="cell auto">
+                <h3 class="title">{{ 'app.ui.bookings'|trans }}</h3>
+                <h4 class="subtitle">{{ 'app.ui.check_all_your_reservations_statuses'|trans }}</h4>
+            </div>
         </div>
-        <div class="item">
-            <strong>
-                {{ customer.email }}
-            </strong>
-        </div>
-        <div class="item">
-            {% if customer.user.verified %}
-                <span class="ui icon green basic label"><i class="checkmark icon"></i> {{ 'sylius.ui.verified'|trans }}</span>
-            {% else %}
-                <span class="ui icon red basic label"><i class="remove icon"></i> {{ 'sylius.ui.not_verified'|trans }}</span>
-            {% endif %}
-        </div>
+        {% for booking in customer.bookings %}
+            {% include 'frontend/account/_booking_card.html.twig' with {'booking': booking} only %}
+        {% endfor %}
     </div>
-
-    <div class="ui text menu">
-        <a href="{{ path('sylius_frontend_account_profile_update') }}" class="item"><i class="pencil icon"></i> {{ 'sylius.ui.edit'|trans }}</a>
-        <a href="{{ path('sylius_frontend_account_change_password') }}" class="item"><i class="lock icon"></i> {{ 'sylius.ui.change_password'|trans }}</a>
-        {% if not customer.user.verified %}
-            <form class="item" id="verification-form" action="{{ path('app_frontend_user_request_verification_token') }}" method="post">
-                <button type="submit" class="ui basic icon mini button">
-                    <i class="checkmark icon"></i> {{ 'sylius.ui.verify'|trans }}
-                </button>
-            </form>
-        {% endif %}
-    </div>
-
 {% endblock %}
