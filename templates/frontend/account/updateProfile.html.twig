@@ -27,6 +27,7 @@
             </div>
         </div>
         {{ form_start(form, {'action': path('sylius_frontend_account_profile_update')}) }}
+        <input type="hidden" name="_method" value="PUT" />
         <div class="grid-x align-justify grid-form">
             <div class="cell medium-12">
                 <h3>{{ 'app.ui.identity'|trans }}</h3>
