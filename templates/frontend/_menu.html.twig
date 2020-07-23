@@ -5,7 +5,7 @@
         </ul>
         <div class="top-bar-right">
             {% if is_granted('ROLE_USER') %}
-                <div class="item">{{ 'sylius.ui.hello'|trans }} {{ app.user.customer.fullName }}!</div>
+                <a class="item">{{ 'sylius.ui.hello'|trans }} {{ app.user.customer.fullName }}!</a>
                 <a href="{{ path('sylius_frontend_account_dashboard') }}" class="item button primary login">{{ 'sylius.ui.my_account'|trans }}</a>
                 <a href="{{ path('app_frontend_logout') }}" class="item app-logout-button button primary register">{{ 'sylius.ui.logout'|trans }}</a>
             {% else %}

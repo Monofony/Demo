@@ -2,6 +2,7 @@
 
 namespace spec\App\Entity\Customer;
 
+use Doctrine\Common\Collections\Collection;
 use Monofony\Component\Core\Model\Customer\CustomerInterface;
 use Monofony\Component\Core\Model\User\AppUserInterface;
 use PhpSpec\ObjectBehavior;
@@ -53,5 +54,10 @@ class CustomerSpec extends ObjectBehavior
 
         $this->setUser($user);
         $this->setUser($user);
+    }
+
+    function it_has_bookings_collection_by_default()
+    {
+        $this->getBookings()->shouldHaveType(Collection::class);
     }
 }

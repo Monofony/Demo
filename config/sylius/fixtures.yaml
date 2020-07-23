@@ -62,7 +62,7 @@ sylius_fixtures:
 
                 pet:
                     options:
-                        random: 100
+                        random: 200
 
                 api_client:
                     options:
@@ -75,3 +75,6 @@ sylius_fixtures:
                 booking:
                     options:
                         random: 20
+                        custom:
+                            - customer: "customer@example.com"
+                            - customer: "customer@example.com"

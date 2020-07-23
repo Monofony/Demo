@@ -4,6 +4,8 @@ default:
             contexts:
                 - App\Tests\Behat\Context\Hook\DoctrineORMContext
 
+                - App\Tests\Behat\Context\Domain\CustomerContext
+
                 - App\Tests\Behat\Context\Transform\CustomerContext
                 - App\Tests\Behat\Context\Transform\SharedStorageContext
 

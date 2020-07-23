@@ -11,6 +11,8 @@
 
 namespace App\Entity\Customer;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Monofony\Component\Core\Model\Customer\CustomerInterface;
 use Monofony\Component\Core\Model\User\AppUserInterface;
@@ -32,6 +34,19 @@ class Customer extends BaseCustomer implements CustomerInterface
      * @Assert\Valid
      */
     private $user;
+
+    /**
+     * @var Collection
+     *
+     * @ORM\OneToMany(targetEntity="App\Entity\Booking\Booking", mappedBy="customer")
+     */
+    private $bookings;
+
+    public function __construct()
+    {
+        $this->bookings = new ArrayCollection();
+        parent::__construct();
+    }
 
     /**
      * {@inheritdoc}
@@ -62,5 +77,15 @@ class Customer extends BaseCustomer implements CustomerInterface
         if ($user instanceof AppUserInterface) {
             $user->setCustomer($this);
         }
+    }
+
+    public function getBookings(): Collection
+    {
+        return $this->bookings;
+    }
+
+    public function setBookings(Collection $bookings): void
+    {
+        $this->bookings = $bookings;
     }
 }

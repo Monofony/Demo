@@ -73,12 +73,14 @@
 @import "pages/register";
 @import "pages/show";
 @import "pages/summary";
+@import "pages/dashboard";
 @import "pages/confirmation";
 
 // Patterns
 @import "patterns/footer";
 @import "patterns/header";
 @import "patterns/menu";
+@import "patterns/my_account_menu";
 
 // Components
 @import "components/breadcrumbs";
