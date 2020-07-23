@@ -1,9 +1,11 @@
 app:
     ui:
         about_us: About us
+        accepted_visit: Accepted visit
         admin: Admin
         adopt: Adopt
         adopted: Adopted
+        adopted_pet: Adopted pet
         adopt_the_perfect_pet_for_you_and_your_family: Adopt the perfect pet for you and your family!
         any_questions_lets_talk: Any question? Let’s talk!
         ask_for_a_visit: Ask for a visit!
@@ -42,6 +44,7 @@ app:
         grey: Grey
         happy_to_see_you_again: Happy to see you again
         i_cant_remember_my_password: I can't remember my password
+        pet_is_reserved: "%animal% is reserved"
         it_is_nice_to_meet_you: It's nice to meet you!
         legal_notices: Legal notices
         lets_continue_on_a_more_comfortable_page: Let’s continue on a more comfortable page, would you?
@@ -73,9 +76,12 @@ app:
         pets: Pets
         refuse: Refuse
         refused: Refused
+        requested_visit: Requested visit
         reservation: Reservation
         schedule_a_visit: Schedule a visit
+        scheduled_visit: Scheduled visit
         search_customers: Search customers
+        see_the_reservation_details: See the reservation details
         sex: Sex
         show_booking: Show booking
         show_pet: Show pet
@@ -97,6 +103,7 @@ app:
         year_old: yo
         years_old: yo
         you_will_be_contacted_soon_to_schedule_a_visit_for_this_pet: You will be contacted soon to schedule a visit for this pet.
+        you_will_be_contacted_soon_to_schedule_a_visit: You will be contacted soon to schedule a visit.
 sylius:
     ui:
         adopted: Adopted

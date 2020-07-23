@@ -23,6 +23,6 @@ final class ConfirmationPage extends SymfonyPage
 
     public function isRequestSend(): bool
     {
-        return $this->getDocument()->hasContent('Confirmation');
+        return $this->getDocument()->hasContent('See the reservation details');
     }
 }

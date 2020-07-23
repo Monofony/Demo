@@ -5,7 +5,7 @@ app_frontend_booking_summary:
         template: 'frontend/booking/summary.html.twig'
 
 app_frontend_booking_confirmation:
-    path: /bookings/{id}/confirmation
+    path: /bookings/{slug}/confirmation
     defaults:
         _controller: FrameworkBundle:Template:template
         template: 'frontend/booking/confirmation.html.twig'
