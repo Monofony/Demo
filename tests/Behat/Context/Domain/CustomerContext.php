@@ -36,8 +36,20 @@ final class CustomerContext implements Context
     }
 
     /**
-     * @Then my email should be :email
      * @Then my email should still be :email
+     */
+    public function myEmailShouldStill($email): void
+    {
+        /** @var AppUserInterface $user */
+        $user = $this->sharedStorage->get('user');
+
+        $this->manager->refresh($user);
+
+        Assert::eq($user->getCustomer()->getEmail(), $email);
+    }
+
+    /**
+     * @Then my email should be :email
      */
     public function myEmailShouldBe($email): void
     {
@@ -46,6 +58,6 @@ final class CustomerContext implements Context
 
         $this->manager->refresh($user);
 
-        Assert::eq($user->getCustomer()->getEmail(), $email);
+        Assert::eq($user->getUsername(), $email);
     }
 }

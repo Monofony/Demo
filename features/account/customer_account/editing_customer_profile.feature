@@ -8,7 +8,7 @@ Feature: Editing a customer profile
         Given there is a user "francis@underwood.com" identified by "whitehouse"
         And I am logged in as "francis@underwood.com"
 
-    @ui @todo
+    @ui
     Scenario: Changing my email
         When I want to modify my profile
         And I specify the customer email as "frank@underwood.com"
