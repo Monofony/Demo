@@ -44,7 +44,7 @@ app:
         grey: Gris
         happy_to_see_you_again: Heureux de vous revoir
         i_cant_remember_my_password: Je ne me souviens pas de mon mot de passe
-        pet_is_reserved: %animal% est réservé
+        pet_is_reserved: "%animal% est réservé"
         it_is_nice_to_meet_you: Ravi de vous rencontrer!
         legal_notices: Mentions légales
         lets_continue_on_a_more_comfortable_page: Continuons sur une page plus confortable, voulez-vous?

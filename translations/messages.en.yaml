@@ -44,7 +44,7 @@ app:
         grey: Grey
         happy_to_see_you_again: Happy to see you again
         i_cant_remember_my_password: I can't remember my password
-        pet_is_reserved: %animal% is reserved
+        pet_is_reserved: "%animal% is reserved"
         it_is_nice_to_meet_you: It's nice to meet you!
         legal_notices: Legal notices
         lets_continue_on_a_more_comfortable_page: Let’s continue on a more comfortable page, would you?
