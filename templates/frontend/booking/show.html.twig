@@ -1,0 +1,32 @@
+{% extends 'frontend/layout.html.twig' %}
+{% import 'frontend/booking/macro/state.html.twig' as state %}
+
+{% block content %}
+    <div class="booking-show">
+        <div class="grid-container grid-x">
+            <div class="cell small-12">
+                {% include 'frontend/booking/show/_breadcrumb.html.twig' %}
+            </div>
+        </div>
+        <div class="header-booking-show">
+            <h3>{{ 'app.ui.your_reservation'|trans }}</h3>
+            <h6>#{{ booking.id }} - {{ booking.createdAt|date("m/d/Y") }}</h6>
+            <p>{{ 'app.ui.you_will_be_contacted_soon_to_schedule_a_visit'|trans }}</p>
+        </div>
+        <div class="grid-container grid-x align-middle booking-state">
+            <div class="cell medium-3">
+                <h6 class="active-state"><i class="fas fa-check-circle"></i>{{ 'app.ui.requested_visit'|trans }}</h6>
+            </div>
+            <div class="cell medium-3">
+                {{ state.acceptedVisit(booking) }}
+            </div>
+            <div class="cell medium-3">
+                {{ state.scheduledVisit(booking) }}
+            </div>
+            <div class="cell medium-3">
+                {{ state.adoptedPet(booking) }}
+            </div>
+        </div>
+        {{ render(url('app_frontend_partial_pet_show', {'template': 'frontend/booking/_card.html.twig', 'slug': booking.pet.slug})) }}
+    </div>
+{% endblock content %}

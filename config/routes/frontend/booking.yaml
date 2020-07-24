@@ -1,3 +1,11 @@
+app_frontend_booking_show:
+    methods: [GET]
+    path: /bookings/{id}
+    defaults:
+        _controller: app.controller.booking::showAction
+        _sylius:
+            template: frontend/booking/show.html.twig
+
 app_frontend_booking_summary:
     path: /bookings/{slug}/summary
     defaults:
