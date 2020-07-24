@@ -23,13 +23,43 @@
                 <h6 class="active-state"><i class="fas fa-check-circle"></i>{{ 'app.ui.requested_visit'|trans }}</h6>
             </div>
             <div class="cell medium-3">
-                <h6 class="inactive-state"><i class="far fa-clock"></i>{{ 'app.ui.accepted_visit'|trans }}</h6>
+                <h6 class="{% if constant('App\\BookingStates::FAMILY_CONTACTED') == booking.status or constant('App\\BookingStates::VISIT_SCHEDULED') == booking.status or constant('App\\BookingStates::FINISHED') == booking.status %}
+                                active-state
+                            {% else %}
+                                inactive-state
+                            {% endif %}">
+                                {% if constant('App\\BookingStates::FAMILY_CONTACTED') == booking.status or constant('App\\BookingStates::VISIT_SCHEDULED') == booking.status or constant('App\\BookingStates::FINISHED') == booking.status %}
+                                    <i class="fas fa-check-circle"></i>
+                                {% else %}
+                                    <i class="far fa-clock"></i>
+                                {% endif %}
+                                {{ 'app.ui.accepted_visit'|trans }}</h6>
             </div>
             <div class="cell medium-3">
-                <h6 class="inactive-state"><i class="far fa-clock"></i>{{ 'app.ui.scheduled_visit'|trans }}</h6>
+                <h6 class="{% if constant('App\\BookingStates::VISIT_SCHEDULED') == booking.status or constant('App\\BookingStates::FINISHED') == booking.status %}
+                                active-state
+                            {% else %}
+                                inactive-state
+                            {% endif %}">
+                                {% if constant('App\\BookingStates::VISIT_SCHEDULED') == booking.status or constant('App\\BookingStates::FINISHED') == booking.status %}
+                                    <i class="fas fa-check-circle"></i>
+                                {% else %}
+                                    <i class="far fa-clock"></i>
+                                {% endif %}
+                                {{ 'app.ui.scheduled_visit'|trans }}</h6>
             </div>
             <div class="cell medium-3">
-                <h6 class="inactive-state"><i class="far fa-clock"></i>{{ 'app.ui.adopted_pet'|trans }}</h6>
+                <h6 class="{% if constant('App\\BookingStates::FINISHED') == booking.status %}
+                                active-state
+                           {% else %}
+                                inactive-state
+                           {% endif %}">
+                                {% if constant('App\\BookingStates::FINISHED') == booking.status %}
+                                    <i class="fas fa-check-circle"></i>
+                                {% else %}
+                                    <i class="far fa-clock"></i>
+                                {% endif %}
+                                {{ 'app.ui.adopted_pet'|trans }}</h6>
             </div>
         </div>
         {{ render(url('app_frontend_partial_pet_show', {'template': 'frontend/booking/_card.html.twig', 'slug': booking.pet.slug})) }}
