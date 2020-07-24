@@ -1,0 +1,42 @@
+{% macro acceptedVisit(booking) %}
+    <h6 class="{% if constant('App\\BookingStates::FAMILY_CONTACTED') == booking.status or constant('App\\BookingStates::VISIT_SCHEDULED') == booking.status or constant('App\\BookingStates::FINISHED') == booking.status %}
+                                active-state
+                            {% else %}
+                                inactive-state
+                            {% endif %}">
+        {% if constant('App\\BookingStates::FAMILY_CONTACTED') == booking.status or constant('App\\BookingStates::VISIT_SCHEDULED') == booking.status or constant('App\\BookingStates::FINISHED') == booking.status %}
+            <i class="fas fa-check-circle"></i>
+        {% else %}
+            <i class="far fa-clock"></i>
+        {% endif %}
+        {{ 'app.ui.accepted_visit'|trans }}
+    </h6>
+{% endmacro %}
+
+{% macro scheduledVisit(booking) %}
+    <h6 class="{% if constant('App\\BookingStates::VISIT_SCHEDULED') == booking.status or constant('App\\BookingStates::FINISHED') == booking.status %}
+                                active-state
+                            {% else %}
+                                inactive-state
+                            {% endif %}">
+        {% if constant('App\\BookingStates::VISIT_SCHEDULED') == booking.status or constant('App\\BookingStates::FINISHED') == booking.status %}
+            <i class="fas fa-check-circle"></i>
+        {% else %}
+            <i class="far fa-clock"></i>
+        {% endif %}
+        {{ 'app.ui.scheduled_visit'|trans }}</h6>
+{% endmacro %}
+
+{% macro adoptedPet(booking) %}
+    <h6 class="{% if constant('App\\BookingStates::FINISHED') == booking.status %}
+                                active-state
+                           {% else %}
+                                inactive-state
+                           {% endif %}">
+        {% if constant('App\\BookingStates::FINISHED') == booking.status %}
+            <i class="fas fa-check-circle"></i>
+        {% else %}
+            <i class="far fa-clock"></i>
+        {% endif %}
+        {{ 'app.ui.adopted_pet'|trans }}</h6>
+{% endmacro %}

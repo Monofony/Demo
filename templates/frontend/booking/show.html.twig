@@ -1,16 +1,11 @@
 {% extends 'frontend/layout.html.twig' %}
+{% import 'frontend/booking/macro/state.html.twig' as state %}
 
 {% block content %}
     <div class="booking-show">
         <div class="grid-container grid-x">
             <div class="cell small-12">
-                <nav aria-label="You are here:" role="navigation" class="breadcrumb">
-                    <ul class="breadcrumbs">
-                        <li><a href="{{ path('app_frontend_homepage') }}" class="section">{{ 'sylius.ui.home'|trans }}</a></li>
-                        <li><a href="{{ path('sylius_frontend_account_dashboard') }}" class="section">{{ 'sylius.ui.my_account'|trans }}</a></li>
-                        <li><span class="show-for-sr">Current: </span>{{ 'app.ui.booking'|trans }}</li>
-                    </ul>
-                </nav>
+                {% include 'frontend/booking/show/_breadcrumb.html.twig' %}
             </div>
         </div>
         <div class="header-booking-show">
@@ -23,43 +18,13 @@
                 <h6 class="active-state"><i class="fas fa-check-circle"></i>{{ 'app.ui.requested_visit'|trans }}</h6>
             </div>
             <div class="cell medium-3">
-                <h6 class="{% if constant('App\\BookingStates::FAMILY_CONTACTED') == booking.status or constant('App\\BookingStates::VISIT_SCHEDULED') == booking.status or constant('App\\BookingStates::FINISHED') == booking.status %}
-                                active-state
-                            {% else %}
-                                inactive-state
-                            {% endif %}">
-                                {% if constant('App\\BookingStates::FAMILY_CONTACTED') == booking.status or constant('App\\BookingStates::VISIT_SCHEDULED') == booking.status or constant('App\\BookingStates::FINISHED') == booking.status %}
-                                    <i class="fas fa-check-circle"></i>
-                                {% else %}
-                                    <i class="far fa-clock"></i>
-                                {% endif %}
-                                {{ 'app.ui.accepted_visit'|trans }}</h6>
+                {{ state.acceptedVisit(booking) }}
             </div>
             <div class="cell medium-3">
-                <h6 class="{% if constant('App\\BookingStates::VISIT_SCHEDULED') == booking.status or constant('App\\BookingStates::FINISHED') == booking.status %}
-                                active-state
-                            {% else %}
-                                inactive-state
-                            {% endif %}">
-                                {% if constant('App\\BookingStates::VISIT_SCHEDULED') == booking.status or constant('App\\BookingStates::FINISHED') == booking.status %}
-                                    <i class="fas fa-check-circle"></i>
-                                {% else %}
-                                    <i class="far fa-clock"></i>
-                                {% endif %}
-                                {{ 'app.ui.scheduled_visit'|trans }}</h6>
+                {{ state.scheduledVisit(booking) }}
             </div>
             <div class="cell medium-3">
-                <h6 class="{% if constant('App\\BookingStates::FINISHED') == booking.status %}
-                                active-state
-                           {% else %}
-                                inactive-state
-                           {% endif %}">
-                                {% if constant('App\\BookingStates::FINISHED') == booking.status %}
-                                    <i class="fas fa-check-circle"></i>
-                                {% else %}
-                                    <i class="far fa-clock"></i>
-                                {% endif %}
-                                {{ 'app.ui.adopted_pet'|trans }}</h6>
+                {{ state.adoptedPet(booking) }}
             </div>
         </div>
         {{ render(url('app_frontend_partial_pet_show', {'template': 'frontend/booking/_card.html.twig', 'slug': booking.pet.slug})) }}
