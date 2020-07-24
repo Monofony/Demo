@@ -1,0 +1,17 @@
+.off-canvas {
+    padding: 2rem;
+    .menu {
+        .a-taxon {
+            text-transform: uppercase;
+            color: $white;
+            font-weight: $global-weight-bold;
+            &.active {
+                color: $secondary-color;
+            }
+        }
+        @extend .vertical;
+    }
+    .button{
+        color: $white;
+    }
+}

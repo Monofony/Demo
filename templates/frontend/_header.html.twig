@@ -1,11 +1,11 @@
-<div class="ui basic segment">
-    <div class="ui three column stackable grid">
-        <div class="column">
-            <a href="{{ path('app_frontend_homepage') }}"><img src="{{ asset('assets/frontend/img/logo.png', 'frontend') }}" alt="Sylius logo" class="ui small image" /></a>
-        </div>
-        <div class="column">
-        </div>
-        <div class="right aligned column">
+<header class="main-header">
+    <div class="secondary-menu">
+        <div class="grid-container">
+            <div class="grid-x grid-margin-x">
+            <a class="cell shrink" type="button" href=""><i class="fas fa-envelope"></i>  {{ 'app.ui.contact'|trans }}</a>
+            <a class="cell shrink" type="button" href="{{ path('sylius_backend_login') }}"><i class="fas fa-lock"></i>  {{ 'app.ui.admin'|trans }}</a>
+            </div>
         </div>
     </div>
-</div>
+    {% include 'frontend/_menu.html.twig' %}
+</header>
