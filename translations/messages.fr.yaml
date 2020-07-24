@@ -107,7 +107,8 @@ app:
         years_old: ans
         you_will_be_contacted_soon_to_schedule_a_visit_for_this_pet: Vous serez bientôt contacté pour planifier une visite pour cet animal.
         you_will_be_contacted_soon_to_schedule_a_visit: Vous serez bientôt contacté pour planifier une visite
-        you_are_right_security_first: You’re right, security first!
+        you_are_right_security_first: Vous avez raison, la sécurité avant tout!
+        your_reservation: Votre réservation
 sylius:
     ui:
         adopted: Adopté

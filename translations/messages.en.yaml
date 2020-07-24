@@ -108,6 +108,7 @@ app:
         you_will_be_contacted_soon_to_schedule_a_visit_for_this_pet: You will be contacted soon to schedule a visit for this pet.
         you_will_be_contacted_soon_to_schedule_a_visit: You will be contacted soon to schedule a visit.
         you_are_right_security_first: You’re right, security first!
+        your_reservation: Your reservation
 sylius:
     ui:
         adopted: Adopted
