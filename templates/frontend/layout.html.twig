@@ -10,7 +10,7 @@
     {% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 </head>
-<body class="pushable">
+<body class="{% block class %} {% endblock %}">
 {{ google_tag_manager_body() }}
 <div class="pusher off-canvas-wrapper">
     <div class="off-canvas position-right" id="offCanvas" data-off-canvas>

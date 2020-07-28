@@ -1,7 +1,5 @@
-@import "../global/variables";
-
 body {
-  background-color: map-get($monofony-color, light-grey);
+  background-color: $light-gray;
 }
 
 .container {

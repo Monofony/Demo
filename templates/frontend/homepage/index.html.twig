@@ -1,4 +1,6 @@
 {% extends 'frontend/layout.html.twig' %}
+{% block class %}homepage
+{% endblock %}
 
 {% block content %}
 <div class="header">
@@ -7,13 +9,13 @@
     </div>
     <div class="couple-with-dog show-for-large"></div>
 </div>
-<div class="latest-pets">
-    <h1>{{ 'app.ui.they_cant_wait_to_meet_you'|trans }}</h1>
+<section class="latest-pets text-center">
+    <h2>{{ 'app.ui.they_cant_wait_to_meet_you'|trans }}</h2>
     {{ render(url('app_frontend_partial_animal_latest', {'count': 4, 'template': 'frontend/homepage/_pets.html.twig'})) }}
-    <a href="{{ path('app_frontend_pet_index') }}" class="button homepage">{{ 'app.ui.show_me_more'|trans }}</a>
+    <a href="{{ path('app_frontend_pet_index') }}" class="button">{{ 'app.ui.show_me_more'|trans }}</a>
 </div>
-<div class="rectangle blue">
-    <h1>{{ 'app.ui.what_kind_of_animal_are_you_looking_for'|trans }}</h1>
+<section class="what-kind text-center">
+    <h2>{{ 'app.ui.what_kind_of_animal_are_you_looking_for'|trans }}</h2>
     {{ render(url('sylius_frontend_partial_taxon_root_nodes', {'template': 'frontend/homepage/_categories.html.twig', 'slug': app.request.get('slug')})) }}
 </div>
 

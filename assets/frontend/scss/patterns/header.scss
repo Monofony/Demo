@@ -1,8 +1,6 @@
-@import "../global/variables";
-
 .main-header {
     .secondary-menu {
-        background-color: map-get($monofony-color, dark-blue);
+        background-color: $secondary-color;
         padding: 0.4rem 0;
         a {
             color: #ffffff;
@@ -13,7 +11,7 @@
         font-size: 14px;
         font-weight: bold;
         letter-spacing: 1px;
-        color: #133e56;
+        color: $secondary-color;
     }
     .primary-menu {
         z-index: 2;
@@ -28,13 +26,13 @@
                 text-transform: uppercase;
 
                 &.active {
-                    color: map-get($monofony-color, monofony-blue);
+                    color: $primary-color;
                 }
             }
         }
         .burger {
             i {
-                color: map-get($monofony-color, monofony-blue);
+                color: $primary-color;
             }
         }
         img {

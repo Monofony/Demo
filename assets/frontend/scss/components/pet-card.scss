@@ -1,0 +1,35 @@
+.card {
+    position: relative;
+    .bw {
+        filter: grayscale(100%);
+    }
+    .reserved {
+        position: absolute;
+        bottom: 6.5rem;
+        left: 1.5rem;
+        color: white;
+        font-family: Inter regular;
+        i {
+            margin-right: 0.5rem;
+        }
+    }
+    .card-section {
+        .meta > a {
+            font-family: Inter regular;
+            font-weight: bold;
+            font-size: 18px;
+            color: $medium-gray;
+        }
+        .first-line {
+            display: flex;
+            align-items: center;
+            h6 {
+                margin-bottom: 0;
+                font-size: rem-calc(20);
+                font-weight: 500;
+                color: #133e56;
+                margin-left: 0.5rem;
+            }
+        }
+    }
+}

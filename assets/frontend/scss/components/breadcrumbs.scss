@@ -1,25 +1,23 @@
-@import "../global/variables";
-
 .breadcrumbs {
-  padding: 20px 0;
-  li {
-    font-weight: 600;
-    font-size: 15px;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
+    padding: 20px 0;
+    li {
+        font-weight: 600;
+        font-size: 15px;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
 
-    a {
-      color: map-get($monofony-color, monofony-grey);
-    }
+        a {
+            color: $medium-gray;
+        }
 
-    &:not(:last-child)::after {
-      position: relative;
-      margin: 0 0.75rem;
-      opacity: 1;
-      content: ">";
-      color: map-get($monofony-color, monofony-grey);
+        &:not(:last-child)::after {
+            position: relative;
+            margin: 0 0.75rem;
+            opacity: 1;
+            content: ">";
+            color: $medium-gray;
+        }
     }
-  }
 }
