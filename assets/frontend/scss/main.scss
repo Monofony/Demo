@@ -2,7 +2,6 @@
 @import '~motion-ui/src/motion-ui';
 @import "settings";
 @import "font";
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
 // Global styles
 @include foundation-global-styles;
@@ -80,6 +79,7 @@
 @import "pages/booking";
 
 // Patterns
+@import "patterns/about";
 @import "patterns/footer";
 @import "patterns/header";
 @import "patterns/my_account_menu";
@@ -87,7 +87,6 @@
 
 // Components
 @import "components/breadcrumbs";
-@import "components/button";
 @import "components/pet_card";
 @import "components/pagination";
 

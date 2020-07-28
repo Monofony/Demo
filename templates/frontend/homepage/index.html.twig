@@ -16,4 +16,7 @@
     <h1>{{ 'app.ui.what_kind_of_animal_are_you_looking_for'|trans }}</h1>
     {{ render(url('sylius_frontend_partial_taxon_root_nodes', {'template': 'frontend/homepage/_categories.html.twig', 'slug': app.request.get('slug')})) }}
 </div>
+
+{% include 'frontend/_about.html.twig' %}
+
 {% endblock %}

@@ -43,7 +43,7 @@
                 <div>
                     {% if constant('App\\PetStates::BOOKED') == pet.status %}
                         <div class="clreserv">
-                            <a class="button disabled reserved pet"><i class="fas fa-lock"></i>{{ 'sylius.ui.reserved'|trans }}</a>
+                            <a class="button disabled pet"><i class="fas fa-lock"></i>{{ 'sylius.ui.reserved'|trans }}</a>
                             <p>{{ 'app.ui.this_one_is_about_to_meet_their_new_family'|trans }}</p>
                         </div>
                     {% else %}

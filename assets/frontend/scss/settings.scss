@@ -74,8 +74,8 @@ $body-antialiased: true;
 $global-margin: 1rem;
 $global-padding: 1rem;
 $global-position: 1rem;
-$global-weight-normal: 300;
-$global-weight-bold: 700;
+$global-weight-normal: 400;
+$global-weight-bold: 600;
 $global-radius: 5px;
 $global-menu-padding: 0.7rem 1rem;
 $global-menu-nested-margin: 1rem;
@@ -118,11 +118,11 @@ $block-grid-max: 8;
 // 4. Base Typography
 // ------------------
 
-$header-font-family: Poppins;
+$header-font-family: Poppins, Helvetica, Roboto, Arial, sans-serif;
 $header-font-weight: 700;
 $header-font-style: normal;
-$font-family-monospace: Inter regular;
-$header-color: inherit;
+$font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
+$header-color: $secondary-color;
 $header-lineheight: 1.4;
 $header-margin-bottom: 0.5rem;
 $header-styles: (
@@ -151,7 +151,7 @@ $header-styles: (
             "font-size": 40
         ),
         "h2": (
-            "font-size": 26
+            "font-size": 24
         ),
         "h3": (
             "font-size": 16
@@ -290,7 +290,7 @@ $breadcrumbs-item-separator-color: $secondary-color;
 // 11. Button
 // ----------
 
-$button-font-family: inherit;
+$button-font-family: $header-font-family;
 $button-padding: 0.94em 1.6em;
 $button-margin: 0;
 $button-fill: solid;
