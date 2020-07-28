@@ -11,12 +11,12 @@
             <div class="cell large-4 show-for-large text-right">
                     {% if is_granted('ROLE_USER') %}
                             <a href="{{ path('sylius_frontend_account_dashboard') }}"
-                            class="item button login clear">{{ 'sylius.ui.my_account'|trans }}</a>
+                            class="item button small login clear">{{ 'sylius.ui.my_account'|trans }}</a>
                     {% else %}
                             <a href="{{ path('app_frontend_login') }}"
-                            class="item button clear">{{ 'sylius.ui.login'|trans }}</a>
+                            class="item button small clear">{{ 'sylius.ui.login'|trans }}</a>
                             <a href="{{ path('app_frontend_register') }}"
-                            class="item button">{{ 'sylius.ui.register'|trans }}</a>
+                            class="item button small">{{ 'sylius.ui.register'|trans }}</a>
                     {% endif %}
             </div>
             <div class="cell shrink hide-for-large burger">

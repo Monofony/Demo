@@ -7,7 +7,7 @@
             <img src="{{ asset(img_path, 'frontend') }}"/>
             <h1>{{ taxon.name }}</h1>
             <p>{{ taxon.translation.description }}</p>
-            <a href="{{ path('app_frontend_pet_per_taxon_index', {'slug': taxon.slug}) }}" class="button primary">{{ lets_find_taxon|trans }}</a>
+            <a href="{{ path('app_frontend_pet_per_taxon_index', {'slug': taxon.slug}) }}" class="button">{{ lets_find_taxon|trans }}</a>
         </div>
     </div>
 {% endmacro %}

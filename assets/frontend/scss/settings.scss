@@ -118,7 +118,7 @@ $block-grid-max: 8;
 // 4. Base Typography
 // ------------------
 
-$header-font-family: Poppins, Helvetica, Roboto, Arial, sans-serif;
+$header-font-family: "Poppins", Helvetica, Roboto, Arial, sans-serif;
 $header-font-weight: 700;
 $header-font-style: normal;
 $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
@@ -291,19 +291,20 @@ $breadcrumbs-item-separator-color: $secondary-color;
 // ----------
 
 $button-font-family: $header-font-family;
+$button-font-weight: $header-font-weight;
 $button-padding: 0.94em 1.6em;
 $button-margin: 0;
 $button-fill: solid;
 $button-background: $primary-color;
 $button-background-hover: scale-color($button-background, $lightness: -15%);
 $button-color: $white;
-$button-color-alt: $white;
+$button-color-alt: $secondary-color;
 $button-radius: $global-radius;
 $button-hollow-border-width: 1px;
 $button-sizes: (
     tiny: 0.6rem,
-    small: rem-calc(13),
-    default: rem-calc(15),
+    small: rem-calc(14),
+    default: rem-calc(18),
     large: 1.25rem
 );
 $button-palette: $foundation-palette;

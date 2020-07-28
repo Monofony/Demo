@@ -10,7 +10,7 @@
 <div class="latest-pets">
     <h1>{{ 'app.ui.they_cant_wait_to_meet_you'|trans }}</h1>
     {{ render(url('app_frontend_partial_animal_latest', {'count': 4, 'template': 'frontend/homepage/_pets.html.twig'})) }}
-    <a href="{{ path('app_frontend_pet_index') }}" class="button primary homepage">{{ 'app.ui.show_me_more'|trans }}</a>
+    <a href="{{ path('app_frontend_pet_index') }}" class="button homepage">{{ 'app.ui.show_me_more'|trans }}</a>
 </div>
 <div class="rectangle blue">
     <h1>{{ 'app.ui.what_kind_of_animal_are_you_looking_for'|trans }}</h1>
