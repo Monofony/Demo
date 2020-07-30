@@ -1,35 +1,84 @@
-.card {
+.pet-card {
     position: relative;
-    .bw {
-        filter: grayscale(100%);
-    }
-    .reserved {
+    transform: translateY(0);
+    transition: all .25s ease-in-out;
+    .overlay{
+        z-index: 1;
         position: absolute;
-        bottom: 6.5rem;
-        left: 1.5rem;
-        color: white;
-        font-family: Inter regular;
-        i {
-            margin-right: 0.5rem;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+    }
+    .inner{
+        pointer-events: none;
+        z-index: 1;
+        .pet-pic{
+            position: relative;
+        }
+        .card-section {
+            .first-line{
+                h2{
+                    margin: 0;
+                }
+                i{
+                    font-size: rem-calc(22);
+                    color: $medium-gray;
+                    margin: 0 rem-calc(6);
+                }
+                .age{
+                    font-size: rem-calc(20);
+                    font-family: $header-font-family;
+                    font-size: rem-calc(20);
+                    color: $secondary-color;
+                }
+            }
+            .meta{
+                text-align: left;
+                a {
+                    text-transform: uppercase;
+                    font-size: rem-calc(18);
+                    color: $medium-gray;
+                    pointer-events: all;
+                    &:hover{
+                        text-decoration: underline;
+                    }
+                    @include breakpoint(small only){
+                        font-size: rem-calc(16);
+                    }
+                }
+            }
         }
     }
-    .card-section {
-        .meta > a {
-            font-family: Inter regular;
-            font-weight: bold;
-            font-size: 18px;
-            color: $medium-gray;
+    &.reserved{
+        img{
+            filter: grayscale(100%);
         }
-        .first-line {
-            display: flex;
-            align-items: center;
-            h6 {
-                margin-bottom: 0;
-                font-size: rem-calc(20);
-                font-weight: 500;
-                color: #133e56;
-                margin-left: 0.5rem;
+        .reserved-block {
+            z-index: 1;
+            position: absolute;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            color: white;
+            font-family: $header-font-family;
+            font-size: rem-calc(16);
+            i {
+                margin-right: 0.5rem;
             }
+        }
+        .gradient{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(180deg, rgba($black,0) 70%, rgba($black,1) 100%);
+        }
+    }
+    &:not(.reserved){
+        &:hover{
+            box-shadow: 0 4px 10px rgba($secondary-color, 0.2);
+            transform: translateY(rem-calc(-4));
         }
     }
 }

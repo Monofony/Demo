@@ -42,20 +42,25 @@
     }
     section{
         padding: rem-calc(72) 0;
-    }
-    .what-kind {
-        background-color: $secondary-color;
-        h2 {
-            color: $white;
-        }
-        .card{
-            padding: rem-calc(42);
-            img{
-                margin: rem-calc(30);
-                max-width: rem-calc(78);
+        &.latest-pets{
+            .button{
+                margin-top: 3rem;
             }
-            .title{
-                font-size: rem-calc(30);
+        }
+        &.what-kind {
+            background-color: $secondary-color;
+            h2 {
+                color: $white;
+            }
+            .card{
+                padding: rem-calc(42);
+                img{
+                    margin: rem-calc(30);
+                    max-width: rem-calc(78);
+                }
+                .title{
+                    font-size: rem-calc(30);
+                }
             }
         }
     }
