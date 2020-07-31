@@ -1,40 +1,50 @@
 .homepage {
     .header {
-        display: flex;
-        .adopt-the-perfect-pet {
-            background-image: linear-gradient(rgba(75, 174, 180, 0.33), rgba(75, 174, 180, 0.33)),
-                url("../../img/pattern.svg");
-            background-position-x: 50%;
-            background-position-y: 50%;
-            display: flex;
-            @include breakpoint(large) {
-                margin-bottom: 20vh;
+        background-image: linear-gradient(rgba(75, 174, 180, 0.33), rgba(75, 174, 180, 0.33)),
+            url("../../img/pattern.svg");
+        background-position-x: 10%;
+        background-position-y: 50%;
+        background-size: 60%;
+        @include breakpoint(large){
+            background-size: auto;
+        }
+        .title{
+            @include breakpoint(small only){
+                padding: 2rem;
             }
-            @include breakpoint(medium down) {
-                margin-bottom: 3vh;
+            @include breakpoint(medium){
+                margin: 3rem 0;
+                h1{
+                    font-size: rem-calc(40);
+                }
             }
-            h1 {
-                color: #133e56;
-                align-self: center;
-                margin-left: 10vw;
-                margin-right: 17vw;
-                font-family: Poppins;
-                @include breakpoint(medium down) {
-                    padding: 6rem 0;
-                    justify-content: center;
+            @include breakpoint(large){
+                margin: 7rem 0;
+                h1{
+                    font-size: rem-calc(48);
+                }
+            }
+            @include breakpoint(xlarge){
+                margin: 10rem 0;
+                h1{
+                    font-size: rem-calc(54);
                 }
             }
         }
-        .couple-with-dog {
-            position: relative;
-            background-image: url("../../img/img_header.png");
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
-            width: 75vw;
-            height: 70vh;
+        .image {
+            position: absolute;
+            right: 0;
             overflow: hidden;
-            border-bottom-left-radius: rem-calc(180);
+            border-bottom-left-radius: rem-calc(150);
+            @include breakpoint(medium){
+                width: rem-calc(300);
+            }
+            @include breakpoint(large){
+                width: rem-calc(500);
+            }
+            @include breakpoint(xlarge){
+                width: rem-calc(600);
+            }
         }
     }
     h2{
