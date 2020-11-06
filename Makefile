@@ -9,7 +9,7 @@ fix:
 	vendor/bin/ecs check src tests --fix
 .PHONY: fix
 
-validate: validate-composer validate-composer-security validate-doctrine-schema validate-twig validate-yaml-files validate-yarn-packages
+validate: validate-coding-standard validate-composer validate-composer-security validate-doctrine-schema validate-twig validate-yaml-files validate-yarn-packages
 .PHONY: validate
 
 start-selenium:

@@ -60,5 +60,5 @@ jobs:
                 name: Install database
                 run: bin/console doctrine:migration:migrate -n -vv
             -
-                name: Composer validate
-                run: composer validate --strict
+                name: Run Tests
+                run: make test
