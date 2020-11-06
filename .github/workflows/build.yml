@@ -102,7 +102,7 @@ jobs:
 
             -
                 name: Run Chromedriver
-                run: chromedriver > /dev/null 2>&1
+                run: chromedriver > /dev/null 2>&1 &
 
             -
                 name: Run Selenium
