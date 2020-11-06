@@ -59,6 +59,41 @@ jobs:
             -
                 name: Install database
                 run: bin/console doctrine:migration:migrate -n -vv
+
+            # Tests
             -
-                name: Run Tests
-                run: make test
+                name: Composer validate
+                run: composer validate --strict
+            -
+                name: Sexurity check
+                run: vendor/bin/security-checker security:check
+            -
+                name: Schema validation
+                run: bin/console doctrine:schema:validate -vvv
+            -
+                name: Validate coding standard
+                run: vendor/bin/ecs check src tests
+            -
+                name: Test phpspec
+                run: phpdbg -qrr vendor/bin/phpspec run --no-interaction -f dot
+            -
+                name: Test phpstan
+                run: vendor/bin/phpstan analyse -c phpstan.neon -l 1 src
+            -
+                name: Test psalm
+                run: vendor/bin/psalm --show-info=false
+            -
+                name: Test phpunit
+                run: vendor/bin/phpunit
+            -
+                name: Test app install
+                run: bin/console app:install --no-interaction -vvv
+            -
+                name: Test fixtures
+                run: bin/console sylius:fixtures:load default --no-interaction
+            -
+                name: Test Behat
+                run: vendor/bin/behat --strict -vvv --no-interaction -f progress || vendor/bin/behat --strict -vvv --no-interaction -f progress --rerun
+            -
+                name: Test Doctrine migrations
+                run: (bin/console doctrine:migrations:migrate first --no-interaction && bin/console doctrine:migrations:migrate latest --no-interaction)
