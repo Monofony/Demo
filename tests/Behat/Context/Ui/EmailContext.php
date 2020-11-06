@@ -1,12 +1,21 @@
 <?php
 
+/*
+ * This file is part of the Monofony demo.
+ *
+ * (c) Monofony
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 declare(strict_types=1);
 
 namespace App\Tests\Behat\Context\Ui;
 
 use Behat\Behat\Context\Context;
-use Monofony\Bundle\CoreBundle\Tests\Behat\Service\EmailCheckerInterface;
-use Monofony\Bundle\CoreBundle\Tests\Behat\Service\SharedStorageInterface;
+use Monofony\Bridge\Behat\Service\EmailCheckerInterface;
+use Monofony\Bridge\Behat\Service\SharedStorageInterface;
 use Webmozart\Assert\Assert;
 
 final class EmailContext implements Context
@@ -22,8 +31,6 @@ final class EmailContext implements Context
     private $emailChecker;
 
     /**
-     * @param SharedStorageInterface $sharedStorage
-     * @param EmailCheckerInterface  $emailChecker
      */
     public function __construct(SharedStorageInterface $sharedStorage, EmailCheckerInterface $emailChecker)
     {

@@ -5,7 +5,7 @@ namespace spec\App\Entity\Booking;
 use App\BookingStates;
 use App\Entity\Animal\Pet;
 use App\Entity\Booking\Booking;
-use Monofony\Component\Core\Model\Customer\CustomerInterface;
+use Monofony\Contracts\Core\Model\Customer\CustomerInterface;
 use PhpSpec\ObjectBehavior;
 use Sylius\Component\Resource\Model\ResourceInterface;
 

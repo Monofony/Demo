@@ -1,13 +1,22 @@
 <?php
 
+/*
+ * This file is part of the Monofony demo.
+ *
+ * (c) Monofony
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 declare(strict_types=1);
 
 namespace App\Tests\Behat\Page\Backend\Customer;
 
 use Behat\Mink\Element\NodeElement;
-use Monofony\Bundle\AdminBundle\Tests\Behat\Crud\AbstractUpdatePage;
-use Monofony\Bundle\AdminBundle\Tests\Behat\Crud\UpdatePageInterface;
-use Monofony\Bundle\CoreBundle\Tests\Behat\Behaviour\Toggles;
+use Monofony\Bridge\Behat\Crud\AbstractUpdatePage;
+use Monofony\Bridge\Behat\Crud\UpdatePageInterface;
+use Monofony\Bridge\Behat\Behaviour\Toggles;
 
 class UpdatePage extends AbstractUpdatePage implements UpdatePageInterface
 {

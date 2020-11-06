@@ -1,20 +1,29 @@
 <?php
 
+/*
+ * This file is part of the Monofony demo.
+ *
+ * (c) Monofony
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 declare(strict_types=1);
 
 namespace App\Tests\Behat\Context\Ui\Frontend;
 
-use Monofony\Component\Core\Model\Customer\CustomerInterface;
+use Monofony\Contracts\Core\Model\Customer\CustomerInterface;
 use Behat\Behat\Context\Context;
-use App\Tests\Behat\NotificationType;
+use Monofony\Bridge\Behat\NotificationType;
 use App\Tests\Behat\Page\Frontend\Account\DashboardPage;
 use App\Tests\Behat\Page\Frontend\Account\LoginPage;
 use App\Tests\Behat\Page\Frontend\Account\ProfileUpdatePage;
 use App\Tests\Behat\Page\Frontend\Account\RegisterPage;
 use App\Tests\Behat\Page\Frontend\Account\VerificationPage;
 use App\Tests\Behat\Page\Frontend\HomePage;
-use Monofony\Bundle\CoreBundle\Tests\Behat\Service\NotificationCheckerInterface;
-use Monofony\Bundle\CoreBundle\Tests\Behat\Service\SharedStorageInterface;
+use Monofony\Bridge\Behat\Service\NotificationCheckerInterface;
+use Monofony\Bridge\Behat\Service\SharedStorageInterface;
 use Sylius\Component\User\Model\UserInterface;
 use Webmozart\Assert\Assert;
 
@@ -61,14 +70,6 @@ class RegistrationContext implements Context
     private $notificationChecker;
 
     /**
-     * @param SharedStorageInterface       $sharedStorage
-     * @param DashboardPage                $dashboardPage
-     * @param HomePage                     $homePage
-     * @param LoginPage                    $loginPage
-     * @param RegisterPage                 $registerPage
-     * @param VerificationPage             $verificationPage
-     * @param ProfileUpdatePage            $profileUpdatePage
-     * @param NotificationCheckerInterface $notificationChecker
      */
     public function __construct(
         SharedStorageInterface $sharedStorage,

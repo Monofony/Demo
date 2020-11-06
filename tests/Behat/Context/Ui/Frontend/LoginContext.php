@@ -1,18 +1,27 @@
 <?php
 
+/*
+ * This file is part of the Monofony demo.
+ *
+ * (c) Monofony
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 declare(strict_types=1);
 
 namespace App\Tests\Behat\Context\Ui\Frontend;
 
 use App\Tests\Behat\Page\Frontend\Account\ResetPasswordPage;
-use Monofony\Bundle\CoreBundle\Tests\Behat\Service\Resolver\CurrentPageResolverInterface;
+use Monofony\Bridge\Behat\Service\Resolver\CurrentPageResolverInterface;
 use Behat\Behat\Context\Context;
-use App\Tests\Behat\NotificationType;
+use Monofony\Bridge\Behat\NotificationType;
 use App\Tests\Behat\Page\Frontend\Account\LoginPage;
 use App\Tests\Behat\Page\Frontend\Account\RegisterPage;
 use App\Tests\Behat\Page\Frontend\Account\RequestPasswordResetPage;
 use App\Tests\Behat\Page\Frontend\HomePage;
-use Monofony\Bundle\CoreBundle\Tests\Behat\Service\NotificationCheckerInterface;
+use Monofony\Bridge\Behat\Service\NotificationCheckerInterface;
 use Sylius\Component\User\Model\UserInterface;
 use Webmozart\Assert\Assert;
 
@@ -54,13 +63,6 @@ final class LoginContext implements Context
     private $currentPageResolver;
 
     /**
-     * @param HomePage                     $homePage
-     * @param LoginPage                    $loginPage
-     * @param RegisterPage                 $registerPage
-     * @param RequestPasswordResetPage     $requestPasswordResetPage
-     * @param ResetPasswordPage            $resetPasswordPage
-     * @param NotificationCheckerInterface $notificationChecker
-     * @param CurrentPageResolverInterface $currentPageResolver
      */
     public function __construct(
         HomePage $homePage,

@@ -1,16 +1,25 @@
 <?php
 
+/*
+ * This file is part of the Monofony demo.
+ *
+ * (c) Monofony
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 declare(strict_types=1);
 
 namespace App\Tests\Behat\Context\Ui\Frontend;
 
 use Behat\Behat\Context\Context;
-use App\Tests\Behat\NotificationType;
+use Monofony\Bridge\Behat\NotificationType;
 use App\Tests\Behat\Page\Frontend\Account\ChangePasswordPage;
 use App\Tests\Behat\Page\Frontend\Account\DashboardPage;
 use App\Tests\Behat\Page\Frontend\Account\LoginPage;
 use App\Tests\Behat\Page\Frontend\Account\ProfileUpdatePage;
-use Monofony\Bundle\CoreBundle\Tests\Behat\Service\NotificationCheckerInterface;
+use Monofony\Bridge\Behat\Service\NotificationCheckerInterface;
 use App\Formatter\StringInflector;
 use Webmozart\Assert\Assert;
 
@@ -42,11 +51,6 @@ final class AccountContext implements Context
     private $notificationChecker;
 
     /**
-     * @param DashboardPage                $dashboardPage
-     * @param ProfileUpdatePage            $profileUpdatePage
-     * @param ChangePasswordPage           $changePasswordPage
-     * @param LoginPage                    $loginPage
-     * @param NotificationCheckerInterface $notificationChecker
      */
     public function __construct(
         DashboardPage $dashboardPage,

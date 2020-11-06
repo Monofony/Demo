@@ -4,7 +4,7 @@ namespace spec\App\Sender;
 
 use App\Entity\Booking\Booking;
 use App\Sender\EmailSender;
-use Monofony\Component\Core\Model\Customer\CustomerInterface;
+use Monofony\Contracts\Core\Model\Customer\CustomerInterface;
 use PhpSpec\ObjectBehavior;
 use Sylius\Component\Mailer\Sender\SenderInterface;
 

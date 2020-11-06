@@ -1,11 +1,20 @@
 <?php
 
+/*
+ * This file is part of the Monofony demo.
+ *
+ * (c) Monofony
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 declare(strict_types=1);
 
 namespace App\Tests\Behat\Page\Backend\Administrator;
 
-use Monofony\Bundle\AdminBundle\Tests\Behat\Crud\AbstractIndexPage;
-use Monofony\Bundle\AdminBundle\Tests\Behat\Crud\IndexPageInterface;
+use Monofony\Bridge\Behat\Crud\AbstractIndexPage;
+use Monofony\Bridge\Behat\Crud\IndexPageInterface;
 
 class IndexPage extends AbstractIndexPage implements IndexPageInterface
 {

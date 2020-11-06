@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the Monofony demo.
+ *
+ * (c) Monofony
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace App\Tests\Behat\Context\Cli;
 
 use Behat\Behat\Context\Context;
@@ -39,7 +48,6 @@ class DefaultContext implements Context
     protected $questionHelper;
 
     /**
-     * @param KernelInterface $kernel
      */
     public function __construct(KernelInterface $kernel)
     {

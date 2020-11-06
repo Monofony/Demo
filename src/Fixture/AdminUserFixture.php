@@ -15,7 +15,6 @@ namespace App\Fixture;
 
 use App\Fixture\Factory\AdminUserExampleFactory;
 use Doctrine\Common\Persistence\ObjectManager;
-use Monofony\Plugin\FixturesPlugin\Fixture\AbstractResourceFixture;
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 
 class AdminUserFixture extends AbstractResourceFixture

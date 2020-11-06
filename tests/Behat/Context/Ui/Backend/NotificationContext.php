@@ -1,10 +1,19 @@
 <?php
 
+/*
+ * This file is part of the Monofony demo.
+ *
+ * (c) Monofony
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace App\Tests\Behat\Context\Ui\Backend;
 
-use App\Tests\Behat\NotificationType;
+use Monofony\Bridge\Behat\NotificationType;
 use Behat\Behat\Context\Context;
-use Monofony\Bundle\CoreBundle\Tests\Behat\Service\NotificationCheckerInterface;
+use Monofony\Bridge\Behat\Service\NotificationCheckerInterface;
 
 final class NotificationContext implements Context
 {
@@ -14,7 +23,6 @@ final class NotificationContext implements Context
     private $notificationChecker;
 
     /**
-     * @param NotificationCheckerInterface $notificationChecker
      */
     public function __construct(NotificationCheckerInterface $notificationChecker)
     {

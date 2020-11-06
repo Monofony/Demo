@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Monofony package.
+ * This file is part of the Monofony demo.
  *
  * (c) Monofony
  *
@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace App\Tests\Controller;
 
-use Lakion\ApiTestCase\JsonApiTestCase as BaseJsonApiTestCase;
+use ApiTestCase\JsonApiTestCase as BaseJsonApiTestCase;
 
 class JsonApiTestCase extends BaseJsonApiTestCase
 {
@@ -28,7 +28,7 @@ class JsonApiTestCase extends BaseJsonApiTestCase
     /**
      * @before
      */
-    public function setUpClient()
+    public function setUpClient(): void
     {
         $this->client = static::createClient([], ['HTTP_ACCEPT' => 'application/ld+json']);
     }

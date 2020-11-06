@@ -1,19 +1,28 @@
 <?php
 
+/*
+ * This file is part of the Monofony demo.
+ *
+ * (c) Monofony
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 declare(strict_types=1);
 
 namespace App\Tests\Behat\Context\Ui\Backend;
 
 use App\Tests\Behat\Element\Backend\TopBarElement;
-use App\Tests\Behat\NotificationType;
+use Monofony\Bridge\Behat\NotificationType;
 use App\Tests\Behat\Page\Backend\Administrator\CreatePage;
 use App\Tests\Behat\Page\Backend\Administrator\IndexPage;
 use App\Tests\Behat\Page\Backend\Administrator\UpdatePage;
 use Behat\Behat\Context\Context;
 use Doctrine\Common\Persistence\ObjectManager;
-use Monofony\Component\Core\Model\User\AdminUserInterface;
-use Monofony\Bundle\CoreBundle\Tests\Behat\Service\NotificationCheckerInterface;
-use Monofony\Bundle\CoreBundle\Tests\Behat\Service\SharedStorageInterface;
+use Monofony\Contracts\Core\Model\User\AdminUserInterface;
+use Monofony\Bridge\Behat\Service\NotificationCheckerInterface;
+use Monofony\Bridge\Behat\Service\SharedStorageInterface;
 use Webmozart\Assert\Assert;
 
 final class ManagingAdministratorsContext implements Context

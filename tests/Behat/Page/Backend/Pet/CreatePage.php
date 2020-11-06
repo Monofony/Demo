@@ -15,8 +15,8 @@ use App\Formatter\StringInflector;
 use Behat\Mink\Driver\Selenium2Driver;
 use Behat\Mink\Element\NodeElement;
 use Behat\Mink\Exception\ElementNotFoundException;
-use Monofony\Bundle\AdminBundle\Tests\Behat\Crud\AbstractCreatePage;
-use Monofony\Bundle\AdminBundle\Tests\Behat\Crud\CreatePageInterface;
+use Monofony\Bridge\Behat\Crud\AbstractCreatePage;
+use Monofony\Bridge\Behat\Crud\CreatePageInterface;
 use Webmozart\Assert\Assert;
 
 class CreatePage extends AbstractCreatePage implements CreatePageInterface

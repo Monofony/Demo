@@ -5,7 +5,7 @@ namespace spec\App\Factory;
 use App\Entity\Animal\Pet;
 use App\Entity\Booking\Booking;
 use App\Factory\BookingFactory;
-use Monofony\Component\Core\Model\Customer\CustomerInterface;
+use Monofony\Contracts\Core\Model\Customer\CustomerInterface;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use Sylius\Component\Customer\Context\CustomerContextInterface;

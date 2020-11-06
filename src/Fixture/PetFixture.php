@@ -13,7 +13,6 @@ namespace App\Fixture;
 
 use App\Fixture\Factory\PetExampleFactory;
 use Doctrine\Common\Persistence\ObjectManager;
-use Monofony\Plugin\FixturesPlugin\Fixture\AbstractResourceFixture;
 
 class PetFixture extends AbstractResourceFixture
 {

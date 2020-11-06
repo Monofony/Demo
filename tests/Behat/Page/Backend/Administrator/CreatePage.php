@@ -1,11 +1,20 @@
 <?php
 
+/*
+ * This file is part of the Monofony demo.
+ *
+ * (c) Monofony
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 declare(strict_types=1);
 
 namespace App\Tests\Behat\Page\Backend\Administrator;
 
-use Monofony\Bundle\AdminBundle\Tests\Behat\Crud\AbstractCreatePage;
-use Monofony\Bundle\AdminBundle\Tests\Behat\Crud\CreatePageInterface;
+use Monofony\Bridge\Behat\Crud\AbstractCreatePage;
+use Monofony\Bridge\Behat\Crud\CreatePageInterface;
 
 class CreatePage extends AbstractCreatePage implements CreatePageInterface
 {

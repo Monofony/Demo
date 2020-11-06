@@ -8,12 +8,13 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
 declare(strict_types=1);
 
 namespace App\Tests\Behat\Context\Hook;
 
 use Behat\Behat\Context\Context;
-use Monofony\Bundle\CoreBundle\Tests\Behat\Service\EmailCheckerInterface;
+use Monofony\Bridge\Behat\Service\EmailCheckerInterface;
 use Symfony\Component\Filesystem\Filesystem;
 
 final class EmailSpoolContext implements Context
