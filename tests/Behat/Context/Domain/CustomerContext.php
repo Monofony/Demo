@@ -14,9 +14,9 @@ namespace App\Tests\Behat\Context\Domain;
 
 use Behat\Behat\Context\Context;
 use Doctrine\ORM\EntityManagerInterface;
-use Monofony\Bundle\CoreBundle\Tests\Behat\Service\SharedStorageInterface;
-use Monofony\Component\Core\Model\Customer\CustomerInterface;
-use Monofony\Component\Core\Model\User\AppUserInterface;
+use Monofony\Bridge\Behat\Service\SharedStorageInterface;
+use Monofony\Contracts\Core\Model\Customer\CustomerInterface;
+use Monofony\Contracts\Core\Model\User\AppUserInterface;
 use Webmozart\Assert\Assert;
 
 final class CustomerContext implements Context

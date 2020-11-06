@@ -11,8 +11,8 @@
 
 namespace App\Tests\Behat\Page\Backend\Pet;
 
-use Monofony\Bundle\AdminBundle\Tests\Behat\Crud\AbstractIndexPage;
-use Monofony\Bundle\AdminBundle\Tests\Behat\Crud\IndexPageInterface;
+use Monofony\Bridge\Behat\Crud\AbstractIndexPage;
+use Monofony\Bridge\Behat\Crud\IndexPageInterface;
 
 class IndexPage extends AbstractIndexPage implements IndexPageInterface
 {

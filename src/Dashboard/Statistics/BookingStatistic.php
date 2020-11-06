@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace App\Dashboard\Statistics;
 
 use App\Repository\BookingRepository;
-use Monofony\Bundle\AdminBundle\Dashboard\Statistics\StatisticInterface;
+use Monofony\Component\Admin\Dashboard\Statistics\StatisticInterface;
 use Symfony\Component\Templating\EngineInterface;
 
 final class BookingStatistic implements StatisticInterface

@@ -17,7 +17,7 @@ use App\Fixture\Factory\TaxonExampleFactory;
 use App\SizeRanges;
 use Behat\Behat\Context\Context;
 use Doctrine\ORM\EntityManagerInterface;
-use Monofony\Bundle\CoreBundle\Tests\Behat\Service\SharedStorageInterface;
+use Monofony\Bridge\Behat\Service\SharedStorageInterface;
 use Sylius\Component\Taxonomy\Model\TaxonInterface;
 
 final class TaxonContext implements Context

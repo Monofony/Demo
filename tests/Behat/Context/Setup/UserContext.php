@@ -5,8 +5,8 @@ namespace App\Tests\Behat\Context\Setup;
 use App\Fixture\Factory\AppUserExampleFactory;
 use Behat\Behat\Context\Context;
 use Doctrine\Common\Persistence\ObjectManager;
-use Monofony\Bundle\CoreBundle\Tests\Behat\Service\SharedStorageInterface;
-use Monofony\Component\Core\Model\User\AppUserInterface;
+use Monofony\Bridge\Behat\Service\SharedStorageInterface;
+use Monofony\Contracts\Core\Model\User\AppUserInterface;
 use Sylius\Component\User\Model\UserInterface;
 use Sylius\Component\User\Repository\UserRepositoryInterface;
 

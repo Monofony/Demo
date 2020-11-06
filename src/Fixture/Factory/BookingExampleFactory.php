@@ -18,7 +18,7 @@ use App\Entity\Booking\Booking;
 use App\Fixture\OptionsResolver\LazyOption;
 use App\PetStates;
 use App\Repository\CustomerRepository;
-use Monofony\Plugin\FixturesPlugin\Fixture\Factory\AbstractExampleFactory;
+use App\Fixture\Factory\AbstractExampleFactory;
 use Sylius\Component\Resource\Factory\FactoryInterface;
 use Sylius\Component\Resource\Repository\RepositoryInterface;
 use Symfony\Component\OptionsResolver\Options;

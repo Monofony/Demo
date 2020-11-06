@@ -2,9 +2,9 @@
 
 namespace App\Tests\Behat\Context\Setup;
 
-use Monofony\Bundle\CoreBundle\Tests\Behat\Service\AppSecurityServiceInterface;
-use Monofony\Bundle\CoreBundle\Tests\Behat\Service\SharedStorageInterface;
-use Monofony\Component\Core\Model\User\AppUserInterface;
+use Monofony\Bridge\Behat\Service\AppSecurityServiceInterface;
+use Monofony\Bridge\Behat\Service\SharedStorageInterface;
+use Monofony\Contracts\Core\Model\User\AppUserInterface;
 use App\Fixture\Factory\AdminUserExampleFactory;
 use Behat\Behat\Context\Context;
 use Sylius\Component\User\Repository\UserRepositoryInterface;

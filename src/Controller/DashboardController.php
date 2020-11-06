@@ -16,7 +16,7 @@ namespace App\Controller;
 use App\Dashboard\BookingsDataProvider;
 use App\Entity\Booking\Booking;
 use App\Repository\BookingRepository;
-use Monofony\Bundle\AdminBundle\Dashboard\DashboardStatisticsProviderInterface;
+use Monofony\Contracts\Admin\Dashboard\DashboardStatisticsProviderInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\RouterInterface;

@@ -22,7 +22,7 @@ use App\SizeRanges;
 use App\SizeUnits;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Monofony\Plugin\FixturesPlugin\Fixture\Factory\AbstractExampleFactory;
+use App\Fixture\Factory\AbstractExampleFactory;
 use Sylius\Component\Resource\Factory\FactoryInterface;
 use Sylius\Component\Taxonomy\Model\TaxonInterface;
 use Symfony\Component\Filesystem\Filesystem;

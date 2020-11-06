@@ -12,8 +12,8 @@ declare(strict_types=1);
 
 namespace App\Tests\Behat\Page\Backend\Taxon;
 
-use Monofony\Bundle\AdminBundle\Tests\Behat\Crud\AbstractUpdatePage;
-use Monofony\Bundle\AdminBundle\Tests\Behat\Crud\UpdatePageInterface;
+use Monofony\Bridge\Behat\Crud\AbstractUpdatePage;
+use Monofony\Bridge\Behat\Crud\UpdatePageInterface;
 
 final class UpdatePage extends AbstractUpdatePage implements UpdatePageInterface
 {

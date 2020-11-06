@@ -3,8 +3,8 @@
 namespace spec\App\Entity\Customer;
 
 use Doctrine\Common\Collections\Collection;
-use Monofony\Component\Core\Model\Customer\CustomerInterface;
-use Monofony\Component\Core\Model\User\AppUserInterface;
+use Monofony\Contracts\Core\Model\Customer\CustomerInterface;
+use Monofony\Contracts\Core\Model\User\AppUserInterface;
 use PhpSpec\ObjectBehavior;
 use Sylius\Component\Customer\Model\Customer as BaseCustomer;
 use Sylius\Component\User\Model\UserInterface;
