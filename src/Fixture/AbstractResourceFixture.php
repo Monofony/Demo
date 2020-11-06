@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Monofony package.
+ * This file is part of the Monofony demo.
  *
  * (c) Monofony
  *
@@ -80,7 +80,7 @@ abstract class AbstractResourceFixture implements FixtureInterface
 
             ++$i;
 
-            if (0 === ($i % 10)) {
+            if (0 === $i % 10) {
                 $this->objectManager->flush();
                 $this->objectManager->clear();
             }

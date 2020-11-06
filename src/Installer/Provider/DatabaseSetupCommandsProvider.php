@@ -1,9 +1,9 @@
 <?php
 
 /*
- * This file is part of CCPA Thermotool.
+ * This file is part of the Monofony demo.
  *
- * (c) Mobizel
+ * (c) Monofony
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -14,9 +14,9 @@ declare(strict_types=1);
 namespace App\Installer\Provider;
 
 use Doctrine\Common\Persistence\ManagerRegistry;
-use Doctrine\Persistence\ObjectManager;
 use Doctrine\DBAL\Schema\AbstractSchemaManager;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\Console\Helper\QuestionHelper;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;

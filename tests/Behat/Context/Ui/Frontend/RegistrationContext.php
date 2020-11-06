@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the Monofony demo.
+ *
+ * (c) Monofony
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 declare(strict_types=1);
 
 namespace App\Tests\Behat\Context\Ui\Frontend;
@@ -61,14 +70,6 @@ class RegistrationContext implements Context
     private $notificationChecker;
 
     /**
-     * @param SharedStorageInterface       $sharedStorage
-     * @param DashboardPage                $dashboardPage
-     * @param HomePage                     $homePage
-     * @param LoginPage                    $loginPage
-     * @param RegisterPage                 $registerPage
-     * @param VerificationPage             $verificationPage
-     * @param ProfileUpdatePage            $profileUpdatePage
-     * @param NotificationCheckerInterface $notificationChecker
      */
     public function __construct(
         SharedStorageInterface $sharedStorage,

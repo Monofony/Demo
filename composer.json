@@ -27,6 +27,7 @@
     },
     "require-dev": {
         "monofony/test-pack": "^0.4",
+        "symplify/package-builder": "7.1.*",
         "symplify/easy-coding-standard": "7.1.*"
     },
     "config": {

@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the Monofony demo.
+ *
+ * (c) Monofony
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 declare(strict_types=1);
 
 namespace App\Tests\Behat\Context\Ui\Frontend;
@@ -42,11 +51,6 @@ final class AccountContext implements Context
     private $notificationChecker;
 
     /**
-     * @param DashboardPage                $dashboardPage
-     * @param ProfileUpdatePage            $profileUpdatePage
-     * @param ChangePasswordPage           $changePasswordPage
-     * @param LoginPage                    $loginPage
-     * @param NotificationCheckerInterface $notificationChecker
      */
     public function __construct(
         DashboardPage $dashboardPage,
