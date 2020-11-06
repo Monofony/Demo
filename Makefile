@@ -5,7 +5,6 @@ analyse: test-phpstan test-psalm
 .PHONY: analyse
 
 fix:
-	vendor/bin/ecs check src --set clean-code --fix
 	vendor/bin/ecs check src tests --fix
 .PHONY: fix
 
@@ -20,8 +19,7 @@ test-behat: test-behat-without-javascript test-behat-with-javascript test-behat-
 .PHONY: test-behat
 
 validate-coding-standard:
-	vendor/bin/ecs check src --set clean-code
-	vendor/bin/ecs check tests
+	vendor/bin/ecs check src tests
 .PHONY: validate-coding-standard
 
 validate-composer:

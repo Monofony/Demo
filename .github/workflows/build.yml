@@ -64,6 +64,42 @@ jobs:
                 name: Build cache for phpsptan
                 run: APP_DEBUG=1 APP_ENV=dev bin/console cache:warmup -vvv # For PHPStan
 
+            -
+                name: Download and configure Symfony CLI
+                run: wget https://get.symfony.com/cli/installer -O - | bash
+
+            -
+                name: Download and configure Chromedriver
+                run: |
+                    curl http://chromedriver.storage.googleapis.com/2.34/chromedriver_linux64.zip > chromedriver.zip
+                    unzip chromedriver.zip
+                    chmod +x chromedriver
+
+            -
+                name: Download and configure Selenium
+                run: |
+                    curl http://selenium-release.storage.googleapis.com/3.4/selenium-server-standalone-3.4.0.jar > selenium.jar
+
+            -
+                name: Configure display
+                run: |
+                    /sbin/start-stop-daemon --start --quiet --pidfile /tmp/xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 2880x1800x16
+                    export DISPLAY=:99"
+
+            -
+                name: Run Chromedriver
+                run: chromedriver > /dev/null 2>&1
+
+            -
+                name: Run Selenium
+                run: java -Dwebdriver.chrome.driver=chromedriver -jar selenium.jar > /dev/null 2>&1 &
+
+            -
+                name: Run webserver
+                run: |
+                    symfony server:ca:install
+                    symfony server:start --port=8080 --dir=public --force-php-discovery --daemon
+
             # Tests
             -
                 name: Composer validate
