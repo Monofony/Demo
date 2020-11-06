@@ -111,8 +111,8 @@ jobs:
             -
                 name: Run webserver
                 run: |
-                    symfony server:ca:install
-                    symfony server:start --port=8080 --dir=public --force-php-discovery --daemon
+                    /home/runner/.symfony/bin/symfony server:ca:install
+                    /home/runner/.symfony/bin/symfony server:start --port=8080 --dir=public --force-php-discovery --daemon
 
             # Tests
             -
