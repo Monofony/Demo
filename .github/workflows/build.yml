@@ -1,5 +1,8 @@
 name: Build
 
+env:
+    DATABASE_URL: mysql://root:root@127.0.0.1:3306/monofony_demo
+
 on:
     push: ~
     pull_request: ~
@@ -15,23 +18,36 @@ jobs:
         name: "Build and test"
         strategy:
             fail-fast: false
-            matrix:
-                include:
-                    -
-                        php: 7.3
         steps:
             -
                 uses: actions/checkout@v2
+            -   uses: mirromutth/mysql-action@v1.1
+                with:
+                    character set server: 'utf8' # Optional, default value is 'utf8mb4'. The '--character-set-server' option for mysqld
+                    collation server: 'utf8_general_ci' # Optional, default value is 'utf8mb4_general_ci'. The '--collation-server' option for mysqld
+                    mysql version: '5.7' # Optional, default value is "latest". The version of the MySQL
+                    mysql database: 'monofony_demo'
+                    mysql root password: root
             -
                 name: Setup PHP
                 uses: shivammathur/setup-php@v2
                 with:
-                    php-version: "${{ matrix.php }}"
+                    php-version: "7.3"
                     coverage: none
+
+            -   name: Cache Composer packages
+                id: composer-cache
+                uses: actions/cache@v2
+                with:
+                    path: vendor
+                    key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+                    restore-keys: |
+                        ${{ runner.os }}-php-
+
             -
                 name: Install dependencies
-                run: |
-                    composer install --no-interaction --prefer-dist
+                if: steps.composer-cache.outputs.cache-hit != 'true'
+                run: composer install --prefer-dist --no-progress --no-suggest
             -
                 name: Dump env vars
                 run: composer dump-env test
@@ -42,9 +58,7 @@ jobs:
                     yarn build
             -
                 name: Install database
-                run: |
-                    bin/console doctrine:database:create -vvv
-                    bin/console doctrine:migration:migrate -n -vv
+                run: bin/console doctrine:migration:migrate -n -vv
             -
                 name: Composer validate
                 run: composer validate --strict
