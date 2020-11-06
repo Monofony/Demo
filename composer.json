@@ -27,7 +27,7 @@
     },
     "require-dev": {
         "monofony/test-pack": "^0.4",
-        "symplify/easy-coding-standard": "^6.0||^7.0"
+        "symplify/easy-coding-standard": "7.1.*"
     },
     "config": {
         "optimize-autoloader": true,
