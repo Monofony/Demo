@@ -60,6 +60,10 @@ jobs:
                 name: Install database
                 run: bin/console doctrine:migration:migrate -n -vv
 
+            -
+                name: Build cache for phpsptan
+                run: APP_DEBUG=1 APP_ENV=dev bin/console cache:warmup -vvv # For PHPStan
+
             # Tests
             -
                 name: Composer validate
