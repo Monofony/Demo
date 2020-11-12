@@ -58,10 +58,9 @@ jobs:
             -
                 name: Cache Node packages
                 uses: actions/cache@v2
-                    with:
-                        path: '**/node_modules'
-                        key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
-
+                with:
+                    path: '**/node_modules'
+                    key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
             -
                 name: Install node packages
                 if: steps.yarn-cache.outputs.cache-hit != 'true'
@@ -124,28 +123,30 @@ jobs:
                 run: bin/console doctrine:schema:validate -vvv
             -
                 name: Validate coding standard
-                run: vendor/bin/ecs check src tests
+                run: make validate-coding-standard
             -
                 name: Test phpspec
-                run: phpdbg -qrr vendor/bin/phpspec run --no-interaction -f dot
+                run: make test-phpspec
             -
                 name: Test phpstan
-                run: vendor/bin/phpstan analyse -c phpstan.neon -l 1 src
+                run: make test-phpstan
             -
                 name: Test psalm
-                run: vendor/bin/psalm --show-info=false
+                run: make test-psalm
             -
                 name: Test phpunit
-                run: vendor/bin/phpunit
+                run: make test-phpunit
             -
                 name: Test app install
-                run: bin/console app:install --no-interaction -vvv
+                run: make test-installer
             -
                 name: Test fixtures
-                run: bin/console sylius:fixtures:load default --no-interaction
+                run: make test-fixtures
             -
                 name: Test Behat
-                run: vendor/bin/behat --strict -vvv --no-interaction -f progress || vendor/bin/behat --strict -vvv --no-interaction -f progress --rerun
+                run: |
+                    make test-behat-without-javascript
+                    make test-behat-with-cli
             -
                 name: Test Doctrine migrations
-                run: (bin/console doctrine:migrations:migrate first --no-interaction && bin/console doctrine:migrations:migrate latest --no-interaction)
+                run: make test-doctrine-migrations
