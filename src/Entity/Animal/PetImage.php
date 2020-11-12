@@ -51,7 +51,4 @@ class PetImage extends File
     {
         $this->pet = $pet;
     }
-
-
-
 }

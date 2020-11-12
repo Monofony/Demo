@@ -13,7 +13,6 @@ namespace App;
 
 class SizeUnits
 {
-
     public const METER = 'meter';
     public const CENTIMETER = 'centimeter';
     public const MILLIMETER = 'millimeter';

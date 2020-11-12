@@ -17,8 +17,6 @@ use App\Entity\Taxonomy\Taxon;
 use App\Fixture\OptionsResolver\LazyOption;
 use App\Formatter\StringInflector;
 use App\SizeRanges;
-use App\Fixture\Factory\AbstractExampleFactory;
-use App\Fixture\Factory\ExampleFactoryInterface;
 use Sylius\Component\Resource\Factory\FactoryInterface;
 use Sylius\Component\Taxonomy\Generator\TaxonSlugGeneratorInterface;
 use Sylius\Component\Taxonomy\Model\TaxonInterface;

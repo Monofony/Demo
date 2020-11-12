@@ -14,10 +14,8 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Dashboard\BookingsDataProvider;
-use App\Entity\Booking\Booking;
 use App\Repository\BookingRepository;
 use Monofony\Contracts\Admin\Dashboard\DashboardStatisticsProviderInterface;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Templating\EngineInterface;

@@ -21,15 +21,15 @@ use Doctrine\Migrations\AbstractMigration;
  */
 final class Version20200604074540 extends AbstractMigration
 {
-    public function getDescription() : string
+    public function getDescription(): string
     {
         return '';
     }
 
-    public function up(Schema $schema) : void
+    public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
+        $this->abortIf('mysql' !== $this->connection->getDatabasePlatform()->getName(), 'Migration can only be executed safely on \'mysql\'.');
 
         $this->addSql('ALTER TABLE app_animal_image DROP FOREIGN KEY FK_2640C72A8E962C16');
         $this->addSql('DROP INDEX IDX_2640C72A8E962C16 ON app_animal_image');
@@ -38,10 +38,10 @@ final class Version20200604074540 extends AbstractMigration
         $this->addSql('CREATE INDEX IDX_2640C72A966F7FB6 ON app_animal_image (pet_id)');
     }
 
-    public function down(Schema $schema) : void
+    public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
+        $this->abortIf('mysql' !== $this->connection->getDatabasePlatform()->getName(), 'Migration can only be executed safely on \'mysql\'.');
 
         $this->addSql('ALTER TABLE app_animal_image DROP FOREIGN KEY FK_2640C72A966F7FB6');
         $this->addSql('DROP INDEX IDX_2640C72A966F7FB6 ON app_animal_image');

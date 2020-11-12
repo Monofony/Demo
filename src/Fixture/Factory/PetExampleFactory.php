@@ -18,11 +18,8 @@ use App\Fixture\OptionsResolver\LazyOption;
 use App\PetStates;
 use App\Repository\TaxonRepository;
 use App\Sex;
-use App\SizeRanges;
 use App\SizeUnits;
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use App\Fixture\Factory\AbstractExampleFactory;
 use Sylius\Component\Resource\Factory\FactoryInterface;
 use Sylius\Component\Taxonomy\Model\TaxonInterface;
 use Symfony\Component\Filesystem\Filesystem;
@@ -152,12 +149,14 @@ class PetExampleFactory extends AbstractExampleFactory
         }
     }
 
-    private static function getColor(string $fileName): ?string {
+    private static function getColor(string $fileName): ?string
+    {
         foreach (Colors::ALL as $color) {
             if (false !== strpos($fileName, $color)) {
                 return $color;
             }
         }
+
         return null;
     }
 
@@ -181,7 +180,7 @@ class PetExampleFactory extends AbstractExampleFactory
         $directory = $this->testsDir.'/Resources/pets/'.strtolower($taxon->getSlug());
         if (!is_dir($directory)) {
             if ($taxon->isRoot()) {
-                return function(): array {
+                return function (): array {
                     return [];
                 };
             }

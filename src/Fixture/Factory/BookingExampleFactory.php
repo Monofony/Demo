@@ -18,7 +18,6 @@ use App\Entity\Booking\Booking;
 use App\Fixture\OptionsResolver\LazyOption;
 use App\PetStates;
 use App\Repository\CustomerRepository;
-use App\Fixture\Factory\AbstractExampleFactory;
 use Sylius\Component\Resource\Factory\FactoryInterface;
 use Sylius\Component\Resource\Repository\RepositoryInterface;
 use Symfony\Component\OptionsResolver\Options;
@@ -71,7 +70,7 @@ final class BookingExampleFactory extends AbstractExampleFactory
 
                 /** @var \DateTime $createdAt */
                 $createdAt = $options['createdAt'];
-                $familyContactedAt = clone ($createdAt);
+                $familyContactedAt = clone $createdAt;
 
                 $familyContactedAt->add(new \DateInterval('P1D'));
 

@@ -11,7 +11,6 @@
 
 namespace App\Repository;
 
-use ApiPlatform\Core\DataProvider\PaginatorInterface;
 use Doctrine\ORM\QueryBuilder;
 use Sylius\Component\Taxonomy\Model\TaxonInterface;
 

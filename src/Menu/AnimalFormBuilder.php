@@ -15,7 +15,6 @@ namespace App\Menu;
 
 use Knp\Menu\FactoryInterface;
 use Knp\Menu\ItemInterface;
-use Sylius\Bundle\ResourceBundle\Tests\Fixtures\AnimalInterface;
 
 final class AnimalFormBuilder
 {

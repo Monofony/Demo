@@ -54,7 +54,7 @@ final class TaxonFilterType extends AbstractType
                 'required' => false,
                 'placeholder' => 'sylius.ui.all',
                 'attr' => [
-                    'data-level' => null !== $taxon ? $taxon->getLevel()+1 : 0,
+                    'data-level' => null !== $taxon ? $taxon->getLevel() + 1 : 0,
                     'data-parent-id' => null !== $taxon ? $taxon->getId() : null,
                 ],
                 'class' => Taxon::class,

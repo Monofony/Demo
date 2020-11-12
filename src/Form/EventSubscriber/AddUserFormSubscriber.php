@@ -30,8 +30,6 @@ final class AddUserFormSubscriber implements EventSubscriberInterface
         ];
     }
 
-    /**
-     */
     public function preSetData(FormEvent $event): void
     {
         $form = $event->getForm();
@@ -43,8 +41,6 @@ final class AddUserFormSubscriber implements EventSubscriberInterface
         ]);
     }
 
-    /**
-     */
     public function submit(FormEvent $event): void
     {
         $data = $event->getData();

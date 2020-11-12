@@ -44,7 +44,7 @@ class Kernel extends BaseKernel
     {
         parent::build($container);
 
-        $container->addCompilerPass(new UndecorateLocalePass);
+        $container->addCompilerPass(new UndecorateLocalePass());
     }
 
     protected function configureContainer(ContainerBuilder $container, LoaderInterface $loader): void

@@ -68,7 +68,6 @@ final class TaxonFilter implements FilterInterface
                 )
             )
         );
-
     }
 
     private function getOption(array $options, string $name, string $default)

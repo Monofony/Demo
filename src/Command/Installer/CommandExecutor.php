@@ -35,8 +35,6 @@ final class CommandExecutor
      */
     private $application;
 
-    /**
-     */
     public function __construct(InputInterface $input, OutputInterface $output, Application $application)
     {
         $this->input = $input;
