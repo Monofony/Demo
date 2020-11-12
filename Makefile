@@ -84,11 +84,11 @@ test-prod-requirements:
 .PHONY: test-prod-requirements
 
 test-behat-without-javascript:
-	vendor/bin/behat --strict --no-interaction -vvv -f progress --tags="~@javascript && ~@todo && ~@cli"
+	vendor/bin/behat --strict --no-interaction -vvv -f progress --tags="~@javascript && ~@todo && ~@cli" || vendor/bin/behat --strict --no-interaction -vvv -f progress --tags="~@javascript && ~@todo && ~@cli" --rerun
 .PHONY: test-behat-without-javascript
 
 test-behat-with-javascript:
-	vendor/bin/behat --strict --no-interaction -vvv -f progress --tags="@javascript && ~@todo && ~@cli"
+	vendor/bin/behat --strict --no-interaction -vvv -f progress --tags="@javascript && ~@todo && ~@cli" || vendor/bin/behat --strict --no-interaction -vvv -f progress --tags="@javascript && ~@todo && ~@cli" --rerun
 .PHONY: test-behat-with-javascript
 
 test-fixtures:
