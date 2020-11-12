@@ -22,7 +22,9 @@ jobs:
         steps:
             -
                 uses: actions/checkout@v2
-            -   uses: mirromutth/mysql-action@v1.1
+            -
+                name: Setup MySQL
+                uses: mirromutth/mysql-action@v1.1
                 with:
                     character set server: 'utf8' # Optional, default value is 'utf8mb4'. The '--character-set-server' option for mysqld
                     collation server: 'utf8_general_ci' # Optional, default value is 'utf8mb4_general_ci'. The '--collation-server' option for mysqld
@@ -36,7 +38,8 @@ jobs:
                     php-version: "7.3"
                     coverage: none
 
-            -   name: Cache Composer packages
+            -
+                name: Cache Composer packages
                 id: composer-cache
                 uses: actions/cache@v2
                 with:
@@ -44,7 +47,6 @@ jobs:
                     key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
                     restore-keys: |
                         ${{ runner.os }}-php-
-
             -
                 name: Install dependencies
                 if: steps.composer-cache.outputs.cache-hit != 'true'
