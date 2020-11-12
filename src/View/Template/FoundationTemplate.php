@@ -20,17 +20,17 @@ final class FoundationTemplate extends Template
     /**
      * @var array
      */
-    static protected $defaultOptions = array(
-        'current_message'     => 'You\'re on page',
-        'prev_message'        => '&larr; Previous',
-        'next_message'        => 'Next &rarr;',
-        'active_suffix'       => '',
+    protected static $defaultOptions = array(
+        'current_message' => 'You\'re on page',
+        'prev_message' => '&larr; Previous',
+        'next_message' => 'Next &rarr;',
+        'active_suffix' => '',
         'css_container_class' => 'pagination',
-        'css_prev_class'      => 'button pagination_button',
-        'css_next_class'      => 'button pagination_button',
-        'css_dots_class'      => 'ellipsis',
-        'css_active_class'    => 'current_page',
-        'css_disabled_class'  => 'invisible'
+        'css_prev_class' => 'button pagination_button',
+        'css_next_class' => 'button pagination_button',
+        'css_dots_class' => 'ellipsis',
+        'css_active_class' => 'current_page',
+        'css_disabled_class' => 'invisible',
     );
 
     /**
@@ -57,7 +57,7 @@ final class FoundationTemplate extends Template
     }
 
     /**
-     * @param int $page
+     * @param int    $page
      * @param string $text
      * @param string $ariaLabel
      *
@@ -71,7 +71,7 @@ final class FoundationTemplate extends Template
     }
 
     /**
-     * @param int $page
+     * @param int    $page
      * @param string $text
      * @param string $class
      * @param string $ariaLabel
@@ -106,6 +106,7 @@ final class FoundationTemplate extends Template
 
     /**
      * @param int $page
+     *
      * @return string
      */
     public function previousEnabled($page)

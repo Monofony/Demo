@@ -22,7 +22,7 @@ final class PetListingEnabledExtension implements QueryCollectionExtensionInterf
 {
     public function applyToCollection(QueryBuilder $queryBuilder, QueryNameGeneratorInterface $queryNameGenerator, string $resourceClass, string $operationName = null)
     {
-        if ($resourceClass !== Pet::class) {
+        if (Pet::class !== $resourceClass) {
             return;
         }
 

@@ -21,25 +21,25 @@ use Doctrine\Migrations\AbstractMigration;
  */
 final class Version20200522082451 extends AbstractMigration
 {
-    public function getDescription() : string
+    public function getDescription(): string
     {
         return '';
     }
 
-    public function up(Schema $schema) : void
+    public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
+        $this->abortIf('mysql' !== $this->connection->getDatabasePlatform()->getName(), 'Migration can only be executed safely on \'mysql\'.');
 
         $this->addSql('ALTER TABLE app_animal ADD taxon_id INT DEFAULT NULL');
         $this->addSql('ALTER TABLE app_animal ADD CONSTRAINT FK_8FA84E9FDE13F470 FOREIGN KEY (taxon_id) REFERENCES sylius_taxon (id)');
         $this->addSql('CREATE INDEX IDX_8FA84E9FDE13F470 ON app_animal (taxon_id)');
     }
 
-    public function down(Schema $schema) : void
+    public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
+        $this->abortIf('mysql' !== $this->connection->getDatabasePlatform()->getName(), 'Migration can only be executed safely on \'mysql\'.');
 
         $this->addSql('ALTER TABLE app_animal DROP FOREIGN KEY FK_8FA84E9FDE13F470');
         $this->addSql('DROP INDEX IDX_8FA84E9FDE13F470 ON app_animal');

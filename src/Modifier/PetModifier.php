@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace App\Modifier;
 
 use App\Entity\Animal\Pet;
-use App\Entity\Booking\Booking;
 use App\Factory\BookingFactory;
 use Doctrine\ORM\EntityManagerInterface;
 
@@ -23,7 +22,7 @@ final class PetModifier
     /** @var BookingFactory */
     private $bookingFactory;
 
-    /** @var EntityManagerInterface*/
+    /** @var EntityManagerInterface */
     private $manager;
 
     public function __construct(BookingFactory $bookingFactory, EntityManagerInterface $manager)

@@ -11,9 +11,7 @@
 
 namespace App\Form\Type\User;
 
-use App\Entity\User\AdminAvatar;
 use App\Entity\User\AdminUser;
-use App\Form\Type\Media\ImageEntityType;
 use Sylius\Bundle\UserBundle\Form\Type\UserType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;

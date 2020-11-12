@@ -25,8 +25,6 @@ class CreateClientCommand extends Command
      */
     private $clientManager;
 
-    /**
-     */
     public function __construct(ClientManagerInterface $clientManager)
     {
         $this->clientManager = $clientManager;

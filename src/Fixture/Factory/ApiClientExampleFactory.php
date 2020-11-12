@@ -15,7 +15,6 @@ namespace App\Fixture\Factory;
 
 use FOS\OAuthServerBundle\Model\ClientInterface;
 use FOS\OAuthServerBundle\Model\ClientManagerInterface;
-use App\Fixture\Factory\AbstractExampleFactory;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 

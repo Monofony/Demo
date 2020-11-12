@@ -88,7 +88,7 @@ class PetType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Pet::class
+            'data_class' => Pet::class,
         ]);
     }
 

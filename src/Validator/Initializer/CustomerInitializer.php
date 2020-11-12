@@ -22,8 +22,6 @@ final class CustomerInitializer implements ObjectInitializerInterface
      */
     private $canonicalizer;
 
-    /**
-     */
     public function __construct(CanonicalizerInterface $canonicalizer)
     {
         $this->canonicalizer = $canonicalizer;

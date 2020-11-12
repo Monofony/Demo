@@ -5,11 +5,11 @@ analyse: test-phpstan test-psalm
 .PHONY: analyse
 
 fix:
-	vendor/bin/ecs check src --set clean-code --fix
-	vendor/bin/ecs check src tests --fix
+	vendor/bin/ecs check src --config vendor/symplify/easy-coding-standard/config/set/symfony.yaml --fix
+	vendor/bin/ecs check tests --fix
 .PHONY: fix
 
-validate: validate-composer validate-composer-security validate-doctrine-schema validate-twig validate-yaml-files validate-yarn-packages
+validate: validate-coding-standard validate-composer validate-composer-security validate-doctrine-schema validate-twig validate-yaml-files validate-yarn-packages
 .PHONY: validate
 
 start-selenium:
@@ -20,7 +20,7 @@ test-behat: test-behat-without-javascript test-behat-with-javascript test-behat-
 .PHONY: test-behat
 
 validate-coding-standard:
-	vendor/bin/ecs check src --set clean-code
+	vendor/bin/ecs check src --config vendor/symplify/easy-coding-standard/config/set/symfony.yaml
 	vendor/bin/ecs check tests
 .PHONY: validate-coding-standard
 

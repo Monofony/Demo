@@ -47,8 +47,6 @@ class AppUser extends BaseUser implements AppUserInterface
         $this->customer = $customer;
     }
 
-    /**
-     */
     public function getEmail(): ?string
     {
         if (null === $this->customer) {
@@ -58,8 +56,6 @@ class AppUser extends BaseUser implements AppUserInterface
         return $this->customer->getEmail();
     }
 
-    /**
-     */
     public function setEmail(?string $email): void
     {
         if (null === $this->customer) {
@@ -69,8 +65,6 @@ class AppUser extends BaseUser implements AppUserInterface
         $this->customer->setEmail($email);
     }
 
-    /**
-     */
     public function getEmailCanonical(): ?string
     {
         if (null === $this->customer) {
@@ -80,8 +74,6 @@ class AppUser extends BaseUser implements AppUserInterface
         return $this->customer->getEmailCanonical();
     }
 
-    /**
-     */
     public function setEmailCanonical(?string $emailCanonical): void
     {
         if (null === $this->customer) {
