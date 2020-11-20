@@ -62,7 +62,6 @@
 @include motion-ui-animations;
 
 // Global
-@import "global/global";
 @import "global/variables";
 
 // Pages
@@ -79,7 +78,7 @@
 @import "pages/booking";
 
 // Patterns
-@import "patterns/about";
+@import "patterns/filters";
 @import "patterns/footer";
 @import "patterns/header";
 @import "patterns/my_account_menu";
@@ -87,6 +86,7 @@
 
 // Components
 @import "components/breadcrumbs";
+@import "components/forms";
 @import "components/pet-card";
 @import "components/pagination";
 

@@ -1,8 +1,9 @@
 .pet-card {
     position: relative;
     transform: translateY(0);
-    transition: all .25s ease-in-out;
-    .overlay{
+    transition: all 0.25s ease-in-out;
+    height: 100%;
+    .overlay {
         z-index: 1;
         position: absolute;
         left: 0;
@@ -10,48 +11,48 @@
         bottom: 0;
         right: 0;
     }
-    .inner{
+    .inner {
         pointer-events: none;
         z-index: 1;
-        .pet-pic{
+        .pet-pic {
             position: relative;
         }
         .card-section {
-            .first-line{
-                h2{
+            .first-line {
+                h2 {
                     margin: 0;
                 }
-                i{
+                i {
                     font-size: rem-calc(22);
                     color: $medium-gray;
                     margin: 0 rem-calc(6);
                 }
-                .age{
+                .age {
                     font-size: rem-calc(20);
                     font-family: $header-font-family;
                     font-size: rem-calc(20);
                     color: $secondary-color;
                 }
             }
-            .meta{
+            .meta {
                 text-align: left;
                 a {
                     text-transform: uppercase;
                     font-size: rem-calc(18);
                     color: $medium-gray;
                     pointer-events: all;
-                    &:hover{
+                    &:hover {
                         text-decoration: underline;
                     }
-                    @include breakpoint(small only){
+                    @include breakpoint(small only) {
                         font-size: rem-calc(16);
                     }
                 }
             }
         }
     }
-    &.reserved{
-        img{
+    &.reserved {
+        img {
             filter: grayscale(100%);
         }
         .reserved-block {
@@ -66,17 +67,17 @@
                 margin-right: 0.5rem;
             }
         }
-        .gradient{
+        .gradient {
             position: absolute;
             top: 0;
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(180deg, rgba($black,0) 70%, rgba($black,1) 100%);
+            background: linear-gradient(180deg, rgba($black, 0) 70%, rgba($black, 1) 100%);
         }
     }
-    &:not(.reserved){
-        &:hover{
+    &:not(.reserved) {
+        &:hover {
             box-shadow: 0 4px 10px rgba($secondary-color, 0.2);
             transform: translateY(rem-calc(-4));
         }

@@ -1,6 +1,6 @@
 {% macro simple(paginator, options) %}
     {% if paginator.haveToPaginate %}
-        <div class="grid-x grid-padding-x grid-padding-y text-center" style="background: #f2f7f9">
+        <div class="grid-x text-center">
             <div class="cell">
                 {{ pagerfanta(paginator, 'foundation_translated', options|default({})) }}
             </div>
