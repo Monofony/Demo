@@ -22,8 +22,6 @@ final class SharedStorageContext implements Context
      */
     private $sharedStorage;
 
-    /**
-     */
     public function __construct(SharedStorageInterface $sharedStorage)
     {
         $this->sharedStorage = $sharedStorage;

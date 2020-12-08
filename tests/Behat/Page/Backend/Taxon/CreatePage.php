@@ -35,7 +35,7 @@ final class CreatePage extends AbstractCreatePage implements CreatePageInterface
         $matchedLeavesCounter = 0;
         $leaves = $this->getLeaves();
         foreach ($leaves as $leaf) {
-            if (strpos($leaf->getText(), $name) !== false) {
+            if (false !== strpos($leaf->getText(), $name)) {
                 ++$matchedLeavesCounter;
             }
         }

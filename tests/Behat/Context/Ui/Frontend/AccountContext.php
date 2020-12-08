@@ -50,8 +50,6 @@ final class AccountContext implements Context
      */
     private $notificationChecker;
 
-    /**
-     */
     public function __construct(
         DashboardPage $dashboardPage,
         ProfileUpdatePage $profileUpdatePage,

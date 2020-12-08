@@ -29,9 +29,8 @@ final class TaxonContext implements Context
     /** @var TaxonExampleFactory */
     private $taxonFactory;
 
-    /** @var EntityManagerInterface*/
-    protected $manager;
-
+    /** @var EntityManagerInterface */
+    private $manager;
 
     public function __construct(
         SharedStorageInterface $sharedStorage,

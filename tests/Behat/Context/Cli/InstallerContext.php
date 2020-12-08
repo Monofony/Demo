@@ -32,8 +32,6 @@ class InstallerContext extends DefaultContext
         'confirmation' => 'pswd',
     ];
 
-    /**
-     */
     public function __construct(KernelInterface $kernel, SetupCommand $setupCommand)
     {
         $this->setupCommand = $setupCommand;

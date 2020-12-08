@@ -14,25 +14,19 @@ declare(strict_types=1);
 namespace App\Fixture\Factory;
 
 use App\BookingStates;
+use App\Entity\Animal\Pet;
 use App\Entity\Booking\Booking;
+use App\Entity\Customer\Customer;
 use App\Fixture\OptionsResolver\LazyOption;
 use App\PetStates;
-use App\Repository\CustomerRepository;
-use Sylius\Component\Resource\Factory\FactoryInterface;
-use Sylius\Component\Resource\Repository\RepositoryInterface;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 final class BookingExampleFactory extends AbstractExampleFactory
 {
-    /** @var FactoryInterface */
-    private $bookingFactory;
-
-    /** @var RepositoryInterface */
-    private $petRepository;
-
-    /** @var CustomerRepository */
-    private $customerRepository;
+    /** @var EntityManagerInterface */
+    private $entityManager;
 
     /** @var \Faker\Generator */
     private $faker;
@@ -40,11 +34,9 @@ final class BookingExampleFactory extends AbstractExampleFactory
     /** @var OptionsResolver */
     private $optionsResolver;
 
-    public function __construct(FactoryInterface $bookingFactory, RepositoryInterface $petRepository, CustomerRepository $customerRepository)
+    public function __construct(EntityManagerInterface $entityManager)
     {
-        $this->bookingFactory = $bookingFactory;
-        $this->petRepository = $petRepository;
-        $this->customerRepository = $customerRepository;
+        $this->entityManager = $entityManager;
 
         $this->faker = \Faker\Factory::create();
         $this->optionsResolver = new OptionsResolver();
@@ -52,12 +44,41 @@ final class BookingExampleFactory extends AbstractExampleFactory
         $this->configureOptions($this->optionsResolver);
     }
 
+    public function create(array $options = []): Booking
+    {
+        $options = $this->optionsResolver->resolve($options);
+
+        $booking = new Booking();
+        $booking->setPet($options['pet']);
+        $booking->setCustomer($options['customer']);
+        $booking->setStatus($options['status']);
+        $booking->setCreatedAt($options['createdAt']);
+        $booking->setFamilyContactedAt($options['familyContactedAt']);
+
+        if (
+            BookingStates::FINISHED !== $booking->getStatus()
+            && BookingStates::CANCELED !== $booking->getStatus()
+            && BookingStates::REFUSED !== $booking->getStatus()
+        ) {
+            $booking->getPet()->setStatus(PetStates::BOOKED);
+        }
+
+        return $booking;
+    }
+
     protected function configureOptions(OptionsResolver $resolver): void
     {
         $resolver
-            ->setDefault('pet', LazyOption::randomOne($this->petRepository))
-            ->setDefault('customer', LazyOption::randomOne($this->customerRepository))
-            ->setNormalizer('customer', LazyOption::findOneBy($this->customerRepository, 'email'))
+            ->setDefault('pet', LazyOption::randomOne(
+                $this->entityManager->getRepository(Pet::class)
+            ))
+            ->setDefault('customer', LazyOption::randomOne(
+                $this->entityManager->getRepository(Customer::class)
+            ))
+            ->setNormalizer('customer', LazyOption::findOneBy(
+                $this->entityManager->getRepository(Customer::class),
+                'email'
+            ))
             ->setDefault('status', function (Options $options) {
                 return $this->faker->randomElement(BookingStates::ALL);
             })
@@ -77,28 +98,5 @@ final class BookingExampleFactory extends AbstractExampleFactory
                 return ('new' !== $status) ? $familyContactedAt : null;
             })
         ;
-    }
-
-    public function create(array $options = []): Booking
-    {
-        $options = $this->optionsResolver->resolve($options);
-
-        /** @var Booking $booking */
-        $booking = $this->bookingFactory->createNew();
-        $booking->setPet($options['pet']);
-        $booking->setCustomer($options['customer']);
-        $booking->setStatus($options['status']);
-        $booking->setCreatedAt($options['createdAt']);
-        $booking->setFamilyContactedAt($options['familyContactedAt']);
-
-        if (
-            BookingStates::FINISHED !== $booking->getStatus()
-            && BookingStates::CANCELED !== $booking->getStatus()
-            && BookingStates::REFUSED !== $booking->getStatus()
-        ) {
-            $booking->getPet()->setStatus(PetStates::BOOKED);
-        }
-
-        return $booking;
     }
 }

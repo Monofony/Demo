@@ -14,13 +14,15 @@ namespace App\Fixture\Factory;
 use App\Colors;
 use App\Entity\Animal\Pet;
 use App\Entity\Animal\PetImage;
+use App\Entity\Taxonomy\Taxon;
 use App\Fixture\OptionsResolver\LazyOption;
 use App\PetStates;
 use App\Repository\TaxonRepository;
 use App\Sex;
 use App\SizeUnits;
 use Doctrine\Common\Collections\Collection;
-use Sylius\Component\Resource\Factory\FactoryInterface;
+use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\Persistence\ObjectRepository;
 use Sylius\Component\Taxonomy\Model\TaxonInterface;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\File\File;
@@ -31,14 +33,11 @@ use Webmozart\Assert\Assert;
 
 class PetExampleFactory extends AbstractExampleFactory
 {
+    /** @var EntityManagerInterface */
+    private $entityManager;
+
     /** @var \Faker\Generator */
     private $faker;
-
-    /** @var FactoryInterface */
-    private $petImageFactory;
-
-    /** @var TaxonRepository */
-    private $taxonRepository;
 
     /** @var OptionsResolver */
     private $optionsResolver;
@@ -46,19 +45,37 @@ class PetExampleFactory extends AbstractExampleFactory
     /** @var string */
     private $testsDir;
 
-    public function __construct(
-        FactoryInterface $petImageFactory,
-        TaxonRepository $taxonRepository,
-        string $testsDir
-    ) {
-        $this->petImageFactory = $petImageFactory;
-        $this->taxonRepository = $taxonRepository;
+    public function __construct(EntityManagerInterface $entityManager, string $testsDir)
+    {
+        $this->entityManager = $entityManager;
         $this->testsDir = $testsDir;
 
         $this->faker = \Faker\Factory::create();
         $this->optionsResolver = new OptionsResolver();
 
         $this->configureOptions($this->optionsResolver);
+    }
+
+    public function create(array $options = []): Pet
+    {
+        $options = $this->optionsResolver->resolve($options);
+
+        $animal = new Pet();
+        $animal->setName($options['name']);
+        $animal->setSlug($options['name']);
+        $animal->setDescription($options['description']);
+        $animal->setSize($options['size']);
+        $animal->setSizeUnit($options['size_unit']);
+        $animal->setMainColor($options['main_color']);
+        $animal->setSex($options['sex']);
+        $animal->setTaxon($options['taxon']);
+        $animal->setBirthDate($options['birth_date']);
+        $animal->setStatus($options['status']);
+        $animal->setEnabled($options['enabled']);
+
+        $this->createImages($animal, $options);
+
+        return $animal;
     }
 
     protected function configureOptions(OptionsResolver $resolver): void
@@ -79,7 +96,9 @@ class PetExampleFactory extends AbstractExampleFactory
             ->setDefault('size_unit', function (Options $options) {
                 return $this->faker->randomElement(SizeUnits::ALL);
             })
-            ->setDefault('taxon', $this::randomOne($this->taxonRepository))
+            ->setDefault('taxon', $this::randomOne(
+                $this->entityManager->getRepository(Taxon::class)
+            ))
             ->setDefault('images', function (Options $options): array {
                 /** @var TaxonInterface $taxon */
                 $taxon = $options['taxon'];
@@ -105,31 +124,9 @@ class PetExampleFactory extends AbstractExampleFactory
                 return $this->faker->randomElement([PetStates::NEW, PetStates::BOOKABLE, PetStates::ADOPTED]);
             })
             ->setDefault('enabled', function (Options $options) {
-                return ('bookable' === $options['status'] || 'booked' === $options['status']) ? true : false;
+                return 'bookable' === $options['status'] || 'booked' === $options['status'];
             })
         ;
-    }
-
-    public function create(array $options = []): Pet
-    {
-        $options = $this->optionsResolver->resolve($options);
-
-        $animal = new Pet();
-        $animal->setName($options['name']);
-        $animal->setSlug($options['name']);
-        $animal->setDescription($options['description']);
-        $animal->setSize($options['size']);
-        $animal->setSizeUnit($options['size_unit']);
-        $animal->setMainColor($options['main_color']);
-        $animal->setSex($options['sex']);
-        $animal->setTaxon($options['taxon']);
-        $animal->setBirthDate($options['birth_date']);
-        $animal->setStatus($options['status']);
-        $animal->setEnabled($options['enabled']);
-
-        $this->createImages($animal, $options);
-
-        return $animal;
     }
 
     private function createImages(Pet $animal, array $options)
@@ -141,8 +138,7 @@ class PetExampleFactory extends AbstractExampleFactory
             $filesystem->copy($imagePath, '/tmp/'.$basename);
             $file = new UploadedFile('/tmp/'.$basename, $basename, null, null, true);
 
-            /** @var PetImage $image */
-            $image = $this->petImageFactory->createNew();
+            $image = new PetImage();
             $image->setFile($file);
 
             $animal->addImage($image);
@@ -160,8 +156,10 @@ class PetExampleFactory extends AbstractExampleFactory
         return null;
     }
 
-    private static function randomOne(TaxonRepository $repository): \Closure
+    private static function randomOne(ObjectRepository $repository): \Closure
     {
+        Assert::isInstanceOf($repository, TaxonRepository::class);
+
         return function (Options $options) use ($repository) {
             $objects = $repository->findTaxonsWithoutChildren();
 

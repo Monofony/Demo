@@ -31,8 +31,8 @@ final class BookingContext implements Context
     /** @var BookingExampleFactory */
     private $bookingFactory;
 
-    /** @var EntityManagerInterface*/
-    protected $manager;
+    /** @var EntityManagerInterface */
+    private $manager;
 
     public function __construct(
         SharedStorageInterface $sharedStorage,

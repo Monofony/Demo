@@ -23,7 +23,8 @@ final class IndexPage extends AbstractIndexPage implements IndexPageInterface
         return 'app_backend_booking_index';
     }
 
-    public function specifyStatusByStatusName(string $status){
+    public function specifyStatusByStatusName(string $status)
+    {
         $this->getElement('filter_state')->selectOption($status);
     }
 
@@ -33,5 +34,4 @@ final class IndexPage extends AbstractIndexPage implements IndexPageInterface
             'filter_state' => '#criteria_status',
         ]);
     }
-
 }
