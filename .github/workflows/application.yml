@@ -48,9 +48,9 @@ jobs:
                 uses: actions/cache@v2
                 with:
                     path: ${{ steps.composer-cache.outputs.dir }}
-                    key: ${{ runner.os }}-php-${{ matrix.php }}-symfony-${{ matrix.symfony }}-composer-${{ hashFiles('**/composer.json **/composer.lock') }}
+                    key: ${{ runner.os }}-php-${{ matrix.php }}-composer-${{ hashFiles('**/composer.json **/composer.lock') }}
                     restore-keys: |
-                        ${{ runner.os }}-php-${{ matrix.php }}-symfony-${{ matrix.symfony }}-composer-
+                        ${{ runner.os }}-php-${{ matrix.php }}-composer-
 
             -
                 name: Install PHP dependencies
@@ -69,7 +69,7 @@ jobs:
 
             -
                 name: Validate Doctrine mapping
-                run: make validate-doctrine-schema
+                run: bin/console doctrine:schema:validate --skip-sync -vvv
                 if: always() && steps.end-of-setup.outcome == 'success'
 
             -
