@@ -18,6 +18,7 @@
         <hr/>
         {% if is_granted('ROLE_USER') %}
             <a href="{{ path('sylius_frontend_account_dashboard') }}"
+               data-my-account-button
                class="button clear">{{ 'sylius.ui.my_account'|trans }}</a>
         {% else %}
             <a href="{{ path('app_frontend_login') }}"

@@ -202,7 +202,7 @@ final class LoginContext implements Context
     public function iShouldBeLoggedIn(): void
     {
         $this->homePage->verify();
-        Assert::true($this->homePage->hasLogoutButton());
+        Assert::true($this->homePage->hasMyAccountButton());
     }
 
     /**
@@ -210,7 +210,7 @@ final class LoginContext implements Context
      */
     public function iShouldNotBeLoggedIn(): void
     {
-        Assert::false($this->homePage->hasLogoutButton());
+        Assert::false($this->homePage->hasMyAccountButton());
     }
 
     /**
