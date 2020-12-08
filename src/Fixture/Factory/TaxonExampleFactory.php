@@ -18,10 +18,8 @@ use App\Fixture\OptionsResolver\LazyOption;
 use App\Formatter\StringInflector;
 use App\SizeRanges;
 use Doctrine\ORM\EntityManagerInterface;
-use Sylius\Component\Resource\Factory\FactoryInterface;
 use Sylius\Component\Taxonomy\Generator\TaxonSlugGeneratorInterface;
 use Sylius\Component\Taxonomy\Model\TaxonInterface;
-use Sylius\Component\Taxonomy\Repository\TaxonRepositoryInterface;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
