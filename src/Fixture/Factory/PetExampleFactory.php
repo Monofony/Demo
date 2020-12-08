@@ -17,6 +17,7 @@ use App\Entity\Animal\PetImage;
 use App\Entity\Taxonomy\Taxon;
 use App\Fixture\OptionsResolver\LazyOption;
 use App\PetStates;
+use App\Repository\TaxonRepository;
 use App\Sex;
 use App\SizeUnits;
 use Doctrine\Common\Collections\Collection;
@@ -157,6 +158,8 @@ class PetExampleFactory extends AbstractExampleFactory
 
     private static function randomOne(ObjectRepository $repository): \Closure
     {
+        Assert::isInstanceOf($repository, TaxonRepository::class);
+
         return function (Options $options) use ($repository) {
             $objects = $repository->findTaxonsWithoutChildren();
 
