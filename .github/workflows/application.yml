@@ -164,7 +164,7 @@ jobs:
 
             -
                 name: Make filesystem readonly
-                run: chmod -R 555 app bin config docs features src templates tests translations vendor
+                run: chmod -R 555 bin config features src templates tests translations vendor
 
             -
                 name: Prepare application database
