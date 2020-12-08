@@ -17,7 +17,7 @@ jobs:
     static-checks:
         runs-on: ubuntu-latest
 
-        name: "Static checks"
+        name: "Static checks (PHP ${{ matrix.php }}"
 
         strategy:
             fail-fast: false
@@ -91,3 +91,123 @@ jobs:
                 name: Run PHPStan
                 run: make test-psalm
                 if: always() && steps.end-of-setup.outcome == 'success'
+
+    test-application-without-frontend:
+        runs-on: ubuntu-latest
+
+        name: "Test non-JS application (PHP ${{ matrix.php }}, MySQL ${{ matrix.mysql }})"
+
+        strategy:
+            fail-fast: false
+            matrix:
+                php: [7.3, 7.4]
+                symfony: [^4.4]
+                mysql: [5.7]
+
+        env:
+            APP_ENV: test
+            DATABASE_URL: "mysql://root:root@127.0.0.1/monofony_demo?serverVersion=${{ matrix.mysql }}"
+
+        steps:
+            -
+                uses: actions/checkout@v2
+
+            -
+                name: Shutdown default MySQL
+                run: sudo service mysql stop
+
+            -
+                name: Setup MySQL
+                uses: mirromutth/mysql-action@v1.1
+                with:
+                    mysql version: "${{ matrix.mysql }}"
+                    mysql root password: "root"
+
+            -
+                name: Setup PHP
+                uses: shivammathur/setup-php@v2
+                with:
+                    php-version: "${{ matrix.php }}"
+                    ini-values: date.timezone=Europe/Warsaw, opcache.enable=1, opcache.enable_cli=1, opcache.memory_consumption=256, opcache.max_accelerated_files=32531, opcache.interned_strings_buffer=8, opcache.validate_timestamps=0, opcache.save_comments=1, opcache.fast_shutdown=0
+                    extensions: intl, gd, opcache, mysql, pdo_mysql, :xdebug
+                    tools: symfony
+                    coverage: none
+
+            -
+                name: Get Composer cache directory
+                id: composer-cache
+                run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+
+            -
+                name: Cache Composer
+                uses: actions/cache@v2
+                with:
+                    path: ${{ steps.composer-cache.outputs.dir }}
+                    key: ${{ runner.os }}-php-${{ matrix.php }}-composer-${{ hashFiles('**/composer.json **/composer.lock') }}
+                    restore-keys: |
+                        ${{ runner.os }}-php-${{ matrix.php }}-composer-
+
+            -
+                name: Install PHP dependencies
+                run: composer install --prefer-dist --no-progress --no-scripts
+                id: end-of-setup
+
+            -
+                name: Dump the environment
+                run: |
+                    echo "DATABASE_URL=$DATABASE_URL" >> .env.$APP_ENV
+                    composer dump-env $APP_ENV
+
+            -
+                name: Warmup cache
+                run: bin/console cache:warmup
+
+            -
+                name: Make filesystem readonly
+                run: chmod -R 555 app bin config docs features src templates tests translations vendor
+
+            -
+                name: Prepare application database
+                run: |
+                    APP_DEBUG=1 bin/console doctrine:database:create -vvv
+                    bin/console doctrine:migrations:migrate -n -vvv
+
+            -
+                name: Test provided migrations
+                run: |
+                    bin/console doctrine:migrations:migrate first --no-interaction
+                    bin/console doctrine:migrations:migrate latest --no-interaction
+                    bin/console doctrine:schema:validate --skip-mapping -vvv
+
+            -
+                name: Test installer
+                run: bin/console sylius:install --no-interaction -vvv
+
+            -
+                name: Load fixtures
+                run: bin/console sylius:fixtures:load default --no-interaction
+
+            -
+                name: Run PHPSpec
+                run: vendor/bin/phpspec run --ansi --no-interaction -f dot
+
+            -
+                name: Run PHPUnit
+                run: vendor/bin/phpunit --colors=always
+
+            -
+                name: Run CLI Behat
+                run: vendor/bin/behat --colors --strict --no-interaction -vvv -f progress --tags="@cli && ~@todo" || vendor/bin/behat --strict --no-interaction -vvv -f progress --tags="@cli && ~@todo" --rerun
+
+            -
+                name: Run non-JS Behat
+                run: vendor/bin/behat --colors --strict --no-interaction -vvv -f progress --tags="~@javascript && ~@todo && ~@cli" || vendor/bin/behat --strict --no-interaction -vvv -f progress --tags="~@javascript && ~@todo && ~@cli" --rerun
+
+            -
+                name: Upload Behat logs
+                uses: actions/upload-artifact@v2
+                if: failure()
+                with:
+                    name: "Behat logs (non-JS, PHP ${{ matrix.php }})"
+                    path: etc/build/
+                    if-no-files-found: ignore
