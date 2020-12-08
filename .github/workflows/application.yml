@@ -54,7 +54,7 @@ jobs:
 
             -
                 name: Install PHP dependencies
-                run: composer install --prefer-dist --no-progress --no-suggest
+                run: composer install --prefer-dist --no-progress
                 id: end-of-setup
 
             -
