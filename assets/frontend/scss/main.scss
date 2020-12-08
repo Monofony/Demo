@@ -2,7 +2,6 @@
 @import '~motion-ui/src/motion-ui';
 @import "settings";
 @import "font";
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
 // Global styles
 @include foundation-global-styles;
@@ -63,7 +62,6 @@
 @include motion-ui-animations;
 
 // Global
-@import "global/global";
 @import "global/variables";
 
 // Pages
@@ -71,7 +69,7 @@
 @import "pages/login";
 @import "pages/pet";
 @import "pages/register";
-@import "pages/show";
+@import "pages/pet-description";
 @import "pages/summary";
 @import "pages/dashboard";
 @import "pages/confirmation";
@@ -80,15 +78,16 @@
 @import "pages/booking";
 
 // Patterns
+@import "patterns/filters";
 @import "patterns/footer";
 @import "patterns/header";
-@import "patterns/menu";
 @import "patterns/my_account_menu";
+@import "patterns/off-canvas";
 
 // Components
 @import "components/breadcrumbs";
-@import "components/button";
-@import "components/pet_card";
+@import "components/forms";
+@import "components/pet-card";
 @import "components/pagination";
 
 @import "~@fortawesome/fontawesome-free/css/all.css";

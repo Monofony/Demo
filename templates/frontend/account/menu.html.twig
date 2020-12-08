@@ -6,6 +6,8 @@
         <hr>
         {{ block('list') }}
     </ul>
+
+    <a href="{{ path('app_frontend_logout') }}" class="app-logout-button">{{ 'sylius.ui.logout'|trans }}</a>
 {% endblock %}
 
 {% block list %}

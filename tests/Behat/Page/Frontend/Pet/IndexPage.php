@@ -25,7 +25,7 @@ class IndexPage extends SymfonyPage
 
     public function isPetOnList($name)
     {
-        return null !== $this->getDocument()->find('css', sprintf('.header:contains("%s")', $name));
+        return null !== $this->getDocument()->find('css', sprintf('h2:contains("%s")', $name));
     }
 
     public function filterByColor($color)

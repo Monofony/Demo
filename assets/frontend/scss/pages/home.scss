@@ -1,110 +1,77 @@
-.header {
-   display: flex;
-   .adopt-the-perfect-pet{
-      background-image: linear-gradient(rgba(75, 174, 180, 0.33), rgba(75, 174, 180, 0.33)), url("../../img/pattern.svg");
-      background-position-x: 50%;
-      background-position-y: 50%;
-      display: flex;
-      @include breakpoint(large){
-         margin-bottom: 20vh;
-      }
-      @include breakpoint(medium down){
-         margin-bottom: 3vh;
-      }
-      h1{
-         color: #133e56;
-         align-self: center;
-         margin-left: 10vw;
-         margin-right: 17vw;
-         font-family: Poppins;
-         @include breakpoint(medium down){
-            padding: 6rem 0;
-            justify-content: center;
-         }
-      }
-   }
-   .couple-with-dog{
-      position: relative;
-      background-image: url("../../img/img_header.png");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-      width: 75vw;
-      height: 70vh;
-      overflow: hidden;
-      border-bottom-left-radius: rem-calc(180);
-   }
-}
-
-.latest-pets {
-   h1 {
-      font-family: Poppins;
-      font-size: rem-calc(24);
-      text-align: center;
-      color: #133e56;
-      margin-left: auto;
-      margin-right: auto;
-   }
-}
-
-.rectangle.blue{
-   width: auto;
-   height: auto;
-   background-color: #133e56;
-   h1{
-      text-align: center;
-      font-family: Poppins;
-      font-size: rem-calc(24);
-      color: #ffffff;
-      padding-top: rem-calc(70);
-   }
-}
-
-.card.home {
-   display: flex;
-   align-items: center;
-   height: rem-calc(412);
-   border-radius: rem-calc(10);
-   box-shadow: 0 8px 14px 0 rgba(19, 62, 86, 0.08), 0 2px 6px 0 rgba(19, 62, 86, 0.08);
-   background-color: #ffffff;
-   text-align: center;
-   img{
-      margin-left: auto;
-      margin-right: auto;
-      padding-top: rem-calc(83);
-   }
-   h1{
-      font-family: Poppins;
-      font-size: rem-calc(25);
-      color: #133e56;
-      padding-top: rem-calc(20);
-   }
-   p{
-      font-size: rem-calc(18);
-      color: #8da2b0;
-      padding-top: rem-calc(10);
-   }
-   a {
-      width: rem-calc(197);
-      border-radius: rem-calc(6);
-      box-shadow: 0 2px 6px 0 rgba(19, 62, 86, 0.08);
-      margin-bottom: rem-calc(50);
-      font-size: rem-calc(16);
-      font-weight: bold;
-      color: #ffffff;
-   }
-}
-
-.button.homepage {
-   width: rem-calc(200);
-   height: rem-calc(50);
-   border-radius: 5px;
-   box-shadow: 0 2px 6px 0 rgba(19, 62, 86, 0.08);
-   display: block;
-   margin-left: auto;
-   margin-right: auto;
-   margin-bottom: rem-calc(50);
-   text-align: center;
-   font-size: rem-calc(16);
-   font-weight: bold;
+.homepage {
+    .header {
+        background-image: linear-gradient(rgba(75, 174, 180, 0.33), rgba(75, 174, 180, 0.33)),
+            url("../../img/pattern.svg");
+        background-position-x: 10%;
+        background-position-y: 50%;
+        background-size: 60%;
+        @include breakpoint(large){
+            background-size: auto;
+        }
+        .title{
+            @include breakpoint(small only){
+                padding: 2rem;
+            }
+            @include breakpoint(medium){
+                margin: 3rem 0;
+                h1{
+                    font-size: rem-calc(40);
+                }
+            }
+            @include breakpoint(large){
+                margin: 7rem 0;
+                h1{
+                    font-size: rem-calc(48);
+                }
+            }
+            @include breakpoint(xlarge){
+                margin: 10rem 0;
+                h1{
+                    font-size: rem-calc(54);
+                }
+            }
+        }
+        .image {
+            position: absolute;
+            right: 0;
+            overflow: hidden;
+            border-bottom-left-radius: rem-calc(150);
+            @include breakpoint(medium){
+                width: rem-calc(300);
+            }
+            @include breakpoint(large){
+                width: rem-calc(500);
+            }
+            @include breakpoint(xlarge){
+                width: rem-calc(600);
+            }
+        }
+    }
+    h2{
+        margin-bottom: rem-calc(50);
+    }
+    section{
+        padding: rem-calc(72) 0;
+        &.latest-pets{
+            .button{
+                margin-top: 3rem;
+            }
+        }
+        &.what-kind {
+            background-color: $secondary-color;
+            h2 {
+                color: $white;
+            }
+            .card{
+                padding: rem-calc(42);
+                img{
+                    margin: rem-calc(30);
+                    max-width: rem-calc(78);
+                }
+                .title{
+                    font-size: rem-calc(30);
+                }
+            }
+        }
+    }
 }

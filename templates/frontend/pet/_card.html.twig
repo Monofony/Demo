@@ -4,25 +4,41 @@
 
 {% set pet_path = path('app_frontend_pet_show', { 'slug': pet.slug }) %}
 
-<div class="card">
-    {% if pet.firstImage is not null %}
-        {% set path = vich_uploader_asset(pet.firstImage, 'file') %}
-        {% if constant('App\\PetStates::BOOKED') == pet.status %}
-            <a href="{{ pet_path }}">{{ images.render(path, 'pet_grid', pet.name, 'bw') }}</a>
-            <p class="reserved"><i class="fas fa-lock"></i>{{ 'sylius.ui.reserved'|trans }}</p>
-        {% else %}
-            <a href="{{ pet_path }}">{{ images.render(path, 'pet_grid', pet.name) }}</a>
+<div class="pet-card card {% if constant('App\\PetStates::BOOKED') == pet.status %}reserved{% endif %}">
+    <a class="overlay" href="{{ pet_path }}"></a>
+    <div class="inner">
+        {% if pet.firstImage is not null %}
+            {% set path = vich_uploader_asset(pet.firstImage, 'file') %}
+            <div class="pet-pic">
+                {% if constant('App\\PetStates::BOOKED') == pet.status %}
+                    {{ images.render(path, 'pet_grid', pet.name) }}
+                    <div class="reserved-block">
+                        <i class="fas fa-lock"></i>
+                        {{ 'sylius.ui.reserved'|trans }}
+                    </div>
+                    <div class="gradient"></div>
+                {% else %}
+                    {{ images.render(path, 'pet_grid', pet.name) }}
+                {% endif %}
+            </div>
         {% endif %}
-    {% endif %}
-    <div class="card-section">
-        <div class="first-line">
-            <a class="header" href="{{ pet_path }}">{{ pet.name }} {% if constant('App\\Sex::FEMALE') == pet.sex %}<i class="fas fa-venus"></i>{% else %}<i class="fas fa-mars"></i>{% endif %}</a>
-            {% if pet.birthdate is not null %}
-                {{ ages.age(pet.age) }}
-            {% endif %}
-        </div>
-        <div class="meta">
-            <a href="{{ path('app_frontend_pet_per_taxon_index', { 'slug': pet.taxon.slug }) }}">{{ pet.taxon.name }}</a>
+        <div class="card-section">
+            <div class="first-line grid-x align-middle">
+                <div class="cell shrink">
+                    <h2>{{ pet.name }}</h2>
+                </div>
+                <div class="cell shrink">
+                    {% if constant('App\\Sex::FEMALE') == pet.sex %}<i class="fas fa-venus"></i>{% else %}<i class="fas fa-mars"></i>{% endif %}
+                </div>
+                {% if pet.birthdate is not null %}
+                <div class="cell shrink age">
+                        {{ ages.age(pet.age) }}
+                </div>
+                {% endif %}
+            </div>
+            <div class="meta">
+                <a href="{{ path('app_frontend_pet_per_taxon_index', { 'slug': pet.taxon.slug }) }}">{{ pet.taxon.name }}</a>
+            </div>
         </div>
     </div>
 </div>

@@ -67,15 +67,15 @@
 // ---------
 
 $global-font-size: 87.5%;
-$global-width: rem-calc(1200);
+$global-width: 1200px;
 $global-lineheight: 1.5;
 $body-font-family: "Inter regular", Helvetica, Roboto, Arial, sans-serif;
 $body-antialiased: true;
 $global-margin: 1rem;
 $global-padding: 1rem;
 $global-position: 1rem;
-$global-weight-normal: 300;
-$global-weight-bold: 500;
+$global-weight-normal: 400;
+$global-weight-bold: 600;
 $global-radius: 5px;
 $global-menu-padding: 0.7rem 1rem;
 $global-menu-nested-margin: 1rem;
@@ -109,7 +109,8 @@ $grid-row-width: $global-width;
 $grid-column-count: 12;
 $grid-column-gutter: (
     small: 20px,
-    medium: 30px
+    medium: 30px,
+    large: 40px
 );
 $grid-column-align-edge: true;
 $grid-column-alias: "columns";
@@ -118,11 +119,11 @@ $block-grid-max: 8;
 // 4. Base Typography
 // ------------------
 
-$header-font-family: Poppins;
+$header-font-family: "Poppins", Helvetica, Roboto, Arial, sans-serif;
 $header-font-weight: 700;
 $header-font-style: normal;
-$font-family-monospace: Inter regular;
-$header-color: inherit;
+$font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
+$header-color: $secondary-color;
 $header-lineheight: 1.4;
 $header-margin-bottom: 0.5rem;
 $header-styles: (
@@ -151,7 +152,7 @@ $header-styles: (
             "font-size": 40
         ),
         "h2": (
-            "font-size": 26
+            "font-size": 24
         ),
         "h3": (
             "font-size": 16
@@ -184,7 +185,7 @@ $anchor-color-hover: scale-color($anchor-color, $lightness: -14%);
 $anchor-text-decoration: none;
 $anchor-text-decoration-hover: none;
 $hr-width: $global-width;
-$hr-border: 1px solid $medium-gray;
+$hr-border: 1px solid $light-gray;
 $hr-margin: rem-calc(20) auto;
 $list-lineheight: $paragraph-lineheight;
 $list-margin-bottom: $paragraph-margin-bottom;
@@ -290,20 +291,21 @@ $breadcrumbs-item-separator-color: $secondary-color;
 // 11. Button
 // ----------
 
-$button-font-family: inherit;
+$button-font-family: $header-font-family;
+$button-font-weight: $header-font-weight;
 $button-padding: 0.94em 1.6em;
 $button-margin: 0;
 $button-fill: solid;
 $button-background: $primary-color;
 $button-background-hover: scale-color($button-background, $lightness: -15%);
 $button-color: $white;
-$button-color-alt: $white;
+$button-color-alt: $secondary-color;
 $button-radius: $global-radius;
 $button-hollow-border-width: 1px;
 $button-sizes: (
     tiny: 0.6rem,
-    small: rem-calc(13),
-    default: rem-calc(15),
+    small: rem-calc(14),
+    default: rem-calc(18),
     large: 1.25rem
 );
 $button-palette: $foundation-palette;
@@ -342,7 +344,7 @@ $card-background: $white;
 $card-font-color: $body-font-color;
 $card-divider-background: $light-gray;
 $card-border: none;
-$card-shadow: 0 2px 4px rgba(#000, 0.12);
+$card-shadow: 0 2px 6px rgba($secondary-color, 0.1);
 $card-border-radius: $global-radius * 2;
 $card-padding: $global-padding;
 $card-margin-bottom: 0;
@@ -433,8 +435,8 @@ $input-prefix-color: $secondary-color;
 $input-prefix-background: rgba($light-gray, 0.5);
 $input-prefix-border: 1px solid $medium-gray;
 $input-prefix-padding: 1rem;
-$form-label-color: rgba($secondary-color, 0.5);
-$form-label-font-size: rem-calc(12);
+$form-label-color: rgba($secondary-color, 0.7);
+$form-label-font-size: rem-calc(16);
 $form-label-font-weight: $global-weight-normal;
 $form-label-line-height: 1.8;
 $select-background: $white;
@@ -511,7 +513,7 @@ $offcanvas-sizes: (
 $offcanvas-vertical-sizes: (
     small: 250px
 );
-$offcanvas-background: $white;
+$offcanvas-background: $primary-color;
 $offcanvas-shadow: 0 0 10px rgba($black, 0.7);
 $offcanvas-inner-shadow-size: 20px;
 $offcanvas-inner-shadow-color: rgba($black, 0.25);
@@ -522,7 +524,7 @@ $offcanvas-reveal-zindex: 12;
 $offcanvas-transition-length: 0.5s;
 $offcanvas-transition-timing: ease;
 $offcanvas-fixed-reveal: true;
-$offcanvas-exit-background: rgba($white, 0.25);
+$offcanvas-exit-background: rgba($primary-color, 0.35);
 $maincontent-class: "off-canvas-content";
 
 // 26. Orbit
@@ -827,7 +829,8 @@ $grid-container: $global-width;
 $grid-columns: 12;
 $grid-margin-gutters: (
     small: 20px,
-    medium: 30px
+    medium: 30px,
+    large: 40px
 );
 $grid-padding-gutters: $grid-margin-gutters;
 $grid-container-padding: $grid-padding-gutters;

@@ -1,22 +1,29 @@
 {% set taxon_slug = app.request.get('slug') %}
 
 <div class="header-pets">
-    {% if taxon_slug is null %}
-        {% include 'frontend/pet/index/_simple_breadcrumb.html.twig' %}
-    {% else %}
-        {{ render(url('app_frontend_partial_taxon_show', {'template': 'frontend/pet/index/_breadcrumb.html.twig', 'slug': taxon_slug})) }}
-    {% endif %}
-    <h1>{{ 'app.ui.adopt_the_perfect_pet_for_you_and_your_family'|trans }}</h1>
+	<div class="grid-container">
+		<div class=" grid-x align-center">
+			<div class="cell">
+				{% if taxon_slug is null %}
+					{% include 'frontend/pet/index/_simple_breadcrumb.html.twig' %}
+				{% else %}
+					{{ render(url('app_frontend_partial_taxon_show', {'template': 'frontend/pet/index/_breadcrumb.html.twig', 'slug': taxon_slug})) }}
+				{% endif %}
+			</div>
+			<div class="cell small-12 medium-10 large-7 text-center">
+				<h1>{{ 'app.ui.adopt_the_perfect_pet_for_you_and_your_family'|trans }}</h1>
+			</div>
+		</div>
+	</div>
 </div>
-<div class="grid-container grid-x align-justify petpage">
-    <div class="cell large-2 medium-3 animal-filter">
-        <h2>{{ 'sylius.ui.filters'|trans }}</h2>
-        {% include 'frontend/pet/_filters.html.twig' %}
-    </div>
-    <div class="cell medium-9"
-         data-pets
-         data-url="{{ taxon_slug is null ? path('app_frontend_ajax_pet_index') : path('app_frontend_ajax_pet_per_taxon_index', { 'slug': taxon_slug }) }}"
-    >
-        {% include 'frontend/pet/index/_main.html.twig' %}
+<div class="grid-container">
+    <div class="grid-x grid-margin-x align-justify petpage">
+        <div class="cell medium-3 large-3 small-order-2 medium-order-1 animal-filter">
+            <h3 class="h2">{{ 'sylius.ui.filters'|trans }}</h3>
+            {% include 'frontend/grid/filter/_filters.html.twig' with { 'grid': resources } %}
+        </div>
+        <div class="cell medium-9 large-8 small-order-1 medium-order-2" data-pets data-url="{{ taxon_slug is null ? path('app_frontend_ajax_pet_index') : path('app_frontend_ajax_pet_per_taxon_index', { 'slug': taxon_slug }) }}">
+            {% include 'frontend/pet/index/_main.html.twig' %}
+        </div>
     </div>
 </div>

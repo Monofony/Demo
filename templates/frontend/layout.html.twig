@@ -10,46 +10,43 @@
     {% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 </head>
-<body class="pushable">
+<body class="{% block class %} {% endblock %}">
 {{ google_tag_manager_body() }}
 <div class="pusher off-canvas-wrapper">
     <div class="off-canvas position-right" id="offCanvas" data-off-canvas>
         {{ render(url('sylius_frontend_partial_taxon_root_nodes', {'template': 'frontend/taxon/_horizontal_menu.html.twig', 'slug': app.request.get('slug')})) }}
+        <hr/>
         {% if is_granted('ROLE_USER') %}
             <a href="{{ path('sylius_frontend_account_dashboard') }}"
-               class="item button primary login">{{ 'sylius.ui.my_account'|trans }}</a>
-            <a href="{{ path('app_frontend_logout') }}"
-               class="item app-logout-button button primary register">{{ 'sylius.ui.logout'|trans }}</a>
+               data-my-account-button
+               class="button clear">{{ 'sylius.ui.my_account'|trans }}</a>
         {% else %}
             <a href="{{ path('app_frontend_login') }}"
-               class="item button primary login">{{ 'sylius.ui.login'|trans }}</a>
+               class="button expanded clear">{{ 'sylius.ui.login'|trans }}</a>
             <a href="{{ path('app_frontend_register') }}"
-               class="item button primary register">{{ 'sylius.ui.register'|trans }}</a>
+               class="button secondary expanded">{{ 'sylius.ui.register'|trans }}</a>
         {% endif %}
     </div>
     <div class="container off-canvas-content" data-off-canvas-content>
-        {% block top %}
-            <div class="admin-menu">
-                <a class="" type="button" href=""><i class="fas fa-envelope"></i>  {{ 'app.ui.contact'|trans }}</a>
-                <a class="" type="button" href="{{ path('sylius_backend_login') }}"><i class="fas fa-lock"></i>  {{ 'app.ui.admin'|trans }}</a>
-            </div>
-            {% include 'frontend/_menu.html.twig' %}
-        {% endblock %}
 
         {% block header %}
+            {% include 'frontend/_header.html.twig' %}
         {% endblock %}
 
         {% block flashes %}
             {% include 'frontend/_flashes.html.twig' %}
         {% endblock %}
 
-        {% block content %}
-        {% endblock %}
-    </div>
+        <div class="main-content">
+            {% block content %}
+            {% endblock %}
+        </div>
 
-    {% block footer %}
-        {% include 'frontend/_footer.html.twig' %}
-    {% endblock %}
+        {% block footer %}
+            {% include 'frontend/_footer.html.twig' %}
+        {% endblock %}
+
+    </div>
 </div>
 
 {% block javascripts %}

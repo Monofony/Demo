@@ -1,66 +1,52 @@
 {% extends 'frontend/layout.html.twig' %}
 
 {% set pageTitle = 'app.ui.pets'| trans %}
+{% block class %}pet-description
+{% endblock %}
 
 {% block content %}
-    <div class="top">
-        <div class="grid-x">
-            <div class="cell small-11 small-offset-1">
-                {% include 'frontend/pet/show/_breadcrumb.html.twig' %}
-            </div>
-        </div>
-    </div>
-    <div class="top">
-        <div class="grid-x">
-            <div class="cell large-5 medium-offset-1">
+    <div class="grid-container">
+        {% include 'frontend/pet/show/_breadcrumb.html.twig' %}
+        <div class="grid-x grid-padding-x grid-padding-y">
+            <div class="orbit cell small-12 medium-7 large-7 grid-x" data-orbit>
                 {% include 'frontend/pet/show/_images.html.twig' %}
             </div>
-            <div class="cell large-5">
-                <div class="pet-top">
-                    <h1 data-name>{{ pet.name }}</h1>
-                    <h3>{{ pet.taxon.name }}</h3>
-                    <div>
-                        <p>{{ pet.description|nl2br }}</p>
+            <div class="cell small-12 medium-5">
+                <h1 data-name>{{ pet.name }}</h1>
+                <div class="taxon-name">{{ pet.taxon.name }}</div>
+                <p>{{ pet.description|nl2br }}</p>
+                <div class="info grid-x">
+                    <div class="cell large-4">
+                        <div class="info-title">{{ 'app.ui.sex'|trans }}</div>
+                        <div class="info-value">{% if constant('App\\Sex::FEMALE') == pet.sex %}<i class="fas fa-venus"></i>{% else %}<i class="fas fa-mars"></i>{% endif %} {{ ('app.ui.'~pet.sex)|trans }}</div>
+                    </div>
+                    <div class="cell large-4">
+                        <div class="info-title">{{ 'app.ui.main_color'|trans }}</div>
+                        <div class="info-value">{{ pet.mainColor is not null ? (('app.ui.'~pet.mainColor)|trans) : ('app.ui.no_main_color'|trans) }}</div>
+                    </div>
+                    <div class="cell large-4">
+                        <div class="info-title">{{ 'app.ui.size'|trans }}</div>
+                        <div class="info-value">{{ pet.size }} {{ (('app.ui.'~pet.sizeUnit)|trans) }}</div>
                     </div>
                 </div>
-                <div class="info">
-                    <div class="grid-x">
-                        <div class="cell medium-4">
-                            <h4>{{ 'app.ui.sex'|trans }}</h4>
-                            <h5>{% if constant('App\\Sex::FEMALE') == pet.sex %}<i class="fas fa-venus"></i>{% else %}<i class="fas fa-mars"></i>{% endif %} {{ ('app.ui.'~pet.sex)|trans }}</h5>
-                        </div>
-                        <div class="cell medium-4">
-                            <h4>{{ 'app.ui.main_color'|trans }}</h4>
-                            <h5>{{ pet.mainColor is not null ? (('app.ui.'~pet.mainColor)|trans) : ('app.ui.no_main_color'|trans) }}</h5>
-                        </div>
-                        <div class="cell medium-4">
-                            <h4>{{ 'app.ui.size'|trans }}</h4>
-                            <h5>{{ pet.size }} {{ (('app.ui.'~pet.sizeUnit)|trans) }}</h5>
-                        </div>
+                {% if constant('App\\PetStates::BOOKED') == pet.status %}
+                    <div class="clreserv">
+                        <a class="button disabled pet"><i class="fas fa-lock"></i>{{ 'sylius.ui.reserved'|trans }}</a>
+                        <p>{{ 'app.ui.this_one_is_about_to_meet_their_new_family'|trans }}</p>
                     </div>
-                </div>
-                <hr>
-                <div>
-                    {% if constant('App\\PetStates::BOOKED') == pet.status %}
-                        <div class="clreserv">
-                            <a class="button disabled reserved pet"><i class="fas fa-lock"></i>{{ 'sylius.ui.reserved'|trans }}</a>
-                            <p>{{ 'app.ui.this_one_is_about_to_meet_their_new_family'|trans }}</p>
-                        </div>
-                    {% else %}
-                        <a href="{{ path('app_frontend_booking_summary', { 'slug': pet.slug }) }}" type="button" class="button primary pet">{{ 'app.ui.ask_for_a_visit'|trans }}</a>
-                    {% endif %}
-                </div>
-                <hr>
+                {% else %}
+                    <a href="{{ path('app_frontend_booking_summary', { 'slug': pet.slug }) }}" type="button" class="button pet">{{ 'app.ui.ask_for_a_visit'|trans }}</a>
+                {% endif %}
             </div>
         </div>
     </div>
-    <div class="bottom">
-        <div class="taxon">
-            <hr>
-            <h1>{{ pet.taxon.name }}</h1>
-            <h3>Some text</h3>
-            <hr>
-            <p>{{ pet.taxon.description|nl2br }}</p>
+    <div class="taxon-text">
+        <div class="grid-x grid-padding-x align-center">
+            <div class="cell small-12 medium-10 large-6">
+                <h2 class="text-center">{{ pet.taxon.name }}</h3>
+                <div class="h4 subtitle text-center">What to know about it</div>
+                <p>{{ pet.taxon.description|nl2br }}</p>
+            </div>
         </div>
     </div>
 {% endblock content %}

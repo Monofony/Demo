@@ -1,0 +1,165 @@
+.pet-description {
+    .main-content {
+        background: $white;
+        font-size: rem-calc(16);
+        .orbit {
+            .orbit-bullets {
+                @include breakpoint(medium) {
+                    margin-right: 1rem;
+                    margin-top: 0;
+                    .thumbnail-item {
+                        outline: 0;
+                        display: block;
+                        position: relative;
+                        width: 100%;
+                        padding-top: 100%;
+                        overflow: hidden;
+                        border-radius: $global-radius * 2;
+                        margin: 0 $global-margin * 2 $global-margin 0;
+                        opacity: 0.5;
+                        transition: 0.25s;
+                        cursor: pointer;
+                        &.is-active {
+                            cursor: default;
+                            opacity: 1;
+                            transition: 0.25s;
+                            box-shadow: 0 2px 4px rgba(#000, 0.12);
+                        }
+                        &:hover {
+                            opacity: 0.9;
+                            transition: 0.25s;
+                        }
+                        &:focus {
+                            opacity: 1;
+                            transition: 0.25s;
+                        }
+                        .thumbnail-wrapper {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            bottom: 0;
+                            right: 0;
+                            margin: 0;
+                            img {
+                                object-fit: cover;
+                                width: 100%;
+                                height: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+            .orbit-wrapper {
+                .orbit-controls {
+                    button {
+                        top: 46%;
+                        outline: 0;
+                        background: $medium-gray;
+                        border-radius: 999px;
+                        box-shadow: 0 2px 4px rgba(#000, 0.12);
+                        padding: 0.1rem;
+                        svg {
+                            display: block;
+                        }
+                    }
+                }
+                .orbit-container {
+                    outline: 0;
+                    text-align: center;
+                    border-radius: $global-radius * 2;
+                    overflow: hidden;
+                    @include breakpoint(medium) {
+                        height: 100%;
+                        max-height: rem-calc(350);
+                    }
+                    @include breakpoint(large) {
+                        max-height: rem-calc(500);
+                    }
+                    .orbit-slide {
+                        @include breakpoint(medium) {
+                            height: 100%;
+                        }
+                        figure {
+                            width: 100%;
+                            @include breakpoint(medium) {
+                                height: 100%;
+                            }
+                            padding-top: 75%;
+                            position: relative;
+                            .orbit-image-wrapper {
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                right: 0;
+                                bottom: 0;
+                                display: flex;
+                                img {
+                                    object-fit: cover;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .taxon-name {
+            text-transform: uppercase;
+            color: rgba($secondary-color, 0.5);
+            font-size: rem-calc(18);
+            margin-bottom: rem-calc(36);
+        }
+        .info {
+            text-align: center;
+            border-radius: rem-calc(10);
+            background-color: $light-gray;
+            margin-bottom: 2rem;
+            > .cell {
+                padding: 1rem;
+            }
+            .info-title {
+                color: $medium-gray;
+                font-weight: $header-font-weight;
+            }
+            .info-value {
+                color: $secondary-color;
+                margin: auto;
+            }
+        }
+        .button {
+            box-shadow: 0 2px 6px 0 rgba(19, 62, 86, 0.08);
+        }
+        .clreserv {
+            display: flex;
+            align-items: center;
+            i {
+                padding-right: rem-calc(10);
+            }
+            p {
+                font-size: rem-calc(13);
+                width: 13rem;
+                margin-left: 1rem;
+                margin-bottom: 0 !important;
+                color: $medium-gray;
+                opacity: 0.7;
+            }
+        }
+        .taxon-text {
+            margin-top: 4rem;
+            padding-top: 3rem;
+            background: $light-gray;
+            h3 {
+                color: $secondary-color;
+            }
+            .subtitle {
+                color: $medium-gray;
+                margin-bottom: 2rem;
+                font-weight: 500;
+            }
+            p {
+                font-size: rem-calc(14);
+                line-height: 1.71;
+                color: $secondary-color;
+            }
+        }
+    }
+}
