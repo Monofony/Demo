@@ -214,7 +214,7 @@ jobs:
     test-application-with-frontend:
         runs-on: ubuntu-latest
 
-        name: "Test JS application (PHP ${{ matrix.php }}, Symfony ${{ matrix.symfony }}, MySQL ${{ matrix.mysql }})"
+        name: "Test JS application (PHP ${{ matrix.php }}, MySQL ${{ matrix.mysql }})"
 
         strategy:
             fail-fast: false
@@ -224,7 +224,7 @@ jobs:
                 mysql: [5.7]
 
         env:
-            APP_ENV: test_cached
+            APP_ENV: test
             DATABASE_URL: "mysql://root:root@127.0.0.1/monofony_demo?serverVersion=${{ matrix.mysql }}"
 
         steps:
