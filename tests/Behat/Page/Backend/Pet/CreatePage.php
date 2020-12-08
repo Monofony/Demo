@@ -74,7 +74,7 @@ class CreatePage extends AbstractCreatePage implements CreatePageInterface
 
         $imageForm = $this->getLastImageElement();
 
-        $imageForm->find('css', 'input[type="file"]')->attachFile($filesPath . $path);
+        $imageForm->find('css', 'input[type="file"]')->attachFile($filesPath.$path);
     }
 
     /**

@@ -62,8 +62,6 @@ final class LoginContext implements Context
      */
     private $currentPageResolver;
 
-    /**
-     */
     public function __construct(
         HomePage $homePage,
         LoginPage $loginPage,

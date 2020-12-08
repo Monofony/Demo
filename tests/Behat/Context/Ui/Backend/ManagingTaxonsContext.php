@@ -15,7 +15,6 @@ namespace App\Tests\Behat\Context\Ui\Backend;
 
 use App\Entity\Taxonomy\Taxon;
 use App\Tests\Behat\Page\Backend\Taxon\CreatePage;
-use App\Tests\Behat\Page\Backend\Taxon\IndexPage;
 use App\Tests\Behat\Page\Backend\Taxon\UpdatePage;
 use Behat\Behat\Context\Context;
 use Webmozart\Assert\Assert;

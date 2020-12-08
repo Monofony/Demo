@@ -31,7 +31,7 @@ class PetContext implements Context
     /** @var PetExampleFactory */
     private $animalFactory;
 
-    /** @var EntityManagerInterface*/
+    /** @var EntityManagerInterface */
     private $manager;
 
     public function __construct(

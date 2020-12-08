@@ -17,6 +17,7 @@ use App\Entity\Taxonomy\Taxon;
 use App\Fixture\OptionsResolver\LazyOption;
 use App\Formatter\StringInflector;
 use App\SizeRanges;
+use Doctrine\ORM\EntityManagerInterface;
 use Sylius\Component\Resource\Factory\FactoryInterface;
 use Sylius\Component\Taxonomy\Generator\TaxonSlugGeneratorInterface;
 use Sylius\Component\Taxonomy\Model\TaxonInterface;
@@ -26,43 +27,21 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 final class TaxonExampleFactory extends AbstractExampleFactory implements ExampleFactoryInterface
 {
-    /**
-     * @var FactoryInterface
-     */
-    private $taxonFactory;
+    /** @var EntityManagerInterface */
+    private $entityManager;
 
-    /**
-     * @var TaxonRepositoryInterface
-     */
-    private $taxonRepository;
-
-    /**
-     * @var \Faker\Generator
-     */
+    /** @var \Faker\Generator */
     private $faker;
 
-    /**
-     * @var TaxonSlugGeneratorInterface
-     */
+    /** @var TaxonSlugGeneratorInterface */
     private $taxonSlugGenerator;
 
-    /**
-     * @var OptionsResolver
-     */
+    /** @var OptionsResolver */
     private $optionsResolver;
 
-    /**
-     * @var string
-     */
-    private $localeCode;
-
-    public function __construct(
-        FactoryInterface $taxonFactory,
-        TaxonRepositoryInterface $taxonRepository,
-        TaxonSlugGeneratorInterface $taxonSlugGenerator
-    ) {
-        $this->taxonFactory = $taxonFactory;
-        $this->taxonRepository = $taxonRepository;
+    public function __construct(EntityManagerInterface $entityManager, TaxonSlugGeneratorInterface $taxonSlugGenerator)
+    {
+        $this->entityManager = $entityManager;
         $this->taxonSlugGenerator = $taxonSlugGenerator;
 
         $this->faker = \Faker\Factory::create();
@@ -83,10 +62,10 @@ final class TaxonExampleFactory extends AbstractExampleFactory implements Exampl
         $options = $this->optionsResolver->resolve($options);
 
         /** @var Taxon $taxon */
-        $taxon = $this->taxonRepository->findOneBy(['code' => $options['code']]);
+        $taxon = $this->entityManager->getRepository(Taxon::class)->findOneBy(['code' => $options['code']]);
 
         if (null === $taxon) {
-            $taxon = $this->taxonFactory->createNew();
+            $taxon = new Taxon();
         }
 
         $taxon->setCode($options['code']);
@@ -133,7 +112,10 @@ final class TaxonExampleFactory extends AbstractExampleFactory implements Exampl
             })
             ->setDefault('parent', null)
             ->setAllowedTypes('parent', ['null', 'string', TaxonInterface::class])
-            ->setNormalizer('parent', LazyOption::findOneBy($this->taxonRepository, 'code'))
+            ->setNormalizer('parent', LazyOption::findOneBy(
+                $this->entityManager->getRepository(Taxon::class),
+                'code'
+            ))
 
             ->setDefault('children', [])
             ->setAllowedTypes('children', 'array')

@@ -22,8 +22,6 @@ final class DoctrineORMContext implements Context
      */
     private $entityManager;
 
-    /**
-     */
     public function __construct(EntityManagerInterface $entityManager)
     {
         $this->entityManager = $entityManager;

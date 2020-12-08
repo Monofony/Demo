@@ -15,8 +15,6 @@ namespace App\Tests\Behat\Context\Ui\Frontend;
 
 use App\Colors;
 use App\Entity\Animal\Pet;
-use App\Sex;
-use App\SizeRanges;
 use App\Tests\Behat\Page\Frontend\Pet\IndexPage;
 use App\Tests\Behat\Page\Frontend\Pet\IndexPerTaxonPage;
 use App\Tests\Behat\Page\Frontend\Pet\ShowPage;
@@ -111,7 +109,7 @@ final class PetContext implements Context
      */
     public function iOnlyWantToSeeTheSmallPets()
     {
-        $this->indexPage->filterBySize("Small");
+        $this->indexPage->filterBySize('Small');
     }
 
     /**

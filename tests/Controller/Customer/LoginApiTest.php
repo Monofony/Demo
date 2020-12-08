@@ -41,5 +41,4 @@ EOT;
         $response = $this->client->getResponse();
         $this->assertResponse($response, 'authentication/new_access_token', Response::HTTP_OK);
     }
-
 }

@@ -13,42 +13,21 @@ declare(strict_types=1);
 
 namespace App\Fixture\Factory;
 
-use Monofony\Contracts\Core\Model\User\AppUserInterface;
-use Monofony\Contracts\Core\Model\Customer\CustomerInterface;
-use Sylius\Component\Resource\Factory\FactoryInterface;
+use App\Entity\Customer\Customer;
+use App\Entity\User\AppUser;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class AppUserExampleFactory extends AbstractExampleFactory implements ExampleFactoryInterface
 {
-    /**
-     * @var FactoryInterface
-     */
-    private $appUserFactory;
-
-    /**
-     * @var FactoryInterface
-     */
-    private $customerFactory;
-
-    /**
-     * @var \Faker\Generator
-     */
+    /** @var \Faker\Generator */
     private $faker;
 
-    /**
-     * @var OptionsResolver
-     */
+    /** @var OptionsResolver */
     private $optionsResolver;
 
-    /**
-     * AppUserExampleFactory constructor.
-     */
-    public function __construct(FactoryInterface $appUserFactory, FactoryInterface $customerFactory)
+    public function __construct()
     {
-        $this->appUserFactory = $appUserFactory;
-        $this->customerFactory = $customerFactory;
-
         $this->faker = \Faker\Factory::create();
         $this->optionsResolver = new OptionsResolver();
 
@@ -58,18 +37,16 @@ class AppUserExampleFactory extends AbstractExampleFactory implements ExampleFac
     /**
      * {@inheritdoc}
      */
-    public function create(array $options = [])
+    public function create(array $options = []): AppUser
     {
         $options = $this->optionsResolver->resolve($options);
 
-        /** @var CustomerInterface $customer */
-        $customer = $this->customerFactory->createNew();
+        $customer = new Customer();
         $customer->setEmail($options['email']);
         $customer->setFirstName($options['first_name']);
         $customer->setLastName($options['last_name']);
 
-        /** @var AppUserInterface $user */
-        $user = $this->appUserFactory->createNew();
+        $user = new AppUser();
         $user->setUsername($options['username']);
         $user->setPlainPassword($options['password']);
         $user->setEnabled($options['enabled']);

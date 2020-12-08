@@ -58,9 +58,6 @@
         ],
         "post-update-cmd": [
             "@auto-scripts"
-        ],
-        "fix": [
-            "@php vendor/bin/ecs check src --fix"
         ]
     },
     "conflict": {

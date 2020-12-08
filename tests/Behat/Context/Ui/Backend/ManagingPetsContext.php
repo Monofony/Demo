@@ -113,7 +113,7 @@ final class ManagingPetsContext implements Context
      * @When I specify its taxon as :name
      * @When I do not specify any taxon
      */
-    public function iSpecifyItsTaxonAs(string $name = "---"): void
+    public function iSpecifyItsTaxonAs(string $name = '---'): void
     {
         $this->createPage->specifyTaxon($name);
     }
@@ -225,7 +225,7 @@ final class ManagingPetsContext implements Context
      */
     public function iShouldNotSeeAnyAnimalWithName(string $name)
     {
-        Assert::false($this->indexPage->isSingleResourceOnPage(["name" => $name]));
+        Assert::false($this->indexPage->isSingleResourceOnPage(['name' => $name]));
     }
 
     /**

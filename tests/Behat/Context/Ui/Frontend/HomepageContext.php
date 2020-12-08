@@ -21,8 +21,6 @@ class HomepageContext implements Context
      */
     private $homePage;
 
-    /**
-     */
     public function __construct(HomePage $homePage)
     {
         $this->homePage = $homePage;

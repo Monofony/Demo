@@ -47,8 +47,6 @@ class DefaultContext implements Context
      */
     protected $questionHelper;
 
-    /**
-     */
     public function __construct(KernelInterface $kernel)
     {
         $this->kernel = $kernel;
