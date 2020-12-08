@@ -188,7 +188,7 @@ jobs:
 
             -
                 name: Run PHPSpec
-                run: vendor/bin/phpspec run --ansi --no-interaction -f dot
+                run: phpdbg -qrr vendor/bin/phpspec run --ansi --no-interaction -f dot
 
             -
                 name: Run PHPUnit
