@@ -70,7 +70,14 @@ final class SwaggerDecorator implements NormalizerInterface
                     'content' => [
                         'application/json' => [
                             'schema' => [
-                                '$ref' => '#/components/schemas/Token',
+                                'type' => 'object',
+                                'properties' => [
+                                    'access_token' => ['type' => 'string', 'example' => 'OGRhZjMyZjJhY2E3MzE1ZmVhMmVlZTNkYmFhMDViMTQwMWJhMGJhZjdmZTg1NTEwNzYyYjlkMmFiNDFkMDcxNA'],
+                                    'expires_in' => ['type' => 'integer', 'example' => 3600],
+                                    'token_type' => ['type' => 'string', 'example' => 'bearer'],
+                                    'scope' => ['type' => 'string', 'example' => null],
+                                    'refresh_token' => ['type' => 'string', 'example' => 'ZGM4MjRkZDBjNjA2OGY0OWM0NzdmYWYzMmQ2MDMzNDRjYTViNGE2ZDg3ODEzOWU1ZTFlZmVmMDhlMjNiNTdiZQ'],
+                                ],
                             ],
                         ],
                     ],
