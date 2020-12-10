@@ -1,0 +1,20 @@
+{
+    "@context": "/api/contexts/ConstraintViolationList",
+    "@type": "ConstraintViolationList",
+    "hydra:title": "An error occurred",
+    "hydra:description": "email: Please enter your email.\npassword: Please enter your password.\npassword: Password must be at least 4 characters long.",
+    "violations": [
+        {
+            "propertyPath": "email",
+            "message": "Please enter your email."
+        },
+        {
+            "propertyPath": "password",
+            "message": "Please enter your password."
+        },
+        {
+            "propertyPath": "password",
+            "message": "Password must be at least 4 characters long."
+        }
+    ]
+}

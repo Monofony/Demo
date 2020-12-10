@@ -15,9 +15,7 @@ var build = (name, assetPath, vendorUiPath) => {
         .addEntry('app', `${assetPath}/js/app.js`)
         // uncomment if you use Sass/SCSS files
         .enableSassLoader((options) => {
-            if(name === "backend") {
-                options.data = '@import "~semantic-ui-css/semantic.min.css";';
-            }
+            options.data = '@import "~semantic-ui-css/semantic.min.css";';
         })
         .autoProvidejQuery()
         .configureBabel()

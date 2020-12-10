@@ -366,7 +366,13 @@
         }
     },
     "monofony/api-pack": {
-        "version": "v0.4.0"
+        "version": "0.4",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "1022",
+            "version": "0.4",
+            "ref": ""
+        }
     },
     "monofony/behat-bridge": {
         "version": "v0.4.0"
@@ -387,7 +393,13 @@
         "version": "v0.4.0"
     },
     "monofony/core-pack": {
-        "version": "v0.4.0"
+        "version": "0.4",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "1022",
+            "version": "0.4",
+            "ref": ""
+        }
     },
     "monofony/fixtures-plugin": {
         "version": "0.1",
