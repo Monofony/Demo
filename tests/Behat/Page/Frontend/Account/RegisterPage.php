@@ -13,9 +13,9 @@ declare(strict_types=1);
 
 namespace App\Tests\Behat\Page\Frontend\Account;
 
+use App\Formatter\StringInflector;
 use Behat\Mink\Exception\ElementNotFoundException;
 use FriendsOfBehat\PageObjectExtension\Page\SymfonyPage;
-use App\Formatter\StringInflector;
 
 class RegisterPage extends SymfonyPage
 {
