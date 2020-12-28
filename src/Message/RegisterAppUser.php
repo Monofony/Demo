@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace App\Message;
 
-use Symfony\Component\Validator\Constraints as Assert;
 use App\Validator\Constraints as CustomConstraints;
+use Symfony\Component\Validator\Constraints as Assert;
 
 final class RegisterAppUser
 {

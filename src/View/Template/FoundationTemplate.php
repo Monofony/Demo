@@ -20,7 +20,7 @@ final class FoundationTemplate extends Template
     /**
      * @var array
      */
-    protected static $defaultOptions = array(
+    protected static $defaultOptions = [
         'current_message' => 'You\'re on page',
         'prev_message' => '&larr; Previous',
         'next_message' => 'Next &rarr;',
@@ -31,7 +31,7 @@ final class FoundationTemplate extends Template
         'css_dots_class' => 'ellipsis',
         'css_active_class' => 'current_page',
         'css_disabled_class' => 'invisible',
-    );
+    ];
 
     /**
      * @return string
