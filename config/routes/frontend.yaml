@@ -6,7 +6,7 @@ app_frontend_homepage:
 
 app_account:
     resource: "frontend/account.yaml"
-    prefix: "mon-compte"
+    prefix: "account"
 
 app_frontend_pet:
     resource: "frontend/pet.yaml"

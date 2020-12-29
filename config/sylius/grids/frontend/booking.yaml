@@ -1,0 +1,18 @@
+sylius_grid:
+    grids:
+        app_frontend_booking:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: '%app.model.booking.class%'
+                    repository:
+                        method: createListForFrontQueryBuilder
+                        arguments:
+                            taxon: 'expr:notFoundOnNull(service("App\\Context\\CustomerContext").getCustomer())'
+            limits: [5]
+            sorting:
+                createdAt: desc
+            fields:
+                createdAt:
+                    type: datetime
+                    sortable: null
