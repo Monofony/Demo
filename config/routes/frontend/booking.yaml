@@ -15,5 +15,4 @@ app_frontend_booking_summary:
 app_frontend_booking_confirmation:
     path: /bookings/{slug}/confirmation
     defaults:
-        _controller: FrameworkBundle:Template:template
-        template: 'frontend/booking/confirmation.html.twig'
+        _controller: App\Controller\BookingConfirmationController

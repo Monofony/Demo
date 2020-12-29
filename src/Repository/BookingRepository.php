@@ -13,7 +13,10 @@ declare(strict_types=1);
 
 namespace App\Repository;
 
+use App\Entity\Animal\Pet;
+use App\Entity\Booking\Booking;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
+use Sylius\Component\Customer\Model\CustomerInterface;
 
 final class BookingRepository extends EntityRepository
 {
@@ -32,5 +35,19 @@ final class BookingRepository extends EntityRepository
             ->setMaxResults($count)
             ->getQuery()
             ->getResult();
+    }
+
+    public function findOneByCustomerAndPet(CustomerInterface $customer, Pet $pet): ?Booking
+    {
+        $queryBuilder =  $this->createQueryBuilder('o')
+            ->where('o.customer = :customer')
+            ->andWhere('o.pet = :pet')
+            ->addOrderBy('o.createdAt', 'DESC')
+            ->setMaxResults(1)
+            ->setParameter('customer', $customer)
+            ->setParameter('pet', $pet)
+        ;
+
+        return $queryBuilder->getQuery()->getOneOrNullResult();
     }
 }
