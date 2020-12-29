@@ -1,13 +1,20 @@
 {% extends 'knp_menu.html.twig' %}
 
 {% block root %}
-    <ul class="vertical tabs my-account-menu" data-tabs id="example-tabs">
+    <div class="my-account-menu">
         <h3 class="my-account-menu-title">{{ item.label|trans }}</h3>
-        <hr>
-        {{ block('list') }}
-    </ul>
-
-    <a href="{{ path('app_frontend_logout') }}" class="app-logout-button">{{ 'sylius.ui.logout'|trans }}</a>
+        <ul class="vertical tabs" data-tabs id="example-tabs">
+            {{ block('list') }}
+            <hr>
+            <li class="tabs-title">
+                <a href="{{ path('app_frontend_logout') }}"
+                   class="app-logout-button"
+                >
+                    <i class="fas fa-sign-out-alt"></i> {{ 'sylius.ui.logout'|trans }}
+                </a>
+            </li>
+        </ul>
+    </div>
 {% endblock %}
 
 {% block list %}
