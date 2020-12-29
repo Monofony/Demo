@@ -39,7 +39,7 @@ final class BookingRepository extends EntityRepository
 
     public function findOneByCustomerAndPet(CustomerInterface $customer, Pet $pet): ?Booking
     {
-        $queryBuilder =  $this->createQueryBuilder('o')
+        $queryBuilder = $this->createQueryBuilder('o')
             ->where('o.customer = :customer')
             ->andWhere('o.pet = :pet')
             ->addOrderBy('o.createdAt', 'DESC')

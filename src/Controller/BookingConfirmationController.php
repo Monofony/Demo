@@ -1,9 +1,9 @@
 <?php
 
 /*
- * This file is part of monofony_demo.
+ * This file is part of the Monofony demo.
  *
- * (c) Mobizel
+ * (c) Monofony
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -55,7 +55,7 @@ final class BookingConfirmationController extends AbstractController
         }
 
         return $this->render('frontend/booking/confirmation.html.twig', [
-            'booking' =>$booking,
+            'booking' => $booking,
         ]);
     }
 }
