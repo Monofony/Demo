@@ -1,6 +1,7 @@
 {% extends "frontend/account/layout.html.twig" %}
 
 {% import 'frontend/macro/buttons.html.twig' as buttons %}
+{% import 'frontend/macro/pagination.html.twig' as pagination %}
 
 {% block breadcrumb %}
     <nav aria-label="You are here:" role="navigation" class="breadcrumb">
@@ -25,8 +26,10 @@
                 <h4 class="subtitle">{{ 'app.ui.check_all_your_reservations_statuses'|trans }}</h4>
             </div>
         </div>
-        {% for booking in customer.bookings %}
+        {% for booking in bookings.data %}
             {% include 'frontend/account/_booking_card.html.twig' with {'booking': booking} only %}
         {% endfor %}
+
+        {{ pagination.simple(bookings.data) }}
     </div>
 {% endblock %}

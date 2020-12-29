@@ -1,14 +1,18 @@
 sylius_frontend_account_dashboard:
-    path: /accueil
+    methods: [GET]
+    path: /dashboard
+    controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController::redirectAction
+    defaults:
+        route: sylius_frontend_account_booking
+
+sylius_frontend_account_booking:
+    path: /bookings
     methods: [GET]
     defaults:
-        _controller: sylius.controller.customer:showAction
+        _controller: app.controller.booking:indexAction
         _sylius:
-            template: "frontend/account/dashboard.html.twig"
-            repository:
-                method: find
-                arguments:
-                    - expr:service('App\\Context\\CustomerContext').getCustomer()
+            template: "frontend/account/bookings.html.twig"
+            grid: app_frontend_booking
 
 sylius_frontend_account_profile_update:
     path: /profile/edit

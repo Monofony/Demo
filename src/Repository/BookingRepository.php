@@ -15,11 +15,19 @@ namespace App\Repository;
 
 use App\Entity\Animal\Pet;
 use App\Entity\Booking\Booking;
+use Doctrine\ORM\QueryBuilder;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 use Sylius\Component\Customer\Model\CustomerInterface;
 
 final class BookingRepository extends EntityRepository
 {
+    public function createListForFrontQueryBuilder(CustomerInterface $customer): QueryBuilder
+    {
+        return $this->createQueryBuilder('o')
+            ->where('o.customer = :customer')
+            ->setParameter('customer', $customer);
+    }
+
     public function countBookings(): int
     {
         return (int) $this->createQueryBuilder('o')
