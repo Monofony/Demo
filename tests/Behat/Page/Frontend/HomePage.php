@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace App\Tests\Behat\Page\Frontend;
 
 use FriendsOfBehat\PageObjectExtension\Page\SymfonyPage;

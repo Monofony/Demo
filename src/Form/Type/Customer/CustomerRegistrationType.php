@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace App\Form\Type\Customer;
 
 use App\Entity\Customer\Customer;

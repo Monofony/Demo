@@ -9,12 +9,13 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace App\Fixture\OptionsResolver;
 
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Persistence\ObjectRepository;
 use Symfony\Component\Finder\Finder;
-use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\OptionsResolver\Options;
 use Webmozart\Assert\Assert;
 
@@ -141,8 +142,7 @@ final class LazyOption
             $files = $finder->files()->in($directory);
             $images = [];
 
-            foreach ($files as $sourcePathName) {
-                $file = new File($sourcePathName);
+            foreach ($files as $file) {
                 $images[] = $file->getPathname();
             }
 

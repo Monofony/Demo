@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace App\Entity\Animal;
 
 use ApiPlatform\Core\Annotation\ApiFilter;
@@ -62,7 +64,7 @@ class Pet implements ResourceInterface
     /**
      * @var float|null
      *
-     * @ORM\Column(type="decimal", nullable=true)
+     * @ORM\Column(type="float", nullable=true)
      */
     private $size;
 

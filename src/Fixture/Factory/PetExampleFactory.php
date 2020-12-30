@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace App\Fixture\Factory;
 
 use App\Colors;
@@ -25,7 +27,6 @@ use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ObjectRepository;
 use Sylius\Component\Taxonomy\Model\TaxonInterface;
 use Symfony\Component\Filesystem\Filesystem;
-use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -108,7 +109,7 @@ class PetExampleFactory extends AbstractExampleFactory
                 return $closure->call($this, $options);
             })
             ->setDefault('main_color', function (Options $options): ?string {
-                /** @var File $firstImage */
+                /** @var string $firstImage */
                 $firstImage = $options['images'][0] ?? null;
 
                 if (null === $firstImage) {
