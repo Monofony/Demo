@@ -1,6 +1,13 @@
 app:
     ui:
-        about_us: À propos de nous
+        about_demo: À propos de nous
+        about_demo_content: |
+            Ce site web est une demo du project Monofony.
+            Monofony est un micro-framework créé par la société Mobizel.
+            Il utilisent des packages Sylius pour construire une administration puissante.
+            Il contient également plusiurs fonctionnalités basiques tel que l'inscription, la connexion, et la réinitialisation du mot de passe.
+            Il y a deux packages pour construire une API et la partie publique de votre application.
+            Cette démo utilise utilisent tous les packages Monofony.
         accepted_visit: Visite acceptée
         admin: Admin
         adopt: Adopter
@@ -9,12 +16,12 @@ app:
         adopt_the_perfect_pet_for_you_and_your_family: Adoptez l'animal parfait pour vous et votre famille!
         any_questions_lets_talk: Des questions? Parlons!
         ask_for_a_visit: Demandez une visite!
-        a_cat: Un chat!
+        a_cat: Un chat !
         a_cat_desc: Nous pourrions parler de leur comportement pendant des heures.
-        a_dog: Un chien!
+        a_dog: Un chien !
         a_dog_desc: Ils vous ramèneront le ballon. Finalement.
-        a_rodent: Un rongeur!
-        a_rodent_desc: «Ils sont tellement moelleux que je vais mourir! »
+        a_rodent: Un rongeur !
+        a_rodent_desc: «Ils sont tellement moelleux que je vais mourir ! »
         at_least_4_characters_long: Minimum 4 caractères.
         avatar: Avatar
         beige: Beige
@@ -49,7 +56,7 @@ app:
         pet_is_reserved: "%animal% est réservé"
         it_is_nice_to_meet_you: Ravi de vous rencontrer!
         legal_notices: Mentions légales
-        lets_continue_on_a_more_comfortable_page: Continuons sur une page plus confortable, voulez-vous?
+        lets_continue_on_a_more_comfortable_page: Continuons sur une page plus confortable, voulez-vous ?
         lets_find_a_cats: Trouvons un chat!
         lets_find_a_dogs: Trouvons un chien!
         lets_find_a_small_pets: Trouvons un petit animal de compagnie!
@@ -62,7 +69,6 @@ app:
         medium: Moyen
         meter: Mètre
         millimeter: Millimètre
-        monofony_is_nananini: Monofony est une nananinininin propulsée par Mobizel blablabla
         month: mois
         months: mois
         moreover_he_will_be_marked_as_reserved: De plus, il sera marqué comme réservé.
@@ -87,7 +93,7 @@ app:
         sex: Sexe
         show_booking: Voir la réservation
         show_pet: Voir l'animal
-        show_me_more: En voir plus!
+        show_me_more: En voir plus !
         size: Taille
         size_unit: Unité de taille
         small: Petit
@@ -95,19 +101,19 @@ app:
         taxon: Taxon
         tell_us_more_about_yourself: Dites-nous en plus à propos de vous.
         they_cant_wait_to_meet_you: Ils ont hâte de vous rencontrer!
-        this_one_is_about_to_meet_their_new_family: Celui-ci est sur le point de rencontrer sa nouvelle famille!
+        this_one_is_about_to_meet_their_new_family: Celui-ci est sur le point de rencontrer sa nouvelle famille !
         unbook: Annuler la réservation
         validate: Valider
         validation_date: Date de validation
         view_website: Voir le site
         visit_scheduled: Visite programmée
-        what_kind_of_animal_are_you_looking_for: Quel genre d'animal recherchez-vous?
+        what_kind_of_animal_are_you_looking_for: Quel genre d'animal recherchez-vous ?
         white: Blanc
         year_old: an
         years_old: ans
         you_will_be_contacted_soon_to_schedule_a_visit_for_this_pet: Vous serez bientôt contacté pour planifier une visite pour cet animal.
         you_will_be_contacted_soon_to_schedule_a_visit: Vous serez bientôt contacté pour planifier une visite
-        you_are_right_security_first: Vous avez raison, la sécurité avant tout!
+        you_are_right_security_first: Vous avez raison, la sécurité avant tout !
         your_reservation: Votre réservation
 sylius:
     ui:
