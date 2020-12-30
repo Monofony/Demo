@@ -1,6 +1,13 @@
 app:
     ui:
-        about_us: About us
+        about_demo: About the Monofony demo
+        about_demo_content: |
+            This website is a demo of the Monofony project.
+            Monofony is a micro-framework created by Mobizel company.
+            It uses Sylius packages to build a powerful admin panel.
+            It also contains some basic features like registering, login, resetting password.
+            There are two extra packages to build your API and the public views of your application.
+            This demo uses all the Monofony packages.
         accepted_visit: Accepted visit
         admin: Admin
         adopt: Adopt
@@ -62,7 +69,6 @@ app:
         medium: Medium
         meter: Meter
         millimeter: Millimeter
-        monofony_is_nananini: Monofony is nananinininin powered by Mobizel blablabla
         month: month
         months: months
         moreover_he_will_be_marked_as_reserved: Moreover, he will be marked as reserved.
