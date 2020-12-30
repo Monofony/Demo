@@ -64,7 +64,7 @@ class Pet implements ResourceInterface
     /**
      * @var float|null
      *
-     * @ORM\Column(type="decimal", nullable=true)
+     * @ORM\Column(type="float", nullable=true)
      */
     private $size;
 
