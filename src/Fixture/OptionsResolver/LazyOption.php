@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace App\Fixture\OptionsResolver;
 
 use Doctrine\Common\Collections\Collection;
@@ -141,8 +143,7 @@ final class LazyOption
             $files = $finder->files()->in($directory);
             $images = [];
 
-            foreach ($files as $sourcePathName) {
-                $file = new File($sourcePathName);
+            foreach ($files as $file) {
                 $images[] = $file->getPathname();
             }
 

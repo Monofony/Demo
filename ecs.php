@@ -1,6 +1,7 @@
 <?php
 
 use PhpCsFixer\Fixer\Comment\HeaderCommentFixer;
+use PhpCsFixer\Fixer\Strict\DeclareStrictTypesFixer;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symplify\EasyCodingStandard\ValueObject\Option;
 use Symplify\EasyCodingStandard\ValueObject\Set\SetList;
@@ -16,11 +17,14 @@ file that was distributed with this source code.
 EOM;
 
     $services = $containerConfigurator->services();
-    $services->set(HeaderCommentFixer::class)
+    $services
+        ->set(DeclareStrictTypesFixer::class)
+        ->set(HeaderCommentFixer::class)
         ->call('configure', [[
             'header' => $header,
             'location' => 'after_open'
-        ]]);
+        ]])
+    ;
 
 
     $parameters = $containerConfigurator->parameters();
