@@ -16,7 +16,6 @@ namespace App\Fixture\OptionsResolver;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Persistence\ObjectRepository;
 use Symfony\Component\Finder\Finder;
-use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\OptionsResolver\Options;
 use Webmozart\Assert\Assert;
 
