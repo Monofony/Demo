@@ -1,0 +1,203 @@
+#!/usr/bin/env php
+<?php
+
+use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\Finder\Finder;
+
+require dirname(__DIR__).'/vendor/autoload.php';
+
+$filesystem = new Filesystem();
+$projectDir = dirname(__DIR__);
+
+removeLegacyConfigFiles($filesystem, $projectDir);
+updateConfig($filesystem, $projectDir);
+removeLegacyBundles($filesystem, $projectDir);
+replaceClasses($filesystem, $projectDir);
+updateCrudTemplates($filesystem, $projectDir);
+
+function removeLegacyConfigFiles(Filesystem $filesystem, string $projectDir): void
+{
+    $filesystem->remove($projectDir.'/config/packages/eight_points_guzzle.yaml');
+    $filesystem->remove($projectDir.'/config/api_platform/resources/register_app_user.yaml');
+    $filesystem->remove($projectDir.'/config/api_platform/resources/reset_password.yaml');
+    $filesystem->remove($projectDir.'/config/api_platform/resources/reset_password_request.yaml');
+}
+
+function updateConfig(Filesystem $filesystem, string $projectDir): void
+{
+    $finder = new Finder();
+    $finder
+        ->files()
+        ->in($projectDir.'/config');
+
+    $patterns = [
+        'templating:' => '#templating:',
+        'engines:' => '#engines:',
+    ];
+
+    foreach ($finder as $file) {
+        $content = file_get_contents('config/'.$file->getRelativePathname());
+
+        foreach ($patterns as $pattern => $replacement) {
+            $pattern = '/'.$pattern.'/s';
+
+            if (preg_match($pattern, $content)) {
+                $content = preg_replace($pattern, $replacement, $content);
+                $filesystem->dumpFile('config/'.$file->getRelativePathname(), $content);
+            }
+        }
+    }
+
+    file_put_contents('config/packages/doctrine_migrations.yaml', <<<EOM
+doctrine_migrations:
+    migrations_paths:
+        'App\Migrations': '%kernel.project_dir%/src/Migrations'
+
+    storage:
+        table_storage:
+            table_name: 'migration_versions'
+EOM
+);
+
+    file_put_contents('config/packages/dev/jms_serializer.yaml', <<<EOM
+jms_serializer:
+    visitors:
+        json_serialization:
+            options:
+                - JSON_PRETTY_PRINT
+                - JSON_UNESCAPED_SLASHES
+                - JSON_PRESERVE_ZERO_FRACTION
+EOM
+    );
+
+    file_put_contents('config/packages/prod/jms_serializer.yaml', <<<EOM
+jms_serializer:
+    visitors:
+        json_serialization:
+            options:
+                - JSON_UNESCAPED_SLASHES
+                - JSON_PRESERVE_ZERO_FRACTION
+EOM
+    );
+
+    file_put_contents('config/packages/jms_serializer.yaml', <<<EOM
+jms_serializer:
+    visitors:
+        xml_serialization:
+            format_output: '%kernel.debug%'
+#    metadata:
+#        auto_detection: false
+#        directories:
+#            any-name:
+#                namespace_prefix: "My\\FooBundle"
+#                path: "@MyFooBundle/Resources/config/serializer"
+#            another-name:
+#                namespace_prefix: "My\\BarBundle"
+#                path: "@MyBarBundle/Resources/config/serializer"
+EOM
+    );
+}
+
+function removeLegacyBundles(Filesystem $filesystem, string $projectDir): void
+{
+    $bundles = [
+        'Doctrine\\\Bundle\\\DoctrineCacheBundle\\\DoctrineCacheBundle' => '// Doctrine\\\Bundle\\\DoctrineCacheBundle\\\DoctrineCacheBundle',
+        'WhiteOctober\\\PagerfantaBundle\\\WhiteOctoberPagerfantaBundle' => '// WhiteOctober\\\PagerfantaBundle\\\WhiteOctoberPagerfantaBundle',
+        'EightPoints\\\Bundle\\\GuzzleBundle\\\EightPointsGuzzleBundle' => '// EightPoints\\\Bundle\\\GuzzleBundle\\\EightPointsGuzzleBundle',
+    ];
+
+    $relativePathname = $projectDir.'/config/bundles.php';
+    $content = file_get_contents($relativePathname);
+
+    foreach ($bundles as $pattern => $replacement) {
+        $pattern = '/'.$pattern.'/s';
+        $content = preg_replace($pattern, $replacement, $content);
+        $filesystem->dumpFile($relativePathname, $content);
+    }
+}
+
+function replaceClasses(Filesystem $filesystem, string $projectDir): void
+{
+    $finder = new Finder();
+    $finder
+        ->files()
+        ->name('*.php')
+        ->in($projectDir)
+        ->in($projectDir)
+        ->exclude(['bin', 'vendor', 'var'])
+    ;
+
+    $classes = [
+        'WhiteOctober\\\PagerfantaBundle' => 'BabDev\\\PagerfantaBundle',
+        'Symfony\\\Component\\\Templating\\\EngineInterface' => 'Twig\\\Environment',
+        'EngineInterface' => 'Environment',
+        'Doctrine\\\Common\\\Persistence\\\ObjectManager' => 'Doctrine\\\Persistence\\\ObjectManager',
+        'Doctrine\\\Common\\\Persistence\\\ManagerRegistry' => 'Doctrine\\\Persistence\\\ManagerRegistry',
+    ];
+
+    if (!is_file($projectDir.'/src/Message/ChangeAppUserPassword.php')) {
+        copy(
+            'https://raw.githubusercontent.com/Monofony/Monofony/0.5/src/Monofony/Pack/ApiPack/.recipe/src/Message/ChangeAppUserPassword.php',
+            $projectDir.'/src/Message/ChangeAppUserPassword.php'
+        );
+    }
+
+    if (!is_file($projectDir.'/src/Message/AppUserIdAwareInterface.php')) {
+        copy(
+            'https://raw.githubusercontent.com/Monofony/Monofony/0.5/src/Monofony/Pack/ApiPack/.recipe/src/Message/AppUserIdAwareInterface.php',
+            $projectDir.'/src/Message/AppUserIdAwareInterface.php'
+        );
+    }
+
+    foreach ($finder as $file) {
+        $content = file_get_contents($file->getRelativePathname());
+
+        foreach ($classes as $pattern => $replacement) {
+            $pattern = '/'.$pattern.'/s';
+
+            if (preg_match($pattern, $content)) {
+
+                $content = preg_replace($pattern, $replacement, $content);
+                $filesystem->dumpFile($file->getRelativePathname(), $content);
+            }
+        }
+    }
+}
+
+function updateCrudTemplates(Filesystem $filesystem, string $projectDir): void
+{
+    $filesystem->dumpFile(
+        $projectDir.'/templates/backend/crud/create/_content.html.twig',
+        file_get_contents('https://raw.githubusercontent.com/Monofony/Monofony/0.5/src/Monofony/Pack/AdminPack/.recipe/templates/backend/crud/create/_content.html.twig')
+    );
+
+    $filesystem->dumpFile(
+        $projectDir.'/templates/backend/crud/update/_content.html.twig',
+        file_get_contents('https://raw.githubusercontent.com/Monofony/Monofony/0.5/src/Monofony/Pack/AdminPack/.recipe/templates/backend/crud/update/_content.html.twig')
+    );
+
+    $finder = new Finder();
+    $finder
+        ->files()
+        ->in($projectDir.'/templates');
+
+    $patterns = [
+        'SyliusUiBundle:Macro:' => '@SyliusUi/Macro/',
+        'SyliusUiBundle:Layout:' => '@SyliusUi/Layout/',
+        'SyliusUiBundle:Menu:' => '@SyliusUi/Menu/',
+        'SyliusUiBundle::' => '@SyliusUi/',
+    ];
+
+    foreach ($finder as $file) {
+        $content = file_get_contents('templates/'.$file->getRelativePathname());
+
+        foreach ($patterns as $pattern => $replacement) {
+            $pattern = '/'.$pattern.'/s';
+
+            if (preg_match($pattern, $content)) {
+                $content = preg_replace($pattern, $replacement, $content);
+                $filesystem->dumpFile('templates/'.$file->getRelativePathname(), $content);
+            }
+        }
+    }
+}
