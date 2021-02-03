@@ -166,13 +166,6 @@ jobs:
                     coverage: none
 
             -
-                name: Setup PHP
-                uses: shivammathur/setup-php@v2
-                with:
-                    php-version: "7.3"
-                    coverage: none
-
-            -
                 name: Get Composer cache directory
                 id: composer-cache
                 run: echo "::set-output name=dir::$(composer config cache-files-dir)"
