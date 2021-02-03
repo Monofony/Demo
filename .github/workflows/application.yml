@@ -133,7 +133,7 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
-                php: [7.3]
+                php: [7.4]
                 symfony: [^4.4]
                 mysql: [5.7]
 
@@ -190,6 +190,43 @@ jobs:
                 name: Install dependencies
                 if: steps.composer-cache.outputs.cache-hit != 'true'
                 run: composer install --prefer-dist --no-progress --no-suggest
+
+            -
+                name: Update dependencies
+                run: |
+                    composer config minimum-stability "dev"
+                    composer config prefer-stable "true"
+                    composer config extra.symfony.require "5.2.*"
+
+                    composer remove \
+                        eightpoints/guzzle-bundle \
+                        sensiolabs/security-checker\
+                        --no-update --no-scripts --no-plugins
+
+                    composer require \
+                        monofony/admin-pack:"0.5.*" \
+                        monofony/api-pack:"0.5.*" \
+                        monofony/core-pack:"0.5.*" \
+                        monofony/front-pack:"0.5.*" \
+                        symfony/dotenv:"5.2.*" \
+                        --no-update --no-scripts --no-plugins
+
+                    composer require --dev \
+                        monofony/test-pack:"0.5.*" \
+                        --no-update --no-scripts --no-plugins
+
+                    composer require \
+                        sylius/locale-bundle:"^1.9" \
+                        sylius/taxonomy-bundle:"^1.9" \
+                        --no-update --no-scripts --no-plugins
+
+                    php -r "copy('https://raw.githubusercontent.com/Monofony/Monofony/0.x/src/Monofony/Pack/ApiPack/.recipe/config/api_platform/resources/customer.yaml', 'config/api_platform/resources/customer.yaml');"
+
+                    php bin/upgrade-to-0.5
+
+                    make fix
+
+                    composer update
 
             -
                 name: Dump the environment
@@ -268,7 +305,7 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
-                php: [ 7.3 ]
+                php: [ 7.4 ]
                 symfony: [ ^4.4 ]
                 node: [ 10.x ]
                 mysql: [ 5.7 ]
@@ -332,6 +369,43 @@ jobs:
             -
                 name: Install PHP dependencies
                 run: composer install --prefer-dist --no-progress --no-suggest
+
+            -
+                name: Update dependencies
+                run: |
+                    composer config minimum-stability "dev"
+                    composer config prefer-stable "true"
+                    composer config extra.symfony.require "5.2.*"
+
+                    composer remove \
+                        eightpoints/guzzle-bundle \
+                        sensiolabs/security-checker\
+                        --no-update --no-scripts --no-plugins
+
+                    composer require \
+                        monofony/admin-pack:"0.5.*" \
+                        monofony/api-pack:"0.5.*" \
+                        monofony/core-pack:"0.5.*" \
+                        monofony/front-pack:"0.5.*" \
+                        symfony/dotenv:"5.2.*" \
+                        --no-update --no-scripts --no-plugins
+
+                    composer require --dev \
+                        monofony/test-pack:"0.5.*" \
+                        --no-update --no-scripts --no-plugins
+
+                    composer require \
+                        sylius/locale-bundle:"^1.9" \
+                        sylius/taxonomy-bundle:"^1.9" \
+                        --no-update --no-scripts --no-plugins
+
+                    php -r "copy('https://raw.githubusercontent.com/Monofony/Monofony/0.x/src/Monofony/Pack/ApiPack/.recipe/config/api_platform/resources/customer.yaml', 'config/api_platform/resources/customer.yaml');"
+
+                    php bin/upgrade-to-0.5
+
+                    make fix
+
+                    composer update
 
             -
                 name: Setup Node
