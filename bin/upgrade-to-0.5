@@ -9,12 +9,13 @@ require dirname(__DIR__).'/vendor/autoload.php';
 $filesystem = new Filesystem();
 $projectDir = dirname(__DIR__);
 
+updateWebpackConfig($filesystem, $projectDir);
 removeLegacyConfigFiles($filesystem, $projectDir);
 updateConfig($filesystem, $projectDir);
 removeLegacyBundles($filesystem, $projectDir);
 replaceClasses($filesystem, $projectDir);
 updateCrudTemplates($filesystem, $projectDir);
-updateStaticAnalysisConfig($filesystem, $projectDir);
+updateFilesFromSkeleton($filesystem, $projectDir);
 updateOtherRecipes($filesystem, $projectDir);
 
 function removeLegacyConfigFiles(Filesystem $filesystem, string $projectDir): void
@@ -23,6 +24,32 @@ function removeLegacyConfigFiles(Filesystem $filesystem, string $projectDir): vo
     $filesystem->remove($projectDir.'/config/api_platform/resources/register_app_user.yaml');
     $filesystem->remove($projectDir.'/config/api_platform/resources/reset_password.yaml');
     $filesystem->remove($projectDir.'/config/api_platform/resources/reset_password_request.yaml');
+}
+
+function updateWebpackConfig(Filesystem $filesystem, string $projectDir): void
+{
+    $finder = new Finder();
+    $finder
+        ->files()
+        ->name('webpack.config.js')
+        ->in($projectDir);
+
+    $patterns = [
+        'vendor\/sylius\/ui-bundle' => 'vendor/monofony/ui-bundle',
+    ];
+
+    foreach ($finder as $file) {
+        $content = file_get_contents($file->getRelativePathname());
+
+        foreach ($patterns as $pattern => $replacement) {
+            $pattern = '/'.$pattern.'/s';
+
+            if (preg_match($pattern, $content)) {
+                $content = preg_replace($pattern, $replacement, $content);
+                $filesystem->dumpFile($file->getRelativePathname(), $content);
+            }
+        }
+    }
 }
 
 function updateConfig(Filesystem $filesystem, string $projectDir): void
@@ -204,7 +231,7 @@ function updateCrudTemplates(Filesystem $filesystem, string $projectDir): void
     }
 }
 
-function updateStaticAnalysisConfig(Filesystem $filesystem, string $projectDir)
+function updateFilesFromSkeleton(Filesystem $filesystem, string $projectDir)
 {
     $filesystem->dumpFile(
         $projectDir.'/phpstan.neon',
@@ -214,6 +241,11 @@ function updateStaticAnalysisConfig(Filesystem $filesystem, string $projectDir)
     $filesystem->dumpFile(
         $projectDir.'/psalm.xml',
         file_get_contents('https://raw.githubusercontent.com/Monofony/Skeleton/master/psalm.xml')
+    );
+
+    $filesystem->dumpFile(
+        $projectDir.'/behat.yml.dist',
+        file_get_contents('https://raw.githubusercontent.com/Monofony/Skeleton/master/behat.yml.dist')
     );
 }
 
