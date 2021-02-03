@@ -193,8 +193,7 @@ jobs:
 
                     composer remove \
                         eightpoints/guzzle-bundle \
-                        sensiolabs/security-checker\
-                        --no-update --no-scripts --no-plugins
+                        sensiolabs/security-checker
 
                     composer require \
                         monofony/admin-pack:"0.5.*" \

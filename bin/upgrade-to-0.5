@@ -132,7 +132,6 @@ function removeLegacyBundles(Filesystem $filesystem, string $projectDir): void
     $bundles = [
         'Doctrine\\\Bundle\\\DoctrineCacheBundle\\\DoctrineCacheBundle' => '// Doctrine\\\Bundle\\\DoctrineCacheBundle\\\DoctrineCacheBundle',
         'WhiteOctober\\\PagerfantaBundle\\\WhiteOctoberPagerfantaBundle' => '// WhiteOctober\\\PagerfantaBundle\\\WhiteOctoberPagerfantaBundle',
-        'EightPoints\\\Bundle\\\GuzzleBundle\\\EightPointsGuzzleBundle' => '// EightPoints\\\Bundle\\\GuzzleBundle\\\EightPointsGuzzleBundle',
     ];
 
     $relativePathname = $projectDir.'/config/bundles.php';
