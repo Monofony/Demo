@@ -253,4 +253,25 @@ function updateOtherRecipes(Filesystem $filesystem, string $projectDir)
         $projectDir.'/src/Fixture/AbstractResourceFixture.php',
         file_get_contents('https://raw.githubusercontent.com/Monofony/Monofony/0.5/src/Monofony/Pack/CorePack/.recipe/src/Fixture/AbstractResourceFixture.php')
     );
+
+    if (file_exists($projectDir.'/src/Message/ResetPassword.php')) {
+        $filesystem->dumpFile(
+            $projectDir.'/src/Message/ResetPassword.php',
+            file_get_contents('https://raw.githubusercontent.com/Monofony/Monofony/0.5/src/Monofony/Pack/ApiPack/.recipe/src/Message/ResetPassword.php')
+        );
+    }
+
+    if (file_exists($projectDir.'/src/Message/ResetPasswordRequest.php')) {
+        $filesystem->dumpFile(
+            $projectDir.'/src/Message/ResetPasswordRequest.php',
+            file_get_contents('https://raw.githubusercontent.com/Monofony/Monofony/0.5/src/Monofony/Pack/ApiPack/.recipe/src/Message/ResetPasswordRequest.php')
+        );
+    }
+
+    if (file_exists($projectDir.'/src/Message/RegisterAppUser.php')) {
+        $filesystem->dumpFile(
+            $projectDir.'/src/Message/RegisterAppUser.php',
+            file_get_contents('https://raw.githubusercontent.com/Monofony/Monofony/0.5/src/Monofony/Pack/ApiPack/.recipe/src/Message/RegisterAppUser.php')
+        );
+    }
 }
