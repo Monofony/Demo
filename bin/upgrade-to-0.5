@@ -274,4 +274,53 @@ function updateOtherRecipes(Filesystem $filesystem, string $projectDir)
             file_get_contents('https://raw.githubusercontent.com/Monofony/Monofony/0.5/src/Monofony/Pack/ApiPack/.recipe/src/Message/RegisterAppUser.php')
         );
     }
+
+    if (file_exists($projectDir.'/tests/Controller/Customer/ResetPasswordApiTest.php')) {
+        $filesystem->dumpFile(
+            $projectDir.'/tests/Controller/Customer/ResetPasswordApiTest.php',
+            file_get_contents('https://raw.githubusercontent.com/Monofony/Monofony/0.5/src/Monofony/Pack/ApiPack/.recipe/tests/Controller/Customer/ResetPasswordApiTest.php')
+        );
+    }
+
+    if (file_exists($projectDir.'/tests/Controller/Customer/RegisterAppUserApiTest.php')) {
+        $filesystem->dumpFile(
+            $projectDir.'/tests/Controller/Customer/RegisterAppUserApiTest.php',
+            file_get_contents('https://raw.githubusercontent.com/Monofony/Monofony/0.5/src/Monofony/Pack/ApiPack/.recipe/tests/Controller/Customer/RegisterAppUserApiTest.php')
+        );
+    }
+
+    if (file_exists($projectDir.'/tests/Responses/Expected/customer/request_password_validation_response.json')) {
+        $filesystem->dumpFile(
+            $projectDir.'/tests/Responses/Expected/customer/request_password_validation_response.json',
+            file_get_contents('https://raw.githubusercontent.com/Monofony/Monofony/0.5/src/Monofony/Pack/ApiPack/.recipe/tests/Responses/Expected/customer/request_password_validation_response.json')
+        );
+    }
+
+    if (file_exists($projectDir.'/tests/Responses/Expected/customer/reset_password_validation_response.json')) {
+        $filesystem->dumpFile(
+            $projectDir.'/tests/Responses/Expected/customer/reset_password_validation_response.json',
+            file_get_contents('https://raw.githubusercontent.com/Monofony/Monofony/0.5/src/Monofony/Pack/ApiPack/.recipe/tests/Responses/Expected/customer/reset_password_validation_response.json')
+        );
+    }
+
+    if (file_exists($projectDir.'/tests/Responses/Expected/customer/unique_email_validation_response.json')) {
+        $filesystem->dumpFile(
+            $projectDir.'/tests/Responses/Expected/customer/unique_email_validation_response.json',
+            file_get_contents('https://raw.githubusercontent.com/Monofony/Monofony/0.5/src/Monofony/Pack/ApiPack/.recipe/tests/Responses/Expected/customer/unique_email_validation_response.json')
+        );
+    }
+
+    if (file_exists($projectDir.'/tests/Responses/Expected/customer/unique_email_validation_response.json')) {
+        $filesystem->dumpFile(
+            $projectDir.'/tests/Responses/Expected/customer/unique_email_validation_response.json',
+            file_get_contents('https://raw.githubusercontent.com/Monofony/Monofony/0.5/src/Monofony/Pack/ApiPack/.recipe/tests/Responses/Expected/customer/unique_email_validation_response.json')
+        );
+    }
+
+    if (file_exists($projectDir.'/tests/Responses/Expected/customer/register_validation_response.json')) {
+        $filesystem->dumpFile(
+            $projectDir.'/tests/Responses/Expected/customer/register_validation_response.json',
+            file_get_contents('https://raw.githubusercontent.com/Monofony/Monofony/0.5/src/Monofony/Pack/ApiPack/.recipe/tests/Responses/Expected/customer/register_validation_response.json')
+        );
+    }
 }
