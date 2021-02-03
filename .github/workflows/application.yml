@@ -86,6 +86,8 @@ jobs:
 
                     php bin/upgrade-to-0.5
 
+                    make fix
+
                     composer update
 
             -
