@@ -15,6 +15,7 @@ removeLegacyBundles($filesystem, $projectDir);
 replaceClasses($filesystem, $projectDir);
 updateCrudTemplates($filesystem, $projectDir);
 updateStaticAnalysisConfig($filesystem, $projectDir);
+updateOtherRecipes($filesystem, $projectDir);
 
 function removeLegacyConfigFiles(Filesystem $filesystem, string $projectDir): void
 {
@@ -213,5 +214,13 @@ function updateStaticAnalysisConfig(Filesystem $filesystem, string $projectDir)
     $filesystem->dumpFile(
         $projectDir.'/psalm.xml',
         file_get_contents('https://raw.githubusercontent.com/Monofony/Skeleton/master/psalm.xml')
+    );
+}
+
+function updateOtherRecipes(Filesystem $filesystem, string $projectDir)
+{
+    $filesystem->dumpFile(
+        $projectDir.'/src/Fixture/AbstractResourceFixture.php',
+        file_get_contents('https://raw.githubusercontent.com/Monofony/Monofony/0.5/src/Monofony/Pack/CorePack/.recipe/src/Fixture/AbstractResourceFixture.php')
     );
 }
