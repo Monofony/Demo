@@ -14,6 +14,7 @@ updateConfig($filesystem, $projectDir);
 removeLegacyBundles($filesystem, $projectDir);
 replaceClasses($filesystem, $projectDir);
 updateCrudTemplates($filesystem, $projectDir);
+updateStaticAnalysisConfig($filesystem, $projectDir);
 
 function removeLegacyConfigFiles(Filesystem $filesystem, string $projectDir): void
 {
@@ -200,4 +201,17 @@ function updateCrudTemplates(Filesystem $filesystem, string $projectDir): void
             }
         }
     }
+}
+
+function updateStaticAnalysisConfig(Filesystem $filesystem, string $projectDir)
+{
+    $filesystem->dumpFile(
+        $projectDir.'/phpstan.neon',
+        file_get_contents('https://raw.githubusercontent.com/Monofony/Skeleton/master/phpstan.neon')
+    );
+
+    $filesystem->dumpFile(
+        $projectDir.'/psalm.xml',
+        file_get_contents('https://raw.githubusercontent.com/Monofony/Skeleton/master/psalm.xml')
+    );
 }
