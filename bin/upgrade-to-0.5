@@ -20,7 +20,6 @@ updateOtherRecipes($filesystem, $projectDir);
 
 function removeLegacyConfigFiles(Filesystem $filesystem, string $projectDir): void
 {
-    $filesystem->remove($projectDir.'/config/packages/eight_points_guzzle.yaml');
     $filesystem->remove($projectDir.'/config/api_platform/resources/register_app_user.yaml');
     $filesystem->remove($projectDir.'/config/api_platform/resources/reset_password.yaml');
     $filesystem->remove($projectDir.'/config/api_platform/resources/reset_password_request.yaml');
