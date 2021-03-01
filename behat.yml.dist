@@ -1,5 +1,5 @@
 imports:
-    - config/suites.yaml
+    - config/behat/suites.yaml
 
 default:
     formatters:
@@ -9,19 +9,25 @@ default:
             snippets: false
 
     extensions:
-        Lakion\Behat\MinkDebugExtension:
+        DMore\ChromeExtension\Behat\ServiceContainer\ChromeExtension: ~
+
+        FriendsOfBehat\MinkDebugExtension:
             directory: etc/build
             clean_start: false
             screenshot: true
 
         Behat\MinkExtension:
             files_path: "%paths.base%/tests/Resources/"
-            base_url: "https://localhost:8080/"
+            base_url: "https://127.0.0.1:8080/"
             default_session: symfony
-            javascript_session: chrome
+            javascript_session: chrome_headless
             sessions:
                 symfony:
                     symfony: ~
+                chrome_headless:
+                    chrome:
+                        api_url: http://127.0.0.1:9222
+                        validate_certificate: false
                 chrome:
                     selenium2:
                         browser: chrome
@@ -31,7 +37,6 @@ default:
                             version: ""
                             chrome:
                                 switches:
-                                - "--headless"
                                 - "start-fullscreen"
                                 - "start-maximized"
                                 - "no-sandbox"
@@ -40,7 +45,8 @@ default:
                                 acceptInsecureCerts: true
                                 unexpectedAlertBehaviour: accept
 
-        FriendsOfBehat\SymfonyExtension: ~
+        FriendsOfBehat\SymfonyExtension:
+            bootstrap: tests/bootstrap.php
 
         FriendsOfBehat\VariadicExtension: ~
 

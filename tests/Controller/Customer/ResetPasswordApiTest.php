@@ -1,14 +1,5 @@
 <?php
 
-/*
- * This file is part of the Monofony demo.
- *
- * (c) Monofony
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 declare(strict_types=1);
 
 namespace App\Tests\Controller\Customer;
@@ -33,7 +24,7 @@ EOT;
         $this->client->request('POST', '/api/request_password', [], [], ['CONTENT_TYPE' => 'application/json'], $data);
 
         $response = $this->client->getResponse();
-        $this->assertResponse($response, 'customer/request_password_validation_response', Response::HTTP_BAD_REQUEST);
+        $this->assertResponse($response, 'customer/request_password_validation_response', Response::HTTP_UNPROCESSABLE_ENTITY);
     }
 
     /**
@@ -73,7 +64,7 @@ EOT;
         $this->client->request('POST', '/api/reset_password/t0ken', [], [], ['CONTENT_TYPE' => 'application/json'], $data);
 
         $response = $this->client->getResponse();
-        $this->assertResponse($response, 'customer/reset_password_validation_response', Response::HTTP_BAD_REQUEST);
+        $this->assertResponse($response, 'customer/reset_password_validation_response', Response::HTTP_UNPROCESSABLE_ENTITY);
     }
 
     /**

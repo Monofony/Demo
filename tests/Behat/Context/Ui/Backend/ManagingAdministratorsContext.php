@@ -18,7 +18,7 @@ use App\Tests\Behat\Page\Backend\Administrator\CreatePage;
 use App\Tests\Behat\Page\Backend\Administrator\IndexPage;
 use App\Tests\Behat\Page\Backend\Administrator\UpdatePage;
 use Behat\Behat\Context\Context;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Persistence\ObjectManager;
 use Monofony\Bridge\Behat\NotificationType;
 use Monofony\Bridge\Behat\Service\NotificationCheckerInterface;
 use Monofony\Bridge\Behat\Service\SharedStorageInterface;

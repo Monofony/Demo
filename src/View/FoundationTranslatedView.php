@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace App\View;
 
-use WhiteOctober\PagerfantaBundle\View\TranslatedView;
+use BabDev\PagerfantaBundle\View\TranslatedView;
 
 final class FoundationTranslatedView extends TranslatedView
 {

@@ -6,7 +6,7 @@ namespace spec\App\EventSubscriber;
 
 use Monofony\Contracts\Core\Model\Customer\CustomerInterface;
 use Doctrine\Common\EventSubscriber;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Persistence\ObjectManager;
 use Doctrine\ORM\Events;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;

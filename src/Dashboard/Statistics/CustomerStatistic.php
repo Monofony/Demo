@@ -15,17 +15,17 @@ namespace App\Dashboard\Statistics;
 
 use App\Repository\CustomerRepository;
 use Monofony\Component\Admin\Dashboard\Statistics\StatisticInterface;
-use Symfony\Component\Templating\EngineInterface;
+use Twig\Environment;
 
 class CustomerStatistic implements StatisticInterface
 {
     /** @var CustomerRepository */
     private $customerRepository;
 
-    /** @var EngineInterface */
+    /** @var Environment */
     private $engine;
 
-    public function __construct(CustomerRepository $customerRepository, EngineInterface $engine)
+    public function __construct(CustomerRepository $customerRepository, Environment $engine)
     {
         $this->customerRepository = $customerRepository;
         $this->engine = $engine;

@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace App\EventSubscriber;
 
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Persistence\ObjectManager;
 use Monofony\Contracts\Core\Model\Customer\CustomerInterface;
 use Sylius\Bundle\UserBundle\UserEvents;
 use Sylius\Component\User\Model\UserInterface;
