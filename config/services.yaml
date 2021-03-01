@@ -67,9 +67,9 @@ services:
 
     Sylius\Component\Customer\Context\CustomerContextInterface: '@App\Context\CustomerContext'
 
-    App\Swagger\SwaggerDecorator:
-        decorates: 'api_platform.swagger.normalizer.documentation'
-        arguments: ['@App\Swagger\SwaggerDecorator.inner']
+    App\OpenApi\OpenApiFactory:
+        decorates: 'api_platform.openapi.factory'
+        arguments: ['@App\OpenApi\OpenApiFactory.inner']
         autoconfigure: false
 
     App\Factory\BookingFactory:
