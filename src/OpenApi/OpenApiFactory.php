@@ -29,11 +29,6 @@ final class OpenApiFactory implements OpenApiFactoryInterface
         $this->decorated = $decorated;
     }
 
-    public function supportsNormalization($data, $format = null)
-    {
-        return $this->decorated->supportsNormalization($data, $format);
-    }
-
     public function __invoke(array $context = []): OpenApi
     {
         $openApi = $this->decorated->__invoke($context);
