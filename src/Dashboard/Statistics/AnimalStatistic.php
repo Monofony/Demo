@@ -15,17 +15,17 @@ namespace App\Dashboard\Statistics;
 
 use App\Repository\PetRepository;
 use Monofony\Component\Admin\Dashboard\Statistics\StatisticInterface;
-use Symfony\Component\Templating\EngineInterface;
+use Twig\Environment;
 
 final class AnimalStatistic implements StatisticInterface
 {
     /** @var PetRepository */
     private $petRepository;
 
-    /** @var EngineInterface */
+    /** @var Environment */
     private $engine;
 
-    public function __construct(PetRepository $petRepository, EngineInterface $engine)
+    public function __construct(PetRepository $petRepository, Environment $engine)
     {
         $this->petRepository = $petRepository;
         $this->engine = $engine;

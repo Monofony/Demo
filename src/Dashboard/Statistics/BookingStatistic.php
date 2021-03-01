@@ -15,17 +15,17 @@ namespace App\Dashboard\Statistics;
 
 use App\Repository\BookingRepository;
 use Monofony\Component\Admin\Dashboard\Statistics\StatisticInterface;
-use Symfony\Component\Templating\EngineInterface;
+use Twig\Environment;
 
 final class BookingStatistic implements StatisticInterface
 {
     /** @var BookingRepository */
     private $bookingRepository;
 
-    /** @var EngineInterface */
+    /** @var Environment */
     private $engine;
 
-    public function __construct(BookingRepository $bookingRepository, EngineInterface $engine)
+    public function __construct(BookingRepository $bookingRepository, Environment $engine)
     {
         $this->bookingRepository = $bookingRepository;
         $this->engine = $engine;

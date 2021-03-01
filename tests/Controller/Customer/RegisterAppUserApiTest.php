@@ -23,18 +23,29 @@ final class RegisterAppUserApiTest extends JsonApiTestCase
      */
     public function it_does_not_allow_to_register_an_app_user_without_required_data()
     {
+        $this->client->request('POST', '/api/customers', [], [], ['CONTENT_TYPE' => 'application/json'], '{}');
+
+        $response = $this->client->getResponse();
+        $this->assertResponse($response, 'customer/register_validation_response', Response::HTTP_UNPROCESSABLE_ENTITY);
+    }
+
+    /**
+     * @test
+     */
+    public function it_does_not_allow_to_register_a_too_short_password()
+    {
         $data =
             <<<EOT
         {
-            "email": "",
-            "password": ""
+            "email": "api@sylius.com",
+            "password": "123"
         }
 EOT;
 
-        $this->client->request('POST', '/api/register', [], [], ['CONTENT_TYPE' => 'application/json'], $data);
+        $this->client->request('POST', '/api/customers', [], [], ['CONTENT_TYPE' => 'application/json'], $data);
 
         $response = $this->client->getResponse();
-        $this->assertResponse($response, 'customer/register_validation_response', Response::HTTP_BAD_REQUEST);
+        $this->assertResponse($response, 'customer/too_short_password_validation_response', Response::HTTP_UNPROCESSABLE_ENTITY);
     }
 
     /**
@@ -52,10 +63,10 @@ EOT;
         }
 EOT;
 
-        $this->client->request('POST', '/api/register', [], [], ['CONTENT_TYPE' => 'application/json'], $data);
+        $this->client->request('POST', '/api/customers', [], [], ['CONTENT_TYPE' => 'application/json'], $data);
 
         $response = $this->client->getResponse();
-        $this->assertResponse($response, 'customer/unique_email_validation_response', Response::HTTP_BAD_REQUEST);
+        $this->assertResponse($response, 'customer/unique_email_validation_response', Response::HTTP_UNPROCESSABLE_ENTITY);
     }
 
     /**
@@ -71,7 +82,7 @@ EOT;
         }
 EOT;
 
-        $this->client->request('POST', '/api/register', [], [], ['CONTENT_TYPE' => 'application/json'], $data);
+        $this->client->request('POST', '/api/customers', [], [], ['CONTENT_TYPE' => 'application/json'], $data);
 
         $response = $this->client->getResponse();
         $this->assertResponseCode($response, Response::HTTP_NO_CONTENT);

@@ -5,11 +5,11 @@ namespace spec\App\Dashboard\Statistics;
 use App\Dashboard\Statistics\CustomerStatistic;
 use App\Repository\CustomerRepository;
 use PhpSpec\ObjectBehavior;
-use Symfony\Component\Templating\EngineInterface;
+use Twig\Environment;
 
 class CustomerStatisticSpec extends ObjectBehavior
 {
-    function let(CustomerRepository $customerRepository, EngineInterface $engine): void
+    function let(CustomerRepository $customerRepository, Environment $engine): void
     {
         $this->beConstructedWith($customerRepository, $engine);
     }
@@ -21,7 +21,7 @@ class CustomerStatisticSpec extends ObjectBehavior
 
     function it_generate_statistics(
         CustomerRepository $customerRepository,
-        EngineInterface $engine
+        Environment $engine
     ): void {
         $customerRepository->countCustomers()->willReturn(6);
 

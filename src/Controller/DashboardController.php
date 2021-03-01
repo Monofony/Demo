@@ -18,14 +18,14 @@ use App\Repository\BookingRepository;
 use Monofony\Contracts\Admin\Dashboard\DashboardStatisticsProviderInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\RouterInterface;
-use Symfony\Component\Templating\EngineInterface;
+use Twig\Environment;
 
 final class DashboardController
 {
     /** @var DashboardStatisticsProviderInterface */
     private $statisticsProvider;
 
-    /** @var EngineInterface */
+    /** @var Environment */
     private $templating;
 
     /** @var BookingsDataProvider */
@@ -39,7 +39,7 @@ final class DashboardController
 
     public function __construct(
         DashboardStatisticsProviderInterface $statisticsProvider,
-        EngineInterface $templating,
+        Environment $templating,
         BookingRepository $bookingRepository,
         RouterInterface $router,
         BookingsDataProvider $bookingsDataProvider

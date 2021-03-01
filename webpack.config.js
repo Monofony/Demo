@@ -1,5 +1,5 @@
 const path = require('path');
-const vendorUiPath = path.resolve(__dirname, 'vendor/sylius/ui-bundle');
+const vendorUiPath = path.resolve(__dirname, 'vendor/monofony/ui-bundle');
 const build = require('./config-builder');
 
 const backendConfig = build('backend', `./assets/backend/`, vendorUiPath);

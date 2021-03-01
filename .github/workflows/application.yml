@@ -18,7 +18,7 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
-                php: [ 7.3 ]
+                php: [ 7.4 ]
 
         steps:
             -
@@ -96,7 +96,7 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
-                php: [7.3]
+                php: [7.4]
                 symfony: [^4.4]
                 mysql: [5.7]
 
@@ -126,13 +126,6 @@ jobs:
                     ini-values: date.timezone=Europe/Paris, opcache.enable=1, opcache.enable_cli=1, opcache.memory_consumption=256, opcache.max_accelerated_files=32531, opcache.interned_strings_buffer=8, opcache.validate_timestamps=0, opcache.save_comments=1, opcache.fast_shutdown=0
                     extensions: intl, gd, opcache, mysql, pdo_mysql, :xdebug
                     tools: symfony
-                    coverage: none
-
-            -
-                name: Setup PHP
-                uses: shivammathur/setup-php@v2
-                with:
-                    php-version: "7.3"
                     coverage: none
 
             -
@@ -231,7 +224,7 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
-                php: [ 7.3 ]
+                php: [ 7.4 ]
                 symfony: [ ^4.4 ]
                 node: [ 10.x ]
                 mysql: [ 5.7 ]

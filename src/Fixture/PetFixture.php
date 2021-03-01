@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace App\Fixture;
 
 use App\Fixture\Factory\PetExampleFactory;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Persistence\ObjectManager;
 
 class PetFixture extends AbstractResourceFixture
 {

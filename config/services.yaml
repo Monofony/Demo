@@ -20,6 +20,7 @@ services:
             $publicDir: '%kernel.project_dir%/public'
             $syliusResources: '%sylius.resources%'
             $testsDir: '%kernel.project_dir%/tests'
+            $translator: '@translator'
 
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
@@ -66,9 +67,9 @@ services:
 
     Sylius\Component\Customer\Context\CustomerContextInterface: '@App\Context\CustomerContext'
 
-    App\Swagger\SwaggerDecorator:
-        decorates: 'api_platform.swagger.normalizer.documentation'
-        arguments: ['@App\Swagger\SwaggerDecorator.inner']
+    App\OpenApi\OpenApiFactory:
+        decorates: 'api_platform.openapi.factory'
+        arguments: ['@App\OpenApi\OpenApiFactory.inner']
         autoconfigure: false
 
     App\Factory\BookingFactory:
