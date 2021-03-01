@@ -9,7 +9,7 @@
             "name": "Winnie",
             "sex": "male",
             "taxon": {
-                "@id": "@string@.startsWith('/api/taxons/')",
+                "@id": "@string@.startsWith('/api/taxa/')",
                 "@type": "Taxon",
                 "name": "Cats"
             },

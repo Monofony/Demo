@@ -9,7 +9,7 @@
             "name": "Winnie",
             "sex": "male",
             "taxon": {
-                "@id": "@string@.startsWith('/api/taxons/')",
+                "@id": "@string@.startsWith('/api/taxa/')",
                 "@type": "Taxon",
                 "name": "Cats"
             },
@@ -21,7 +21,7 @@
             "name": "Mickey",
             "sex": "female",
             "taxon": {
-                "@id": "@string@.startsWith('/api/taxons/')",
+                "@id": "@string@.startsWith('/api/taxa/')",
                 "@type": "Taxon",
                 "name": "Cats"
             },
@@ -33,7 +33,7 @@
             "name": "Bill",
             "sex": "female",
             "taxon": {
-                "@id": "@string@.startsWith('/api/taxons/')",
+                "@id": "@string@.startsWith('/api/taxa/')",
                 "@type": "Taxon",
                 "name": "Dogs"
             },
