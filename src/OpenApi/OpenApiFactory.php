@@ -90,7 +90,6 @@ final class OpenApiFactory implements OpenApiFactoryInterface
             null,
             [],
             $requestBody
-
         );
         $pathItem = $pathItem->withPost($operation);
         $openApi->getPaths()->addPath('/api/oauth/v2/token', $pathItem);

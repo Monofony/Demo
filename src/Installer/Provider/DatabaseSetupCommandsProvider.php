@@ -13,9 +13,9 @@ declare(strict_types=1);
 
 namespace App\Installer\Provider;
 
-use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\DBAL\Schema\AbstractSchemaManager;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\Console\Helper\QuestionHelper;
 use Symfony\Component\Console\Input\InputInterface;
