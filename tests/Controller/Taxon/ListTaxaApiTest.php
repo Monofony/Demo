@@ -1,9 +1,9 @@
 <?php
 
 /*
- * This file is part of the monofony_demo project.
+ * This file is part of the Monofony demo.
  *
- * (c) Mobizel
+ * (c) Monofony
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
