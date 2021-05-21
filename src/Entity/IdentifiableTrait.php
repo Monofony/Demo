@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use JMS\Serializer\Annotation as JMS;
 
 trait IdentifiableTrait
 {
@@ -24,9 +23,6 @@ trait IdentifiableTrait
      * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
-     *
-     * @JMS\Expose
-     * @JMS\Groups({"Default"})
      */
     protected $id;
 
