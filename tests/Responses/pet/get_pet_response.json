@@ -1,0 +1,13 @@
+{
+    "@context": "/api/contexts/Pet",
+    "@id": "/api/pets/winnie",
+    "@type": "Pet",
+    "name": "Winnie",
+    "sex": "male",
+    "taxon": {
+        "@id": "@string@.startsWith('/api/taxa/')",
+        "@type": "Taxon",
+        "name": "Cats"
+    },
+    "age": "@string@"
+}

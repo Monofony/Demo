@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace App\Entity\Animal;
 
 use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Annotation\ApiProperty;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use App\Entity\IdentifiableTrait;
 use App\PetStates;
@@ -36,6 +37,17 @@ class Pet implements ResourceInterface
     use IdentifiableTrait;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     *
+     * @ApiProperty(identifier=false)
+     */
+    protected $id;
+
+    /**
      * @var string|null
      *
      * @ORM\Column(type="string")
@@ -51,6 +63,8 @@ class Pet implements ResourceInterface
      *
      * @Gedmo\Slug(fields={"name"})
      * @ORM\Column(type="string", length=128, unique=true)
+     *
+     * @ApiProperty(identifier=true)
      */
     private $slug;
 
