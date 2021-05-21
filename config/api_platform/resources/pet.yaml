@@ -6,3 +6,5 @@ App\Entity\Animal\Pet:
         get: null
     collectionOperations:
         get: null
+    subresourceOperations:
+        api_taxa_pets_get_subresource: null

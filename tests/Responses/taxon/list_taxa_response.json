@@ -1,0 +1,18 @@
+{
+    "@context": "/api/contexts/Taxon",
+    "@id": "/api/taxa",
+    "@type": "hydra:Collection",
+    "hydra:member": [
+        {
+            "@id": "/api/taxa/cats",
+            "@type": "Taxon",
+            "name": "Cats"
+        },
+        {
+            "@id": "/api/taxa/dogs",
+            "@type": "Taxon",
+            "name": "Dogs"
+        }
+    ],
+    "hydra:totalItems": 2
+}
