@@ -209,7 +209,9 @@ class Pet implements ResourceInterface
 
     public function getFirstImage(): ?PetImage
     {
-        return false !== $this->getImages()->first() ? $this->getImages()->first() : null;
+        $firstImage = $this->getImages()->first();
+
+        return false !== $firstImage ? $firstImage : null;
     }
 
     public function hasImage(PetImage $image): bool
