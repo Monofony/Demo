@@ -4,7 +4,7 @@
     "description": "Monofony demo edition that is deployed to monofony.mobizel.com",
     "license": "MIT",
     "require": {
-        "php": "^7.3",
+        "php": "^7.4",
         "beberlei/doctrineextensions": "^1.2",
         "mobizel/symfony-capistrano": "^0.2.0",
         "monofony/admin-pack": "0.5.*",

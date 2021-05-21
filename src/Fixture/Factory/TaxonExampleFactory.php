@@ -97,7 +97,7 @@ final class TaxonExampleFactory extends AbstractExampleFactory implements Exampl
             })
 
             ->setDefault('code', function (Options $options) {
-                return StringInflector::nameToCode($options['name']);
+                return StringInflector::nameToLowercaseCode($options['name']);
             })
 
             ->setDefault('slug', null)

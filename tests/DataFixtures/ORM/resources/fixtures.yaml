@@ -78,13 +78,13 @@ Sylius\Component\Taxonomy\Model\TaxonTranslation:
 
 App\Entity\Taxonomy\Taxon:
     taxon_cat:
-        code: Cats
+        code: cats
         sizeRange: !php/const App\SizeRanges::SMALL
         translations:
             - "@taxon_cat_translation_en_US"
             - "@taxon_cat_translation_fr_FR"
     taxon_dog:
-        code: Dogs
+        code: dogs
         sizeRange: !php/const App\SizeRanges::TALL
         translations:
             - "@taxon_dog_translation_en_US"
@@ -119,4 +119,3 @@ App\Entity\Animal\Pet:
         birthdate: <dateTimeBetween('2 months ago', '2 months ago')>
         taxon: "@taxon_dog"
         enabled: false
-
