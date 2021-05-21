@@ -7,4 +7,12 @@ App\Entity\Taxonomy\Taxon:
             controller: ApiPlatform\Core\Action\NotFoundAction
             read: false
             output: false
-    collectionOperations: []
+            openapi_context:
+                tags: [ Internal ]
+    collectionOperations:
+        get: null
+    properties:
+        pets:
+            subresource:
+                resourceClass: 'App\Entity\Animal\Pet'
+                collection: true

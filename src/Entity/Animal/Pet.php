@@ -48,43 +48,33 @@ class Pet implements ResourceInterface
     protected $id;
 
     /**
-     * @var string|null
-     *
      * @ORM\Column(type="string")
      *
      * @Assert\NotBlank()
      *
      * @Serializer\Groups({"pet:read"})
      */
-    private $name;
+    private ?string $name = null;
 
     /**
-     * @var string|null
-     *
      * @Gedmo\Slug(fields={"name"})
      * @ORM\Column(type="string", length=128, unique=true)
      *
      * @ApiProperty(identifier=true)
      */
-    private $slug;
+    private ?string $slug = null;
 
     /**
-     * @var string|null
-     *
      * @ORM\Column(type="text", nullable=true)
      */
-    private $description;
+    private ?string $description = null;
 
     /**
-     * @var float|null
-     *
      * @ORM\Column(type="float", nullable=true)
      */
-    private $size;
+    private ?float $size = null;
 
     /**
-     * @var string|null
-     *
      * @ORM\Column(type="string", nullable=true)
      *
      * @Assert\Expression(
@@ -92,62 +82,50 @@ class Pet implements ResourceInterface
      *     message="This value should not be blank."
      * )
      */
-    private $sizeUnit;
+    private ?string $sizeUnit = null;
 
     /**
-     * @var string|null
-     *
      * @ORM\Column(type="string", nullable=true)
      */
-    private $mainColor;
+    private ?string $mainColor = null;
 
     /**
-     * @var string|null
-     *
      * @ORM\Column(type="string", nullable=true)
      *
      * @Serializer\Groups({"pet:read"})
      */
-    private $sex;
+    private ?string $sex = null;
 
     /**
-     * @var Collection
+     * @var Collection<int, PetImage>
      *
      * @ORM\OneToMany(targetEntity="PetImage", mappedBy="pet", orphanRemoval=true, cascade={"persist"})
      */
-    private $images;
+    private Collection $images;
 
     /**
-     * @var TaxonInterface|null
-     *
-     * @ORM\ManyToOne(targetEntity="App\Entity\Taxonomy\Taxon")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Taxonomy\Taxon", inversedBy="pets")
      *
      * @Assert\NotBlank()
      *
      * @Serializer\Groups({"pet:read"})
      */
-    private $taxon;
+    private ?TaxonInterface $taxon = null;
 
     /**
-     * @var \DateTimeInterface|null
-     *
      * @ORM\Column(type="date", nullable=true)
      */
-    private $birthDate;
+    private ?\DateTimeInterface $birthDate = null;
 
     /**
-     * @var string|null
-     *
      * @ORM\Column(type="string")
      */
-    private $status;
+    private string $status;
 
     /**
-     * @var bool
-     *
      * @ORM\Column(type="boolean")
      */
-    private $enabled;
+    private bool $enabled;
 
     public function __construct()
     {
@@ -221,6 +199,9 @@ class Pet implements ResourceInterface
         return null !== $this->getSize();
     }
 
+    /**
+     * @return Collection<int, PetImage>
+     */
     public function getImages(): ?Collection
     {
         return $this->images;
@@ -280,12 +261,12 @@ class Pet implements ResourceInterface
         $this->birthDate = $birthDate;
     }
 
-    public function getStatus(): ?string
+    public function getStatus(): string
     {
         return $this->status;
     }
 
-    public function setStatus(?string $status): void
+    public function setStatus(string $status): void
     {
         $this->status = $status;
     }

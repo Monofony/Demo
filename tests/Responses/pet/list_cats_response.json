@@ -1,37 +1,33 @@
 {
     "@context": "/api/contexts/Pet",
-    "@id": "/api/pets",
+    "@id": "/api/taxa/cats/pets",
     "@type": "hydra:Collection",
     "hydra:member": [
         {
-            "@id": "@string@.startsWith('/api/pets/')",
+            "@id": "/api/pets/winnie",
             "@type": "Pet",
             "name": "Winnie",
             "sex": "male",
             "taxon": {
-                "@id": "@string@.startsWith('/api/taxa/')",
+                "@id": "/api/taxa/cats",
                 "@type": "Taxon",
                 "name": "Cats"
             },
-            "age": "@string@.startsWith('-P0Y2M0DT')"
+            "age": "@string@"
         },
         {
-            "@id": "@string@.startsWith('/api/pets/')",
+            "@id": "/api/pets/mickey",
             "@type": "Pet",
             "name": "Mickey",
             "sex": "female",
             "taxon": {
-                "@id": "@string@.startsWith('/api/taxa/')",
+                "@id": "/api/taxa/cats",
                 "@type": "Taxon",
                 "name": "Cats"
             },
-            "age": "@string@.startsWith('-P0Y2M0DT')"
+            "age": "@string@"
         }
     ],
     "hydra:totalItems": 2,
-    "hydra:view": {
-        "@id": "/api/pets?taxon.code=Cats",
-        "@type": "hydra:PartialCollectionView"
-    },
     "hydra:search": @array@
 }
