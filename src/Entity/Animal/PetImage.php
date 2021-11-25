@@ -15,7 +15,6 @@ namespace App\Entity\Animal;
 
 use App\Entity\Media\File;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
@@ -30,17 +29,14 @@ class PetImage extends File
      * {@inheritdoc}
      *
      * @Vich\UploadableField(mapping="animal_image", fileNameProperty="path")
-     *
-     * @Assert\File(maxSize="6000000", mimeTypes={"image/*"})
      */
+    #[\Symfony\Component\Validator\Constraints\File(maxSize: '6000000', mimeTypes: ['image/*'])]
     protected $file;
 
     /**
-     * @var Pet|null
-     *
      * @ORM\ManyToOne(targetEntity="App\Entity\Animal\Pet", inversedBy="images")
      */
-    private $pet;
+    private ?Pet $pet = null;
 
     public function getPet(): ?Pet
     {

@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace App\Fixture\Factory;
 
+use Faker\Factory;
+use Faker\Generator;
 use FOS\OAuthServerBundle\Model\ClientInterface;
 use FOS\OAuthServerBundle\Model\ClientManagerInterface;
 use Symfony\Component\OptionsResolver\Options;
@@ -20,20 +22,13 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ApiClientExampleFactory extends AbstractExampleFactory
 {
-    /** @var ClientManagerInterface */
-    private $clientManager;
+    private Generator $faker;
 
-    /** @var \Faker\Generator */
-    private $faker;
+    private OptionsResolver $optionsResolver;
 
-    /** @var OptionsResolver */
-    private $optionsResolver;
-
-    public function __construct(ClientManagerInterface $clientManager)
+    public function __construct(private ClientManagerInterface $clientManager)
     {
-        $this->clientManager = $clientManager;
-
-        $this->faker = \Faker\Factory::create();
+        $this->faker = Factory::create();
         $this->optionsResolver = new OptionsResolver();
 
         $this->configureOptions($this->optionsResolver);

@@ -20,16 +20,8 @@ use Sylius\Component\Taxonomy\Repository\TaxonRepositoryInterface;
 
 final class TaxonFilter implements FilterInterface
 {
-    /** @var TaxonRepositoryInterface */
-    private $taxonRepository;
-
-    /** @var string */
-    private $locale;
-
-    public function __construct(TaxonRepositoryInterface $taxonRepository, string $locale)
+    public function __construct(private TaxonRepositoryInterface $taxonRepository, private string $locale)
     {
-        $this->taxonRepository = $taxonRepository;
-        $this->locale = $locale;
     }
 
     /**

@@ -20,16 +20,8 @@ use Sylius\Component\Resource\Factory\FactoryInterface;
 
 final class BookingFactory implements FactoryInterface
 {
-    /** @var CustomerContextInterface */
-    private $customerContext;
-
-    /** @var FactoryInterface */
-    private $factory;
-
-    public function __construct(CustomerContextInterface $customerContext, FactoryInterface $factory)
+    public function __construct(private CustomerContextInterface $customerContext, private FactoryInterface $factory)
     {
-        $this->customerContext = $customerContext;
-        $this->factory = $factory;
     }
 
     public function createNew(): Booking

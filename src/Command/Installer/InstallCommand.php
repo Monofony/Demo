@@ -22,17 +22,10 @@ use Symfony\Component\Process\Exception\RuntimeException;
 
 class InstallCommand extends Command
 {
-    /** @var DirectoryChecker */
-    private $directoryChecker;
+    protected static $defaultName = 'app:install';
+    private ?CommandExecutor $commandExecutor = null;
 
-    /** @var string */
-    private $cacheDir;
-
-    /** @var CommandExecutor */
-    private $commandExecutor;
-
-    /** @var array */
-    private $commands = [
+    private array $commands = [
         [
             'command' => 'database',
             'message' => 'Setting up the database.',
@@ -47,11 +40,8 @@ class InstallCommand extends Command
         ],
     ];
 
-    public function __construct(DirectoryChecker $directoryChecker, string $cacheDir)
+    public function __construct(private DirectoryChecker $directoryChecker, private string $cacheDir)
     {
-        $this->directoryChecker = $directoryChecker;
-        $this->cacheDir = $cacheDir;
-
         parent::__construct();
     }
 
@@ -60,9 +50,7 @@ class InstallCommand extends Command
      */
     protected function configure()
     {
-        $this
-            ->setName('app:install')
-            ->setDescription('Installs Monofony in your preferred environment.')
+        $this->setDescription('Installs Monofony in your preferred environment.')
             ->setHelp(
                 <<<EOT
 The <info>%command.name%</info> command installs Monofony.
@@ -83,7 +71,7 @@ EOT
      *
      * @throws \Exception
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $outputStyle = new SymfonyStyle($input, $output);
         $outputStyle->writeln('<info>Installing Monofony...</info>');

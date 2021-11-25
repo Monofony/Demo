@@ -18,6 +18,8 @@ use App\Fixture\OptionsResolver\LazyOption;
 use App\Formatter\StringInflector;
 use App\SizeRanges;
 use Doctrine\ORM\EntityManagerInterface;
+use Faker\Factory;
+use Faker\Generator;
 use Sylius\Component\Taxonomy\Generator\TaxonSlugGeneratorInterface;
 use Sylius\Component\Taxonomy\Model\TaxonInterface;
 use Symfony\Component\OptionsResolver\Options;
@@ -25,24 +27,13 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 final class TaxonExampleFactory extends AbstractExampleFactory implements ExampleFactoryInterface
 {
-    /** @var EntityManagerInterface */
-    private $entityManager;
+    private Generator $faker;
 
-    /** @var \Faker\Generator */
-    private $faker;
+    private OptionsResolver $optionsResolver;
 
-    /** @var TaxonSlugGeneratorInterface */
-    private $taxonSlugGenerator;
-
-    /** @var OptionsResolver */
-    private $optionsResolver;
-
-    public function __construct(EntityManagerInterface $entityManager, TaxonSlugGeneratorInterface $taxonSlugGenerator)
+    public function __construct(private EntityManagerInterface $entityManager, private TaxonSlugGeneratorInterface $taxonSlugGenerator)
     {
-        $this->entityManager = $entityManager;
-        $this->taxonSlugGenerator = $taxonSlugGenerator;
-
-        $this->faker = \Faker\Factory::create();
+        $this->faker = Factory::create();
         $this->optionsResolver = new OptionsResolver();
 
         $this->configureOptions($this->optionsResolver);

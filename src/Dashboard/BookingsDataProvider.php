@@ -18,16 +18,8 @@ use Doctrine\ORM\EntityManagerInterface;
 
 final class BookingsDataProvider
 {
-    /** @var EntityManagerInterface */
-    private $entityManager;
-
-    /** @var BookingRepository */
-    private $bookingRepository;
-
-    public function __construct(EntityManagerInterface $entityManager, BookingRepository $bookingRepository)
+    public function __construct(private EntityManagerInterface $entityManager, private BookingRepository $bookingRepository)
     {
-        $this->entityManager = $entityManager;
-        $this->bookingRepository = $bookingRepository;
     }
 
     public function getLastYearBookingsSummary(): BookingsSummary

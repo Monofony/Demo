@@ -22,24 +22,13 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 
 class InstallDatabaseCommand extends Command
 {
-    /** @var DatabaseSetupCommandsProviderInterface */
-    private $databaseSetupCommandsProvider;
-
-    /** @var CommandsRunner */
-    private $commandsRunner;
-
-    /** @var string */
-    private $environment;
+    protected static $defaultName = 'app:install:database';
 
     public function __construct(
-        DatabaseSetupCommandsProviderInterface $databaseSetupCommandsProvider,
-        CommandsRunner $commandsRunner,
-        string $environment
+        private DatabaseSetupCommandsProviderInterface $databaseSetupCommandsProvider,
+        private CommandsRunner $commandsRunner,
+        private string $environment
     ) {
-        $this->databaseSetupCommandsProvider = $databaseSetupCommandsProvider;
-        $this->commandsRunner = $commandsRunner;
-        $this->environment = $environment;
-
         parent::__construct();
     }
 
@@ -48,9 +37,7 @@ class InstallDatabaseCommand extends Command
      */
     protected function configure()
     {
-        $this
-            ->setName('app:install:database')
-            ->setDescription('Install Monofony database.')
+        $this->setDescription('Install Monofony database.')
             ->setHelp(
                 <<<EOT
 The <info>%command.name%</info> command creates Monofony database.
@@ -64,7 +51,7 @@ EOT
      *
      * @throws \Exception
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $outputStyle = new SymfonyStyle($input, $output);
         $outputStyle->writeln(sprintf(

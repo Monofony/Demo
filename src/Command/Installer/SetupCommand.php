@@ -30,29 +30,14 @@ use Webmozart\Assert\Assert;
 
 final class SetupCommand extends Command
 {
-    /** @var ObjectManager */
-    private $adminUserManager;
-
-    /** @var FactoryInterface */
-    private $adminUserFactory;
-
-    /** @var UserRepositoryInterface */
-    private $adminUserRepository;
-
-    /** @var ValidatorInterface */
-    private $validator;
+    protected static $defaultName = 'app:install:setup';
 
     public function __construct(
-        ObjectManager $adminUserManager,
-        FactoryInterface $adminUserFactory,
-        UserRepositoryInterface $adminUserRepository,
-        ValidatorInterface $validator
+        private ObjectManager $adminUserManager,
+        private FactoryInterface $adminUserFactory,
+        private UserRepositoryInterface $adminUserRepository,
+        private ValidatorInterface $validator
     ) {
-        $this->adminUserManager = $adminUserManager;
-        $this->adminUserFactory = $adminUserFactory;
-        $this->adminUserRepository = $adminUserRepository;
-        $this->validator = $validator;
-
         parent::__construct();
     }
 
@@ -61,9 +46,7 @@ final class SetupCommand extends Command
      */
     protected function configure()
     {
-        $this
-            ->setName('app:install:setup')
-            ->setDescription('Monofony configuration setup.')
+        $this->setDescription('Monofony configuration setup.')
             ->setHelp(
                 <<<EOT
 The <info>%command.name%</info> command allows user to configure basic Monofony data.
@@ -75,7 +58,7 @@ EOT
     /**
      * {@inheritdoc}
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $this->setupAdministratorUser($input, $output);
 

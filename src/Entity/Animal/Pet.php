@@ -24,8 +24,9 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Sylius\Component\Resource\Model\ResourceInterface;
 use Sylius\Component\Taxonomy\Model\TaxonInterface;
-use Symfony\Component\Serializer\Annotation as Serializer;
-use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints\Expression;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 /**
  * @ORM\Entity
@@ -37,110 +38,79 @@ class Pet implements ResourceInterface
     use IdentifiableTrait;
 
     /**
-     * @var int
-     *
      * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
-     *
      * @ApiProperty(identifier=false)
      */
-    protected $id;
+    protected int $id;
 
     /**
-     * @var string|null
-     *
      * @ORM\Column(type="string")
-     *
-     * @Assert\NotBlank()
-     *
-     * @Serializer\Groups({"pet:read"})
      */
-    private $name;
+    #[NotBlank]
+    #[Groups(groups: ['pet:read'])]
+    private ?string $name = null;
 
     /**
-     * @var string|null
-     *
      * @Gedmo\Slug(fields={"name"})
      * @ORM\Column(type="string", length=128, unique=true)
-     *
      * @ApiProperty(identifier=true)
      */
-    private $slug;
+    private ?string $slug = null;
 
     /**
-     * @var string|null
-     *
      * @ORM\Column(type="text", nullable=true)
      */
-    private $description;
+    private ?string $description = null;
 
     /**
-     * @var float|null
-     *
      * @ORM\Column(type="float", nullable=true)
      */
-    private $size;
+    private ?float $size = null;
 
     /**
-     * @var string|null
-     *
      * @ORM\Column(type="string", nullable=true)
-     *
-     * @Assert\Expression(
-     *     "value != null or !this.isSizeUnitRequired()",
-     *     message="This value should not be blank."
-     * )
      */
-    private $sizeUnit;
+    #[Expression(expression: 'value != null or !this.isSizeUnitRequired()', message: 'This value should not be blank.')]
+    private ?string $sizeUnit = null;
 
     /**
-     * @var string|null
-     *
      * @ORM\Column(type="string", nullable=true)
      */
-    private $mainColor;
+    private ?string $mainColor = null;
 
     /**
-     * @var string|null
-     *
      * @ORM\Column(type="string", nullable=true)
-     *
-     * @Serializer\Groups({"pet:read"})
      */
-    private $sex;
+    #[Groups(groups: ['pet:read'])]
+    private ?string $sex = null;
 
     /**
      * @var Collection
      *
      * @ORM\OneToMany(targetEntity="PetImage", mappedBy="pet", orphanRemoval=true, cascade={"persist"})
      */
-    private $images;
+    private ?Collection $images = null;
 
     /**
      * @var TaxonInterface|null
      *
      * @ORM\ManyToOne(targetEntity="App\Entity\Taxonomy\Taxon")
-     *
-     * @Assert\NotBlank()
-     *
-     * @Serializer\Groups({"pet:read"})
      */
+    #[NotBlank]
+    #[Groups(groups: ['pet:read'])]
     private $taxon;
 
     /**
-     * @var \DateTimeInterface|null
-     *
      * @ORM\Column(type="date", nullable=true)
      */
-    private $birthDate;
+    private ?\DateTimeInterface $birthDate = null;
 
     /**
-     * @var string|null
-     *
      * @ORM\Column(type="string")
      */
-    private $status;
+    private ?string $status = null;
 
     /**
      * @var bool
@@ -300,9 +270,7 @@ class Pet implements ResourceInterface
         $this->enabled = $enabled;
     }
 
-    /**
-     * @Serializer\Groups({"pet:read"})
-     */
+    #[Groups(groups: ['pet:read'])]
     public function getAge(): ?\DateInterval
     {
         return null !== $this->birthDate ? (new \DateTime('now'))->diff($this->getBirthDate()) : null;

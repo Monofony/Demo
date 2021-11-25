@@ -19,16 +19,8 @@ use Twig\Environment;
 
 final class BookingStatistic implements StatisticInterface
 {
-    /** @var BookingRepository */
-    private $bookingRepository;
-
-    /** @var Environment */
-    private $engine;
-
-    public function __construct(BookingRepository $bookingRepository, Environment $engine)
+    public function __construct(private BookingRepository $bookingRepository, private Environment $engine)
     {
-        $this->bookingRepository = $bookingRepository;
-        $this->engine = $engine;
     }
 
     public function generate(): string

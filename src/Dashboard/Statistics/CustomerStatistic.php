@@ -19,16 +19,8 @@ use Twig\Environment;
 
 class CustomerStatistic implements StatisticInterface
 {
-    /** @var CustomerRepository */
-    private $customerRepository;
-
-    /** @var Environment */
-    private $engine;
-
-    public function __construct(CustomerRepository $customerRepository, Environment $engine)
+    public function __construct(private CustomerRepository $customerRepository, private Environment $engine)
     {
-        $this->customerRepository = $customerRepository;
-        $this->engine = $engine;
     }
 
     public function generate(): string

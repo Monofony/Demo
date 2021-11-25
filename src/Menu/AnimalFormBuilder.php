@@ -18,12 +18,8 @@ use Knp\Menu\ItemInterface;
 
 final class AnimalFormBuilder
 {
-    /** @var FactoryInterface */
-    private $factory;
-
-    public function __construct(FactoryInterface $factory)
+    public function __construct(private FactoryInterface $factory)
     {
-        $this->factory = $factory;
     }
 
     public function createMenu(array $options = []): ItemInterface

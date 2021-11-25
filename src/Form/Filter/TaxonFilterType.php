@@ -23,20 +23,8 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 final class TaxonFilterType extends AbstractType
 {
-    /** @var string */
-    private $locale;
-
-    /** @var RequestStack */
-    private $requestStack;
-
-    /** @var TaxonRepository */
-    private $taxonRepository;
-
-    public function __construct(string $locale, RequestStack $requestStack, TaxonRepository $taxonRepository)
+    public function __construct(private string $locale, private RequestStack $requestStack, private TaxonRepository $taxonRepository)
     {
-        $this->locale = $locale;
-        $this->requestStack = $requestStack;
-        $this->taxonRepository = $taxonRepository;
     }
 
     public function configureOptions(OptionsResolver $resolver): void

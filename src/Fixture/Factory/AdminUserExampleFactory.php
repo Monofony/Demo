@@ -14,20 +14,20 @@ declare(strict_types=1);
 namespace App\Fixture\Factory;
 
 use App\Entity\User\AdminUser;
+use Faker\Factory;
+use Faker\Generator;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class AdminUserExampleFactory extends AbstractExampleFactory implements ExampleFactoryInterface
 {
-    /** @var \Faker\Generator */
-    private $faker;
+    private Generator $faker;
 
-    /** @var OptionsResolver */
-    private $optionsResolver;
+    private OptionsResolver $optionsResolver;
 
     public function __construct()
     {
-        $this->faker = \Faker\Factory::create();
+        $this->faker = Factory::create();
         $this->optionsResolver = new OptionsResolver();
 
         $this->configureOptions($this->optionsResolver);

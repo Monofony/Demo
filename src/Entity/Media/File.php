@@ -17,7 +17,7 @@ use App\Entity\IdentifiableTrait;
 use Doctrine\ORM\Mapping as ORM;
 use Sylius\Component\Resource\Model\ResourceInterface;
 use Sylius\Component\Resource\Model\TimestampableTrait;
-use Symfony\Component\Serializer\Annotation as Serializer;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\MappedSuperclass
@@ -31,13 +31,10 @@ abstract class File implements FileInterface, ResourceInterface
     protected $file;
 
     /**
-     * @var string|null
-     *
      * @ORM\Column(type="string")
-     *
-     * @Serializer\Groups({"Default", "Detailed"})
      */
-    protected $path;
+    #[Groups(groups: ['Default', 'Detailed'])]
+    protected ?string $path = null;
 
     /**
      * @var \DateTimeInterface|null

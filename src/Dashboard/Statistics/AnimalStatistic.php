@@ -19,16 +19,8 @@ use Twig\Environment;
 
 final class AnimalStatistic implements StatisticInterface
 {
-    /** @var PetRepository */
-    private $petRepository;
-
-    /** @var Environment */
-    private $engine;
-
-    public function __construct(PetRepository $petRepository, Environment $engine)
+    public function __construct(private PetRepository $petRepository, private Environment $engine)
     {
-        $this->petRepository = $petRepository;
-        $this->engine = $engine;
     }
 
     public function generate(): string

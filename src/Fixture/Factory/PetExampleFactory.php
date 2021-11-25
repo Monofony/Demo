@@ -25,6 +25,8 @@ use App\SizeUnits;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ObjectRepository;
+use Faker\Factory;
+use Faker\Generator;
 use Sylius\Component\Taxonomy\Model\TaxonInterface;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -34,24 +36,13 @@ use Webmozart\Assert\Assert;
 
 class PetExampleFactory extends AbstractExampleFactory
 {
-    /** @var EntityManagerInterface */
-    private $entityManager;
+    private Generator $faker;
 
-    /** @var \Faker\Generator */
-    private $faker;
+    private OptionsResolver $optionsResolver;
 
-    /** @var OptionsResolver */
-    private $optionsResolver;
-
-    /** @var string */
-    private $testsDir;
-
-    public function __construct(EntityManagerInterface $entityManager, string $testsDir)
+    public function __construct(private EntityManagerInterface $entityManager, private string $testsDir)
     {
-        $this->entityManager = $entityManager;
-        $this->testsDir = $testsDir;
-
-        $this->faker = \Faker\Factory::create();
+        $this->faker = Factory::create();
         $this->optionsResolver = new OptionsResolver();
 
         $this->configureOptions($this->optionsResolver);

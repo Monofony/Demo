@@ -22,11 +22,8 @@ use Symfony\Component\HttpFoundation\Response;
 
 final class OpenApiFactory implements OpenApiFactoryInterface
 {
-    private $decorated;
-
-    public function __construct(OpenApiFactoryInterface $decorated)
+    public function __construct(private OpenApiFactoryInterface $decorated)
     {
-        $this->decorated = $decorated;
     }
 
     public function __invoke(array $context = []): OpenApi

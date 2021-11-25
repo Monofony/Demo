@@ -18,12 +18,8 @@ use Sylius\Component\Mailer\Sender\SenderInterface;
 
 final class EmailSender
 {
-    /** @var SenderInterface */
-    private $sender;
-
-    public function __construct(SenderInterface $sender)
+    public function __construct(private SenderInterface $sender)
     {
-        $this->sender = $sender;
     }
 
     public function sendEmailForCanceledBooking(Booking $booking): void

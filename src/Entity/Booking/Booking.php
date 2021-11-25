@@ -38,11 +38,9 @@ class Booking implements ResourceInterface
     protected $createdAt;
 
     /**
-     * @var Pet|null
-     *
      * @ORM\ManyToOne(targetEntity="App\Entity\Animal\Pet")
      */
-    private $pet;
+    private ?Pet $pet = null;
 
     /**
      * @var CustomerInterface|null
@@ -52,18 +50,14 @@ class Booking implements ResourceInterface
     private $customer;
 
     /**
-     * @var string|null
-     *
      * @ORM\Column(type="string")
      */
-    private $status;
+    private ?string $status = null;
 
     /**
-     * @var \DateTimeInterface|null
-     *
      * @ORM\Column(type="date", nullable=true)
      */
-    private $familyContactedAt;
+    private ?\DateTimeInterface $familyContactedAt = null;
 
     public function __construct()
     {

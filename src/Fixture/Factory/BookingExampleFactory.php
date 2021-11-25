@@ -20,25 +20,20 @@ use App\Entity\Customer\Customer;
 use App\Fixture\OptionsResolver\LazyOption;
 use App\PetStates;
 use Doctrine\ORM\EntityManagerInterface;
+use Faker\Factory;
+use Faker\Generator;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 final class BookingExampleFactory extends AbstractExampleFactory
 {
-    /** @var EntityManagerInterface */
-    private $entityManager;
+    private Generator $faker;
 
-    /** @var \Faker\Generator */
-    private $faker;
+    private OptionsResolver $optionsResolver;
 
-    /** @var OptionsResolver */
-    private $optionsResolver;
-
-    public function __construct(EntityManagerInterface $entityManager)
+    public function __construct(private EntityManagerInterface $entityManager)
     {
-        $this->entityManager = $entityManager;
-
-        $this->faker = \Faker\Factory::create();
+        $this->faker = Factory::create();
         $this->optionsResolver = new OptionsResolver();
 
         $this->configureOptions($this->optionsResolver);

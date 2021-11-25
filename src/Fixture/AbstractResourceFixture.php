@@ -26,26 +26,10 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
  */
 abstract class AbstractResourceFixture implements FixtureInterface
 {
-    /**
-     * @var ObjectManager
-     */
-    private $objectManager;
+    private OptionsResolver $optionsResolver;
 
-    /**
-     * @var ExampleFactoryInterface
-     */
-    private $exampleFactory;
-
-    /**
-     * @var OptionsResolver
-     */
-    private $optionsResolver;
-
-    public function __construct(ObjectManager $objectManager, ExampleFactoryInterface $exampleFactory)
+    public function __construct(private ObjectManager $objectManager, private ExampleFactoryInterface $exampleFactory)
     {
-        $this->objectManager = $objectManager;
-        $this->exampleFactory = $exampleFactory;
-
         $this->optionsResolver =
             (new OptionsResolver())
                 ->setDefault('random', 0)

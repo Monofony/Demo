@@ -22,15 +22,10 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class CreateClientCommand extends Command
 {
-    /**
-     * @var ClientManagerInterface
-     */
-    private $clientManager;
+    protected static $defaultName = 'sylius:oauth-server:create-client';
 
-    public function __construct(ClientManagerInterface $clientManager)
+    public function __construct(private ClientManagerInterface $clientManager)
     {
-        $this->clientManager = $clientManager;
-
         parent::__construct();
     }
 
@@ -39,9 +34,7 @@ class CreateClientCommand extends Command
      */
     protected function configure()
     {
-        $this
-            ->setName('sylius:oauth-server:create-client')
-            ->setDescription('Creates a new client')
+        $this->setDescription('Creates a new client')
             ->addOption(
                 'redirect-uri',
                 null,
@@ -65,7 +58,7 @@ EOT
     /**
      * {@inheritdoc}
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         /** @var Client $client */
         $client = $this->clientManager->createClient();

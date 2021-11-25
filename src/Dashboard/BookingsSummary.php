@@ -15,8 +15,7 @@ namespace App\Dashboard;
 
 final class BookingsSummary
 {
-    /** @var array */
-    private $monthsBookingsMap = [];
+    private array $monthsBookingsMap = [];
 
     public function __construct(
         \DateTimeInterface $startDate,

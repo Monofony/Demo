@@ -22,33 +22,8 @@ use Twig\Environment;
 
 final class DashboardController
 {
-    /** @var DashboardStatisticsProviderInterface */
-    private $statisticsProvider;
-
-    /** @var Environment */
-    private $templating;
-
-    /** @var BookingsDataProvider */
-    private $bookingsDataProvider;
-
-    /** @var BookingRepository */
-    private $bookingRepository;
-
-    /** @var RouterInterface */
-    private $router;
-
-    public function __construct(
-        DashboardStatisticsProviderInterface $statisticsProvider,
-        Environment $templating,
-        BookingRepository $bookingRepository,
-        RouterInterface $router,
-        BookingsDataProvider $bookingsDataProvider
-    ) {
-        $this->statisticsProvider = $statisticsProvider;
-        $this->templating = $templating;
-        $this->bookingRepository = $bookingRepository;
-        $this->router = $router;
-        $this->bookingsDataProvider = $bookingsDataProvider;
+    public function __construct(private DashboardStatisticsProviderInterface $statisticsProvider, private Environment $templating, private BookingRepository $bookingRepository, private RouterInterface $router, private BookingsDataProvider $bookingsDataProvider)
+    {
     }
 
     public function indexAction(): Response

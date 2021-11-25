@@ -19,16 +19,8 @@ use Doctrine\ORM\EntityManagerInterface;
 
 final class PetModifier
 {
-    /** @var BookingFactory */
-    private $bookingFactory;
-
-    /** @var EntityManagerInterface */
-    private $manager;
-
-    public function __construct(BookingFactory $bookingFactory, EntityManagerInterface $manager)
+    public function __construct(private BookingFactory $bookingFactory, private EntityManagerInterface $manager)
     {
-        $this->bookingFactory = $bookingFactory;
-        $this->manager = $manager;
     }
 
     public function createBooking(Pet $pet): void

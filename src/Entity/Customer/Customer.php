@@ -20,7 +20,7 @@ use Monofony\Contracts\Core\Model\Customer\CustomerInterface;
 use Monofony\Contracts\Core\Model\User\AppUserInterface;
 use Sylius\Component\Customer\Model\Customer as BaseCustomer;
 use Sylius\Component\User\Model\UserInterface;
-use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Constraints\Valid;
 
 /**
  * @ORM\Entity
@@ -32,9 +32,8 @@ class Customer extends BaseCustomer implements CustomerInterface
      * @var AppUserInterface|UserInterface
      *
      * @ORM\OneToOne(targetEntity="App\Entity\User\AppUser", mappedBy="customer", cascade={"persist"})
-     *
-     * @Assert\Valid
      */
+    #[Valid]
     private $user;
 
     /**
@@ -42,7 +41,7 @@ class Customer extends BaseCustomer implements CustomerInterface
      *
      * @ORM\OneToMany(targetEntity="App\Entity\Booking\Booking", mappedBy="customer")
      */
-    private $bookings;
+    private array|Collection|ArrayCollection $bookings;
 
     public function __construct()
     {

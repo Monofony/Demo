@@ -21,34 +21,14 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class InstallAssetsCommand extends Command
 {
-    /**
-     * @var DirectoryChecker
-     */
-    private $directoryChecker;
-    /**
-     * @var CommandsRunner
-     */
-    private $commandsRunner;
-    /**
-     * @var string
-     */
-    private $publicDir;
-    /**
-     * @var string
-     */
-    private $environment;
+    protected static $defaultName = 'app:install:assets';
 
     public function __construct(
-        DirectoryChecker $directoryChecker,
-        CommandsRunner $commandsRunner,
-        string $publicDir,
-        string $environment
+        private DirectoryChecker $directoryChecker,
+        private CommandsRunner $commandsRunner,
+        private string $publicDir,
+        private string $environment
     ) {
-        $this->directoryChecker = $directoryChecker;
-        $this->commandsRunner = $commandsRunner;
-        $this->publicDir = $publicDir;
-        $this->environment = $environment;
-
         parent::__construct();
     }
 
@@ -57,9 +37,7 @@ class InstallAssetsCommand extends Command
      */
     protected function configure()
     {
-        $this
-            ->setName('app:install:assets')
-            ->setDescription('Installs all Monofony assets.')
+        $this->setDescription('Installs all Monofony assets.')
             ->setHelp(
                 <<<EOT
 The <info>%command.name%</info> command downloads and installs all Monofony media assets.
@@ -73,7 +51,7 @@ EOT
      *
      * @throws \Exception
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $output->writeln(sprintf('Installing Monofony assets for environment <info>%s</info>.', $this->environment));
 

@@ -24,29 +24,14 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 
 final class InstallSampleDataCommand extends Command
 {
-    /** @var DirectoryChecker */
-    private $directoryChecker;
-
-    /** @var CommandsRunner */
-    private $commandsRunner;
-
-    /** @var string */
-    private $publicDir;
-
-    /** @var string */
-    private $environment;
+    protected static $defaultName = 'app:install:sample-data';
 
     public function __construct(
-        DirectoryChecker $directoryChecker,
-        CommandsRunner $commandsRunner,
-        string $publicDir,
-        string $environment
+        private DirectoryChecker $directoryChecker,
+        private CommandsRunner $commandsRunner,
+        private string $publicDir,
+        private string $environment
     ) {
-        $this->directoryChecker = $directoryChecker;
-        $this->commandsRunner = $commandsRunner;
-        $this->publicDir = $publicDir;
-        $this->environment = $environment;
-
         parent::__construct();
     }
 
@@ -55,9 +40,7 @@ final class InstallSampleDataCommand extends Command
      */
     protected function configure()
     {
-        $this
-            ->setName('app:install:sample-data')
-            ->setDescription('Install sample data into Monofony.')
+        $this->setDescription('Install sample data into Monofony.')
             ->setHelp(
                 <<<EOT
 The <info>%command.name%</info> command loads the sample data for Monofony.
@@ -69,7 +52,7 @@ EOT
     /**
      * {@inheritdoc}
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         /** @var QuestionHelper $questionHelper */
         $questionHelper = $this->getHelper('question');

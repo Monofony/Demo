@@ -22,18 +22,8 @@ use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
 final class RegisterAppUserHandler implements MessageHandlerInterface
 {
-    private $appUserFactory;
-    private $appUserRepository;
-    private $customerProvider;
-
-    public function __construct(
-        FactoryInterface $appUserFactory,
-        RepositoryInterface $appUserRepository,
-        CustomerProviderInterface $customerProvider
-    ) {
-        $this->appUserFactory = $appUserFactory;
-        $this->appUserRepository = $appUserRepository;
-        $this->customerProvider = $customerProvider;
+    public function __construct(private FactoryInterface $appUserFactory, private RepositoryInterface $appUserRepository, private CustomerProviderInterface $customerProvider)
+    {
     }
 
     public function __invoke(RegisterAppUser $command): void
