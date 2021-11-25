@@ -208,9 +208,9 @@ final class ManagingPetsContext implements Context
     {
         Assert::true(
             $this->createPage->checkValidationMessageFor(
-            $element,
-            'This value should not be blank.'
-        )
+                $element,
+                'This value should not be blank.'
+            )
         );
     }
 
