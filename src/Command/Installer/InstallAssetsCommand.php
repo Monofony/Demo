@@ -60,7 +60,8 @@ class InstallAssetsCommand extends Command
         $this
             ->setName('app:install:assets')
             ->setDescription('Installs all Monofony assets.')
-            ->setHelp(<<<EOT
+            ->setHelp(
+                <<<EOT
 The <info>%command.name%</info> command downloads and installs all Monofony media assets.
 EOT
             )

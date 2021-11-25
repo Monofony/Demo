@@ -5,7 +5,7 @@ analyse: test-phpstan test-psalm
 .PHONY: analyse
 
 fix:
-	vendor/bin/ecs check src tests --set symfony --fix
+	vendor/bin/ecs check src tests spec config --fix
 .PHONY: fix
 
 validate: validate-coding-standard validate-composer validate-composer-security validate-doctrine-schema validate-twig validate-yaml-files validate-yarn-packages
@@ -19,7 +19,7 @@ test-behat: test-behat-without-javascript test-behat-with-javascript test-behat-
 .PHONY: test-behat
 
 validate-coding-standard:
-	vendor/bin/ecs check src tests --set symfony
+	vendor/bin/ecs check src tests spec config
 .PHONY: validate-coding-standard
 
 validate-composer:

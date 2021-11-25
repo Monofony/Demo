@@ -1,5 +1,16 @@
 <?php
 
+/*
+ * This file is part of the Monofony demo.
+ *
+ * (c) Monofony
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+declare(strict_types=1);
+
 namespace spec\App\Factory;
 
 use App\Entity\Animal\Pet;
@@ -7,7 +18,6 @@ use App\Entity\Booking\Booking;
 use App\Factory\BookingFactory;
 use Monofony\Contracts\Core\Model\Customer\CustomerInterface;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 use Sylius\Component\Customer\Context\CustomerContextInterface;
 use Sylius\Component\Resource\Factory\FactoryInterface;
 

@@ -206,9 +206,11 @@ final class ManagingPetsContext implements Context
      */
     public function iShouldBeNotifiedThatTheElementIsRequired(string $element): void
     {
-        Assert::true($this->createPage->checkValidationMessageFor(
-            $element,
-            'This value should not be blank.')
+        Assert::true(
+            $this->createPage->checkValidationMessageFor(
+                $element,
+                'This value should not be blank.'
+            )
         );
     }
 

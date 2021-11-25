@@ -218,7 +218,7 @@ class Pet implements ResourceInterface
 
     public function isSizeUnitRequired(): bool
     {
-        return null != $this->getSize();
+        return null !== $this->getSize();
     }
 
     public function getImages(): ?Collection

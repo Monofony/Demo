@@ -1,12 +1,15 @@
 <?php
 
 use PhpCsFixer\Fixer\Comment\HeaderCommentFixer;
-use PhpCsFixer\Fixer\Strict\DeclareStrictTypesFixer;
+use PhpCsFixer\Fixer\Import\NoUnusedImportsFixer;
+use PhpCsFixer\Fixer\Import\OrderedImportsFixer;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symplify\EasyCodingStandard\ValueObject\Option;
 use Symplify\EasyCodingStandard\ValueObject\Set\SetList;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
+    $containerConfigurator->import('vendor/mobizel/coding-standard/ecs.php');
+
     $header = <<<EOM
 This file is part of the Monofony demo.
 
@@ -18,15 +21,10 @@ EOM;
 
     $services = $containerConfigurator->services();
     $services
-        ->set(DeclareStrictTypesFixer::class)
         ->set(HeaderCommentFixer::class)
         ->call('configure', [[
             'header' => $header,
-            'location' => 'after_open'
+            'location' => 'after_open',
         ]])
     ;
-
-
-    $parameters = $containerConfigurator->parameters();
-    $parameters->set(Option::SETS, [SetList::SYMFONY]);
 };

@@ -79,7 +79,8 @@ final class OpenApiFactory implements OpenApiFactoryInterface
 
         $operation = new Operation(
             'authentication',
-            ['Token'], $responses,
+            ['Token'],
+            $responses,
             'Authenticate user',
             'Authenticate an user.',
             null,
