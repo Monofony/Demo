@@ -18,7 +18,7 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
-                php: [ 7.4 ]
+                php: [ 8.0 ]
 
         steps:
             -
@@ -96,7 +96,7 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
-                php: [7.4]
+                php: [8.0]
                 mysql: [5.7]
 
         env:
@@ -223,7 +223,7 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
-                php: [ 7.4 ]
+                php: [ 8.0 ]
                 node: [ 10.x ]
                 mysql: [ 5.7 ]
 
