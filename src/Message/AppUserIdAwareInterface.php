@@ -17,5 +17,5 @@ interface AppUserIdAwareInterface
 {
     public function getAppUserId(): ?int;
 
-    public function setAppUserId(?int $shopUserId): void;
+    public function setAppUserId(?int $appUserId): void;
 }
