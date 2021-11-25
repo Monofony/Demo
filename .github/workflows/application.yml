@@ -91,13 +91,12 @@ jobs:
     test-application-without-frontend:
         runs-on: ubuntu-18.04
 
-        name: "Test non-JS application (PHP ${{ matrix.php }}, Symfony ${{ matrix.symfony }}, MySQL ${{ matrix.mysql }})"
+        name: "Test non-JS application (PHP ${{ matrix.php }}, MySQL ${{ matrix.mysql }})"
 
         strategy:
             fail-fast: false
             matrix:
                 php: [7.4]
-                symfony: [^4.4]
                 mysql: [5.7]
 
         env:
@@ -217,7 +216,7 @@ jobs:
     test-application-with-frontend:
         runs-on: ubuntu-18.04
 
-        name: "Test JS application (PHP ${{ matrix.php }}, Symfony ${{ matrix.symfony }}, MySQL ${{ matrix.mysql }})"
+        name: "Test JS application (PHP ${{ matrix.php }}, MySQL ${{ matrix.mysql }})"
 
         timeout-minutes: 25
 
@@ -225,7 +224,6 @@ jobs:
             fail-fast: false
             matrix:
                 php: [ 7.4 ]
-                symfony: [ ^4.4 ]
                 node: [ 10.x ]
                 mysql: [ 5.7 ]
 
