@@ -43,7 +43,7 @@ class Pet implements ResourceInterface
      * @ORM\GeneratedValue(strategy="AUTO")
      * @ApiProperty(identifier=false)
      */
-    protected int $id;
+    protected ?int $id = null;
 
     /**
      * @ORM\Column(type="string")
