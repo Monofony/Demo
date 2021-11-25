@@ -4,7 +4,7 @@
     "description": "Monofony demo edition that is deployed to monofony.mobizel.com",
     "license": "MIT",
     "require": {
-        "php": "^7.4",
+        "php": "^8.0",
         "api-platform/core": "^2.6",
         "beberlei/doctrineextensions": "^1.2",
         "composer/package-versions-deprecated": "^1.11.99.4",
@@ -15,7 +15,7 @@
         "fakerphp/faker": "^1.14",
         "liip/imagine-bundle": "^2.2",
         "mobizel/coding-standard": "^1.1",
-        "mobizel/symfony-capistrano": "^0.2.0",
+        "mobizel/symfony-capistrano": "^0.3",
         "monofony/admin": "^0.7",
         "monofony/admin-contracts": "^0.7",
         "monofony/api-contracts": "^0.7",

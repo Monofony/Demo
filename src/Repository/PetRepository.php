@@ -17,7 +17,7 @@ use Doctrine\ORM\QueryBuilder;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 use Sylius\Component\Taxonomy\Model\TaxonInterface;
 
-final class PetRepository extends EntityRepository implements PetRepositoryInterface
+final class PetRepository extends EntityRepository
 {
     public function countAnimals(): int
     {
@@ -36,7 +36,7 @@ final class PetRepository extends EntityRepository implements PetRepositoryInter
             ->getResult();
     }
 
-    public function createListQueryBuilder($taxonId = null, $locale): QueryBuilder
+    public function createListQueryBuilder(?string $taxonId, string $locale): QueryBuilder
     {
         $queryBuilder = $this->createQueryBuilder('o');
         $queryBuilder

@@ -72,12 +72,13 @@ class BookingSpec extends ObjectBehavior
 
     function it_has_default_creation_date()
     {
-        $this->getCreatedAt()->shouldNotBeNull();
+        $this->getCreatedAt()->shouldNotReturn(null);
     }
 
     function it_has_a_creation_date(\DateTime $dateTime)
     {
         $this->setCreatedAt($dateTime);
+
         $this->getCreatedAt()->shouldReturn($dateTime);
     }
 
@@ -89,6 +90,7 @@ class BookingSpec extends ObjectBehavior
     function its_family_contact_date_is_mutable(\DateTime $dateTime)
     {
         $this->setFamilyContactedAt($dateTime);
+
         $this->getFamilyContactedAt()->shouldReturn($dateTime);
     }
 }
