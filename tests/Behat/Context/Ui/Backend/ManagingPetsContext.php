@@ -110,12 +110,12 @@ final class ManagingPetsContext implements Context
     }
 
     /**
-     * @When I specify its taxon as :name
-     * @When I do not specify any taxon
+     * @When I choose :name as its taxon
+     * @When I do not choose any taxon
      */
-    public function iSpecifyItsTaxonAs(string $name = '---'): void
+    public function iSpecifyItsTaxonAs(string $name = null): void
     {
-        $this->createPage->specifyTaxon($name);
+        $this->createPage->chooseTaxon($name ?? '');
     }
 
     /**

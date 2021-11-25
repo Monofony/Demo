@@ -61,7 +61,7 @@ class CreatePage extends AbstractCreatePage implements CreatePageInterface
         $this->getElement('sex')->setValue($sex);
     }
 
-    public function specifyTaxon(?string $taxon): void
+    public function chooseTaxon(string $taxon): void
     {
         $this->clickTabIfItsNotActive('taxonomy');
         $this->getElement('taxon')->selectOption($taxon);

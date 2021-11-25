@@ -53,7 +53,7 @@ sylius_fixtures:
                                             name: Husky
                                 -
                                     name: Small pets
-                                    description: « They’re so fluffy I’m gonna die! »
+                                    description: They're so fluffy I’m gonna die!
                                     children:
                                         -
                                             name: Hamster

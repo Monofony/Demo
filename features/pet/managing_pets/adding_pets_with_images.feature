@@ -6,13 +6,13 @@ Feature: Adding a new pet with images
 
     Background:
         Given I am logged in as an administrator
-        And there is a taxon with name "Amphibie"
+        And there is a taxon with name "Amphibian"
 
     @ui @javascript
     Scenario: Adding a new pet with images
         Given I want to create a new pet
         When I specify its name as "Axolotl"
-        And I specify its taxon as "Amphibie"
+        And I choose "Amphibian" as its taxon
         And I attach the "pets/Axolotl.jpg" image
         And I add it
         Then I should be notified that it has been successfully created

@@ -30,7 +30,7 @@
     ],
     "hydra:totalItems": 2,
     "hydra:view": {
-        "@id": "/api/pets?taxon.code=Cats",
+        "@id": "/api/pets?taxon.code=cats",
         "@type": "hydra:PartialCollectionView"
     },
     "hydra:search": @array@
