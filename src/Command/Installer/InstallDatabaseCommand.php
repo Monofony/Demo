@@ -51,7 +51,8 @@ class InstallDatabaseCommand extends Command
         $this
             ->setName('app:install:database')
             ->setDescription('Install Monofony database.')
-            ->setHelp(<<<EOT
+            ->setHelp(
+                <<<EOT
 The <info>%command.name%</info> command creates Monofony database.
 EOT
             )

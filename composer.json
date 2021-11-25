@@ -14,6 +14,7 @@
         "doctrine/orm": "^2.5",
         "fakerphp/faker": "^1.14",
         "liip/imagine-bundle": "^2.2",
+        "mobizel/coding-standard": "^1.1",
         "mobizel/symfony-capistrano": "^0.2.0",
         "monofony/admin": "^0.7",
         "monofony/admin-contracts": "^0.7",
@@ -77,7 +78,7 @@
         "friends-of-behat/symfony-extension": "^2.0",
         "friends-of-behat/variadic-extension": "^1.1",
         "friends-of-phpspec/phpspec-code-coverage": "^5.0",
-        "friendsofphp/php-cs-fixer": "^2.13",
+        "friendsofphp/php-cs-fixer": "^3.0",
         "infection/infection": "^0.18",
         "lchrusciel/api-test-case": "^5.1",
         "monofony/behat-bridge": "^0.7",
@@ -90,7 +91,6 @@
         "se/selenium-server-standalone": "^3.141",
         "symfony/debug-bundle": "5.3.*",
         "symfony/web-profiler-bundle": "5.3.*",
-        "symplify/easy-coding-standard": "^8.0",
         "vimeo/psalm": "^4.3"
     },
     "config": {

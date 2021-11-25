@@ -1,5 +1,16 @@
 <?php
 
+/*
+ * This file is part of the Monofony demo.
+ *
+ * (c) Monofony
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+declare(strict_types=1);
+
 return [
     Symfony\Bundle\FrameworkBundle\FrameworkBundle::class => ['all' => true],
     ApiPlatform\Core\Bridge\Symfony\Bundle\ApiPlatformBundle::class => ['all' => true],
@@ -41,6 +52,5 @@ return [
     Sonata\Doctrine\Bridge\Symfony\SonataDoctrineSymfonyBundle::class => ['all' => true],
     Sonata\Twig\Bridge\Symfony\SonataTwigSymfonyBundle::class => ['all' => true],
     Sonata\Form\Bridge\Symfony\Bundle\SonataFormBundle::class => ['all' => true],
-    Symplify\ConsoleColorDiff\ConsoleColorDiffBundle::class => ['dev' => true, 'test' => true],
     BabDev\PagerfantaBundle\BabDevPagerfantaBundle::class => ['all' => true],
 ];

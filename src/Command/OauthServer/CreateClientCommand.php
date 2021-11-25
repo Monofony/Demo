@@ -54,7 +54,8 @@ class CreateClientCommand extends Command
                 InputOption::VALUE_REQUIRED | InputOption::VALUE_IS_ARRAY,
                 'Sets allowed grant type for client.'
             )
-            ->setHelp(<<<EOT
+            ->setHelp(
+                <<<EOT
 The <info>%command.name%</info>command creates a new client.
 <info>php %command.full_name% [--redirect-uri=...] [--grant-type=...] name</info>
 EOT

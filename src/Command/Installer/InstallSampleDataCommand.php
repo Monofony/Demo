@@ -58,7 +58,8 @@ final class InstallSampleDataCommand extends Command
         $this
             ->setName('app:install:sample-data')
             ->setDescription('Install sample data into Monofony.')
-            ->setHelp(<<<EOT
+            ->setHelp(
+                <<<EOT
 The <info>%command.name%</info> command loads the sample data for Monofony.
 EOT
             )
