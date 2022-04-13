@@ -20,6 +20,7 @@
         "monofony/sylius-user-bridge": "^0.8",
         "pagerfanta/pagerfanta": "^3.5",
         "sonata-project/block-bundle": "^4.2",
+        "stof/doctrine-extensions-bundle": "^1.7",
         "sylius/customer-bundle": "^1.11",
         "sylius/grid-bundle": "^1.11@beta",
         "sylius/mailer": "^1.5",

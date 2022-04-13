@@ -8,10 +8,22 @@ use App\Entity\IdentifiableTrait;
 use App\Repository\PetRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
-
+use Sylius\Component\Resource\Annotation\SyliusCrudRoutes;
 use Sylius\Component\Resource\Model\ResourceInterface;
 
 #[ORM\Entity(repositoryClass: PetRepository::class)]
+#[SyliusCrudRoutes(
+    alias: 'app.pet',
+    path: '/admin/pets',
+    section: 'backend',
+    templates: 'backend/crud',
+    grid: 'app_pet',
+    vars: [
+        'all' => [
+            'subheader' => 'app.ui.managing_your_pets',
+        ],
+    ],
+)]
 class Pet implements ResourceInterface
 {
     use IdentifiableTrait;

@@ -31,8 +31,7 @@ final class PetFactory extends ModelFactory
     protected function getDefaults(): array
     {
         return [
-            'name' => self::faker()->text(),
-            'slug' => self::faker()->text(),
+            'name' => self::faker()->firstName(),
         ];
     }
 
