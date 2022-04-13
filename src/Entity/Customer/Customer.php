@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of Monofony demo project.
+ * This file is part of the Monofony demo project.
  *
  * (c) Monofony
  *
