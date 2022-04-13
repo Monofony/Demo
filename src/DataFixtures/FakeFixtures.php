@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\DataFixtures;
 
+use App\Story\RandomBookingsStory;
 use App\Story\RandomPetsStory;
 use App\Story\RandomAppUsersStory;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -16,6 +17,7 @@ class FakeFixtures extends Fixture implements FixtureGroupInterface
     {
         RandomAppUsersStory::load();
         RandomPetsStory::load();
+        RandomBookingsStory::load();
     }
 
     public static function getGroups(): array
