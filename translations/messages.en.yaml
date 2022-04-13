@@ -1,17 +1,31 @@
 app:
     ui:
         avatar: Avatar
+        beige: Beige
+        black: Black
+        brown: Brown
+        centimeter: Centimeter
         create_user: Create an user
         edit_pet: Edit pet
         forgotten_password: Forgotten password
+        ginger: Ginger
+        grey: Grey
         legal_notices: Legal notices
+        lightgrey: Light grey
+        main_color: Main color
         managing_your_pets: Managing your pets
+        meter: Meter
+        millimeter: Millimeter
         new_pet: New pet
+        orange: Orange
         overview_of_your_website: Overview of you website
         pet: Pet
         pets: Pets
         search_customers: Search customers
+        size: Size
+        size_unit: Size unit
         validate: Validate
         view_website: View website
+        white: White
 sylius:
     ui: ~
