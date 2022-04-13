@@ -31,6 +31,16 @@ final class PetContext implements Context
         $this->createWithOptions(['name' => $name]);
     }
 
+    /**
+     * @Given there are :numbersOfPets pets
+     */
+    public function thereArePets(int $numbersOfPets): void
+    {
+        for ($i = 0; $i < $numbersOfPets; ++$i) {
+            $this->createWithOptions([]);
+        }
+    }
+
     private function createWithOptions(array $options): void
     {
         $pet = PetFactory::createOne($options)->object();

@@ -13,27 +13,27 @@ declare(strict_types=1);
 
 namespace App\Dashboard\Statistics;
 
-use App\Repository\CustomerRepository;
+use App\Repository\BookingRepository;
 use Monofony\Component\Admin\Dashboard\Statistics\StatisticInterface;
 use Twig\Environment;
 
-class CustomerStatistic implements StatisticInterface
+final class BookingStatistic implements StatisticInterface
 {
-    public function __construct(private CustomerRepository $customerRepository, private Environment $twig)
+    public function __construct(private BookingRepository $bookingRepository, private Environment $engine)
     {
     }
 
     public function generate(): string
     {
-        $amountCustomers = $this->customerRepository->countCustomers();
+        $amountBookings = $this->bookingRepository->countBookings();
 
-        return $this->twig->render('backend/dashboard/statistics/_amount_of_customers.html.twig', [
-            'amountOfCustomers' => $amountCustomers,
+        return $this->engine->render('backend/dashboard/statistics/_amount_of_bookings.html.twig', [
+            'amountOfBookings' => $amountBookings,
         ]);
     }
 
     public static function getDefaultPriority(): int
     {
-        return -3;
+        return -2;
     }
 }

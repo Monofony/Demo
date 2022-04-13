@@ -33,4 +33,21 @@ class PetRepository extends ServiceEntityRepository implements RepositoryInterfa
     {
         parent::__construct($registry, Pet::class);
     }
+
+    public function countPets(): int
+    {
+        return (int) $this->createQueryBuilder('o')
+            ->select('COUNT(o.id)')
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
+    public function findLatest(int $count): array
+    {
+        return $this->createQueryBuilder('o')
+            ->addOrderBy('o.id', 'DESC')
+            ->setMaxResults($count)
+            ->getQuery()
+            ->getResult();
+    }
 }

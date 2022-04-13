@@ -1,0 +1,6 @@
+{% set image = data.firstImage %}
+
+{% if image and image.path %}
+    {% set path = vich_uploader_asset(image, 'file') %}
+    <img class="ui circular image" src="{{ path|imagine_filter('thumbnail') }}" alt="{{ data.name }}">
+{% endif %}

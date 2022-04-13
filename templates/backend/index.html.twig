@@ -2,7 +2,7 @@
 
 {% import '@SyliusUi/Macro/headers.html.twig' as headers %}
 
-{% block title %}{{ parent() }}{{ 'sylius.ui.dashboard'|trans }}{% endblock %}
+{% block title %}{{ 'sylius.ui.dashboard'|trans }}{{ parent() }}{% endblock %}
 
 {% block content %}
     {{ headers.default('sylius.ui.dashboard'|trans, 'home', 'app.ui.overview_of_your_website'|trans) }}
@@ -10,6 +10,14 @@
     {% include 'backend/dashboard/_statistics.html.twig' %}
     {% include 'backend/dashboard/_menu.html.twig' %}
 
+    <div class="ui two column stackable grid">
+        <div class="column">
+            {{ render(url('app_backend_partial_booking_latest', {'count': 5, 'template': 'backend/dashboard/_bookings.html.twig'})) }}
+        </div>
+        <div class="column">
+            {{ render(url('app_backend_partial_pet_latest', {'count': 5, 'template': 'backend/dashboard/_pets.html.twig'})) }}
+        </div>
+    </div>
     <div class="ui one column stackable grid">
         <div class="column">
             {{ render(url('sylius_backend_partial_customer_latest', {'count': 5, 'template': 'backend/dashboard/_customers.html.twig'})) }}

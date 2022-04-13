@@ -19,11 +19,8 @@ use Webmozart\Assert\Assert;
 
 class DashboardContext implements Context
 {
-    private $dashboardPage;
-
-    public function __construct(DashboardPage $dashboardPage)
+    public function __construct(private DashboardPage $dashboardPage)
     {
-        $this->dashboardPage = $dashboardPage;
     }
 
     /**
@@ -35,18 +32,50 @@ class DashboardContext implements Context
     }
 
     /**
-     * @Then I should see :number new customers in the list
+     * @Then I should see :amount new customers in the list
      */
-    public function iShouldSeeNewCustomersInTheList($number)
+    public function iShouldSeeNewCustomersInTheList(int $amount)
     {
-        Assert::same($this->dashboardPage->getNumberOfNewCustomersInTheList(), (int) $number);
+        Assert::same($this->dashboardPage->getNumberOfNewCustomersInTheList(), $amount);
     }
 
     /**
-     * @Then I should see :number new customers
+     * @Then I should see :amount new customers
      */
-    public function iShouldSeeNewCustomers($number)
+    public function iShouldSeeNewCustomers(int $amount): void
     {
-        Assert::same($this->dashboardPage->getNumberOfNewCustomers(), (int) $number);
+        Assert::same($this->dashboardPage->getNumberOfNewCustomers(), $amount);
+    }
+
+    /**
+     * @Then I should see :amount new pets
+     */
+    public function iShouldSeeNewPets(int $amount): void
+    {
+        Assert::same($this->dashboardPage->getNumberOfNewPets(), $amount);
+    }
+
+    /**
+     * @Then I should see :amount new pets in the list
+     */
+    public function iShouldSeeNewPetsInTheList(int $amount): void
+    {
+        Assert::same($this->dashboardPage->getNumberOfNewPetsInTheList(), $amount);
+    }
+
+    /**
+     * @Then I should see :amount new bookings
+     */
+    public function iShouldSeeNewBookings(int $amount): void
+    {
+        Assert::same($this->dashboardPage->getNumberOfNewBookings(), $amount);
+    }
+
+    /**
+     * @Then I should see :amount new bookings in the list
+     */
+    public function iShouldSeeNewBookingsInTheList(int $amount): void
+    {
+        Assert::same($this->dashboardPage->getNumberOfNewBookingsInTheList(), $amount);
     }
 }

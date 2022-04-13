@@ -33,4 +33,21 @@ class BookingRepository extends ServiceEntityRepository implements RepositoryInt
     {
         parent::__construct($registry, Booking::class);
     }
+
+    public function countBookings(): int
+    {
+        return (int) $this->createQueryBuilder('o')
+            ->select('COUNT(o.id)')
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
+    public function findLatest(int $count): array
+    {
+        return $this->createQueryBuilder('o')
+            ->addOrderBy('o.createdAt', 'DESC')
+            ->setMaxResults($count)
+            ->getQuery()
+            ->getResult();
+    }
 }

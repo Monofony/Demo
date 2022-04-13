@@ -22,6 +22,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Sylius\Component\Resource\Annotation\SyliusCrudRoutes;
+use Sylius\Component\Resource\Annotation\SyliusRoute;
 use Sylius\Component\Resource\Model\ResourceInterface;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
@@ -38,6 +39,14 @@ use Symfony\Component\Validator\Constraints\NotBlank;
             'subheader' => 'app.ui.manage_your_pets',
         ],
     ],
+)]
+#[SyliusRoute(
+    name: 'app_backend_partial_pet_latest',
+    path: '/_partial/pets/latest/{count}',
+    methods: ['GET'],
+    controller: 'app.controller.pet::indexAction',
+    template: '$template',
+    repository: ['method' => 'findLatest', 'arguments' => ['!!int $count']],
 )]
 class Pet implements ResourceInterface
 {

@@ -1,0 +1,40 @@
+{% import '@SyliusUi/Macro/messages.html.twig' as messages %}
+{% import '@SyliusUi/Macro/buttons.html.twig' as buttons %}
+{% import '@SyliusUi/Macro/labels.html.twig' as labels %}
+
+<h3 class="ui top attached header">{{ 'app.ui.new_pets'|trans }}</h3>
+<div class="ui attached segment">
+
+    {% if pets|length > 0 %}
+        <table class="ui stackable very basic table" id="pets">
+            <thead>
+            <tr>
+                <th>{{ 'sylius.ui.image'|trans }}</th>
+                <th>{{ 'sylius.ui.name'|trans }}</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for pet in pets %}
+                <tr>
+                    <td>
+                        {% include 'backend/pet/grid/field/image.html.twig' with {'data': pet} only %}
+                    </td>
+                    <td>
+                        <strong>{{ pet.name }}</strong><br>
+                        <div style="color: #ababab;">{{ pet.taxon.name }}</div>
+                    </td>
+                    <td>
+                        <div class="ui right floated buttons">
+                            {{ buttons.edit(path('app_backend_pet_update', {'id': pet.id})) }}
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        {{ messages.info('sylius.ui.no_results_to_display') }}
+    {% endif %}
+</div>
