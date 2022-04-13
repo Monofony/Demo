@@ -10,12 +10,14 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Sylius\Component\Resource\Annotation\SyliusCrudRoutes;
 use Sylius\Component\Resource\Model\ResourceInterface;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 #[ORM\Entity(repositoryClass: PetRepository::class)]
 #[SyliusCrudRoutes(
     alias: 'app.pet',
     path: '/admin/pets',
     section: 'backend',
+    redirect: 'update',
     templates: 'backend/crud',
     grid: 'app_pet',
     vars: [
@@ -29,6 +31,7 @@ class Pet implements ResourceInterface
     use IdentifiableTrait;
 
     #[ORM\Column(type: 'string')]
+    #[NotBlank]
     private ?string $name = null;
 
     #[ORM\Column(type: 'string', unique: true)]
