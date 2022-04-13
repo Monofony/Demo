@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace spec\App\Entity\Animal;
 
 use App\Entity\Animal\Pet;
+use App\Entity\Taxonomy\TaxonInterface;
 use PhpSpec\ObjectBehavior;
 use Sylius\Component\Resource\Model\ResourceInterface;
 
@@ -99,5 +100,17 @@ class PetSpec extends ObjectBehavior
         $this->setMainColor('white');
 
         $this->getMainColor()->shouldReturn('white');
+    }
+
+    function it_has_no_taxon_by_default()
+    {
+        $this->getTaxon()->shouldReturn(null);
+    }
+
+    function its_taxon_is_mutable(TaxonInterface $taxon)
+    {
+        $this->setTaxon($taxon);
+
+        $this->getTaxon()->shouldReturn($taxon);
     }
 }
