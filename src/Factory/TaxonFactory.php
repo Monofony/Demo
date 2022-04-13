@@ -99,10 +99,10 @@ class TaxonFactory extends ModelFactory
             ->instantiateWith(function (array $attributes): TaxonInterface {
                 return $this->createTaxon($attributes);
             })
-            ;
+        ;
     }
 
-    protected function createTaxon(array $attributes = [], ?TaxonInterface $parentTaxon = null): ?TaxonInterface
+    protected function createTaxon(array $attributes = [], ?TaxonInterface $parentTaxon = null): TaxonInterface
     {
         $attributes = array_merge($this->getDefaults(), $attributes);
 
