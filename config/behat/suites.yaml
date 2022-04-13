@@ -7,6 +7,7 @@ imports:
     # - suites/ui/account/registration.yaml
 
     - suites/ui/admin/dashboard.yaml
+    - suites/ui/booking/managing_bookings.yaml
     - suites/ui/customer/managing_customers.yaml
     - suites/ui/user/managing_administrators.yaml
     - suites/ui/pet/managing_pets.yaml

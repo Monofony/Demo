@@ -1,8 +1,8 @@
 sylius_resource:
     resources:
-#        app.topic:
-#            classes:
-#                model: App\Entity\Topic\Topic
+        app.booking:
+            classes:
+                model: App\Entity\Booking\Booking
         app.pet:
             classes:
                 model: App\Entity\Animal\Pet
