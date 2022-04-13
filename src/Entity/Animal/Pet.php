@@ -14,6 +14,8 @@ declare(strict_types=1);
 namespace App\Entity\Animal;
 
 use App\Entity\IdentifiableTrait;
+use App\Entity\Taxonomy\Taxon;
+use App\Entity\Taxonomy\TaxonInterface;
 use App\Repository\PetRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
@@ -58,6 +60,9 @@ class Pet implements ResourceInterface
 
     #[ORM\Column(type: 'string', nullable: true)]
     private ?string $mainColor = null;
+
+    #[ORM\ManyToOne(targetEntity: Taxon::class)]
+    private ?TaxonInterface $taxon = null;
 
     public function getName(): ?string
     {
@@ -117,5 +122,15 @@ class Pet implements ResourceInterface
     public function setMainColor(?string $mainColor): void
     {
         $this->mainColor = $mainColor;
+    }
+
+    public function getTaxon(): ?TaxonInterface
+    {
+        return $this->taxon;
+    }
+
+    public function setTaxon(?TaxonInterface $taxon): void
+    {
+        $this->taxon = $taxon;
     }
 }

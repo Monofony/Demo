@@ -43,6 +43,7 @@ final class PetFactory extends ModelFactory
     {
         return [
             'name' => self::faker()->firstName(),
+            'taxon' => TaxonFactory::randomOrCreate(),
         ];
     }
 
