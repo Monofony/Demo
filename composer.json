@@ -7,7 +7,7 @@
         "php": "^8.0",
         "doctrine/doctrine-fixtures-bundle": "^3.4",
         "doctrine/doctrine-migrations-bundle": "3.1.*",
-        "doctrine/migrations": "3.2.*",
+        "doctrine/migrations": "3.5.*",
         "doctrine/orm": "^2.5",
         "fakerphp/faker": "^1.14",
         "liip/imagine-bundle": "^2.2",
