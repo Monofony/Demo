@@ -20,6 +20,7 @@ use App\Entity\IdentifiableTrait;
 use App\Repository\BookingRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Sylius\Component\Resource\Annotation\SyliusCrudRoutes;
+use Sylius\Component\Resource\Annotation\SyliusRoute;
 use Sylius\Component\Resource\Model\ResourceInterface;
 
 #[ORM\Entity(repositoryClass: BookingRepository::class)]
@@ -35,6 +36,14 @@ use Sylius\Component\Resource\Model\ResourceInterface;
             'subheader' => 'app.ui.manage_your_bookings',
         ],
     ],
+)]
+#[SyliusRoute(
+    name: 'app_backend_partial_booking_latest',
+    path: '/_partial/bookings/latest/{count}',
+    methods: ['GET'],
+    controller: 'app.controller.booking::indexAction',
+    template: '$template',
+    repository: ['method' => 'findLatest', 'arguments' => ['!!int $count']],
 )]
 class Booking implements ResourceInterface
 {

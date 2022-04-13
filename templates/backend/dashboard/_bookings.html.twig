@@ -1,0 +1,50 @@
+{% import '@SyliusUi/Macro/messages.html.twig' as messages %}
+{% import '@SyliusUi/Macro/buttons.html.twig' as buttons %}
+{% import '@SyliusUi/Macro/labels.html.twig' as labels %}
+
+<h3 class="ui top attached header">{{ 'app.ui.new_bookings'|trans }}</h3>
+<div class="ui attached segment">
+
+    {% if bookings|length > 0 %}
+        <table class="ui stackable very basic table" id="bookings">
+            <thead>
+            <tr>
+                <th>{{ 'sylius.ui.image'|trans }}</th>
+                <th>{{ 'app.ui.pet_name'|trans }}</th>
+                <th>{{ 'app.ui.customer_name'|trans }}</th>
+                <th>{{ 'sylius.ui.status'|trans }}</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for booking in bookings %}
+                <tr>
+                    <td>
+                        {% if booking.pet %}
+                            {% include 'backend/pet/grid/field/image.html.twig' with {'data': booking.pet} only %}
+                        {% endif %}
+                    </td>
+                    <td>
+                        {{ booking.pet.name }}
+                    </td>
+                    <td>
+                        {{ booking.booker.fullName }}
+                    </td>
+                    <td>
+                        -
+{#                        {% include 'backend/grid/field/_state.html.twig' with {'data': booking.status,'options': {'vars': {'labels': 'backend/booking/label/state'}}} %}#}
+                    </td>
+                    <td>
+                        <div class="ui right floated buttons">
+                            {{ buttons.show(path('app_backend_booking_show', {'id': booking.id})) }}
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        {{ messages.info('sylius.ui.no_results_to_display') }}
+    {% endif %}
+</div>

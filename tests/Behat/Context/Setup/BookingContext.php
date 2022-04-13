@@ -33,6 +33,16 @@ final class BookingContext implements Context
         $this->createWithOptions(['pet' => $pet, 'booker' => $customer]);
     }
 
+    /**
+     * @Given there are :numbersOfBookings bookings
+     */
+    public function thereAreBookings(int $numbersOfBookings): void
+    {
+        for ($i = 0; $i < $numbersOfBookings; ++$i) {
+            $this->createWithOptions([]);
+        }
+    }
+
     private function createWithOptions(array $options): void
     {
         $booking = BookingFactory::createOne($options)->object();
