@@ -19,16 +19,12 @@ use Doctrine\ORM\Mapping\ManyToOne;
 use Doctrine\ORM\Mapping\Table;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
-/**
- * @Vich\Uploadable
- */
+#[Vich\Uploadable]
 #[Entity]
 #[Table]
 class PetImage extends File
 {
-    /**
-     * @Vich\UploadableField(mapping="animal_image", fileNameProperty="path")
-     */
+    #[Vich\UploadableField(mapping: 'animal_image', fileNameProperty: 'path')]
     #[\Symfony\Component\Validator\Constraints\File(maxSize: '6000000', mimeTypes: ['image/*'])]
     protected ?\SplFileInfo $file = null;
 
