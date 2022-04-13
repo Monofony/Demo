@@ -22,7 +22,7 @@ use Symfony\Component\Validator\Constraints\NotBlank;
     grid: 'app_pet',
     vars: [
         'all' => [
-            'subheader' => 'app.ui.managing_your_pets',
+            'subheader' => 'app.ui.manage_your_pets',
         ],
     ],
 )]

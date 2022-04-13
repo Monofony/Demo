@@ -33,17 +33,11 @@ class Customer extends BaseCustomer implements CustomerInterface
         $this->bookings = new ArrayCollection();
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getUser(): ?UserInterface
     {
         return $this->user;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function setUser(?UserInterface $user): void
     {
         if ($this->user === $user) {

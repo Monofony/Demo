@@ -10,9 +10,23 @@ use App\Entity\Customer\CustomerInterface;
 use App\Entity\IdentifiableTrait;
 use App\Repository\BookingRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Sylius\Component\Resource\Annotation\SyliusCrudRoutes;
 use Sylius\Component\Resource\Model\ResourceInterface;
 
 #[ORM\Entity(repositoryClass: BookingRepository::class)]
+#[SyliusCrudRoutes(
+    alias: 'app.booking',
+    path: 'admin/bookings',
+    section: 'backend',
+    templates: 'backend/crud',
+    grid: 'app_booking',
+    only: ['index', 'show'],
+    vars: [
+        'all' => [
+            'subheader' => 'app.ui.manage_your_bookings',
+        ],
+    ],
+)]
 class Booking implements ResourceInterface
 {
     use IdentifiableTrait;

@@ -3,6 +3,8 @@ app:
         avatar: Avatar
         beige: Beige
         black: Black
+        booking: Booking
+        bookings: Bookings
         brown: Brown
         centimeter: Centimeter
         create_user: Create an user
@@ -13,7 +15,8 @@ app:
         legal_notices: Legal notices
         lightgrey: Light grey
         main_color: Main color
-        managing_your_pets: Managing your pets
+        manage_your_bookings: Manage your bookings
+        manage_your_pets: Manage your pets
         meter: Meter
         millimeter: Millimeter
         new_pet: New pet
