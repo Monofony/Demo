@@ -14,7 +14,9 @@ declare(strict_types=1);
 namespace spec\App\Entity\Animal;
 
 use App\Entity\Animal\Pet;
+use App\Entity\Animal\PetImage;
 use App\Entity\Taxonomy\TaxonInterface;
+use Doctrine\Common\Collections\Collection;
 use PhpSpec\ObjectBehavior;
 use Sylius\Component\Resource\Model\ResourceInterface;
 
@@ -124,5 +126,43 @@ class PetSpec extends ObjectBehavior
         $this->setTaxon($taxon);
 
         $this->getTaxon()->shouldReturn($taxon);
+    }
+
+    function it_initializes_image_collection_by_default()
+    {
+        $this->getImages()->shouldHaveType(Collection::class);
+    }
+
+    function it_adds_images(PetImage $image)
+    {
+        $image->setPet($this)->shouldBeCalled();
+
+        $this->addImage($image);
+
+        $this->hasImage($image)->shouldReturn(true);
+    }
+
+    function it_removes_images(PetImage $image)
+    {
+        $this->addImage($image);
+
+        $image->setPet(null)->shouldBeCalled();
+
+        $this->removeImage($image);
+
+        $this->hasImage($image)->shouldReturn(false);
+    }
+
+    function it_has_no_first_image_by_default(): void
+    {
+        $this->getFirstImage()->shouldReturn(null);
+    }
+
+    function it_can_get_first_image(PetImage $firstImage, PetImage $secondImage): void
+    {
+        $this->addImage($firstImage);
+        $this->addImage($secondImage);
+
+        $this->getFirstImage()->shouldReturn($firstImage);
     }
 }
