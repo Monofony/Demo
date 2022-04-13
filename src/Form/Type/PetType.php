@@ -2,8 +2,12 @@
 
 namespace App\Form\Type;
 
+use App\Colors;
 use App\Entity\Animal\Pet;
+use App\SizeUnits;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -21,9 +25,22 @@ class PetType extends AbstractType
                 'required' => false,
                 'label' => 'sylius.ui.description',
             ])
-            ->add('size')
-            ->add('sizeUnit')
-            ->add('mainColor')
+            ->add('size', NumberType::class, [
+                'required' => false,
+                'label' => 'app.ui.size',
+            ])
+            ->add('sizeUnit', ChoiceType::class, [
+                'required' => false,
+                'label' => 'app.ui.size_unit',
+                'placeholder' => '---',
+                'choices' => SizeUnits::choices(),
+            ])
+            ->add('mainColor', ChoiceType::class, [
+                'required' => false,
+                'label' => 'app.ui.main_color',
+                'placeholder' => '---',
+                'choices' => Colors::choices(),
+            ])
         ;
     }
 
