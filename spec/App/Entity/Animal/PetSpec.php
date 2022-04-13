@@ -102,6 +102,18 @@ class PetSpec extends ObjectBehavior
         $this->getMainColor()->shouldReturn('white');
     }
 
+    function it_has_no_sex_by_default(): void
+    {
+        $this->getSex()->shouldReturn(null);
+    }
+
+    function its_sex_is_mutable(): void
+    {
+        $this->setSex('female');
+
+        $this->getSex()->shouldReturn('female');
+    }
+
     function it_has_no_taxon_by_default()
     {
         $this->getTaxon()->shouldReturn(null);

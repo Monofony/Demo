@@ -61,6 +61,9 @@ class Pet implements ResourceInterface
     #[ORM\Column(type: 'string', nullable: true)]
     private ?string $mainColor = null;
 
+    #[ORM\Column(type: 'string', nullable: true)]
+    private ?string $sex = null;
+
     #[ORM\ManyToOne(targetEntity: Taxon::class)]
     private ?TaxonInterface $taxon = null;
 
@@ -132,5 +135,15 @@ class Pet implements ResourceInterface
     public function setTaxon(?TaxonInterface $taxon): void
     {
         $this->taxon = $taxon;
+    }
+
+    public function getSex(): ?string
+    {
+        return $this->sex;
+    }
+
+    public function setSex(?string $sex): void
+    {
+        $this->sex = $sex;
     }
 }
