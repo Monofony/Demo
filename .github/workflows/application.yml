@@ -64,6 +64,11 @@ jobs:
                 if: always() && steps.end-of-setup.outcome == 'success'
 
             -
+                name: Validate coding standard
+                run: make validate-coding-standard
+                if: always() && steps.end-of-setup.outcome == 'success'
+
+            -
                 name: Validate Twig templates
                 run: bin/console lint:twig templates
                 if: always() && steps.end-of-setup.outcome == 'success'
