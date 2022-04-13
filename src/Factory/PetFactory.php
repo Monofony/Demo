@@ -14,9 +14,14 @@ declare(strict_types=1);
 namespace App\Factory;
 
 use App\Entity\Animal\Pet;
+use App\Entity\Animal\PetImage;
 use App\Repository\PetRepository;
 use App\Sexes;
 use App\SizeUnits;
+use Sylius\Component\Taxonomy\Model\TaxonInterface;
+use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\Finder\Finder;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Zenstruck\Foundry\ModelFactory;
 use Zenstruck\Foundry\Proxy;
 use Zenstruck\Foundry\RepositoryProxy;
@@ -41,6 +46,11 @@ use Zenstruck\Foundry\RepositoryProxy;
  */
 final class PetFactory extends ModelFactory
 {
+    public function __construct(private string $testsDir)
+    {
+        parent::__construct();
+    }
+
     protected function getDefaults(): array
     {
         return [
@@ -50,6 +60,7 @@ final class PetFactory extends ModelFactory
             'size' => self::faker()->randomFloat(2, 1, 10),
             'size_unit' => self::faker()->randomElement(SizeUnits::ALL),
             'sex' => self::faker()->randomElement(Sexes::ALL),
+            'images' => null,
         ];
     }
 
@@ -63,12 +74,82 @@ final class PetFactory extends ModelFactory
                     ;
                 }
 
+                if (null === $attributes['images']) {
+                    $attributes['images'] = $this->randomImages($attributes['taxon']);
+                }
+
                 return $attributes;
-            });
+            })
+            ->instantiateWith(function (array $attributes): Pet {
+                $pet = new Pet();
+                $pet->setName($attributes['name']);
+                $pet->setTaxon($attributes['taxon']);
+                $pet->setDescription($attributes['description']);
+                $pet->setSize($attributes['size']);
+                $pet->setSizeUnit($attributes['size_unit']);
+                $pet->setSex($attributes['sex']);
+
+                $this->createImages($pet, $attributes);
+
+                return $pet;
+            })
+        ;
     }
 
     protected static function getClass(): string
     {
         return Pet::class;
+    }
+
+    private function createImages(Pet $animal, array $options)
+    {
+        $filesystem = new Filesystem();
+
+        foreach ($options['images'] as $imagePath) {
+            $basename = basename($imagePath);
+            $filesystem->copy($imagePath, '/tmp/'.$basename);
+            $file = new UploadedFile('/tmp/'.$basename, $basename, null, null, true);
+
+            $image = new PetImage();
+            $image->setFile($file);
+
+            $animal->addImage($image);
+        }
+    }
+
+    private function randomImages(Proxy|TaxonInterface $taxon): array
+    {
+        $directory = $this->testsDir.'/Resources/pets/'.strtolower((string) $taxon->getSlug());
+        if (!is_dir($directory)) {
+            if ($taxon->isRoot()) {
+                return [];
+            }
+
+            return $this->randomImages($taxon->getParent());
+        }
+
+        return self::randomOnesImage($directory, 3);
+    }
+
+    public static function randomOnesImage(string $directory, int $amount): array
+    {
+        $finder = new Finder();
+        $files = $finder->files()->in($directory);
+        $images = [];
+
+        foreach ($files as $file) {
+            $images[] = $file->getPathname();
+        }
+
+        $selectedImages = [];
+        for (; $amount > 0 && count($images) > 0; --$amount) {
+            $randomKey = array_rand($images);
+
+            $selectedImages[] = $images[$randomKey];
+
+            unset($images[$randomKey]);
+        }
+
+        return $selectedImages;
     }
 }
