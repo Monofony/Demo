@@ -119,7 +119,7 @@ final class PetFactory extends ModelFactory
 
     private function randomImages(Proxy|TaxonInterface $taxon): array
     {
-        $directory = $this->testsDir.'/Resources/pets/'.strtolower($taxon->getSlug());
+        $directory = $this->testsDir.'/Resources/pets/'.strtolower((string) $taxon->getSlug());
         if (!is_dir($directory)) {
             if ($taxon->isRoot()) {
                 return [];
