@@ -17,6 +17,8 @@ use App\Entity\IdentifiableTrait;
 use App\Entity\Taxonomy\Taxon;
 use App\Entity\Taxonomy\TaxonInterface;
 use App\Repository\PetRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Sylius\Component\Resource\Annotation\SyliusCrudRoutes;
@@ -66,6 +68,19 @@ class Pet implements ResourceInterface
 
     #[ORM\ManyToOne(targetEntity: Taxon::class)]
     private ?TaxonInterface $taxon = null;
+
+    #[ORM\OneToMany(
+        mappedBy: 'pet',
+        targetEntity: PetImage::class,
+        cascade: ['persist'],
+        orphanRemoval: true,
+    )]
+    private Collection $images;
+
+    public function __construct()
+    {
+        $this->images = new ArrayCollection();
+    }
 
     public function getName(): ?string
     {
@@ -145,5 +160,34 @@ class Pet implements ResourceInterface
     public function setSex(?string $sex): void
     {
         $this->sex = $sex;
+    }
+
+    public function getImages(): ?Collection
+    {
+        return $this->images;
+    }
+
+    public function getFirstImage(): ?PetImage
+    {
+        return false !== $this->getImages()->first() ? $this->getImages()->first() : null;
+    }
+
+    public function hasImage(PetImage $image): bool
+    {
+        return $this->images->contains($image);
+    }
+
+    public function addImage(PetImage $image): void
+    {
+        if (!$this->hasImage($image)) {
+            $this->images->add($image);
+            $image->setPet($this);
+        }
+    }
+
+    public function removeImage(PetImage $image): void
+    {
+        $this->images->removeElement($image);
+        $image->setPet(null);
     }
 }
