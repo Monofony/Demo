@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace App\Entity\Customer;
 
+use App\Entity\Booking\Booking;
 use App\Entity\User\AppUser;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Monofony\Contracts\Core\Model\Customer\CustomerInterface;
 use Monofony\Contracts\Core\Model\User\AppUserInterface;
 use Sylius\Component\Customer\Model\Customer as BaseCustomer;
 use Sylius\Component\User\Model\UserInterface;
@@ -20,6 +22,16 @@ class Customer extends BaseCustomer implements CustomerInterface
     #[ORM\OneToOne(mappedBy: 'customer', targetEntity: AppUser::class, cascade: ['persist'])]
     #[Valid]
     private ?UserInterface $user = null;
+
+    #[ORM\OneToMany(mappedBy: 'booker', targetEntity: Booking::class)]
+    private Collection $bookings;
+
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->bookings = new ArrayCollection();
+    }
 
     /**
      * {@inheritdoc}
@@ -49,6 +61,32 @@ class Customer extends BaseCustomer implements CustomerInterface
 
         if ($user instanceof AppUserInterface) {
             $user->setCustomer($this);
+        }
+    }
+
+    /**
+     * @return Collection<int, Booking>
+     */
+    public function getBookings(): Collection
+    {
+        return $this->bookings;
+    }
+
+    public function addBooking(Booking $booking): void
+    {
+        if (!$this->bookings->contains($booking)) {
+            $this->bookings[] = $booking;
+            $booking->setBooker($this);
+        }
+    }
+
+    public function removeBooking(Booking $booking): void
+    {
+        if ($this->bookings->removeElement($booking)) {
+            // set the owning side to null (unless already changed)
+            if ($booking->getBooker() === $this) {
+                $booking->setBooker(null);
+            }
         }
     }
 }
