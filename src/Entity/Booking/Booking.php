@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace App\Entity\Booking;
 
+use App\BookingStates;
 use App\Entity\Animal\Pet;
 use App\Entity\Customer\Customer;
 use App\Entity\Customer\CustomerInterface;
@@ -34,6 +35,9 @@ use Sylius\Component\Resource\Model\ResourceInterface;
     vars: [
         'all' => [
             'subheader' => 'app.ui.manage_your_bookings',
+        ],
+        'index' => [
+            'icon' => 'fax',
         ],
     ],
 )]
@@ -58,9 +62,13 @@ class Booking implements ResourceInterface
     #[ORM\ManyToOne(targetEntity: Customer::class, inversedBy: 'bookings')]
     private ?CustomerInterface $booker = null;
 
+    #[ORM\Column(type: 'string')]
+    private string $status;
+
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable();
+        $this->status = BookingStates::NEW;
     }
 
     public function getId(): ?int
@@ -96,5 +104,15 @@ class Booking implements ResourceInterface
     public function setBooker(?CustomerInterface $booker): void
     {
         $this->booker = $booker;
+    }
+
+    public function getStatus(): string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(string $status): void
+    {
+        $this->status = $status;
     }
 }

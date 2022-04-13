@@ -22,12 +22,18 @@ use Sylius\Bundle\GridBundle\Builder\ActionGroup\BulkActionGroup;
 use Sylius\Bundle\GridBundle\Builder\ActionGroup\ItemActionGroup;
 use Sylius\Bundle\GridBundle\Builder\ActionGroup\MainActionGroup;
 use Sylius\Bundle\GridBundle\Builder\Field\StringField;
+use Sylius\Bundle\GridBundle\Builder\Field\TwigField;
+use Sylius\Bundle\GridBundle\Builder\Filter\StringFilter;
 use Sylius\Bundle\GridBundle\Builder\GridBuilderInterface;
 use Sylius\Bundle\GridBundle\Grid\AbstractGrid;
 use Sylius\Bundle\GridBundle\Grid\ResourceAwareGridInterface;
 
 final class PetGrid extends AbstractGrid implements ResourceAwareGridInterface
 {
+    public function __construct(private string $locale)
+    {
+    }
+
     public static function getName(): string
     {
         return 'app_pet';
@@ -36,11 +42,28 @@ final class PetGrid extends AbstractGrid implements ResourceAwareGridInterface
     public function buildGrid(GridBuilderInterface $gridBuilder): void
     {
         $gridBuilder
+            ->setRepositoryMethod('createListQueryBuilder', ['$taxonId', $this->locale])
             ->addOrderBy('name', 'asc')
+            ->setLimits([10, 25, 50])
+            ->addFilter(
+                StringFilter::create('search', ['name', 'slug'])
+                    ->setLabel('sylius.ui.search')
+            )
+            ->addField(
+                TwigField::create('image', 'backend/pet/grid/field/image.html.twig')
+                    ->setLabel('sylius.ui.image')
+                    ->setPath('.')
+            )
             ->addField(
                 StringField::create('name')
                     ->setLabel('Name')
                     ->setSortable(true)
+            )
+            ->addField(
+                StringField::create('taxon')
+                    ->setLabel('app.ui.taxon')
+                    ->setSortable(true, 'translation.name')
+                    ->setPath('taxon.translation.name')
             )
             ->addActionGroup(
                 MainActionGroup::create(

@@ -13,10 +13,13 @@ declare(strict_types=1);
 
 namespace App\Grid;
 
+use App\BookingStates;
 use App\Entity\Booking\Booking;
 use Sylius\Bundle\GridBundle\Builder\ActionGroup\ItemActionGroup;
 use Sylius\Bundle\GridBundle\Builder\Field\DateTimeField;
 use Sylius\Bundle\GridBundle\Builder\Field\StringField;
+use Sylius\Bundle\GridBundle\Builder\Field\TwigField;
+use Sylius\Bundle\GridBundle\Builder\Filter\SelectFilter;
 use Sylius\Bundle\GridBundle\Builder\Filter\StringFilter;
 use Sylius\Bundle\GridBundle\Builder\GridBuilderInterface;
 use Sylius\Bundle\GridBundle\Grid\AbstractGrid;
@@ -33,9 +36,14 @@ final class BookingGrid extends AbstractGrid implements ResourceAwareGridInterfa
     {
         $gridBuilder
             ->addOrderBy('createdAt', 'desc')
+            ->setLimits([10, 25, 50])
             ->addFilter(
                 StringFilter::create('search', ['pet.name', 'booker.email'])
                     ->setLabel('sylius.ui.search')
+            )
+            ->addFilter(
+                SelectFilter::create('status', BookingStates::choices())
+                    ->setLabel('sylius.ui.status')
             )
             ->addField(
                 StringField::create('pet')
@@ -48,6 +56,11 @@ final class BookingGrid extends AbstractGrid implements ResourceAwareGridInterfa
                     ->setLabel('sylius.ui.customer')
                     ->setPath('booker.email')
                     ->setSortable(true, 'booker.email')
+            )
+            ->addField(
+                TwigField::create('status', '@SyliusUi/Grid/Field/state.html.twig')
+                    ->setLabel('sylius.ui.state')
+                    ->setOption('vars', ['labels' => 'backend/booking/label/state'])
             )
             ->addField(
                 DateTimeField::create('createdAt', 'Y-m-d')

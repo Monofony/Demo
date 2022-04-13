@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace App\Factory;
 
+use App\BookingStates;
 use App\Entity\Booking\Booking;
 use App\Repository\BookingRepository;
 use Zenstruck\Foundry\ModelFactory;
@@ -45,6 +46,7 @@ final class BookingFactory extends ModelFactory
             'createdAt' => \DateTimeImmutable::createFromMutable(self::faker()->datetime()),
             'pet' => PetFactory::randomOrCreate(),
             'booker' => AppUserFactory::randomOrCreate()->getCustomer(),
+            'status' => self::faker()->randomElement(BookingStates::ALL),
         ];
     }
 
