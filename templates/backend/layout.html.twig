@@ -1,0 +1,34 @@
+{% extends '@SyliusUi/Layout/sidebar.html.twig' %}
+
+{% block title %} | AppName{% endblock %}
+
+{% block stylesheets %}
+    {% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'assets/backend/app.css'} %}
+{% endblock %}
+
+{% block topbar %}
+    {{ sylius_template_event('sylius.admin.layout.topbar_left') }}
+
+    <div class="ui left floated dividing empty item"></div>
+
+    {{ sylius_template_event('sylius.admin.layout.topbar_right') }}
+{% endblock %}
+
+{% block sidebar %}
+    <a class="item" href="{{ path('app_backend_dashboard') }}" style="padding: 13px 0;">
+        <div class="sidebar-logo">
+            <img src="{{ asset('assets/backend/img/admin-logo.svg') }}" class="ui fluid image">
+        </div>
+    </a>
+    {{ knp_menu_render('app.admin.main', {'template': '@SyliusUi/Menu/sidebar.html.twig', 'currentClass': 'active'}) }}
+{% endblock %}
+
+{% block footer %}
+    AppName v{{ app_name_meta.version }} -
+    {{ 'sylius.ui.powered_by'|trans }} <a href="https://ressources.mobizel.com/monofony" target="_blank">Monofony</a>.
+{% endblock %}
+
+{% block javascripts %}
+    {% include '@SyliusUi/_javascripts.html.twig' with {'path': 'assets/backend/app.js'} %}
+    {{ sonata_block_render_event('sylius.admin.layout.javascripts') }}
+{% endblock %}
