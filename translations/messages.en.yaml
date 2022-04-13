@@ -8,6 +8,7 @@ app:
         managing_your_pets: Managing your pets
         new_pet: New pet
         overview_of_your_website: Overview of you website
+        pet: Pet
         pets: Pets
         search_customers: Search customers
         validate: Validate
