@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of Monofony demo project.
+ * This file is part of the Monofony demo project.
  *
  * (c) Monofony
  *
@@ -15,6 +15,8 @@ namespace App\DataFixtures;
 
 use App\Story\DefaultAdministratorsStory;
 use App\Story\DefaultAppUsersStory;
+use App\Story\DefaultLocalesStory;
+use App\Story\DefaultTaxonomyStory;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Bundle\FixturesBundle\FixtureGroupInterface;
 use Doctrine\Persistence\ObjectManager;
@@ -23,8 +25,10 @@ class DefaultFixtures extends Fixture implements FixtureGroupInterface
 {
     public function load(ObjectManager $manager): void
     {
+        DefaultLocalesStory::load();
         DefaultAdministratorsStory::load();
         DefaultAppUsersStory::load();
+        DefaultTaxonomyStory::load();
     }
 
     public static function getGroups(): array

@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of Monofony demo project.
+ * This file is part of the Monofony demo project.
  *
  * (c) Monofony
  *
@@ -48,4 +48,6 @@ return [
     Sonata\Twig\Bridge\Symfony\SonataTwigBundle::class => ['all' => true],
     Symfony\Bundle\MakerBundle\MakerBundle::class => ['dev' => true, 'test' => true],
     Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle::class => ['all' => true],
+    Sylius\Bundle\TaxonomyBundle\SyliusTaxonomyBundle::class => ['all' => true],
+    Sylius\Bundle\LocaleBundle\SyliusLocaleBundle::class => ['all' => true],
 ];

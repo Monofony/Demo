@@ -10,6 +10,7 @@ services:
         autowire: true      # Automatically injects dependencies in your services
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
         bind:
+            $baseLocaleCode: '%locale%'
             $publicDir: '%kernel.project_dir%/public'
             $cacheDir: '%kernel.cache_dir%'
             #$syliusResources: '%sylius.resources%' # for api

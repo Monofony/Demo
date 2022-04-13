@@ -568,6 +568,12 @@
     "sylius/grid-bundle": {
         "version": "v1.11.0-RC.3"
     },
+    "sylius/locale": {
+        "version": "v1.10.9"
+    },
+    "sylius/locale-bundle": {
+        "version": "v1.11.3"
+    },
     "sylius/mailer-bundle": {
         "version": "v1.6.0"
     },
@@ -585,6 +591,12 @@
         "files": [
             "config/packages/sylius_resource.yaml"
         ]
+    },
+    "sylius/taxonomy": {
+        "version": "v1.10.9"
+    },
+    "sylius/taxonomy-bundle": {
+        "version": "v1.11.3"
     },
     "sylius/ui-bundle": {
         "version": "v1.11.3"
@@ -715,6 +727,9 @@
     },
     "symfony/http-kernel": {
         "version": "v5.4.7"
+    },
+    "symfony/intl": {
+        "version": "v5.4.5"
     },
     "symfony/maker-bundle": {
         "version": "1.38",
