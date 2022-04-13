@@ -3,3 +3,6 @@ sylius_resource:
 #        app.topic:
 #            classes:
 #                model: App\Entity\Topic\Topic
+        app.pet:
+            classes:
+                model: App\Entity\Animal\Pet
