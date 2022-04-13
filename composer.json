@@ -1,6 +1,8 @@
 {
     "type": "project",
-    "license": "proprietary",
+    "name": "monofony/demo",
+    "description": "Monofony demo edition",
+    "license": "MIT",
     "require": {
         "php": "^8.0",
         "doctrine/doctrine-fixtures-bundle": "^3.4",
