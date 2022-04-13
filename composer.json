@@ -44,7 +44,7 @@
         "twig/twig": "^2.7",
         "vich/uploader-bundle": "^1.8",
         "webmozart/assert": "^1.9",
-        "zenstruck/foundry": "^1.14"
+        "zenstruck/foundry": "^1.18"
     },
     "require-dev": {
         "behat/behat": "^3.2",
@@ -70,6 +70,7 @@
         "robertfausk/behat-panther-extension": "^1.1",
         "se/selenium-server-standalone": "2.*",
         "symfony/debug-bundle": "5.4.*",
+        "symfony/maker-bundle": "^1.38",
         "symfony/phpunit-bridge": "^5.4",
         "symfony/web-profiler-bundle": "5.4.*",
         "vimeo/psalm": "^4.3"
