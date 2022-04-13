@@ -7,7 +7,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $containerConfigurator->import('vendor/mobizel/coding-standard/ecs.php');
 
     $header = <<<EOM
-This file is part of Monofony demo project.
+This file is part of the Monofony demo project.
 
 (c) Monofony
 
