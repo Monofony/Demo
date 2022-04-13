@@ -49,7 +49,7 @@ class Pet implements ResourceInterface
     #[Gedmo\Slug(fields: ['name'])]
     private ?string $slug = null;
 
-    #[ORM\Column(type: 'string', nullable: true)]
+    #[ORM\Column(type: 'text', nullable: true)]
     private ?string $description = null;
 
     #[ORM\Column(type: 'float', nullable: true)]
