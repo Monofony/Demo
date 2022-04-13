@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of Monofony demo project.
+ *
+ * (c) Monofony
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 declare(strict_types=1);
 
 namespace spec\App\Form\EventSubscriber;
@@ -10,7 +19,6 @@ use Prophecy\Argument;
 use Sylius\Component\User\Model\UserAwareInterface;
 use Sylius\Component\User\Model\UserInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Form;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
