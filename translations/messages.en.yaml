@@ -6,6 +6,7 @@ app:
         booking: Booking
         bookings: Bookings
         brown: Brown
+        browse_all_pets: Browse all pets
         centimeter: Centimeter
         create_user: Create an user
         customer_name: Customer name
@@ -49,3 +50,4 @@ sylius:
         refused: Refused
         validated: Validated
         visit_scheduled: Visit scheduled
+        taxa: Taxa
