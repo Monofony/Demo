@@ -14,9 +14,7 @@ declare(strict_types=1);
 namespace App\Tests\Behat\Context\Setup;
 
 use App\Factory\LocaleFactory;
-use App\Factory\PetFactory;
 use Behat\Behat\Context\Context;
-use Monofony\Bridge\Behat\Service\SharedStorageInterface;
 
 final class LocaleContext implements Context
 {
