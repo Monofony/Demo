@@ -5,7 +5,9 @@ default:
                 - App\Tests\Behat\Context\Hook\DoctrineORMContext
 
                 - App\Tests\Behat\Context\Setup\AdminSecurityContext
+                - App\Tests\Behat\Context\Setup\LocaleContext
                 - App\Tests\Behat\Context\Setup\PetContext
+                - App\Tests\Behat\Context\Setup\TaxonContext
 
                 - App\Tests\Behat\Context\Transform\SharedStorageContext
 

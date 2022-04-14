@@ -72,6 +72,14 @@ final class ManagingPetsContext implements Context
     }
 
     /**
+     * @When I choose :taxonName as its taxon
+     */
+    public function iChooseAsItsTaxon(string $taxonName): void
+    {
+        $this->createPage->chooseTaxon($taxonName);
+    }
+
+    /**
      * @When I change its name to :name
      */
     public function iChangeItsNameTo(string $name): void

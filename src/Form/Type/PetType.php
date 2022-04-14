@@ -15,7 +15,9 @@ namespace App\Form\Type;
 
 use App\Colors;
 use App\Entity\Animal\Pet;
+use App\Entity\Taxonomy\Taxon;
 use App\SizeUnits;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
@@ -51,6 +53,11 @@ class PetType extends AbstractType
                 'label' => 'app.ui.main_color',
                 'placeholder' => '---',
                 'choices' => Colors::choices(),
+            ])
+            ->add('taxon', EntityType::class, [
+                'class' => Taxon::class,
+                'placeholder' => '---',
+                'choice_label' => 'code',
             ])
         ;
     }
