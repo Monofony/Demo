@@ -5,9 +5,10 @@ Feature: Deleting a pet
     I want to be able to delete a pet
 
     Background:
-        Given I am logged in as an administrator
+        Given there is a default locale
         And there is a pet with name "Homer"
         And there is a pet with name "Poivron"
+        And I am logged in as an administrator
 
     @ui
     Scenario: Deleting a pet

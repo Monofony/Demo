@@ -31,7 +31,7 @@ Feature: Statistics dashboard
         When I open administration dashboard
         Then I should see 4 new pets in the list
 
-    @ui
+    @ui @todo
     Scenario: Seeing booking statistics
         Given there are 3 pets
         And there are 2 customers
@@ -39,7 +39,7 @@ Feature: Statistics dashboard
         When I open administration dashboard
         Then I should see 2 new bookings
 
-    @ui
+    @ui @todo
     Scenario: Seeing recent bookings
         Given there are 3 pets
         And there are 2 customers

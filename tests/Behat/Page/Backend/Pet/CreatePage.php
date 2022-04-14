@@ -25,10 +25,16 @@ final class CreatePage extends AbstractCreatePage
         return 'app_backend_pet_create';
     }
 
+    public function chooseTaxon(string $taxon): void
+    {
+        $this->getElement('taxon')->selectOption($taxon);
+    }
+
     protected function getDefinedElements(): array
     {
         return [
             'name' => '#app_pet_name',
+            'taxon' => '#app_pet_taxon',
         ];
     }
 }

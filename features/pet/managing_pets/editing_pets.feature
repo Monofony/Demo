@@ -5,8 +5,9 @@ Feature: Editing an pet
     I want to be able to edit the pet
 
     Background:
-        Given I am logged in as an administrator
+        Given there is a default locale
         And there is a pet with name "Homer"
+        And I am logged in as an administrator
 
     @ui
     Scenario: Renaming an existing pet

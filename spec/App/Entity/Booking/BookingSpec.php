@@ -48,15 +48,27 @@ class BookingSpec extends ObjectBehavior
         $this->getBooker()->shouldReturn(null);
     }
 
-    function it_booker_is_mutable(CustomerInterface $booker)
+    function it_booker_is_mutable(CustomerInterface $booker): void
     {
         $this->setBooker($booker);
 
         $this->getBooker()->shouldReturn($booker);
     }
 
-    function it_initialize_a_creation_date_by_default()
+    function it_initialize_a_creation_date_by_default(): void
     {
         $this->getCreatedAt()->shouldNotReturn(null);
+    }
+
+    function it_has_new_status_by_default(): void
+    {
+        $this->getStatus()->shouldReturn('new');
+    }
+
+    function its_status_is_mutable(): void
+    {
+        $this->setStatus('canceled');
+
+        $this->getStatus()->shouldReturn('canceled');
     }
 }

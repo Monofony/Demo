@@ -20,6 +20,6 @@ final class RandomBookingsStory extends Story
 {
     public function build(): void
     {
-        BookingFactory::createMany(10);
+        BookingFactory::createMany(15);
     }
 }

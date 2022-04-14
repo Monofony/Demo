@@ -5,6 +5,7 @@ Feature: Browsing pets
     I want to browse pets
 
     Background:
+        Given there is a default locale
         And there is a pet with name "Kitty"
         And there is also a pet with name "Winnie"
         And there is also a pet with name "Gizmo"

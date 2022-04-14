@@ -15,6 +15,7 @@ namespace App\Repository;
 
 use App\Entity\Animal\Pet;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\ResourceRepositoryTrait;
 use Sylius\Component\Resource\Repository\RepositoryInterface;
@@ -49,5 +50,24 @@ class PetRepository extends ServiceEntityRepository implements RepositoryInterfa
             ->setMaxResults($count)
             ->getQuery()
             ->getResult();
+    }
+
+    public function createListQueryBuilder(?string $taxonId, string $locale): QueryBuilder
+    {
+        $queryBuilder = $this->createQueryBuilder('o');
+        $queryBuilder
+            ->innerJoin('o.taxon', 'pet_taxon')
+            ->innerJoin('pet_taxon.translations', 'translation')
+            ->andWhere('translation.locale = :locale')
+            ->setParameter('locale', $locale)
+        ;
+        if (null !== $taxonId) {
+            $queryBuilder
+                ->andWhere('pet_taxon.id = :taxon_id')
+                ->setParameter('taxon_id', $taxonId)
+            ;
+        }
+
+        return $queryBuilder;
     }
 }

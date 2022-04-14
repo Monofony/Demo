@@ -5,7 +5,8 @@ Feature: Pets validation
     I want to be prevented from adding it without specifying required fields
 
     Background:
-        Given I am logged in as an administrator
+        Given there is a default locale
+        And I am logged in as an administrator
 
     @ui
     Scenario: Trying to add a new pet without name

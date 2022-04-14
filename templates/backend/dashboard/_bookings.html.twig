@@ -32,8 +32,7 @@
                         {{ booking.booker.fullName }}
                     </td>
                     <td>
-                        -
-{#                        {% include 'backend/grid/field/_state.html.twig' with {'data': booking.status,'options': {'vars': {'labels': 'backend/booking/label/state'}}} %}#}
+                        {% include '@SyliusUi/Grid/Field/State.html.twig' with {'data': booking.status,'options': {'vars': {'labels': 'backend/booking/label/state'}}} %}
                     </td>
                     <td>
                         <div class="ui right floated buttons">

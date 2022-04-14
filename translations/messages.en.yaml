@@ -31,8 +31,18 @@ app:
         search_customers: Search customers
         size: Size
         size_unit: Size unit
+        taxon: Taxon
         validate: Validate
         view_website: View website
         white: White
 sylius:
-    ui: ~
+    ui:
+        adopted: Adopted
+        bookable: Bookable
+        booked: Booked
+        canceled: Canceled
+        family_contacted: Family contacted
+        finished: Finished
+        refused: Refused
+        validated: Validated
+        visit_scheduled: Visit scheduled
