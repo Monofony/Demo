@@ -6,4 +6,4 @@ sylius_resource:
         app.pet:
             classes:
                 model: App\Entity\Animal\Pet
-                form: App\Form\Type\PetType
+                form: App\Form\Type\Pet\PetType

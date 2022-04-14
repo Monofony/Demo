@@ -11,15 +11,17 @@
 
 declare(strict_types=1);
 
-namespace App\Form\Type;
+namespace App\Form\Type\Pet;
 
 use App\Colors;
 use App\Entity\Animal\Pet;
 use App\Entity\Taxonomy\Taxon;
+use App\Sexes;
 use App\SizeUnits;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -58,6 +60,20 @@ class PetType extends AbstractType
                 'class' => Taxon::class,
                 'placeholder' => '---',
                 'choice_label' => 'code',
+                'group_by' => 'parent',
+            ])
+            ->add('sex', ChoiceType::class, [
+                'label' => 'app.ui.sex',
+                'required' => false,
+                'placeholder' => '---',
+                'choices' => Sexes::choices(),
+            ])
+            ->add('images', CollectionType::class, [
+                'label' => 'sylius.ui.images',
+                'entry_type' => PetImageType::class,
+                'allow_add' => true,
+                'allow_delete' => true,
+                'by_reference' => false,
             ])
         ;
     }

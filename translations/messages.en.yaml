@@ -10,12 +10,14 @@ app:
         create_user: Create an user
         customer_name: Customer name
         edit_pet: Edit pet
+        female: Female
         forgotten_password: Forgotten password
         ginger: Ginger
         grey: Grey
         legal_notices: Legal notices
         lightgrey: Light grey
         main_color: Main color
+        male: Male
         manage_your_bookings: Manage your bookings
         manage_your_pets: Manage your pets
         meter: Meter
@@ -29,6 +31,7 @@ app:
         pet_name: Pet name
         pets: Pets
         search_customers: Search customers
+        sex: Sex
         size: Size
         size_unit: Size unit
         taxon: Taxon

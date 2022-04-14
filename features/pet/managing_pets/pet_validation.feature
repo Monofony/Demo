@@ -16,3 +16,11 @@ Feature: Pets validation
         Then I should be notified that the name is required
         And this pet should not be added
 
+    @ui
+    Scenario: Trying to add a new pet without taxon
+        Given I want to create a new pet
+        When I specify its name as "Axolotl"
+        When I do not specify any taxon
+        And I try to add it
+        Then I should be notified that the taxon is required
+        And this pet should not be added

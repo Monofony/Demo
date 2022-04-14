@@ -25,6 +25,7 @@ use Sylius\Component\Resource\Annotation\SyliusCrudRoutes;
 use Sylius\Component\Resource\Annotation\SyliusRoute;
 use Sylius\Component\Resource\Model\ResourceInterface;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Valid;
 
 #[ORM\Entity(repositoryClass: PetRepository::class)]
 #[SyliusCrudRoutes(
@@ -37,6 +38,9 @@ use Symfony\Component\Validator\Constraints\NotBlank;
     vars: [
         'all' => [
             'subheader' => 'app.ui.manage_your_pets',
+            'templates' => [
+                'form' => 'backend/pet/_form.html.twig',
+            ],
         ],
     ],
 )]
@@ -76,6 +80,7 @@ class Pet implements ResourceInterface
     private ?string $sex = null;
 
     #[ORM\ManyToOne(targetEntity: Taxon::class)]
+    #[NotBlank]
     private ?TaxonInterface $taxon = null;
 
     #[ORM\OneToMany(
@@ -84,6 +89,7 @@ class Pet implements ResourceInterface
         cascade: ['persist'],
         orphanRemoval: true,
     )]
+    #[Valid]
     private Collection $images;
 
     public function __construct()

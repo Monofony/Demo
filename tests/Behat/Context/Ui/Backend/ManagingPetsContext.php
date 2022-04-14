@@ -73,10 +73,23 @@ final class ManagingPetsContext implements Context
 
     /**
      * @When I choose :taxonName as its taxon
+     * @When I do not specify any taxon
      */
-    public function iChooseAsItsTaxon(string $taxonName): void
+    public function iChooseAsItsTaxon(?string $taxonName = null): void
     {
+        if (null === $taxonName) {
+            return;
+        }
+
         $this->createPage->chooseTaxon($taxonName);
+    }
+
+    /**
+     * @When I attach the :path image
+     */
+    public function iAttachTheImage(string $path): void
+    {
+        $this->createPage->attachImage($path);
     }
 
     /**
@@ -153,5 +166,14 @@ final class ManagingPetsContext implements Context
     public function iShouldBeNotifiedThatTheElementIsRequired(string $element): void
     {
         Assert::same($this->createPage->getValidationMessage($element), 'This value should not be blank.');
+    }
+
+    /**
+     * @Then the pet :pet should have one image
+     * @Then the pet :pet should have one :amountOfImages images
+     */
+    public function thePetShouldHaveAnImage(Pet $pet, int $amountOfImages = 1): void
+    {
+        Assert::eq(count($pet->getImages()), $amountOfImages);
     }
 }
