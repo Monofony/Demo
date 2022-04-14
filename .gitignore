@@ -1,6 +1,8 @@
 /etc/build/*
 !/etc/build/.gitignore
 
+/drivers
+
 ###> symfony/framework-bundle ###
 /.env.local
 /.env.local.php

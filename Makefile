@@ -12,11 +12,7 @@ validate: validate-coding-standard validate-composer validate-composer-security 
 .PHONY: validate
 
 start-selenium:
-	vendor/bin/selenium-server-standalone -Dwebdriver.chrome.driver=/usr/local/bin/chromedriver
-.PHONY: start-selenium
-
-start-chrome-headless:
-	/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --enable-automation --disable-background-networking --no-default-browser-check --no-first-run --disable-popup-blocking --disable-default-apps --disable-translate --disable-extensions --no-sandbox --enable-features=Metal --headless --remote-debugging-port=9222 --window-size=2880,1800 --proxy-server='direct://' --proxy-bypass-list='*' https://127.0.0.1
+	vendor/bin/selenium-server-standalone -Dwebdriver.chrome.driver=./drivers/chromedriver
 .PHONY: start-selenium
 
 test-behat: test-behat-without-javascript test-behat-with-cli

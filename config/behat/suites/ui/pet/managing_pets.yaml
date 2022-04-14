@@ -9,6 +9,7 @@ default:
                 - App\Tests\Behat\Context\Setup\PetContext
                 - App\Tests\Behat\Context\Setup\TaxonContext
 
+                - App\Tests\Behat\Context\Transform\PetContext
                 - App\Tests\Behat\Context\Transform\SharedStorageContext
 
                 - App\Tests\Behat\Context\Ui\Backend\ManagingPetsContext

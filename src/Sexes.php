@@ -26,4 +26,12 @@ final class Sexes
     private function __construct()
     {
     }
+
+    public static function choices(): array
+    {
+        return [
+            'app.ui.male' => self::MALE,
+            'app.ui.female' => self::FEMALE,
+        ];
+    }
 }

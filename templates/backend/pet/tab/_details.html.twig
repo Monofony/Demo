@@ -1,0 +1,15 @@
+<div class="ui tab" data-tab="details">
+    <h3 class="ui top attached header">{{ 'sylius.ui.details'|trans }}</h3>
+
+    <div class="ui attached segment">
+        {{ form_row(form.name) }}
+        {{ form_row(form.description) }}
+        <div class="two fields">
+            {{ form_row(form.size) }}
+            {{ form_row(form.sizeUnit) }}
+        </div>
+        {{ form_row(form.sex) }}
+        {{ form_row(form.mainColor) }}
+{#        {{ form_row(form.birthDate) }}#}
+    </div>
+</div>

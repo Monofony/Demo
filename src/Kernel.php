@@ -22,6 +22,8 @@ class Kernel extends BaseKernel
 {
     use MicroKernelTrait;
 
+    public const VERSION = '0.0.0-dev';
+
     protected function build(ContainerBuilder $container)
     {
         $container->addCompilerPass(new UndecorateLocalePass());
