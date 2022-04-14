@@ -27,7 +27,7 @@ final class AdminMenuBuilder implements AdminMenuBuilderInterface
     {
         $menu = $this->factory->createItem('root');
 
-        $this->addAnimalSubMenu($menu);
+        $this->addPetSubMenu($menu);
         $this->addBookingSubMenu($menu);
         $this->addCustomerSubMenu($menu);
         $this->addConfigurationSubMenu($menu);
@@ -35,16 +35,20 @@ final class AdminMenuBuilder implements AdminMenuBuilderInterface
         return $menu;
     }
 
-    private function addAnimalSubMenu(ItemInterface $menu): void
+    private function addPetSubMenu(ItemInterface $menu): void
     {
-        $animal = $menu
+        $pet = $menu
             ->addChild('pet')
             ->setLabel('app.ui.pet')
         ;
 
-        $animal->addChild('backend_pet', ['route' => 'app_backend_pet_index'])
+        $pet->addChild('backend_pet', ['route' => 'app_backend_pet_index'])
             ->setLabel('app.ui.pets')
             ->setLabelAttribute('icon', 'cat');
+
+        $pet->addChild('backend_taxon', ['route' => 'sylius_backend_taxon_create'])
+            ->setLabel('sylius.ui.taxons')
+            ->setLabelAttribute('icon', 'fax');
     }
 
     private function addBookingSubMenu(ItemInterface $menu): void
