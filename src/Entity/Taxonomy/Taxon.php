@@ -16,6 +16,7 @@ namespace App\Entity\Taxonomy;
 use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\Table;
 use Sylius\Component\Resource\Annotation\SyliusCrudRoutes;
+use Sylius\Component\Resource\Annotation\SyliusRoute;
 use Sylius\Component\Taxonomy\Model\Taxon as BaseTaxon;
 
 #[Entity]
@@ -35,7 +36,8 @@ use Sylius\Component\Taxonomy\Model\Taxon as BaseTaxon;
             ],
         ],
     ],
-), SyliusRoute(
+)]
+#[SyliusRoute(
     name: 'sylius_admin_partial_taxon_tree',
     path: '/admin/_partial/taxa/tree',
     methods: ['GET'],
