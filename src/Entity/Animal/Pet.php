@@ -57,7 +57,7 @@ use Symfony\Component\Validator\Constraints\Valid;
     ],
     section: 'backend',
     permission: true,
-    grid: 'app_backend_pet',
+    grid: 'app_pet',
 )]
 #[SyliusRoute(
     name: 'app_backend_pet_per_taxon_index',
