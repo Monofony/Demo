@@ -45,34 +45,34 @@ use Symfony\Component\Validator\Constraints\Valid;
         ],
     ],
 )]
-//#[SyliusRoute(
-//    name: 'app_backend_pet_index',
-//    path: '/pets/',
-//    methods: ['GET'],
-//    controller: 'app.controller.pet::indexAction',
-//    section: 'backend',
-//    grid: 'app_backend_pet',
-//    template: 'backend/pet/index.html.twig',
-//    vars: [
-//        'subheader' => 'app.ui.manage_your_pets',
-//        'icon' => 'cat',
-//    ],
-//)]
-//#[SyliusRoute(
-//    name: 'app_backend_pet_per_taxon_index',
-//    path: '/admin/pets/taxon/{taxonId}',
-//    methods: ['GET'],
-//    controller: 'app.controller.pet::indexAction',
-//    template: 'backend/pet/index.html.twig',
-//    repository: ['method' => 'findLatest', 'arguments' => ['!!int $count']],
-//    vars: [
-//        'subheader' => 'app.ui.managing_pets',
-//        'icon' => 'cat',
-//    ],
-//    section: 'backend',
-//    permission: true,
-//    grid: 'app_pet',
-//)]
+#[SyliusRoute(
+    name: 'app_backend_pet_index',
+    path: '/admin/pets/',
+    methods: ['GET'],
+    controller: 'app.controller.pet::indexAction',
+    template: 'backend/pet/index.html.twig',
+    vars: [
+        'subheader' => 'app.ui.manage_your_pets',
+        'icon' => 'cat',
+    ],
+    section: 'backend',
+    permission: true,
+    grid: 'app_pet',
+)]
+#[SyliusRoute(
+    name: 'app_backend_pet_per_taxon_index',
+    path: '/admin/pets/taxon/{taxonId}',
+    methods: ['GET'],
+    controller: 'app.controller.pet::indexAction',
+    template: 'backend/pet/index.html.twig',
+    vars: [
+        'subheader' => 'app.ui.manage_your_pets',
+        'icon' => 'cat',
+    ],
+    section: 'backend',
+    permission: true,
+    grid: 'app_pet',
+)]
 #[SyliusRoute(
     name: 'app_backend_partial_pet_latest',
     path: '/admin/_partial/pets/latest/{count}',

@@ -2,34 +2,6 @@
 #    path: /
 #    controller: App\Controller\DefaultController::index
 
-app_backend_pet_index:
-    path: /admin/pets/
-    methods: [GET]
-    defaults:
-        _controller: app.controller.pet:indexAction
-        _sylius:
-            section: backend
-            permission: true
-            grid: app_pet
-            template: "backend/pet/index.html.twig"
-            vars:
-                subheader: app.ui.manage_your_pets
-                icon: cat
-
-app_backend_pet_per_taxon_index:
-    path: /admin/pets/taxon/{taxonId}
-    methods: [GET]
-    defaults:
-        _controller: app.controller.pet:indexAction
-        _sylius:
-            section: backend
-            permission: true
-            grid: app_pet
-            template: "backend/pet/index.html.twig"
-            vars:
-                subheader: app.ui.manage_your_pets
-                icon: cat
-
 sylius_backend_taxon_index:
     path: /admin/taxa/
     methods: [GET]
