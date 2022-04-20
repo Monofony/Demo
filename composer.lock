@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1455998d7b1ec7d3b00459cadc38f13b",
+    "content-hash": "5eb15c258adc6bd8345e59f072b7d58b",
     "packages": [
         {
             "name": "babdev/pagerfanta-bundle",
@@ -4944,16 +4944,16 @@
         },
         {
             "name": "sylius/resource-bundle",
-            "version": "v1.9.0",
+            "version": "1.10.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusResourceBundle.git",
-                "reference": "c5974f25ac4a93b1b8ccfef90d386d9ac6243128"
+                "reference": "bfdbc9f6afab183e7183e694c8f7b35e4a2a7b27"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/SyliusResourceBundle/zipball/c5974f25ac4a93b1b8ccfef90d386d9ac6243128",
-                "reference": "c5974f25ac4a93b1b8ccfef90d386d9ac6243128",
+                "url": "https://api.github.com/repos/Sylius/SyliusResourceBundle/zipball/bfdbc9f6afab183e7183e694c8f7b35e4a2a7b27",
+                "reference": "bfdbc9f6afab183e7183e694c8f7b35e4a2a7b27",
                 "shasum": ""
             },
             "require": {
@@ -4968,17 +4968,17 @@
                 "jms/serializer-bundle": "^3.5 || ^4.0",
                 "php": "^8.0",
                 "sylius/registry": "^1.2",
-                "symfony/config": "^4.4 || ^5.4",
-                "symfony/expression-language": "^4.4 || ^5.4",
-                "symfony/form": "^4.4 || ^5.4",
-                "symfony/framework-bundle": "^4.4 || ^5.4",
-                "symfony/http-foundation": "^4.4 || ^5.4",
-                "symfony/routing": "^4.4 || ^5.4",
-                "symfony/security-csrf": "^4.4 || ^5.4",
-                "symfony/translation": "^4.4 || ^5.4",
-                "symfony/twig-bundle": "^4.4 || ^5.4",
-                "symfony/validator": "^4.4 || ^5.4",
-                "symfony/yaml": "^4.4 || ^5.4",
+                "symfony/config": "^5.4 || ^6.0",
+                "symfony/expression-language": "^5.4 || ^6.0",
+                "symfony/form": "^5.4 || ^6.0",
+                "symfony/framework-bundle": "^5.4 || ^6.0",
+                "symfony/http-foundation": "^5.4 || ^6.0",
+                "symfony/routing": "^5.4 || ^6.0",
+                "symfony/security-csrf": "^5.4 || ^6.0",
+                "symfony/translation": "^5.4 || ^6.0",
+                "symfony/twig-bundle": "^5.4 || ^6.0",
+                "symfony/validator": "^5.4 || ^6.0",
+                "symfony/yaml": "^5.4 || ^6.0",
                 "webmozart/assert": "^1.8",
                 "willdurand/hateoas-bundle": "^2.0",
                 "winzou/state-machine-bundle": "^0.6"
@@ -5000,22 +5000,23 @@
                 "phpunit/phpunit": "^9.5",
                 "rector/rector": "^0.11.47",
                 "sylius-labs/coding-standard": "^4.0",
-                "sylius/grid-bundle": "^1.7",
-                "symfony/dependency-injection": "^4.4 || ^5.4",
-                "symfony/dotenv": "^4.4 || ^5.4",
-                "symfony/workflow": "^4.4 || ^5.4",
-                "symplify/easy-coding-standard": "^9.4",
+                "sylius/grid-bundle": "^1.7 || dev-symfony-6",
+                "symfony/dependency-injection": "^5.4 || ^6.0",
+                "symfony/dotenv": "^5.4 || ^6.0",
+                "symfony/workflow": "^5.4 || ^6.0",
+                "symplify/easy-coding-standard": "^10.2",
                 "twig/twig": "^2.12 || ^3.0",
-                "vimeo/psalm": "4.7.0"
+                "vimeo/psalm": "^4.22"
             },
             "suggest": {
                 "doctrine/orm": "^2.5",
                 "sylius/locale": "^1.0"
             },
+            "default-branch": true,
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.9-dev"
+                    "dev-master": "1.10-dev"
                 }
             },
             "autoload": {
@@ -5052,9 +5053,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Sylius/SyliusResourceBundle/issues",
-                "source": "https://github.com/Sylius/SyliusResourceBundle/tree/v1.9.0"
+                "source": "https://github.com/Sylius/SyliusResourceBundle/tree/1.10"
             },
-            "time": "2022-04-07T12:36:54+00:00"
+            "time": "2022-04-20T13:07:46+00:00"
         },
         {
             "name": "sylius/taxonomy",
@@ -17352,7 +17353,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "sylius/grid-bundle": 10,
-        "sylius/resource-bundle": 10
+        "sylius/resource-bundle": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
@@ -17360,5 +17361,5 @@
         "php": "^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.1.0"
 }
