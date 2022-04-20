@@ -1,4 +1,4 @@
-class datSyliusTaxonomyTree {
+class SyliusTaxonomyTree {
     constructor() {
         this.attr = {
             tree: 'data-sylius-js-tree',
