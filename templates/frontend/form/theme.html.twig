@@ -22,8 +22,8 @@
     <div class="{% if required %}required {% endif %}field{% if (not compound or force_error|default(false)) and not valid %} error{% endif %}">
         <div class="ui toggle checkbox">
             {{- form_widget(form) -}}
-            {{- form_label(form) -}}
             {{- form_errors(form) -}}
+            {{- form_label(form) -}}
         </div>
     </div>
 {%- endblock checkbox_row %}
@@ -31,19 +31,12 @@
 {% block radio_row -%}
     <div class="field{% if (not compound or force_error|default(false)) and not valid %} error{% endif %}">
         <div class="ui radio checkbox">
-            {{- form_label(form) -}}
             {{- form_widget(form) -}}
+            {{- form_label(form) -}}
             {{- form_errors(form) -}}
         </div>
     </div>
 {%- endblock radio_row %}
-
-{% block money_widget -%}
-    <div class="ui labeled input">
-        <div class="ui label">{{ currency }}</div>
-        {{- form_widget(form) -}}
-    </div>
-{%- endblock money_widget %}
 
 {% block choice_row -%}
     <div class="{% if required %}required {% endif %}field{% if (not compound or force_error|default(false)) and not valid %} error{% endif %}">
@@ -59,9 +52,9 @@
         <div class="{% if required %}required {% endif %}grouped fields">
             {%- for child in form %}
                 <div class="field">
-                    <div class="ui toggle checkbox">
-                        {{- form_label(child, null, {translation_domain: choice_translation_domain}) -}}
+                    <div class="checkbox">
                         {{- form_widget(child) -}}
+                        {{- form_label(child, null, {translation_domain: choice_translation_domain}) -}}
                     </div>
                 </div>
             {% endfor -%}
@@ -143,5 +136,37 @@
             <div class="menu"></div>
         </div>
         {{- form_errors(form) -}}
+    </div>
+{% endblock %}
+
+{% block _criteria_sex_widget %}
+    <div id="criteria_sex" class="ui dropdown">
+        <div class="grouped fields">
+            {%- for child in form %}
+                <div class="field">
+                    <div class="checkbox">
+                        {{ form_widget(child) }}
+                        {{ form_label(child) }}
+                        {% if child.vars.value == 'female' %}
+                            <i class="fas fa-venus"></i>
+                        {% else %}
+                            <i class="fas fa-mars"></i>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor -%}
+        </div>
+    </div>
+{% endblock %}
+
+{% block _criteria_mainColor_widget %}
+    <div class="grid-x filter-color">
+        {%- for child in form %}
+            <div class="cell shrink">
+                <label class="container color-{{ child.vars.value }}">
+                    {{ form_widget(child, { 'attr': {'class': 'color-radio'} }) }}
+                </label>
+            </div>
+        {% endfor -%}
     </div>
 {% endblock %}

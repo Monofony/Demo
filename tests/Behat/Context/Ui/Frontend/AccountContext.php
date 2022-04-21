@@ -18,31 +18,26 @@ use App\Tests\Behat\Page\Frontend\Account\DashboardPage;
 use App\Tests\Behat\Page\Frontend\Account\LoginPage;
 use App\Tests\Behat\Page\Frontend\Account\ProfileUpdatePage;
 use Behat\Behat\Context\Context;
+use Doctrine\ORM\EntityManagerInterface;
 use Monofony\Bridge\Behat\NotificationType;
 use Monofony\Bridge\Behat\Service\NotificationCheckerInterface;
+use Monofony\Bridge\Behat\Service\SharedStorageInterface;
 use Monofony\Component\Core\Formatter\StringInflector;
+use Monofony\Contracts\Core\Model\User\AppUserInterface;
 use Webmozart\Assert\Assert;
+use Zenstruck\Foundry\Proxy;
 
 final class AccountContext implements Context
 {
-    private DashboardPage $dashboardPage;
-    private ProfileUpdatePage $profileUpdatePage;
-    private ChangePasswordPage $changePasswordPage;
-    private LoginPage $loginPage;
-    private NotificationCheckerInterface $notificationChecker;
-
     public function __construct(
-        DashboardPage $dashboardPage,
-        ProfileUpdatePage $profileUpdatePage,
-        ChangePasswordPage $changePasswordPage,
-        LoginPage $loginPage,
-        NotificationCheckerInterface $notificationChecker
+        private DashboardPage $dashboardPage,
+        private ProfileUpdatePage $profileUpdatePage,
+        private ChangePasswordPage $changePasswordPage,
+        private LoginPage $loginPage,
+        private NotificationCheckerInterface $notificationChecker,
+        private SharedStorageInterface $sharedStorage,
+        private EntityManagerInterface $entityManager,
     ) {
-        $this->dashboardPage = $dashboardPage;
-        $this->profileUpdatePage = $profileUpdatePage;
-        $this->changePasswordPage = $changePasswordPage;
-        $this->loginPage = $loginPage;
-        $this->notificationChecker = $notificationChecker;
     }
 
     /**
@@ -109,14 +104,37 @@ final class AccountContext implements Context
     }
 
     /**
-     * @Then my email should be :email
      * @Then my email should still be :email
      */
-    public function myEmailShouldBe($email): void
+    public function myEmailShouldStill($email): void
     {
-        $this->dashboardPage->open();
+        /** @var AppUserInterface|Proxy $user */
+        $user = $this->sharedStorage->get('user');
 
-        Assert::true($this->dashboardPage->hasCustomerEmail($email));
+        if ($user instanceof Proxy) {
+            $user->refresh();
+        } else {
+            $this->entityManager->refresh($user);
+        }
+
+        Assert::eq($user->getCustomer()->getEmail(), $email);
+    }
+
+    /**
+     * @Then my email should be :email
+     */
+    public function myEmailShouldBe(string $email): void
+    {
+        /** @var AppUserInterface|Proxy $user */
+        $user = $this->sharedStorage->get('user');
+
+        if ($user instanceof Proxy) {
+            $user->refresh();
+        } else {
+            $this->entityManager->refresh($user);
+        }
+
+        Assert::eq($user->getUsername(), $email);
     }
 
     /**

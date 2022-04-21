@@ -1,10 +1,27 @@
-<div class="ui right stackable inverted menu">
-    {% if is_granted('ROLE_USER') %}
-        <div class="item">{{ 'sylius.ui.hello'|trans }} {{ app.user.customer.fullName }}!</div>
-        <a href="{{ path('sylius_frontend_account_dashboard') }}" class="item">{{ 'sylius.ui.my_account'|trans }}</a>
-        <a href="{{ path('app_frontend_logout') }}" class="item app-logout-button">{{ 'sylius.ui.logout'|trans }}</a>
-    {% else %}
-        <a href="{{ path('app_frontend_login') }}" class="item">{{ 'sylius.ui.login'|trans }}</a>
-        <a href="{{ path('app_frontend_register') }}" class="item">{{ 'sylius.ui.register'|trans }}</a>
-    {% endif %}
+<div class="primary-menu">
+    <div class="grid-container">
+        <div class="grid-x align-middle align-justify grid-margin-x grid-padding-y">
+            <div class="cell shrink large-4">
+                <a href="{{ path('app_frontend_homepage') }}"><img
+                            src="{{ asset('assets/frontend/img/logo.svg', 'frontend') }}"/></a>
+            </div>
+            <div class="cell auto show-for-large">
+                {# {{ render(url('sylius_frontend_partial_taxon_root_nodes', {'template': 'frontend/taxon/_horizontal_menu.html.twig', 'slug': app.request.get('slug')})) }} #}
+            </div>
+            <div class="cell large-4 show-for-large text-right">
+                {% if is_granted('ROLE_USER') %}
+                    <a href="{{ path('sylius_frontend_account_dashboard') }}"
+                       class="item button small login clear">{{ 'sylius.ui.my_account'|trans }}</a>
+                {% else %}
+                    <a href="{{ path('app_frontend_login') }}"
+                       class="item button small clear">{{ 'sylius.ui.login'|trans }}</a>
+                    <a href="{{ path('app_frontend_register') }}"
+                       class="item button small">{{ 'sylius.ui.register'|trans }}</a>
+                {% endif %}
+            </div>
+            <div class="cell shrink hide-for-large burger">
+                <button data-toggle="offCanvas"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </div>
 </div>

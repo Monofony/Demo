@@ -4,6 +4,7 @@
     {{ messages.error(last_error.messageKey|trans(last_error.messageData, 'security')) }}
 {% endif %}
 
-{{ form_row(form._username) }}
-{{ form_row(form._password) }}
+{{ form_row(form._username, { 'attr': { 'value': 'customer@example.com' } } ) }}
+{{ form_row(form._password, { 'attr': { 'value': 'password' } }) }}
+<a href="{{ path('sylius_user_request_password_reset_token') }}" class="remember">{{ 'app.ui.i_cant_remember_my_password'|trans }}</a>
 {{ form_row(form._remember_me) }}

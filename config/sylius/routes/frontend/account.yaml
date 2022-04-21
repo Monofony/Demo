@@ -1,14 +1,9 @@
 sylius_frontend_account_dashboard:
     path: /accueil
     methods: [GET]
+    controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController::redirectAction
     defaults:
-        _controller: sylius.controller.customer:showAction
-        _sylius:
-            template: "frontend/account/dashboard.html.twig"
-            repository:
-                method: find
-                arguments:
-                    - expr:service('App\\Context\\CustomerContext').getCustomer()
+        route: sylius_frontend_account_profile_update
 
 sylius_frontend_account_profile_update:
     path: /profile/edit

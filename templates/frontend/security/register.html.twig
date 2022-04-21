@@ -3,22 +3,23 @@
 {% form_theme form 'frontend/form/theme.html.twig' %}
 
 {% block content %}
-    {% include 'frontend/register/_header.html.twig' %}
-
     {{ sonata_block_render_event('sylius.shop.register.after_content_header') }}
+    <div class="grid-container grid-x align-center registerpage">
+        <div class="cell medium-8">
+            <div id="register-logo">
+                <i class="fas fa-user"></i>
+            </div>
+            <h2>{{ 'sylius.ui.register'|trans }}</h2>
+            <h3>{{ 'app.ui.it_is_nice_to_meet_you'|trans }}</h3>
 
-    <div class="ui padded segment">
-        {{ sonata_block_render_event('sylius.shop.register.before_form') }}
+            {{ sonata_block_render_event('sylius.shop.register.before_form') }}
 
-        {{ form_start(form, {'action': path('app_frontend_register'), 'attr': {'class': 'ui loadable form', 'novalidate': 'novalidate'}}) }}
-        {% include 'frontend/register/_form.html.twig' %}
+            {{ form_start(form, {'action': path('app_frontend_register'), 'attr': {'class': 'ui loadable form', 'novalidate': 'novalidate'}}) }}
+            {% include 'frontend/register/_form.html.twig' %}
 
-        {{ sonata_block_render_event('sylius.shop.register.form', {'form': form}) }}
-
-        <button type="submit" class="ui large primary button">
-            {{ 'sylius.ui.create_an_account'|trans }}
-        </button>
-        {{ form_row(form._token) }}
-        {{ form_end(form, {'render_rest': false}) }}
+            {{ sonata_block_render_event('sylius.shop.register.form', {'form': form}) }}
+            {{ form_row(form._token) }}
+            {{ form_end(form, {'render_rest': false}) }}
+        </div>
     </div>
 {% endblock %}
