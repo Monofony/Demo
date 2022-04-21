@@ -1,0 +1,107 @@
+.customer-bookings {
+  border-radius: 10px;
+  box-shadow: 0 2px 6px 0 rgba(19, 62, 86, 0.1);
+  background-color: #ffffff;
+  padding: 1rem;
+  .title-container {
+    margin: 2rem 0;
+    .title {
+      font-family: Poppins;
+      font-size: rem-calc(24);
+      color: #003f5b;
+    }
+    .subtitle {
+      font-family: Inter regular;
+      font-size: rem-calc(16);
+      font-weight: bold;
+      color: rgba(0, 72, 103, 0.5);
+    }
+  }
+  #booking-logo {
+    position: relative;
+    transform: translateX(2rem);
+    .fa-user {
+      font-size: rem-calc(23);
+      padding: rem-calc(15) rem-calc(18);
+      background-color: #e4f3f4;
+      border-radius: 50%;
+      color: #4baeb4;
+    }
+    .fa-pencil-alt {
+      font-size: rem-calc(13);
+      padding: rem-calc(3.5) rem-calc(3.5);
+      background-color: #133e56;
+      border-radius: 50%;
+      color: #ffffff;
+      position: absolute;
+      bottom: 0;
+      left: 2.8rem;
+    }
+  }
+}
+.booking-card {
+  border-radius: 5px;
+  box-shadow: 0 1px 2px 0 rgba(19, 62, 86, 0.1);
+  border: solid 1px #e7ebee;
+  background-color: #ffffff;
+  margin-bottom: 1rem;
+  .img {
+    margin: 0.7rem;
+    img {
+      border-radius: 5%;
+    }
+    @include breakpoint(small only) {
+      text-align: center;
+    }
+  }
+  h6 {
+    font-family: Inter regular;
+    font-size: rem-calc(15);
+    font-weight: 600;
+    margin-top: 0.6rem;
+    color: rgba(40, 80, 111, 0.5);
+  }
+  h3 {
+    font-family: Poppins;
+    font-size: rem-calc(30);
+    line-height: 1.67;
+    color: #133e56;
+  }
+  h4 {
+    font-family: Inter regular;
+    font-size: rem-calc(14);
+    color: rgba(29, 71, 98, 0.5);
+  }
+  p {
+    text-align: right;
+    border-radius: rem-calc(45);
+    background-color: rgba(57, 186, 100, 0.1);
+  }
+  .booking-state {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-evenly;
+    @include breakpoint(small only){
+      margin: 0 0 1rem -1rem;
+    }
+    a {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      @include breakpoint(small only){
+        margin-top: 0.5rem;
+      }
+      h5 {
+        margin: 0;
+        font-family: Inter regular;
+        font-size: rem-calc(14);
+        color: #93a7b6;
+        text-decoration: underline;
+      }
+      i {
+        font-size: rem-calc(14);
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+.pagination {
+    margin-top: $global-margin*4;
+    .pagination_button {
+        box-shadow: 0 2px 6px 0 rgba(19, 62, 86, 0.08);
+        height: rem-calc(50);
+        a {
+            font-size: rem-calc(20);
+            font-weight: bold;
+            color: #ffffff;
+            padding: 0;
+        }
+        &.disabled {
+            font-size: rem-calc(20);
+            font-weight: bold;
+            color: #ffffff;
+            padding: 0;
+        }
+    }
+    .current_page {
+        color: #4baeb4;
+        font-weight: bold;
+        font-size: rem-calc(20) !important;
+        padding: rem-calc(3 10);
+    }
+}

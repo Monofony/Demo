@@ -4,7 +4,7 @@ var Encore = require('@symfony/webpack-encore');
 
 var build = (name, assetPath, vendorUiPath) => {
     Encore
-    // the project directory where compiled assets will be stored
+        // the project directory where compiled assets will be stored
         .setOutputPath(`public/assets/${name}`)
         // the public path used by the web server to access the previous directory
         .setPublicPath(`/assets/${name}`)
@@ -15,7 +15,9 @@ var build = (name, assetPath, vendorUiPath) => {
         .addEntry('app', `${assetPath}/js/app.js`)
         // uncomment if you use Sass/SCSS files
         .enableSassLoader((options) => {
-            options.data = '@import "~semantic-ui-css/semantic.min.css";';
+            if(name === "backend") {
+                options.data = '@import "~semantic-ui-css/semantic.min.css";';
+            }
         })
         .autoProvidejQuery()
         .configureBabel()

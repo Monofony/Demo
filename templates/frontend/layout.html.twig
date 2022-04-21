@@ -2,43 +2,55 @@
 <html>
 <head>
     <meta charset="UTF-8"/>
-    <title>{% block title %}AppName{% endblock %}</title>
+    <title>{% block title %}Monofony demo{% endblock %}</title>
+    <meta name="robots" content="noindex">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('assets/frontend/app.css', 'frontend') }}"/>
     {% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 </head>
-<body class="pushable">
-<div class="pusher">
-    {% block top %}
-        <div id="menu" class="ui large sticky inverted stackable menu">
-            {% include 'frontend/_menu.html.twig' %}
-        </div>
-    {% endblock %}
-
-    <div id="ui container">
-        {% block header %}
-            <header>
-                {% include 'frontend/_header.html.twig' %}
-            </header>
-        {% endblock %}
-
-        {% include 'frontend/_flashes.html.twig' %}
-
-        {% block content %}
-        {% endblock %}
+<body class="{% block class %} {% endblock %}">
+<div class="pusher off-canvas-wrapper">
+    <div class="off-canvas position-right" id="offCanvas" data-off-canvas>
+{#        {{ render(url('sylius_frontend_partial_taxon_root_nodes', {'template': 'frontend/taxon/_horizontal_menu.html.twig', 'slug': app.request.get('slug')})) }}#}
+        <hr/>
+        {% if is_granted('ROLE_USER') %}
+            <a href="{{ path('sylius_frontend_account_dashboard') }}"
+               data-my-account-button
+               class="button clear">{{ 'sylius.ui.my_account'|trans }}</a>
+        {% else %}
+            <a href="{{ path('app_frontend_login') }}"
+               class="button expanded clear">{{ 'sylius.ui.login'|trans }}</a>
+            <a href="{{ path('app_frontend_register') }}"
+               class="button secondary expanded">{{ 'sylius.ui.register'|trans }}</a>
+        {% endif %}
     </div>
+    <div class="container off-canvas-content" data-off-canvas-content>
 
-    {% block footer %}
-        {% include 'frontend/_footer.html.twig' %}
-    {% endblock %}
+        {% block header %}
+            {% include 'frontend/_header.html.twig' %}
+        {% endblock %}
+
+        {% block flashes %}
+            {% include 'frontend/_flashes.html.twig' %}
+        {% endblock %}
+
+        <div class="main-content">
+            {% block content %}
+            {% endblock %}
+        </div>
+
+        {% block footer %}
+            {% include 'frontend/_footer.html.twig' %}
+        {% endblock %}
+
+    </div>
 </div>
 
 {% block javascripts %}
     <script type="text/javascript" src="{{ asset('assets/frontend/app.js', 'frontend') }}"></script>
     {{ sonata_block_render_event('sylius.shop.layout.javascripts') }}
 {% endblock %}
-{% include '@SyliusUi/Modal/_confirmation.html.twig' %}
 </body>
 </html>

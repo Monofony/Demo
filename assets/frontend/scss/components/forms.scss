@@ -1,0 +1,16 @@
+.checkbox {
+    display: flex;
+    align-content: center;
+    input {
+        cursor: pointer;
+        width: 24px;
+        height: 24px;
+        border-radius: 3px;
+        border-color: transparent;
+        box-shadow: 0 2px 6px 0 rgba(19, 62, 86, 0.08);
+        margin: 0;
+    }
+    label {
+        line-height: 1.5;
+    }
+}

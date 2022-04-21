@@ -1,0 +1,121 @@
+.loginpage {
+  margin-top: 5rem;
+  .cell {
+    width: rem-calc(374);
+    border-radius: rem-calc(10);
+    margin: 2rem;
+    box-shadow: 0 2px 6px 0 rgba(19, 62, 86, 0.1);
+    background-color: #ffffff;
+    @include breakpoint(small only){
+      margin: 0;
+      width: 100%;
+    }
+    &.login {
+      height: rem-calc(553);
+    }
+    &.register{
+      height: rem-calc(300);
+      @include breakpoint(small only){
+        margin-top: rem-calc(80);
+      }
+    }
+    h2 {
+      text-align: center;
+      color: #003f58;
+    }
+    h3 {
+      font-family: Inter regular;
+      font-size: rem-calc(16);
+      font-weight: bold;
+      text-align: center;
+      color: rgba(6, 71, 101, 0.5);
+      margin-bottom: 1.5rem;
+    }
+    p {
+      line-height: 1.5;
+      text-align: center;
+      color: rgba(0, 66, 99, 0.7);
+      padding: 0 rem-calc(10);
+    }
+    .login-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .form {
+        display: flex;
+        flex-direction: column;
+        .remember {
+          font-family: Inter regular;
+          text-decoration: underline;
+          font-size: rem-calc(13);
+          text-align: center;
+          color: #4baeb4;
+          margin-left: auto;
+          margin-right: auto;
+          margin-bottom: 1rem;
+        }
+        label {
+          font-size: rem-calc(16);
+          line-height: 1.5;
+          color: rgba(0, 63, 91, 0.7);
+          margin-bottom: 0.5rem;
+        }
+        input[type=text] {
+          width: rem-calc(294);
+          @include breakpoint(small only){
+            width: rem-calc(250);;
+          }
+        }
+      }
+    }
+    #login-logo {
+      position: relative;
+      transform: translateY(-2rem);
+
+      .fa-user {
+        font-size: rem-calc(23);
+        padding: rem-calc(15) rem-calc(18);
+        background-color: #e4f3f4;
+        border-radius: 50%;
+        color: #4baeb4;
+      }
+
+      .fa-long-arrow-alt-right {
+        font-size: rem-calc(13);
+        padding: rem-calc(3) rem-calc(3);
+        background-color: #133e56;
+        border-radius: 50%;
+        color: #ffffff;
+        position: absolute;
+        bottom: 0;
+        left: 2.8rem;
+      }
+    }
+      #register-logo {
+        position: relative;
+        transform: translateY(-2rem);
+        .fa-user {
+          font-size: rem-calc(23);
+          padding: rem-calc(15) rem-calc(18);
+          background-color: #e4f3f4;
+          border-radius: 50%;
+          color: #4baeb4;
+        }
+        .fa-plus {
+          font-size: rem-calc(13);
+          padding: rem-calc(4);
+          background-color: #133e56;
+          border-radius: 50%;
+          color: #ffffff;
+          position: absolute;
+          bottom: 0;
+          left: 2.8rem;
+        }
+      }
+    .register-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}

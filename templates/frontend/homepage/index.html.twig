@@ -1,5 +1,16 @@
 {% extends 'frontend/layout.html.twig' %}
 
-{% block content %}
+{% block class %}homepage{% endblock %}
 
+{% block content %}
+    <div class="header">
+        <div class="grid-container grid-x align-justify">
+            <div class="title cell medium-6 large-5">
+                <h1>{{ 'app.ui.adopt_the_perfect_pet_for_you_and_your_family'|trans }}</h1>
+            </div>
+            <div class="image show-for-medium">
+                <img src="{{ asset('assets/frontend/img/img-header.jpg', 'frontend') }}"/>
+            </div>
+        </div>
+    </div>
 {% endblock %}
