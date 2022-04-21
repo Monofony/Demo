@@ -2,9 +2,9 @@ imports:
     - suites/cli/installer.yaml
 
     # Uncomment these lines if you use monofony/front-pack
-    # - suites/ui/account/customer.yaml
-    # - suites/ui/account/login.yaml
-    # - suites/ui/account/registration.yaml
+     - suites/ui/account/customer.yaml
+     - suites/ui/account/login.yaml
+     - suites/ui/account/registration.yaml
 
     - suites/ui/admin/dashboard.yaml
     - suites/ui/booking/managing_bookings.yaml

@@ -311,6 +311,18 @@
     "monofony/customer": {
         "version": "v1.10.0"
     },
+    "monofony/front-contracts": {
+        "version": "v0.8.0-beta.2"
+    },
+    "monofony/front-meta": {
+        "version": "0.8",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "0.8",
+            "ref": "2b36169bbc23f68e3b052d9517326872596511ce"
+        }
+    },
     "monofony/sylius-user-bridge": {
         "version": "v0.8.0-beta.2"
     },

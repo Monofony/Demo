@@ -1,0 +1,28 @@
+{% extends 'frontend/layout.html.twig' %}
+
+{% form_theme form 'frontend/form/theme.html.twig' %}
+
+{% block content %}
+    {% include 'frontend/login/_header.html.twig' %}
+
+    <div class="ui padded segment">
+        <div class="ui two column very relaxed stackable grid">
+            <div class="column">
+                <h4 class="ui dividing header">{{ 'sylius.ui.registered_customers'|trans }}</h4>
+                <p>{{ 'sylius.ui.if_you_have_an_account_sign_in_with_your_email_address'|trans }}.</p>
+                {{ form_start(form, {'action': path('app_frontend_login_check'), 'attr': {'class': 'ui loadable form', 'novalidate': 'novalidate'}}) }}
+                    {% include 'frontend/login/_form.html.twig' %}
+
+                    <button type="submit" class="ui blue submit button">{{ 'sylius.ui.login'|trans }}</button>
+                    <a href="{{ path('sylius_user_request_password_reset_token') }}" class="ui right floated button">{{ 'sylius.ui.forgot_password'|trans }}</a>
+                    <input type="hidden" name="_csrf_shop_security_token" value="{{ csrf_token('shop_authenticate') }}">
+
+                {{ form_end(form, {'render_rest': true}) }}
+            </div>
+            <div class=column">
+                {% include 'frontend/login/_register.html.twig' %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
