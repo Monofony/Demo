@@ -17,6 +17,8 @@
         "monofony/core-bundle": "^0.8",
         "monofony/core-contracts": "^0.8",
         "monofony/core-meta": "^0.8",
+        "monofony/front-contracts": "^0.8",
+        "monofony/front-meta": "^0.8",
         "monofony/sylius-user-bridge": "^0.8",
         "pagerfanta/pagerfanta": "^3.5",
         "sonata-project/block-bundle": "^4.2",

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5eb15c258adc6bd8345e59f072b7d58b",
+    "content-hash": "0a04fc24ccf3e660185272da7b08f21d",
     "packages": [
         {
             "name": "babdev/pagerfanta-bundle",
@@ -3134,6 +3134,83 @@
                 "source": "https://github.com/Monofony/Customer/tree/v1.10.0"
             },
             "time": "2021-04-06T13:12:44+00:00"
+        },
+        {
+            "name": "monofony/front-contracts",
+            "version": "v0.8.0-beta.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Monofony/FrontContracts.git",
+                "reference": "281f749aa57f5cbe458ae6ac5129f2630df59c8d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Monofony/FrontContracts/zipball/281f749aa57f5cbe458ae6ac5129f2630df59c8d",
+                "reference": "281f749aa57f5cbe458ae6ac5129f2630df59c8d",
+                "shasum": ""
+            },
+            "require": {
+                "knplabs/knp-menu": "^3.1",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^0.12"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.8-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Monofony\\Contracts\\Front\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Generic abstractions related to Front",
+            "support": {
+                "issues": "https://github.com/Monofony/FrontContracts/issues",
+                "source": "https://github.com/Monofony/FrontContracts/tree/v0.8.0-beta.2"
+            },
+            "time": "2021-11-26T13:03:44+00:00"
+        },
+        {
+            "name": "monofony/front-meta",
+            "version": "v0.8.0-beta.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Monofony/FrontMeta.git",
+                "reference": "f7fcf3f00551c052049903009dc0e2452e7392ee"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Monofony/FrontMeta/zipball/f7fcf3f00551c052049903009dc0e2452e7392ee",
+                "reference": "f7fcf3f00551c052049903009dc0e2452e7392ee",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.8-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A meta package providing recipes for front",
+            "support": {
+                "issues": "https://github.com/Monofony/FrontMeta/issues",
+                "source": "https://github.com/Monofony/FrontMeta/tree/v0.8.0-beta.2"
+            },
+            "time": "2022-02-09T16:09:05+00:00"
         },
         {
             "name": "monofony/sylius-user-bridge",

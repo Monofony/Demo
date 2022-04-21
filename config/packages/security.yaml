@@ -64,6 +64,7 @@ security:
             switch_user: true
             context: app
             pattern: /.*
+            user_checker: App\Security\UserChecker
             provider: sylius_app_user_provider
             form_login:
                 provider: sylius_app_user_provider
