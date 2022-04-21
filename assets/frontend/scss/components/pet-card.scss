@@ -1,0 +1,88 @@
+.pet-card {
+    position: relative;
+    transform: translateY(0);
+    transition: all 0.25s ease-in-out;
+    height: 100%;
+    .overlay {
+        z-index: 1;
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+    }
+    .inner {
+        pointer-events: none;
+        z-index: 1;
+        .pet-pic {
+            position: relative;
+            img {
+                width: 100%;
+            }
+        }
+        .card-section {
+            .first-line {
+                h2 {
+                    margin: 0;
+                }
+                i {
+                    font-size: rem-calc(22);
+                    color: $medium-gray;
+                    margin: 0 rem-calc(6);
+                }
+                .age {
+                    font-size: rem-calc(20);
+                    font-family: $header-font-family;
+                    font-size: rem-calc(20);
+                    color: $secondary-color;
+                }
+            }
+            .meta {
+                text-align: left;
+                a {
+                    text-transform: uppercase;
+                    font-size: rem-calc(18);
+                    color: $medium-gray;
+                    pointer-events: all;
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                    @include breakpoint(small only) {
+                        font-size: rem-calc(16);
+                    }
+                }
+            }
+        }
+    }
+    &.reserved {
+        img {
+            filter: grayscale(100%);
+        }
+        .reserved-block {
+            z-index: 1;
+            position: absolute;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            color: white;
+            font-family: $header-font-family;
+            font-size: rem-calc(16);
+            i {
+                margin-right: 0.5rem;
+            }
+        }
+        .gradient {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(180deg, rgba($black, 0) 70%, rgba($black, 1) 100%);
+        }
+    }
+    &:not(.reserved) {
+        &:hover {
+            box-shadow: 0 4px 10px rgba($secondary-color, 0.2);
+            transform: translateY(rem-calc(-4));
+        }
+    }
+}

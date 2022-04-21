@@ -1,0 +1,77 @@
+.homepage {
+    .header {
+        background-image: linear-gradient(rgba(75, 174, 180, 0.33), rgba(75, 174, 180, 0.33)),
+            url("../../img/pattern.svg");
+        background-position-x: 10%;
+        background-position-y: 50%;
+        background-size: 60%;
+        @include breakpoint(large){
+            background-size: auto;
+        }
+        .title{
+            @include breakpoint(small only){
+                padding: 2rem;
+            }
+            @include breakpoint(medium){
+                margin: 3rem 0;
+                h1{
+                    font-size: rem-calc(40);
+                }
+            }
+            @include breakpoint(large){
+                margin: 7rem 0;
+                h1{
+                    font-size: rem-calc(48);
+                }
+            }
+            @include breakpoint(xlarge){
+                margin: 10rem 0;
+                h1{
+                    font-size: rem-calc(54);
+                }
+            }
+        }
+        .image {
+            position: absolute;
+            right: 0;
+            overflow: hidden;
+            border-bottom-left-radius: rem-calc(150);
+            @include breakpoint(medium){
+                width: rem-calc(300);
+            }
+            @include breakpoint(large){
+                width: rem-calc(500);
+            }
+            @include breakpoint(xlarge){
+                width: rem-calc(600);
+            }
+        }
+    }
+    h2{
+        margin-bottom: rem-calc(50);
+    }
+    section{
+        padding: rem-calc(72) 0;
+        &.latest-pets{
+            .button{
+                margin-top: 3rem;
+            }
+        }
+        &.what-kind {
+            background-color: $secondary-color;
+            h2 {
+                color: $white;
+            }
+            .card{
+                padding: rem-calc(42);
+                img{
+                    margin: rem-calc(30);
+                    max-width: rem-calc(78);
+                }
+                .title{
+                    font-size: rem-calc(30);
+                }
+            }
+        }
+    }
+}

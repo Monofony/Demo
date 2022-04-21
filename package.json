@@ -1,8 +1,11 @@
 {
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.13.0",
     "babel-polyfill": "^6.26.0",
+    "foundation-sites": "^6.5.3",
     "jquery": "^3.4.0",
     "lightbox2": "^2.9.0",
+    "motion-ui": "^2.0.3",
     "semantic-ui-css": "npm:fomantic-ui-css@^2.7.0"
   },
   "devDependencies": {

@@ -1,5 +1,16 @@
 app:
     ui:
+        about_demo: About the Monofony demo
+        about_demo_content: |
+            This website is a demo of the Monofony project.
+            Monofony is a micro-framework created by Mobizel company.
+            It uses Sylius packages to build a powerful admin panel.
+            It also contains some basic features like registering, login, resetting password.
+            There are two extra packages to build your API and the public views of your application.
+            This demo uses all the Monofony packages.
+        admin: Admin
+        adopt_the_perfect_pet_for_you_and_your_family: Adopt the perfect pet for you and your family!
+        any_questions_lets_talk: Any question? Let’s talk!
         avatar: Avatar
         beige: Beige
         black: Black
@@ -8,6 +19,7 @@ app:
         brown: Brown
         browse_all_pets: Browse all pets
         centimeter: Centimeter
+        contact: Contact
         create_user: Create an user
         customer_name: Customer name
         edit_pet: Edit pet

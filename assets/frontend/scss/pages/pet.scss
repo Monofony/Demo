@@ -1,0 +1,8 @@
+.header-pets {
+    background-image: linear-gradient(rgba(75, 174, 180, 0.33), rgba(75, 174, 180, 0.33)),
+        url("../../img/pattern_1.svg");
+    margin-bottom: $global-margin * 3;
+    h1 {
+        margin-bottom: $global-margin * 4;
+    }
+}

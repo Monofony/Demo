@@ -1,0 +1,44 @@
+.main-header {
+    .secondary-menu {
+        background-color: $secondary-color;
+        padding: 0.4rem 0;
+        a {
+            color: #ffffff;
+            font-size: rem-calc(13);
+        }
+    }
+    .a-taxon {
+        font-size: 14px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        color: $secondary-color;
+    }
+    .primary-menu {
+        z-index: 2;
+        position: relative;
+        box-shadow: 0 8px 14px 0 rgba(19, 62, 86, 0.08), 0 2px 6px 0 rgba(19, 62, 86, 0.08);
+        background-color: #ffffff;
+        ul {
+            background-color: #ffffff;
+        }
+        .menu {
+            .a-taxon {
+                text-transform: uppercase;
+
+                &.active {
+                    color: $primary-color;
+                }
+            }
+        }
+        .burger {
+            i {
+                color: $primary-color;
+            }
+        }
+        img {
+            @include breakpoint(small only) {
+                width: 12rem;
+            }
+        }
+    }
+}

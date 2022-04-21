@@ -1,0 +1,23 @@
+.breadcrumbs {
+    padding: 20px 0;
+    li {
+        font-weight: 600;
+        font-size: 15px;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+
+        a {
+            color: $medium-gray;
+        }
+
+        &:not(:last-child)::after {
+            position: relative;
+            margin: 0 0.75rem;
+            opacity: 1;
+            content: ">";
+            color: $medium-gray;
+        }
+    }
+}

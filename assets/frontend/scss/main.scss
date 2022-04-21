@@ -1,2 +1,93 @@
-@import "~sylius/ui/sass/main";
+@import "~foundation-sites/scss/foundation";
+@import '~motion-ui/src/motion-ui';
+@import "settings";
+@import "font";
 
+// Global styles
+@include foundation-global-styles;
+@include foundation-forms;
+@include foundation-typography;
+
+// Grids (choose one)
+@include foundation-xy-grid-classes;
+// @include foundation-grid;
+// @include foundation-flex-grid;
+
+// Generic components
+@include foundation-button;
+@include foundation-button-group;
+@include foundation-close-button;
+@include foundation-label;
+@include foundation-progress-bar;
+@include foundation-slider;
+@include foundation-switch;
+@include foundation-table;
+// Basic components
+@include foundation-badge;
+@include foundation-breadcrumbs;
+@include foundation-callout;
+@include foundation-card;
+@include foundation-dropdown;
+@include foundation-pagination;
+@include foundation-tooltip;
+
+// Containers
+@include foundation-accordion;
+@include foundation-media-object;
+@include foundation-orbit;
+@include foundation-responsive-embed;
+@include foundation-tabs;
+@include foundation-thumbnail;
+// Menu-based containers
+@include foundation-menu;
+@include foundation-menu-icon;
+@include foundation-accordion-menu;
+@include foundation-drilldown-menu;
+@include foundation-dropdown-menu;
+
+// Layout components
+@include foundation-off-canvas;
+@include foundation-reveal;
+@include foundation-sticky;
+@include foundation-title-bar;
+@include foundation-top-bar;
+
+// Helpers
+@include foundation-float-classes;
+@include foundation-flex-classes;
+@include foundation-visibility-classes;
+// @include foundation-prototype-classes;
+
+@include motion-ui-transitions;
+@include motion-ui-animations;
+
+// Global
+@import "global/variables";
+
+// Pages
+@import "pages/home";
+@import "pages/login";
+@import "pages/pet";
+@import "pages/register";
+@import "pages/pet-description";
+@import "pages/summary";
+@import "pages/dashboard";
+@import "pages/confirmation";
+@import "pages/update_profile";
+@import "pages/change_password";
+@import "pages/booking";
+
+// Patterns
+@import "patterns/filters";
+@import "patterns/footer";
+@import "patterns/header";
+@import "patterns/my_account_menu";
+@import "patterns/off-canvas";
+
+// Components
+@import "components/breadcrumbs";
+@import "components/forms";
+@import "components/pet-card";
+@import "components/pagination";
+
+@import "~@fortawesome/fontawesome-free/css/all.css";
