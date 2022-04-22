@@ -15,6 +15,7 @@ namespace App\Factory;
 
 use App\BookingStates;
 use App\Entity\Booking\Booking;
+use App\PetStates;
 use App\Repository\BookingRepository;
 use Zenstruck\Foundry\ModelFactory;
 use Zenstruck\Foundry\Proxy;
@@ -52,7 +53,16 @@ final class BookingFactory extends ModelFactory
 
     protected function initialize(): self
     {
-        return $this;
+        return $this
+            ->afterInstantiate(function (Booking $booking, array $attributes): void {
+                if (
+                    BookingStates::FINISHED !== $booking->getStatus()
+                    && BookingStates::CANCELED !== $booking->getStatus()
+                    && BookingStates::REFUSED !== $booking->getStatus()
+                ) {
+                    $booking->getPet()->setStatus(PetStates::BOOKED);
+                }
+            });
     }
 
     protected static function getClass(): string
