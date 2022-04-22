@@ -18,7 +18,7 @@
                 <div class="info grid-x">
                     <div class="cell large-4">
                         <div class="info-title">{{ 'app.ui.sex'|trans }}</div>
-                        <div class="info-value">{% if constant('App\\Sex::FEMALE') == pet.sex %}<i class="fas fa-venus"></i>{% else %}<i class="fas fa-mars"></i>{% endif %} {{ ('app.ui.'~pet.sex)|trans }}</div>
+                        <div class="info-value">{% if constant('App\\Sexes::FEMALE') == pet.sex %}<i class="fas fa-venus"></i>{% else %}<i class="fas fa-mars"></i>{% endif %} {{ ('app.ui.'~pet.sex)|trans }}</div>
                     </div>
                     <div class="cell large-4">
                         <div class="info-title">{{ 'app.ui.main_color'|trans }}</div>
@@ -35,7 +35,9 @@
                         <p>{{ 'app.ui.this_one_is_about_to_meet_their_new_family'|trans }}</p>
                     </div>
                 {% else %}
-                    <a href="{{ path('app_frontend_booking_summary', { 'slug': pet.slug }) }}" type="button" class="button pet">{{ 'app.ui.ask_for_a_visit'|trans }}</a>
+{#                    <a href="{{ path('app_frontend_booking_summary', { 'slug': pet.slug }) }}" type="button" class="button pet">#}
+{#                        {{ 'app.ui.ask_for_a_visit'|trans }}#}
+{#                    </a>#}
                 {% endif %}
             </div>
         </div>

@@ -48,6 +48,7 @@ app:
         new_bookings: New bookings
         new_pet: New pet
         new_pets: New pets
+        no_main_color: No main color
         orange: Orange
         overview_of_your_website: Overview of you website
         pet: Pet

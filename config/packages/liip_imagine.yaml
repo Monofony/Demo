@@ -12,3 +12,7 @@ liip_imagine:
                 auto_rotate: ~
                 upscale: { min: [500, 344] }
                 thumbnail: { size: [500, 344], mode: outbound }
+        app_frontend_pet_show:
+            filters:
+                auto_rotate: ~
+                thumbnail: { size: [400, 400], mode: outbound }

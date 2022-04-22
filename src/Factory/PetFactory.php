@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace App\Factory;
 
+use App\Colors;
 use App\Entity\Animal\Pet;
 use App\Entity\Animal\PetImage;
 use App\Repository\PetRepository;
@@ -61,6 +62,7 @@ final class PetFactory extends ModelFactory
             'size_unit' => self::faker()->randomElement(SizeUnits::ALL),
             'sex' => self::faker()->randomElement(Sexes::ALL),
             'images' => null,
+            'main_color' => null,
         ];
     }
 
@@ -78,6 +80,14 @@ final class PetFactory extends ModelFactory
                     $attributes['images'] = $this->randomImages($attributes['taxon']);
                 }
 
+                if (null === $attributes['main_color']) {
+                    $firstImage = $attributes['images'][0] ?? null;
+
+                    if (null !== $firstImage) {
+                        $attributes['main_color'] = self::getColor($firstImage);
+                    }
+                }
+
                 return $attributes;
             })
             ->instantiateWith(function (array $attributes): Pet {
@@ -88,6 +98,7 @@ final class PetFactory extends ModelFactory
                 $pet->setSize($attributes['size']);
                 $pet->setSizeUnit($attributes['size_unit']);
                 $pet->setSex($attributes['sex']);
+                $pet->setMainColor($attributes['main_color']);
 
                 $this->createImages($pet, $attributes);
 
@@ -151,5 +162,16 @@ final class PetFactory extends ModelFactory
         }
 
         return $selectedImages;
+    }
+
+    private static function getColor(string $fileName): ?string
+    {
+        foreach (Colors::ALL as $color) {
+            if (str_contains($fileName, '-'.$color)) {
+                return $color;
+            }
+        }
+
+        return null;
     }
 }
