@@ -1,0 +1,5 @@
+sylius_grid:
+    templates:
+        filter:
+            frontend_select: "frontend/grid/filter/select.html.twig"
+            taxon_filter: 'frontend/pet/filters/_taxon_filter.html.twig'

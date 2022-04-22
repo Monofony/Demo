@@ -1,0 +1,48 @@
+{% import 'backend/macro/image.html.twig' as images %}
+
+{% if pet.firstImage %}
+    {% set source_path = pet.firstImage.path %}
+    {% set original_path = source_path|imagine_filter('app_frontend_pet_show') %}
+    {% set path = source_path|imagine_filter(filter|default('app_frontend_pet_show')) %}
+{% else %}
+    {% set original_path = '//placehold.it/400x300' %}
+    {% set path = original_path %}
+{% endif %}
+
+<nav class="orbit-bullets cell show-for-medium medium-1">
+    {% for image in pet.images %}
+        {% set path = vich_uploader_asset(image, 'file') %}
+        <button class="thumbnail-item {{ loop.first ? 'is-active' : ''}}" data-slide="{{ loop.index - 1 }}">
+            <div class="thumbnail-wrapper">
+                {{ images.render(path, 'app_frontend_pet_show', pet.name) }}
+            </div>
+        </button>
+    {% endfor %}
+</nav>
+<div class="orbit-wrapper cell auto">
+    <div class="orbit-controls hide-for-medium">
+        <button class="orbit-previous rotate-down"><span class="show-for-sr">Previoux pic</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+                <path fill="#ffffff" fill-rule="evenodd" d="M7.098 11.337l7.592-7.591a.938.938 0 011.326 0l.886.885a.938.938 0 01.001 1.324L10.886 12l6.017 6.045a.937.937 0 01-.002 1.324l-.885.886a.938.938 0 01-1.326 0l-7.592-7.592a.938.938 0 010-1.326z"/>
+            </svg>
+        </button>
+        <button class="orbit-next rotate-up"><span class="show-for-sr">Next pic</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+                <path fill="#ffffff" fill-rule="evenodd" d="M16.902 12.663L9.31 20.254a.938.938 0 01-1.326 0l-.886-.885a.938.938 0 01-.001-1.324L13.114 12 7.097 5.955A.937.937 0 017.1 4.631l.885-.886a.938.938 0 011.326 0l7.592 7.592a.938.938 0 010 1.326z"/>
+            </svg>
+        </button>
+        </div>
+    <ul class="orbit-container">
+        {% for image in pet.images %}
+            {% set path = vich_uploader_asset(image, 'file') %}
+            <li class="{{ loop.first ? 'is-active' : ''}} orbit-slide">
+                <figure class="orbit-figure">
+                    <div class="orbit-image-wrapper">
+                        {% set class = "orbit-image" %}
+                        {{ images.render(path, 'app_frontend_pet_show', pet.name, class) }}
+                    </div>
+                </figure>
+            </li>
+        {% endfor %}
+    </ul>
+</div>

@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace App\Entity\Taxonomy;
 
+use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\Table;
 use Sylius\Component\Resource\Annotation\SyliusCrudRoutes;
@@ -45,6 +46,27 @@ use Sylius\Component\Taxonomy\Model\Taxon as BaseTaxon;
     template: '$template',
     repository: ['method' => 'findRootNodes'],
 )]
+#[SyliusRoute(
+    name: 'sylius_frontend_partial_taxon_root_nodes',
+    path: '/_partial/taxa/root-nodes',
+    methods: ['GET'],
+    controller: 'sylius.controller.taxon::indexAction',
+    template: '$template',
+    repository: ['method' => 'findRootNodes'],
+    requirements: ['template' => '[^?]+']
+)]
 class Taxon extends BaseTaxon implements TaxonInterface
 {
+    #[Column(type: 'string', nullable: true)]
+    private ?string $sizeRange = null;
+
+    public function getSizeRange(): ?string
+    {
+        return $this->sizeRange;
+    }
+
+    public function setSizeRange(?string $sizeRange): void
+    {
+        $this->sizeRange = $sizeRange;
+    }
 }

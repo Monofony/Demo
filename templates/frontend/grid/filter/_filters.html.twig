@@ -1,0 +1,22 @@
+{% import '@SyliusUi/Macro/buttons.html.twig' as buttons %}
+
+{% set definition = grid.definition %}
+{% set data = grid.data %}
+
+{% set path = path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) %}
+{% set criteria = app.request.query.get('criteria') %}
+
+{% if definition.enabledFilters|length > 0 %}
+    <div class="content {% if criteria is not null %}active{% endif %}">
+        <form method="get" action="{{ path }}" class="form" novalidate>
+            <div class="sylius-filters">
+                {% for filter in definition.enabledFilters|sort_by('position') if filter.enabled %}
+                    <div class="sylius-filters__field">
+                        {{ sylius_grid_render_filter(grid, filter) }}
+                    </div>
+                {% endfor %}
+            </div>
+            {{ buttons.resetFilters(path) }}
+        </form>
+    </div>
+{% endif %}

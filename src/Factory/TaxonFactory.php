@@ -15,6 +15,7 @@ namespace App\Factory;
 
 use App\Entity\Taxonomy\Taxon;
 use App\Entity\Taxonomy\TaxonInterface;
+use App\SizeRanges;
 use Monofony\Component\Core\Formatter\StringInflector;
 use Sylius\Component\Locale\Model\LocaleInterface;
 use Sylius\Component\Resource\Factory\FactoryInterface;
@@ -90,6 +91,8 @@ class TaxonFactory extends ModelFactory
             'description' => self::faker()->paragraph,
             'translations' => [],
             'children' => [],
+            'parent' => null,
+            'size_range' => self::faker()->randomElement(SizeRanges::ALL),
         ];
     }
 
@@ -97,7 +100,7 @@ class TaxonFactory extends ModelFactory
     {
         return $this
             ->instantiateWith(function (array $attributes): TaxonInterface {
-                return $this->createTaxon($attributes);
+                return $this->createTaxon($attributes, $attributes['parent']);
             })
         ;
     }
@@ -117,6 +120,7 @@ class TaxonFactory extends ModelFactory
         }
 
         $taxon->setCode($code);
+        $taxon->setSizeRange($attributes['size_range']);
 
         if (null !== $parentTaxon) {
             $taxon->setParent($parentTaxon);

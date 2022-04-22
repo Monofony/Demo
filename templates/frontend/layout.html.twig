@@ -13,7 +13,10 @@
 <body class="{% block class %} {% endblock %}">
 <div class="pusher off-canvas-wrapper">
     <div class="off-canvas position-right" id="offCanvas" data-off-canvas>
-{#        {{ render(url('sylius_frontend_partial_taxon_root_nodes', {'template': 'frontend/taxon/_horizontal_menu.html.twig', 'slug': app.request.get('slug')})) }}#}
+        {{ render(url('sylius_frontend_partial_taxon_root_nodes', {
+            'template': 'frontend/taxon/_horizontal_menu.html.twig',
+            'slug': app.request.get('slug')
+        })) }}
         <hr/>
         {% if is_granted('ROLE_USER') %}
             <a href="{{ path('sylius_frontend_account_dashboard') }}"

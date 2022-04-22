@@ -19,6 +19,7 @@ use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\ResourceRepositoryTrait;
 use Sylius\Component\Resource\Repository\RepositoryInterface;
+use Sylius\Component\Taxonomy\Model\TaxonInterface;
 
 /**
  * @method Pet|null find($id, $lockMode = null, $lockVersion = null)
@@ -65,6 +66,29 @@ class PetRepository extends ServiceEntityRepository implements RepositoryInterfa
             $queryBuilder
                 ->andWhere('pet_taxon.id = :taxon_id')
                 ->setParameter('taxon_id', $taxonId)
+            ;
+        }
+
+        return $queryBuilder;
+    }
+
+    public function createListForFrontQueryBuilder(string $localeCode, ?TaxonInterface $taxon = null): QueryBuilder
+    {
+        $queryBuilder = $this->createQueryBuilder('o');
+        $queryBuilder
+            ->innerJoin('o.taxon', 'taxon')
+            //->andWhere('o.enabled = :enabled')
+            //->setParameter('enabled', true)
+        ;
+
+        if (null !== $taxon) {
+            $queryBuilder
+                ->andWhere('taxon.left >= :taxonLeft')
+                ->andWhere('taxon.right <= :taxonRight')
+                ->andWhere('taxon.root = :taxonRoot')
+                ->setParameter('taxonLeft', $taxon->getLeft())
+                ->setParameter('taxonRight', $taxon->getRight())
+                ->setParameter('taxonRoot', $taxon->getRoot())
             ;
         }
 

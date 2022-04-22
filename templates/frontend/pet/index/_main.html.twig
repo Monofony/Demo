@@ -1,0 +1,12 @@
+{% import 'frontend/macro/pagination.html.twig' as pagination %}
+
+<div class="pets">
+    <div class="grid-x grid-margin-x grid-margin-y">
+        {% for pet in pets.data %}
+            <div class="cell large-4 medium-6">
+                {% include 'frontend/pet/_card.html.twig' with {'pet': pet} only %}
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{{ pagination.render(resources.data) }}

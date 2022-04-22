@@ -45,7 +45,7 @@ final class BookingContext implements Context
 
     private function createWithOptions(array $options): void
     {
-        $booking = BookingFactory::createOne($options)->object();
+        $booking = BookingFactory::createOne($options);
 
         $this->sharedStorage->set('booking', $booking);
     }

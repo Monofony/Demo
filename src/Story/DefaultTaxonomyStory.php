@@ -25,7 +25,7 @@ final class DefaultTaxonomyStory extends Story
             ->withDescription('We could talk about their behavior for hours.')
             ->withChildren([
                 [
-                    'name' => 'Persan',
+                    'name' => 'Persian',
                 ],
                 [
                     'name' => 'Siamese',

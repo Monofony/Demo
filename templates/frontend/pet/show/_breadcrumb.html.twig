@@ -1,0 +1,24 @@
+<nav aria-label="You are here:" role="navigation">
+    <ul class="breadcrumbs">
+        <li>
+            <a href="{{ path('app_frontend_homepage') }}" class="section">{{ 'sylius.ui.home'|trans }}</a>
+        </li>
+        {% if pet.taxon is not null %}
+            {% set taxon = pet.taxon %}
+            {% set ancestors = taxon.ancestors|reverse %}
+
+            {% for ancestor in ancestors %}
+                <li>
+                    <a href="{{ path('app_frontend_pet_per_taxon_index', {'slug': ancestor.slug}) }}" class="section">{{ ancestor.name }}</a>
+                </li>
+            {% endfor %}
+
+            <li>
+                <a href="{{ path('app_frontend_pet_per_taxon_index', {'slug': taxon.slug}) }}" class="section">{{ taxon.name }}</a>
+            </li>
+        {% endif %}
+        <li>
+            <span class="show-for-sr">Current: </span> {{ pet.name }}
+        </li>
+    </ul>
+</nav>

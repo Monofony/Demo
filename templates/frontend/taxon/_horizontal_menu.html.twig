@@ -1,0 +1,14 @@
+{% macro item(taxon) %}
+    {% set currentTaxon = app.request.get('slug') %}
+    <li><a class="a-taxon{% if taxon.slug in currentTaxon %} active{% endif %}" href="{{ path('app_frontend_pet_per_taxon_index', {'slug': taxon.slug}) }}">{{ taxon.name }}</a></li>
+{% endmacro %}
+
+{% import _self as macros %}
+
+{% if resources|length > 0 %}
+    <ul class="menu align-center">
+        {% for taxon in resources %}
+            {{ macros.item(taxon) }}
+        {% endfor %}
+    </ul>
+{% endif %}

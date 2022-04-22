@@ -6,7 +6,10 @@
                             src="{{ asset('assets/frontend/img/logo.svg', 'frontend') }}"/></a>
             </div>
             <div class="cell auto show-for-large">
-                {# {{ render(url('sylius_frontend_partial_taxon_root_nodes', {'template': 'frontend/taxon/_horizontal_menu.html.twig', 'slug': app.request.get('slug')})) }} #}
+                 {{ render(url('sylius_frontend_partial_taxon_root_nodes', {
+                     'template': 'frontend/taxon/_horizontal_menu.html.twig',
+                     'slug': app.request.get('slug')
+                 })) }}
             </div>
             <div class="cell large-4 show-for-large text-right">
                 {% if is_granted('ROLE_USER') %}
