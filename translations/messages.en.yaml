@@ -39,6 +39,7 @@ app:
         male: Male
         manage_your_bookings: Manage your bookings
         manage_your_pets: Manage your pets
+        medium: Medium
         meter: Meter
         millimeter: Millimeter
         new_bookings: New bookings
@@ -53,6 +54,8 @@ app:
         sex: Sex
         size: Size
         size_unit: Size unit
+        small: Small
+        tall: Tall
         taxon: Taxon
         tell_us_more_about_yourself: Tell us more about yourself.
         validate: Validate

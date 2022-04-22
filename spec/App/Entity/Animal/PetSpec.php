@@ -56,6 +56,18 @@ class PetSpec extends ObjectBehavior
         $this->getSlug()->shouldReturn('mickey');
     }
 
+    function it_should_have_new_status_by_default(): void
+    {
+        $this->getStatus()->shouldReturn('new');
+    }
+
+    function its_status_is_mutable(): void
+    {
+        $this->setStatus('booked');
+
+        $this->getStatus()->shouldReturn('booked');
+    }
+
     function it_has_no_description_by_default(): void
     {
         $this->getDescription()->shouldReturn(null);

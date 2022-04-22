@@ -16,6 +16,7 @@ namespace App\Entity\Animal;
 use App\Entity\IdentifiableTrait;
 use App\Entity\Taxonomy\Taxon;
 use App\Entity\Taxonomy\TaxonInterface;
+use App\PetStates;
 use App\Repository\PetRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -81,6 +82,41 @@ use Symfony\Component\Validator\Constraints\Valid;
     template: '$template',
     repository: ['method' => 'findLatest', 'arguments' => ['!!int $count']],
 )]
+#[SyliusRoute(
+    name: 'app_frontend_pet_index',
+    path: '/pets',
+    methods: ['GET'],
+    controller: 'app.controller.pet::indexAction',
+    template: 'frontend/pet/index.html.twig',
+    grid: 'app_frontend_pet'
+)]
+#[SyliusRoute(
+    name: 'app_frontend_pet_per_taxon_index',
+    path: '/pets/taxon/{slug}',
+    methods: ['GET'],
+    controller: 'app.controller.pet::indexAction',
+    template: 'frontend/pet/index.html.twig',
+    requirements: ['slug' => '.+'],
+    grid: 'app_frontend_pet_per_taxon'
+)]
+#[SyliusRoute(
+    name: 'app_frontend_ajax_pet_index',
+    path: '/ajax/pets',
+    methods: ['GET'],
+    controller: 'app.controller.pet::indexAction',
+    template: 'frontend/pet/index/_main.html.twig',
+    requirements: ['slug' => '.+'],
+    grid: 'app_frontend_pet'
+)]
+#[SyliusRoute(
+    name: 'app_frontend_ajax_pet_per_taxon_index',
+    path: '/ajax/pets/taxon/{slug}',
+    methods: ['GET'],
+    controller: 'app.controller.pet::indexAction',
+    template: 'frontend/pet/index/_main.html.twig',
+    requirements: ['slug' => '.+'],
+    grid: 'app_frontend_pet_per_taxon'
+)]
 class Pet implements ResourceInterface
 {
     use IdentifiableTrait;
@@ -92,6 +128,9 @@ class Pet implements ResourceInterface
     #[ORM\Column(type: 'string', unique: true)]
     #[Gedmo\Slug(fields: ['name'])]
     private ?string $slug = null;
+
+    #[ORM\Column(type: 'string')]
+    private string $status;
 
     #[ORM\Column(type: 'text', nullable: true)]
     private ?string $description = null;
@@ -123,6 +162,7 @@ class Pet implements ResourceInterface
 
     public function __construct()
     {
+        $this->status = PetStates::NEW;
         $this->images = new ArrayCollection();
     }
 
@@ -144,6 +184,16 @@ class Pet implements ResourceInterface
     public function setSlug(?string $slug): void
     {
         $this->slug = $slug;
+    }
+
+    public function getStatus(): string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(string $status): void
+    {
+        $this->status = $status;
     }
 
     public function getDescription(): ?string

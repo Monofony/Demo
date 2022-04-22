@@ -74,11 +74,6 @@ class UserContext implements Context
         $token = 'itotallyforgotmypassword';
 
         $user->setPasswordResetToken($token);
-
-        if ($user instanceof Proxy) {
-            // $user->save();
-        }
-
         $user->setPasswordRequestedAt(new \DateTime());
 
         if ($user instanceof Proxy) {
