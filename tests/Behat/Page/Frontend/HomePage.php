@@ -30,9 +30,9 @@ class HomePage extends SymfonyPage
         $this->getElement('logout_button')->click();
     }
 
-    public function hasLogoutButton(): bool
+    public function hasMyAccountButton(): bool
     {
-        return $this->hasElement('logout_button');
+        return $this->hasElement('my_account_button');
     }
 
     /**
@@ -41,7 +41,7 @@ class HomePage extends SymfonyPage
     protected function getDefinedElements(): array
     {
         return array_merge(parent::getDefinedElements(), [
-            'logout_button' => '.app-logout-button',
+            'my_account_button' => '[data-my-account-button]',
         ]);
     }
 }

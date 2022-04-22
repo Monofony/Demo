@@ -36,19 +36,14 @@ final class AccountMenuBuilder implements AccountMenuBuilderInterface
         $menu->setLabel('sylius.ui.my_account');
 
         $menu
-            ->addChild('dashboard', ['route' => 'sylius_frontend_account_dashboard'])
-            ->setLabel('sylius.ui.dashboard')
-            ->setLabelAttribute('icon', 'home')
-        ;
-        $menu
             ->addChild('personal_information', ['route' => 'sylius_frontend_account_profile_update'])
             ->setLabel('sylius.ui.personal_information')
-            ->setLabelAttribute('icon', 'user')
+            ->setLabelAttribute('icon', 'fas fa-user')
         ;
         $menu
             ->addChild('change_password', ['route' => 'sylius_frontend_account_change_password'])
             ->setLabel('sylius.ui.change_password')
-            ->setLabelAttribute('icon', 'lock')
+            ->setLabelAttribute('icon', 'fas fa-lock')
         ;
 
         $this->eventDispatcher->dispatch(new MenuBuilderEvent($this->factory, $menu), self::EVENT_NAME);

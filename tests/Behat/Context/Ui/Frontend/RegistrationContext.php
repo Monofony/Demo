@@ -180,7 +180,7 @@ class RegistrationContext implements Context
      */
     public function iShouldBeLoggedIn(): void
     {
-        Assert::true($this->homePage->hasLogoutButton());
+        Assert::true($this->homePage->hasMyAccountButton());
     }
 
     /**
@@ -188,7 +188,7 @@ class RegistrationContext implements Context
      */
     public function iShouldNotBeLoggedIn(): void
     {
-        Assert::false($this->homePage->hasLogoutButton());
+        Assert::false($this->homePage->hasMyAccountButton());
     }
 
     /**
