@@ -55,6 +55,15 @@ use Sylius\Component\Taxonomy\Model\Taxon as BaseTaxon;
     repository: ['method' => 'findRootNodes'],
     requirements: ['template' => '[^?]+']
 )]
+#[SyliusRoute(
+    name: 'app_frontend_partial_taxon_show',
+    path: '/_partial/taxa/{slug}',
+    methods: ['GET'],
+    controller: 'sylius.controller.taxon::showAction',
+    template: '$template',
+    repository: ['method' => 'findOneBySlug', 'arguments' => ['$slug', '%locale%']],
+    requirements: ['template' => '[^?]+', 'slug' => '.+']
+)]
 class Taxon extends BaseTaxon implements TaxonInterface
 {
     #[Column(type: 'string', nullable: true)]
