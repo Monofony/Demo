@@ -34,6 +34,9 @@ app:
         it_is_nice_to_meet_you: It's nice to meet you!
         legal_notices: Legal notices
         lets_continue_on_a_more_comfortable_page: Let’s continue on a more comfortable page, would you?
+        lets_find_a_cats: Let’s find a cat!
+        lets_find_a_dogs: Let’s find a dog!
+        lets_find_a_small_pets: Let’s find a small pet!
         lightgrey: Light grey
         main_color: Main color
         male: Male
@@ -52,14 +55,17 @@ app:
         pets: Pets
         search_customers: Search customers
         sex: Sex
+        show_me_more: Show me more!
         size: Size
         size_unit: Size unit
         small: Small
         tall: Tall
         taxon: Taxon
         tell_us_more_about_yourself: Tell us more about yourself.
+        they_cant_wait_to_meet_you: They can’t wait to meet you!
         validate: Validate
         view_website: View website
+        what_kind_of_animal_are_you_looking_for: What kind of animal are you looking for?
         white: White
         you_are_right_security_first: You’re right, security first!
 sylius:
