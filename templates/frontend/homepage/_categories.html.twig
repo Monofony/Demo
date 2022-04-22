@@ -1,0 +1,27 @@
+{% macro item(taxon) %}
+    <div class="cell card grid-x align-justify">
+        {% set img_path = 'assets/frontend/img/'~taxon.slug~'.svg' %}
+        {% set taxon_code = taxon.code|lower %}
+        {% set lets_find_taxon = 'app.ui.lets_find_a_'~taxon_code %}
+        <div class="cell">
+            <img src="{{ asset(img_path, 'frontend') }}"/>
+        </div>
+        <div class="title cell h1">{{ taxon.name }}</div>
+        <p class="cell">{{ taxon.translation.description }}</p>
+        <div class="cell text-center">
+            <a href="{{ path('app_frontend_pet_per_taxon_index', {'slug': taxon.slug}) }}" class="button">{{ lets_find_taxon|trans }}</a>
+        </div>
+    </div>
+{% endmacro %}
+
+{% import _self as macros %}
+
+{% if resources|length > 0 %}
+    <div class="grid-container">
+        <div class="grid-x grid-margin-x grid-margin-y align-center small-up-1 medium-up-2 large-up-3">
+            {% for taxon in resources %}
+                {{ macros.item(taxon) }}
+            {% endfor %}
+        </div>
+    </div>
+{% endif %}

@@ -100,6 +100,15 @@ use Symfony\Component\Validator\Constraints\Valid;
     grid: 'app_frontend_pet_per_taxon'
 )]
 #[SyliusRoute(
+    name: 'app_frontend_partial_pet_latest',
+    path: '/_partial/pets/latest/{count}',
+    methods: ['GET'],
+    controller: 'app.controller.pet::indexAction',
+    template: '$template',
+    repository: ['method' => 'findLatest', 'arguments' => ['!!int $count']],
+    requirements: ['template' => '[^?]+'],
+)]
+#[SyliusRoute(
     name: 'app_frontend_ajax_pet_index',
     path: '/ajax/pets',
     methods: ['GET'],

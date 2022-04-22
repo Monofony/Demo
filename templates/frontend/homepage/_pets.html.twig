@@ -1,0 +1,11 @@
+{% import '@SyliusUi/Macro/pagination.html.twig' as pagination %}
+
+<div class="grid-container align-justify">
+    <div class="grid-x grid-padding-x grid-padding-y">
+        {% for pet in resources %}
+            <div class="cell medium-6 large-3">
+                {% include 'frontend/pet/_card.html.twig' with {'pet': pet} only %}
+            </div>
+        {% endfor %}
+    </div>
+</div>
