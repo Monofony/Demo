@@ -64,6 +64,7 @@ app:
         taxon: Taxon
         tell_us_more_about_yourself: Tell us more about yourself.
         they_cant_wait_to_meet_you: They can’t wait to meet you!
+        this_one_is_about_to_meet_their_new_family: This one is about to meet his new family!
         validate: Validate
         view_website: View website
         what_kind_of_animal_are_you_looking_for: What kind of animal are you looking for?
