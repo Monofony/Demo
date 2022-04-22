@@ -22,18 +22,18 @@ class Colors
     public const GINGER = 'ginger';
     public const LIGHTGREY = 'lightgrey';
     public const ORANGE = 'orange';
-    public const WHITE = 'white';
-
     public const ALL = [
         self::BEIGE,
         self::BROWN,
         self::BLACK,
+        self::LIGHTGREY,
         self::GREY,
         self::GINGER,
-        self::LIGHTGREY,
         self::ORANGE,
         self::WHITE,
     ];
+
+    public const WHITE = 'white';
 
     private function __construct()
     {
@@ -43,13 +43,13 @@ class Colors
     {
         return [
             'app.ui.beige' => self::BEIGE,
-            'app.ui.brown' => self::BROWN,
-            'app.ui.black' => self::BLACK,
-            'app.ui.grey' => self::GREY,
-            'app.ui.ginger' => self::GINGER,
-            'app.ui.lightgrey' => self::LIGHTGREY,
             'app.ui.orange' => self::ORANGE,
+            'app.ui.ginger' => self::GINGER,
+            'app.ui.brown' => self::BROWN,
             'app.ui.white' => self::WHITE,
+            'app.ui.lightgrey' => self::LIGHTGREY,
+            'app.ui.grey' => self::GREY,
+            'app.ui.black' => self::BLACK,
         ];
     }
 }

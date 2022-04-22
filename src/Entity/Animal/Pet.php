@@ -82,13 +82,14 @@ use Symfony\Component\Validator\Constraints\Valid;
     template: '$template',
     repository: ['method' => 'findLatest', 'arguments' => ['!!int $count']],
 )]
-#[SyliusRoute(
-    name: 'app_frontend_pet_index',
+#[SyliusCrudRoutes(
+    alias: 'app.pet',
     path: '/pets',
-    methods: ['GET'],
-    controller: 'app.controller.pet::indexAction',
-    template: 'frontend/pet/index.html.twig',
-    grid: 'app_frontend_pet'
+    identifier: 'slug',
+    section: 'frontend',
+    templates: 'frontend/pet',
+    grid: 'app_frontend_pet',
+    only: ['index', 'show'],
 )]
 #[SyliusRoute(
     name: 'app_frontend_pet_per_taxon_index',

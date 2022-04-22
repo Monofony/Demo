@@ -14,8 +14,10 @@ declare(strict_types=1);
 namespace App\Tests\Behat\Context\Ui\Frontend;
 
 use App\Colors;
+use App\Entity\Animal\Pet;
 use App\Tests\Behat\Page\Frontend\Pet\IndexPage;
 use App\Tests\Behat\Page\Frontend\Pet\IndexPerTaxonPage;
+use App\Tests\Behat\Page\Frontend\Pet\ShowPage;
 use Behat\Behat\Context\Context;
 use Sylius\Component\Taxonomy\Model\TaxonInterface;
 use Webmozart\Assert\Assert;
@@ -25,6 +27,7 @@ final class PetContext implements Context
     public function __construct(
         private IndexPage $indexPage,
         private IndexPerTaxonPage $indexPerTaxonPage,
+        private ShowPage $showPage,
     ) {
     }
 
@@ -42,6 +45,14 @@ final class PetContext implements Context
     public function iBrowsePetsFromTaxon(TaxonInterface $taxon): void
     {
         $this->indexPerTaxonPage->open(['slug' => $taxon->getSlug()]);
+    }
+
+    /**
+     * @Then /^I check (this pet)'s details$/
+     */
+    public function iCheckThisAnimalsDetails(Pet $animal): void
+    {
+        $this->showPage->open(['slug' => $animal->getSlug()]);
     }
 
     /**
@@ -90,5 +101,13 @@ final class PetContext implements Context
     public function iShouldNotSeeThePet(string $petName): void
     {
         Assert::false($this->indexPage->isPetOnList($petName));
+    }
+
+    /**
+     * @Then I should see the pet name :petName
+     */
+    public function iShouldSeeTheAnimalName(string $petName): void
+    {
+        Assert::same($this->showPage->getName(), $petName);
     }
 }

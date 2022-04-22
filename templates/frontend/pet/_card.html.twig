@@ -1,8 +1,7 @@
 {% import 'macro/image.html.twig' as images %}
 {% import 'macro/age.html.twig' as ages %}
 
-{% set pet_path = '#' %}
-{#{% set pet_path = path('app_frontend_pet_show', { 'slug': pet.slug }) %}#}
+{% set pet_path = path('app_frontend_pet_show', { 'slug': pet.slug }) %}
 
 <div class="pet-card card {% if constant('App\\PetStates::BOOKED') == pet.status %}reserved{% endif %}">
     <a class="overlay" href="{{ pet_path }}"></a>

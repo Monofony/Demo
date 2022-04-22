@@ -20,6 +20,6 @@ final class RandomPetsStory extends Story
 {
     public function build(): void
     {
-        PetFactory::createMany(40);
+        PetFactory::createMany(100);
     }
 }
