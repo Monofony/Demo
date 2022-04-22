@@ -7,7 +7,7 @@
 				{% if taxon_slug is null %}
 					{% include 'frontend/pet/index/_simple_breadcrumb.html.twig' %}
 				{% else %}
-{#					{{ render(url('app_frontend_partial_taxon_show', {'template': 'frontend/pet/index/_breadcrumb.html.twig', 'slug': taxon_slug})) }}#}
+					{{ render(url('app_frontend_partial_taxon_show', {'template': 'frontend/pet/index/_breadcrumb.html.twig', 'slug': taxon_slug})) }}
 				{% endif %}
 			</div>
 			<div class="cell small-12 medium-10 large-7 text-center">
