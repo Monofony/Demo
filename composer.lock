@@ -2935,16 +2935,16 @@
         },
         {
             "name": "monofony/core-bundle",
-            "version": "v0.8.0-beta.2",
+            "version": "v0.8.0-beta.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Monofony/CoreBundle.git",
-                "reference": "931624eea823d8bef4c4e7d7b61c626dc76c2894"
+                "reference": "944d1d656a4587f84e67799ea1bdad5c9e33dd6d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Monofony/CoreBundle/zipball/931624eea823d8bef4c4e7d7b61c626dc76c2894",
-                "reference": "931624eea823d8bef4c4e7d7b61c626dc76c2894",
+                "url": "https://api.github.com/repos/Monofony/CoreBundle/zipball/944d1d656a4587f84e67799ea1bdad5c9e33dd6d",
+                "reference": "944d1d656a4587f84e67799ea1bdad5c9e33dd6d",
                 "shasum": ""
             },
             "require": {
@@ -2958,7 +2958,7 @@
                 "symfony/symfony": "*"
             },
             "require-dev": {
-                "phpstan/phpstan": "^0.12"
+                "phpstan/phpstan": "^1.5"
             },
             "type": "symfony-bundle",
             "extra": {
@@ -2981,9 +2981,9 @@
             "description": "Monofony core bundle.",
             "support": {
                 "issues": "https://github.com/Monofony/CoreBundle/issues",
-                "source": "https://github.com/Monofony/CoreBundle/tree/v0.8.0-beta.2"
+                "source": "https://github.com/Monofony/CoreBundle/tree/v0.8.0-beta.4"
             },
-            "time": "2022-03-31T11:58:05+00:00"
+            "time": "2022-04-26T15:57:16+00:00"
         },
         {
             "name": "monofony/core-contracts",
