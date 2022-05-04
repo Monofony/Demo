@@ -5295,7 +5295,7 @@
         },
         {
             "name": "sylius/ui-bundle",
-            "version": "v1.11.3",
+            "version": "v1.11.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusUiBundle.git",
@@ -5375,7 +5375,7 @@
                 "webshop"
             ],
             "support": {
-                "source": "https://github.com/Sylius/SyliusUiBundle/tree/v1.11.3"
+                "source": "https://github.com/Sylius/SyliusUiBundle/tree/v1.11.4"
             },
             "time": "2022-04-07T09:22:29+00:00"
         },
