@@ -4746,26 +4746,26 @@
         },
         {
             "name": "sylius/locale",
-            "version": "v1.10.9",
+            "version": "v1.11.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/Locale.git",
-                "reference": "489815f4546f165348d622a60de4959107c41de1"
+                "reference": "2236778ee63fed1193bdbce29c1b2af8a8ad4b23"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/Locale/zipball/489815f4546f165348d622a60de4959107c41de1",
-                "reference": "489815f4546f165348d622a60de4959107c41de1",
+                "url": "https://api.github.com/repos/Sylius/Locale/zipball/2236778ee63fed1193bdbce29c1b2af8a8ad4b23",
+                "reference": "2236778ee63fed1193bdbce29c1b2af8a8ad4b23",
                 "shasum": ""
             },
             "require": {
                 "laminas/laminas-stdlib": "^3.2",
-                "php": "^7.4 || ^8.0",
+                "php": "^8.0",
                 "sylius/resource": "^1.7",
-                "symfony/intl": "^4.4 || ^5.2"
+                "symfony/intl": "^4.4 || ^5.4"
             },
             "require-dev": {
-                "phpspec/phpspec": "^7.1"
+                "phpspec/phpspec": "^7.2"
             },
             "type": "library",
             "extra": {
@@ -4806,13 +4806,13 @@
                 "localization"
             ],
             "support": {
-                "source": "https://github.com/Sylius/Locale/tree/v1.10.9"
+                "source": "https://github.com/Sylius/Locale/tree/v1.11.4"
             },
-            "time": "2022-01-19T15:58:08+00:00"
+            "time": "2022-04-01T11:06:42+00:00"
         },
         {
             "name": "sylius/locale-bundle",
-            "version": "v1.11.3",
+            "version": "v1.11.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusLocaleBundle.git",
@@ -4884,7 +4884,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Sylius/SyliusLocaleBundle/issues",
-                "source": "https://github.com/Sylius/SyliusLocaleBundle/tree/v1.11.3"
+                "source": "https://github.com/Sylius/SyliusLocaleBundle/tree/v1.11.4"
             },
             "time": "2022-04-01T11:06:42+00:00"
         },
