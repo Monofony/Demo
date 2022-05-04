@@ -4477,25 +4477,25 @@
         },
         {
             "name": "sylius/customer",
-            "version": "v1.10.9",
+            "version": "v1.11.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/Customer.git",
-                "reference": "f7c753bade1bdf03d6c624b9b25ff3d9f80f3a36"
+                "reference": "1a33a33daf1fd195e1c511468588b1943decc731"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/Customer/zipball/f7c753bade1bdf03d6c624b9b25ff3d9f80f3a36",
-                "reference": "f7c753bade1bdf03d6c624b9b25ff3d9f80f3a36",
+                "url": "https://api.github.com/repos/Sylius/Customer/zipball/1a33a33daf1fd195e1c511468588b1943decc731",
+                "reference": "1a33a33daf1fd195e1c511468588b1943decc731",
                 "shasum": ""
             },
             "require": {
                 "doctrine/collections": "^1.6",
-                "php": "^7.4 || ^8.0",
+                "php": "^8.0",
                 "sylius/resource": "^1.0"
             },
             "require-dev": {
-                "phpspec/phpspec": "^7.1"
+                "phpspec/phpspec": "^7.2"
             },
             "type": "library",
             "extra": {
@@ -4541,13 +4541,13 @@
                 "groups"
             ],
             "support": {
-                "source": "https://github.com/Sylius/Customer/tree/v1.10.9"
+                "source": "https://github.com/Sylius/Customer/tree/v1.11.4"
             },
-            "time": "2022-01-19T15:58:08+00:00"
+            "time": "2022-04-01T11:06:42+00:00"
         },
         {
             "name": "sylius/customer-bundle",
-            "version": "v1.11.3",
+            "version": "v1.11.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusCustomerBundle.git",
@@ -4627,7 +4627,7 @@
                 "groups"
             ],
             "support": {
-                "source": "https://github.com/Sylius/SyliusCustomerBundle/tree/v1.11.3"
+                "source": "https://github.com/Sylius/SyliusCustomerBundle/tree/v1.11.4"
             },
             "time": "2022-04-01T11:06:42+00:00"
         },
