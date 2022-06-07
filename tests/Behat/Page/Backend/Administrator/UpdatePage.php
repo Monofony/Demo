@@ -32,7 +32,7 @@ class UpdatePage extends AbstractUpdatePage implements UpdatePageInterface
 
         $imageForm = $this->getElement('avatar')->find('css', 'input[type="file"]');
 
-        $imageForm->attachFile($filesPath.$path);
+        $imageForm->attachFile($filesPath . $path);
     }
 
     public function changeUsername(?string $username): void

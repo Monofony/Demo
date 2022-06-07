@@ -22,7 +22,7 @@ final class TaxonFilter implements FilterInterface
 {
     public function __construct(
         private TaxonRepositoryInterface $taxonRepository,
-        private string $locale
+        private string $locale,
     ) {
     }
 
@@ -51,16 +51,16 @@ final class TaxonFilter implements FilterInterface
             $taxonExpressions[] = $dataSource->getExpressionBuilder()->andX(
                 $dataSource->getExpressionBuilder()->greaterThanOrEqual(sprintf('%s.left', $field), $taxon->getLeft()),
                 $dataSource->getExpressionBuilder()->lessThanOrEqual(sprintf('%s.right', $field), $taxon->getRight()),
-                $dataSource->getExpressionBuilder()->equals(sprintf('%s.root', $field), $taxon->getRoot())
+                $dataSource->getExpressionBuilder()->equals(sprintf('%s.root', $field), $taxon->getRoot()),
             );
         }
 
         $dataSource->restrict(
             $dataSource->getExpressionBuilder()->andX(
                 $dataSource->getExpressionBuilder()->orX(
-                    ...$taxonExpressions
-                )
-            )
+                    ...$taxonExpressions,
+                ),
+            ),
         );
     }
 

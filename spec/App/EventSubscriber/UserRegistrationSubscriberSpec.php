@@ -29,12 +29,12 @@ final class UserRegistrationSubscriberSpec extends ObjectBehavior
     public function let(
         ObjectManager $userManager,
         GeneratorInterface $tokenGenerator,
-        EventDispatcherInterface $eventDispatcher
+        EventDispatcherInterface $eventDispatcher,
     ): void {
         $this->beConstructedWith(
             $userManager,
             $tokenGenerator,
-            $eventDispatcher
+            $eventDispatcher,
         );
     }
 
@@ -56,7 +56,7 @@ final class UserRegistrationSubscriberSpec extends ObjectBehavior
         EventDispatcherInterface $eventDispatcher,
         GenericEvent $event,
         CustomerInterface $customer,
-        UserInterface $user
+        UserInterface $user,
     ): void {
         $event->getSubject()->willReturn($customer);
         $customer->getUser()->willReturn($user);
@@ -77,7 +77,7 @@ final class UserRegistrationSubscriberSpec extends ObjectBehavior
 
     public function it_throws_an_invalid_argument_exception_if_event_subject_is_not_customer_type(
         GenericEvent $event,
-        \stdClass $customer
+        \stdClass $customer,
     ): void {
         $event->getSubject()->willReturn($customer);
 
@@ -86,7 +86,7 @@ final class UserRegistrationSubscriberSpec extends ObjectBehavior
 
     public function it_throws_an_invalid_argument_exception_if_user_is_null(
         GenericEvent $event,
-        CustomerInterface $customer
+        CustomerInterface $customer,
     ): void {
         $event->getSubject()->willReturn($customer);
         $customer->getUser()->willReturn(null);

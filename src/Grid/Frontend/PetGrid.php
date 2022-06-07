@@ -51,23 +51,23 @@ final class PetGrid extends AbstractGrid implements ResourceAwareGridInterface
             ->setLimits([12])
             ->addField(
                 StringField::create('name')
-                    ->setSortable(true)
+                    ->setSortable(true),
             )
             ->addFilter(
                 Filter::create('taxon', 'taxon_filter')
-                    ->setLabel('app.ui.pet')
+                    ->setLabel('app.ui.pet'),
             )
             ->addFilter(
                 FrontendSelectFilter::create(name: 'sex', choices: Sexes::choices(), multiple: true, expanded: true)
-                    ->setLabel('app.ui.sex')
+                    ->setLabel('app.ui.sex'),
             )
             ->addFilter(
                 FrontendSelectFilter::create(name: 'mainColor', choices: Colors::choices(), multiple: true, expanded: true)
-                    ->setLabel('app.ui.main_color')
+                    ->setLabel('app.ui.main_color'),
             )
             ->addFilter(
                 FrontendSelectFilter::create(name: 'sizeRange', choices: SizeRanges::choices(), multiple: true, field: 'taxon.sizeRange', expanded: true)
-                    ->setLabel('app.ui.size')
+                    ->setLabel('app.ui.size'),
             )
         ;
     }

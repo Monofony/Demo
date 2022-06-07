@@ -27,18 +27,18 @@ use Zenstruck\Foundry\Proxy;
 /**
  * @extends ModelFactory<TaxonInterface>
  *
- * @method static               TaxonInterface|Proxy createOne(array $attributes = [])
- * @method static               TaxonInterface[]|Proxy[] createMany(int $number, array|callable $attributes = [])
- * @method static               TaxonInterface|Proxy find(object|array|mixed $criteria)
- * @method static               TaxonInterface|Proxy findOrCreate(array $attributes)
- * @method static               TaxonInterface|Proxy first(string $sortedField = 'id')
- * @method static               TaxonInterface|Proxy last(string $sortedField = 'id')
- * @method static               TaxonInterface|Proxy random(array $attributes = [])
- * @method static               TaxonInterface|Proxy randomOrCreate(array $attributes = [])
- * @method static               TaxonInterface[]|Proxy[] all()
- * @method static               TaxonInterface[]|Proxy[] findBy(array $attributes)
- * @method static               TaxonInterface[]|Proxy[] randomSet(int $number, array $attributes = [])
- * @method static               TaxonInterface[]|Proxy[] randomRange(int $min, int $max, array $attributes = [])
+ * @method static TaxonInterface|Proxy createOne(array $attributes = [])
+ * @method static TaxonInterface[]|Proxy[] createMany(int $number, array|callable $attributes = [])
+ * @method static TaxonInterface|Proxy find(object|array|mixed $criteria)
+ * @method static TaxonInterface|Proxy findOrCreate(array $attributes)
+ * @method static TaxonInterface|Proxy first(string $sortedField = 'id')
+ * @method static TaxonInterface|Proxy last(string $sortedField = 'id')
+ * @method static TaxonInterface|Proxy random(array $attributes = [])
+ * @method static TaxonInterface|Proxy randomOrCreate(array $attributes = [])
+ * @method static TaxonInterface[]|Proxy[] all()
+ * @method static TaxonInterface[]|Proxy[] findBy(array $attributes)
+ * @method static TaxonInterface[]|Proxy[] randomSet(int $number, array $attributes = [])
+ * @method static TaxonInterface[]|Proxy[] randomRange(int $min, int $max, array $attributes = [])
  * @method TaxonInterface|Proxy create(array|callable $attributes = [])
  */
 class TaxonFactory extends ModelFactory
@@ -47,7 +47,7 @@ class TaxonFactory extends ModelFactory
         private FactoryInterface $taxonFactory,
         private RepositoryInterface $taxonRepository,
         private RepositoryInterface $localeRepository,
-        private TaxonSlugGeneratorInterface $taxonSlugGenerator
+        private TaxonSlugGeneratorInterface $taxonSlugGenerator,
     ) {
         parent::__construct();
     }

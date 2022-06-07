@@ -84,9 +84,9 @@ EOT
                     'Step %d of %d. <info>%s</info>',
                     $step + 1,
                     count($this->commands),
-                    $command['message']
+                    $command['message'],
                 ));
-                $this->commandExecutor->runCommand('app:install:'.$command['command'], [], $output);
+                $this->commandExecutor->runCommand('app:install:' . $command['command'], [], $output);
                 $output->writeln('');
             } catch (RuntimeException $exception) {
                 $errored = true;

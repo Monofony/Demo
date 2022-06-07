@@ -37,7 +37,7 @@ final class SetupCommand extends Command
         private ObjectManager $adminUserManager,
         private FactoryInterface $adminUserFactory,
         private UserRepositoryInterface $adminUserRepository,
-        private ValidatorInterface $validator
+        private ValidatorInterface $validator,
     ) {
         parent::__construct();
     }
@@ -88,7 +88,7 @@ EOT
     private function configureNewUser(
         AdminUserInterface $user,
         InputInterface $input,
-        OutputInterface $output
+        OutputInterface $output,
     ): AdminUserInterface {
         if ($input->getOption('no-interaction')) {
             Assert::null($this->adminUserRepository->findOneByEmail('admin@example.com'));

@@ -24,8 +24,8 @@ use Sylius\Component\Taxonomy\Model\TaxonInterface;
 /**
  * @method Pet|null find($id, $lockMode = null, $lockVersion = null)
  * @method Pet|null findOneBy(array $criteria, array $orderBy = null)
- * @method Pet[]    findAll()
- * @method Pet[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Pet[] findAll()
+ * @method Pet[] findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class PetRepository extends ServiceEntityRepository implements RepositoryInterface
 {

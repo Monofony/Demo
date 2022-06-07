@@ -28,7 +28,7 @@ final class InstallSampleDataCommand extends Command
 
     public function __construct(
         private CommandsRunner $commandsRunner,
-        private string $environment
+        private string $environment,
     ) {
         parent::__construct();
     }
@@ -59,7 +59,7 @@ EOT
         $io->newLine();
         $io->title(sprintf(
             'Loading sample data for environment <info>%s</info>.',
-            $this->environment
+            $this->environment,
         ));
 
         $io->warning('This action will erase your database.');

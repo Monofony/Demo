@@ -144,7 +144,7 @@ final class AccountContext implements Context
     {
         Assert::true($this->profileUpdatePage->checkValidationMessageFor(
             StringInflector::nameToCode($element),
-            sprintf('Please enter your %s.', $element)
+            sprintf('Please enter your %s.', $element),
         ));
     }
 
@@ -155,7 +155,7 @@ final class AccountContext implements Context
     {
         Assert::true($this->profileUpdatePage->checkValidationMessageFor(
             StringInflector::nameToCode($element),
-            sprintf('This %s is invalid.', $element)
+            sprintf('This %s is invalid.', $element),
         ));
     }
 
@@ -224,7 +224,7 @@ final class AccountContext implements Context
     {
         Assert::true($this->changePasswordPage->checkValidationMessageFor(
             'current_password',
-            'Provided password is different than the current one.'
+            'Provided password is different than the current one.',
         ));
     }
 
@@ -235,7 +235,7 @@ final class AccountContext implements Context
     {
         Assert::true($this->changePasswordPage->checkValidationMessageFor(
             'new_password',
-            'The entered passwords don\'t match'
+            'The entered passwords don\'t match',
         ));
     }
 
@@ -246,7 +246,7 @@ final class AccountContext implements Context
     {
         Assert::true($this->changePasswordPage->checkValidationMessageFor(
             'new_password',
-            'Password must be at least 4 characters long.'
+            'Password must be at least 4 characters long.',
         ));
     }
 

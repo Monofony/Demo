@@ -25,7 +25,7 @@ class InstallAssetsCommand extends Command
 
     public function __construct(
         private CommandsRunner $commandsRunner,
-        private string $environment
+        private string $environment,
     ) {
         parent::__construct();
     }

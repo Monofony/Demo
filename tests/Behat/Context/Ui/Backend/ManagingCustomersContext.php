@@ -32,7 +32,7 @@ final class ManagingCustomersContext implements Context
         IndexPage $indexPage,
         UpdatePage $updatePage,
         ShowPage $showPage,
-        CurrentPageResolverInterface $currentPageResolver
+        CurrentPageResolverInterface $currentPageResolver,
     ) {
         $this->indexPage = $indexPage;
         $this->updatePage = $updatePage;
@@ -203,7 +203,7 @@ final class ManagingCustomersContext implements Context
     {
         Assert::same(
             $this->updatePage->getValidationMessage($elementName),
-            sprintf('%s must be %s.', ucfirst($elementName), $validationMessage)
+            sprintf('%s must be %s.', ucfirst($elementName), $validationMessage),
         );
     }
 
@@ -302,7 +302,7 @@ final class ManagingCustomersContext implements Context
     {
         Assert::notNull(
             $customer->getUser()->getPassword(),
-            'Customer should have an account, but they do not.'
+            'Customer should have an account, but they do not.',
         );
     }
 
