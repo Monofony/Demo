@@ -1,0 +1,18 @@
+{
+    "@context": "/api/contexts/ConstraintViolationList",
+    "@type": "ConstraintViolationList",
+    "hydra:title": "An error occurred",
+    "hydra:description": "@string@",
+    "violations": [
+        {
+            "propertyPath": "email",
+            "message": "Please enter your email.",
+            "code": "@string@"
+        },
+        {
+            "propertyPath": "password",
+            "message": "Please enter your password.",
+            "code": "@string@"
+        }
+    ]
+}
