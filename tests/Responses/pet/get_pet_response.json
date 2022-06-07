@@ -1,0 +1,12 @@
+{
+    "@context": "/api/contexts/Pet",
+    "@id": "/api/pets/winnie",
+    "@type": "Pet",
+    "name": "Winnie",
+    "description": "@string@",
+    "size": @number@,
+    "sizeUnit": "@string@",
+    "mainColor": "@string@",
+    "sex": "@string@",
+    "taxon": "@string@.startsWith('/api/taxa/')"
+}

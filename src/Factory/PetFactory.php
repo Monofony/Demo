@@ -52,6 +52,16 @@ final class PetFactory extends ModelFactory
         parent::__construct();
     }
 
+    public function withName(string $name): self
+    {
+        return $this->addState(['name' => $name]);
+    }
+
+    public function withMainColor(string $mainColor): self
+    {
+        return $this->addState(['main_color' => $mainColor]);
+    }
+
     protected function getDefaults(): array
     {
         return [

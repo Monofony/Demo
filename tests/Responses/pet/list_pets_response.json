@@ -1,0 +1,52 @@
+{
+    "@context": "/api/contexts/Pet",
+    "@id": "/api/pets",
+    "@type": "hydra:Collection",
+    "hydra:member": [
+        {
+            "@id": "/api/pets/winnie",
+            "@type": "Pet",
+            "name": "Winnie",
+            "description": "@string@",
+            "size": @number@,
+            "sizeUnit": "@string@",
+            "mainColor": "@string@",
+            "sex": "@string@",
+            "taxon": "@string@.startsWith('/api/taxa/')"
+        },
+        {
+            "@id": "@string@.startsWith('/api/pets/')",
+            "@type": "Pet",
+            "name": "@string@",
+            "description": "@string@",
+            "size": @number@,
+            "sizeUnit": "@string@",
+            "mainColor": "@string@",
+            "sex": "@string@",
+            "taxon": "@string@.startsWith('/api/taxa/')"
+        },
+        {
+            "@id": "@string@.startsWith('/api/pets/')",
+            "@type": "Pet",
+            "name": "@string@",
+            "description": "@string@",
+            "size": @number@,
+            "sizeUnit": "@string@",
+            "mainColor": "@string@",
+            "sex": "@string@",
+            "taxon": "@string@.startsWith('/api/taxa/')"
+        },
+        {
+            "@id": "@string@.startsWith('/api/pets/')",
+            "@type": "Pet",
+            "name": "@string@",
+            "description": "@string@",
+            "size": @number@,
+            "sizeUnit": "@string@",
+            "mainColor": "@string@",
+            "sex": "@string@",
+            "taxon": "@string@.startsWith('/api/taxa/')"
+        }
+    ],
+    "hydra:totalItems": 4
+}
