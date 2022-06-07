@@ -40,34 +40,34 @@ final class CustomerGrid extends AbstractGrid implements ResourceAwareGridInterf
             ->addField(
                 StringField::create('firstName')
                     ->setLabel('sylius.ui.first_name')
-                    ->setSortable(true)
+                    ->setSortable(true),
             )
             ->addField(
                 StringField::create('lastName')
                     ->setLabel('sylius.ui.last_name')
-                    ->setSortable(true)
+                    ->setSortable(true),
             )
             ->addField(
                 StringField::create('email')
                     ->setLabel('sylius.ui.email')
-                    ->setSortable(true)
+                    ->setSortable(true),
             )
             ->addField(
                 DateTimeField::create('createdAt')
                     ->setLabel('sylius.ui.registration_date')
-                    ->setSortable(true)
+                    ->setSortable(true),
             )
             ->addFilter(StringFilter::create('search', ['email', 'firstName', 'lastName']))
             ->addActionGroup(
                 MainActionGroup::create(
                     CreateAction::create(),
-                )
+                ),
             )
             ->addActionGroup(
                 ItemActionGroup::create(
                     ShowAction::create(),
                     UpdateAction::create(),
-                )
+                ),
             )
         ;
     }

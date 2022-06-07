@@ -22,8 +22,8 @@ use Sylius\Component\Resource\Repository\RepositoryInterface;
 /**
  * @method Booking|null find($id, $lockMode = null, $lockVersion = null)
  * @method Booking|null findOneBy(array $criteria, array $orderBy = null)
- * @method Booking[]    findAll()
- * @method Booking[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Booking[] findAll()
+ * @method Booking[] findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class BookingRepository extends ServiceEntityRepository implements RepositoryInterface
 {

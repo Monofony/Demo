@@ -43,7 +43,7 @@ final class CreatePage extends AbstractCreatePage
 
         $imageForm = $this->getLastImageElement();
 
-        $imageForm->find('css', 'input[type="file"]')->attachFile($filesPath.$path);
+        $imageForm->find('css', 'input[type="file"]')->attachFile($filesPath . $path);
     }
 
     protected function getDefinedElements(): array

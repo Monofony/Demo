@@ -24,19 +24,19 @@ use Zenstruck\Foundry\RepositoryProxy;
 /**
  * @extends ModelFactory<AppUser>
  *
- * @method static        AppUser|Proxy createOne(array $attributes = [])
- * @method static        AppUser[]|Proxy[] createMany(int $number, array|callable $attributes = [])
- * @method static        AppUser|Proxy find(object|array|mixed $criteria)
- * @method static        AppUser|Proxy findOrCreate(array $attributes)
- * @method static        AppUser|Proxy first(string $sortedField = 'id')
- * @method static        AppUser|Proxy last(string $sortedField = 'id')
- * @method static        AppUser|Proxy random(array $attributes = [])
- * @method static        AppUser|Proxy randomOrCreate(array $attributes = [])
- * @method static        AppUser[]|Proxy[] all()
- * @method static        AppUser[]|Proxy[] findBy(array $attributes)
- * @method static        AppUser[]|Proxy[] randomSet(int $number, array $attributes = [])
- * @method static        AppUser[]|Proxy[] randomRange(int $min, int $max, array $attributes = [])
- * @method static        UserRepository|RepositoryProxy repository()
+ * @method static AppUser|Proxy createOne(array $attributes = [])
+ * @method static AppUser[]|Proxy[] createMany(int $number, array|callable $attributes = [])
+ * @method static AppUser|Proxy find(object|array|mixed $criteria)
+ * @method static AppUser|Proxy findOrCreate(array $attributes)
+ * @method static AppUser|Proxy first(string $sortedField = 'id')
+ * @method static AppUser|Proxy last(string $sortedField = 'id')
+ * @method static AppUser|Proxy random(array $attributes = [])
+ * @method static AppUser|Proxy randomOrCreate(array $attributes = [])
+ * @method static AppUser[]|Proxy[] all()
+ * @method static AppUser[]|Proxy[] findBy(array $attributes)
+ * @method static AppUser[]|Proxy[] randomSet(int $number, array $attributes = [])
+ * @method static AppUser[]|Proxy[] randomRange(int $min, int $max, array $attributes = [])
+ * @method static UserRepository|RepositoryProxy repository()
  * @method AppUser|Proxy create(array|callable $attributes = [])
  */
 final class AppUserFactory extends ModelFactory

@@ -53,7 +53,7 @@ use Sylius\Component\Taxonomy\Model\Taxon as BaseTaxon;
     controller: 'sylius.controller.taxon::indexAction',
     template: '$template',
     repository: ['method' => 'findRootNodes'],
-    requirements: ['template' => '[^?]+']
+    requirements: ['template' => '[^?]+'],
 )]
 #[SyliusRoute(
     name: 'app_frontend_partial_taxon_show',
@@ -62,7 +62,7 @@ use Sylius\Component\Taxonomy\Model\Taxon as BaseTaxon;
     controller: 'sylius.controller.taxon::showAction',
     template: '$template',
     repository: ['method' => 'findOneBySlug', 'arguments' => ['$slug', '%locale%']],
-    requirements: ['template' => '[^?]+', 'slug' => '.+']
+    requirements: ['template' => '[^?]+', 'slug' => '.+'],
 )]
 class Taxon extends BaseTaxon implements TaxonInterface
 {

@@ -32,7 +32,7 @@ class CustomerStatisticSpec extends ObjectBehavior
 
     function it_generate_statistics(
         CustomerRepository $customerRepository,
-        Environment $twig
+        Environment $twig,
     ): void {
         $customerRepository->countCustomers()->willReturn(6);
 

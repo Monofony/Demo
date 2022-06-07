@@ -98,7 +98,7 @@ use Symfony\Component\Validator\Constraints\Valid;
     controller: 'app.controller.pet::indexAction',
     template: 'frontend/pet/index.html.twig',
     requirements: ['slug' => '.+'],
-    grid: 'app_frontend_pet_per_taxon'
+    grid: 'app_frontend_pet_per_taxon',
 )]
 #[SyliusRoute(
     name: 'app_frontend_partial_pet_latest',
@@ -116,7 +116,7 @@ use Symfony\Component\Validator\Constraints\Valid;
     controller: 'app.controller.pet::indexAction',
     template: 'frontend/pet/index/_main.html.twig',
     requirements: ['slug' => '.+'],
-    grid: 'app_frontend_pet'
+    grid: 'app_frontend_pet',
 )]
 #[SyliusRoute(
     name: 'app_frontend_ajax_pet_per_taxon_index',
@@ -125,7 +125,7 @@ use Symfony\Component\Validator\Constraints\Valid;
     controller: 'app.controller.pet::indexAction',
     template: 'frontend/pet/index/_main.html.twig',
     requirements: ['slug' => '.+'],
-    grid: 'app_frontend_pet_per_taxon'
+    grid: 'app_frontend_pet_per_taxon',
 )]
 class Pet implements ResourceInterface
 {

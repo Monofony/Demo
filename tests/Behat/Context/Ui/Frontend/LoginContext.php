@@ -43,7 +43,7 @@ final class LoginContext implements Context
         RequestPasswordResetPage $requestPasswordResetPage,
         ResetPasswordPage $resetPasswordPage,
         NotificationCheckerInterface $notificationChecker,
-        CurrentPageResolverInterface $currentPageResolver
+        CurrentPageResolverInterface $currentPageResolver,
     ) {
         $this->homePage = $homePage;
         $this->loginPage = $loginPage;
@@ -246,7 +246,7 @@ final class LoginContext implements Context
     {
         Assert::true($this->resetPasswordPage->checkValidationMessageFor(
             'password',
-            'The entered passwords don\'t match'
+            'The entered passwords don\'t match',
         ));
     }
 
@@ -257,7 +257,7 @@ final class LoginContext implements Context
     {
         Assert::true($this->resetPasswordPage->checkValidationMessageFor(
             'password',
-            'Password must be at least 4 characters long.'
+            'Password must be at least 4 characters long.',
         ));
     }
 }

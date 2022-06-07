@@ -27,7 +27,7 @@ class InstallDatabaseCommand extends Command
     public function __construct(
         private DatabaseSetupCommandsProviderInterface $databaseSetupCommandsProvider,
         private CommandsRunner $commandsRunner,
-        private string $environment
+        private string $environment,
     ) {
         parent::__construct();
     }
@@ -56,7 +56,7 @@ EOT
         $io = new SymfonyStyle($input, $output);
         $io->writeln(sprintf(
             'Creating AppName database for environment <info>%s</info>.',
-            $this->environment
+            $this->environment,
         ));
         $commands = $this
             ->databaseSetupCommandsProvider

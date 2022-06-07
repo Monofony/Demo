@@ -47,40 +47,40 @@ final class PetGrid extends AbstractGrid implements ResourceAwareGridInterface
             ->setLimits([10, 25, 50])
             ->addFilter(
                 StringFilter::create('search', ['name', 'slug'])
-                    ->setLabel('sylius.ui.search')
+                    ->setLabel('sylius.ui.search'),
             )
             ->addField(
                 TwigField::create('image', 'backend/pet/grid/field/image.html.twig')
                     ->setLabel('sylius.ui.image')
-                    ->setPath('.')
+                    ->setPath('.'),
             )
             ->addField(
                 StringField::create('name')
                     ->setLabel('Name')
-                    ->setSortable(true)
+                    ->setSortable(true),
             )
             ->addField(
                 StringField::create('taxon')
                     ->setLabel('app.ui.taxon')
                     ->setSortable(true, 'translation.name')
-                    ->setPath('taxon.translation.name')
+                    ->setPath('taxon.translation.name'),
             )
             ->addActionGroup(
                 MainActionGroup::create(
                     CreateAction::create(),
-                )
+                ),
             )
             ->addActionGroup(
                 ItemActionGroup::create(
                     // ShowAction::create(),
                     UpdateAction::create(),
-                    DeleteAction::create()
-                )
+                    DeleteAction::create(),
+                ),
             )
             ->addActionGroup(
                 BulkActionGroup::create(
-                    DeleteAction::create()
-                )
+                    DeleteAction::create(),
+                ),
             )
         ;
     }

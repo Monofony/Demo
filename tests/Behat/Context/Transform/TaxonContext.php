@@ -36,7 +36,7 @@ final class TaxonContext implements Context
         Assert::eq(
             count($taxa),
             1,
-            sprintf('%d taxons has been found with name "%s".', count($taxa), $taxonName)
+            sprintf('%d taxons has been found with name "%s".', count($taxa), $taxonName),
         );
 
         return $taxa[0];

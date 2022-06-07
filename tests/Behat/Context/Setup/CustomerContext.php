@@ -58,7 +58,7 @@ final class CustomerContext implements Context
         for ($i = 0; $i < $numberOfCustomers; ++$i) {
             $customer = $this->createCustomer(sprintf('john%s@doe.com', uniqid()));
             $customer->setFirstname('John');
-            $customer->setLastname('Doe'.$i);
+            $customer->setLastname('Doe' . $i);
 
             $this->customerRepository->add($customer);
         }
@@ -81,7 +81,7 @@ final class CustomerContext implements Context
         string $email,
         string $fullName,
         string $phoneNumber,
-        string $since
+        string $since,
     ): void {
         $names = explode(' ', $fullName);
         $customer = $this->createCustomer($email, $names[0], $names[1], new \DateTime($since), $phoneNumber);
@@ -94,7 +94,7 @@ final class CustomerContext implements Context
         string $firstName = null,
         string $lastName = null,
         \DateTimeInterface $createdAt = null,
-        string $phoneNumber = null
+        string $phoneNumber = null,
     ): CustomerInterface {
         /** @var CustomerInterface $customer */
         $customer = $this->customerFactory->createNew();
@@ -118,7 +118,7 @@ final class CustomerContext implements Context
         bool $enabled = true,
         string $firstName = null,
         string $lastName = null,
-        string $role = null
+        string $role = null,
     ): CustomerInterface {
         /** @var AppUserInterface $user */
         $user = $this->appUserFactory->createNew();

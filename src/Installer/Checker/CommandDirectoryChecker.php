@@ -55,7 +55,7 @@ final class CommandDirectoryChecker
         try {
             $this->filesystem->mkdir($directory, 0755);
         } catch (IOException $exception) {
-            $output->writeln($this->createUnexistingDirectoryMessage(getcwd().'/'.$directory));
+            $output->writeln($this->createUnexistingDirectoryMessage(getcwd() . '/' . $directory));
 
             throw new \RuntimeException('Failed while trying to create directory.');
         }
@@ -99,7 +99,7 @@ final class CommandDirectoryChecker
     private function createUnexistingDirectoryMessage(string $directory): string
     {
         return
-            '<error>Cannot run command due to unexisting directory (tried to create it automatically, failed).</error>'.PHP_EOL.
+            '<error>Cannot run command due to unexisting directory (tried to create it automatically, failed).</error>' . PHP_EOL .
             sprintf('Create directory "%s" and run command "<comment>%s</comment>"', $directory, $this->name)
         ;
     }
@@ -107,7 +107,7 @@ final class CommandDirectoryChecker
     private function createBadPermissionsMessage(string $directory): string
     {
         return
-            '<error>Cannot run command due to bad directory permissions (tried to change permissions to 0755).</error>'.PHP_EOL.
+            '<error>Cannot run command due to bad directory permissions (tried to change permissions to 0755).</error>' . PHP_EOL .
             sprintf('Set "%s" writable recursively and run command "<comment>%s</comment>"', $directory, $this->name)
         ;
     }

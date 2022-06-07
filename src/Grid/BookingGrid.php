@@ -39,38 +39,38 @@ final class BookingGrid extends AbstractGrid implements ResourceAwareGridInterfa
             ->setLimits([10, 25, 50])
             ->addFilter(
                 StringFilter::create('search', ['pet.name', 'booker.email'])
-                    ->setLabel('sylius.ui.search')
+                    ->setLabel('sylius.ui.search'),
             )
             ->addFilter(
                 SelectFilter::create('status', BookingStates::choices())
-                    ->setLabel('sylius.ui.status')
+                    ->setLabel('sylius.ui.status'),
             )
             ->addField(
                 StringField::create('pet')
                     ->setLabel('app.ui.pet')
                     ->setPath('pet.name')
-                    ->setSortable(true, 'pet.name')
+                    ->setSortable(true, 'pet.name'),
             )
             ->addField(
                 StringField::create('booker')
                     ->setLabel('sylius.ui.customer')
                     ->setPath('booker.email')
-                    ->setSortable(true, 'booker.email')
+                    ->setSortable(true, 'booker.email'),
             )
             ->addField(
                 TwigField::create('status', '@SyliusUi/Grid/Field/state.html.twig')
                     ->setLabel('sylius.ui.state')
-                    ->setOption('vars', ['labels' => 'backend/booking/label/state'])
+                    ->setOption('vars', ['labels' => 'backend/booking/label/state']),
             )
             ->addField(
                 DateTimeField::create('createdAt', 'Y-m-d')
                     ->setLabel('sylius.ui.registration_date')
-                    ->setSortable(true)
+                    ->setSortable(true),
             )
             ->addActionGroup(
                 ItemActionGroup::create(
                     // ShowAction::create(),
-                )
+                ),
             )
         ;
     }

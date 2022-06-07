@@ -28,7 +28,7 @@ class UserContext implements Context
         private SharedStorageInterface $sharedStorage,
         private UserRepositoryInterface $appUserRepository,
         private AppUserFactory $appUserFactory,
-        private ObjectManager $appUserManager
+        private ObjectManager $appUserManager,
     ) {
     }
 

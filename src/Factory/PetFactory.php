@@ -30,19 +30,19 @@ use Zenstruck\Foundry\RepositoryProxy;
 /**
  * @extends ModelFactory<Pet>
  *
- * @method static    Pet|Proxy createOne(array $attributes = [])
- * @method static    Pet[]|Proxy[] createMany(int $number, array|callable $attributes = [])
- * @method static    Pet|Proxy find(object|array|mixed $criteria)
- * @method static    Pet|Proxy findOrCreate(array $attributes)
- * @method static    Pet|Proxy first(string $sortedField = 'id')
- * @method static    Pet|Proxy last(string $sortedField = 'id')
- * @method static    Pet|Proxy random(array $attributes = [])
- * @method static    Pet|Proxy randomOrCreate(array $attributes = [])
- * @method static    Pet[]|Proxy[] all()
- * @method static    Pet[]|Proxy[] findBy(array $attributes)
- * @method static    Pet[]|Proxy[] randomSet(int $number, array $attributes = [])
- * @method static    Pet[]|Proxy[] randomRange(int $min, int $max, array $attributes = [])
- * @method static    PetRepository|RepositoryProxy repository()
+ * @method static Pet|Proxy createOne(array $attributes = [])
+ * @method static Pet[]|Proxy[] createMany(int $number, array|callable $attributes = [])
+ * @method static Pet|Proxy find(object|array|mixed $criteria)
+ * @method static Pet|Proxy findOrCreate(array $attributes)
+ * @method static Pet|Proxy first(string $sortedField = 'id')
+ * @method static Pet|Proxy last(string $sortedField = 'id')
+ * @method static Pet|Proxy random(array $attributes = [])
+ * @method static Pet|Proxy randomOrCreate(array $attributes = [])
+ * @method static Pet[]|Proxy[] all()
+ * @method static Pet[]|Proxy[] findBy(array $attributes)
+ * @method static Pet[]|Proxy[] randomSet(int $number, array $attributes = [])
+ * @method static Pet[]|Proxy[] randomRange(int $min, int $max, array $attributes = [])
+ * @method static PetRepository|RepositoryProxy repository()
  * @method Pet|Proxy create(array|callable $attributes = [])
  */
 final class PetFactory extends ModelFactory
@@ -118,8 +118,8 @@ final class PetFactory extends ModelFactory
 
         foreach ($options['images'] as $imagePath) {
             $basename = basename($imagePath);
-            $filesystem->copy($imagePath, '/tmp/'.$basename);
-            $file = new UploadedFile('/tmp/'.$basename, $basename, null, null, true);
+            $filesystem->copy($imagePath, '/tmp/' . $basename);
+            $file = new UploadedFile('/tmp/' . $basename, $basename, null, null, true);
 
             $image = new PetImage();
             $image->setFile($file);
@@ -130,7 +130,7 @@ final class PetFactory extends ModelFactory
 
     private function randomImages(Proxy|TaxonInterface $taxon): array
     {
-        $directory = $this->testsDir.'/Resources/pets/'.strtolower((string) $taxon->getSlug());
+        $directory = $this->testsDir . '/Resources/pets/' . strtolower((string) $taxon->getSlug());
         if (!is_dir($directory)) {
             if ($taxon->isRoot()) {
                 return [];
@@ -167,7 +167,7 @@ final class PetFactory extends ModelFactory
     private static function getColor(string $fileName): ?string
     {
         foreach (Colors::ALL as $color) {
-            if (str_contains($fileName, '-'.$color)) {
+            if (str_contains($fileName, '-' . $color)) {
                 return $color;
             }
         }

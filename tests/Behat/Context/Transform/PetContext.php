@@ -34,7 +34,7 @@ final class PetContext implements Context
         $pet = $this->petRepository->findOneBy(['name' => $petName]);
         Assert::notNull(
             $pet,
-            sprintf('Pet with name "%s" does not exist', $petName)
+            sprintf('Pet with name "%s" does not exist', $petName),
         );
 
         return $pet;

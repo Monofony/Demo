@@ -44,7 +44,7 @@ final class DefaultUsernameORMSubscriberSpec extends ObjectBehavior
         UnitOfWork $unitOfWork,
         CustomerInterface $customer,
         UserInterface $user,
-        ClassMetadata $userMetadata
+        ClassMetadata $userMetadata,
     ): void {
         $onFlushEventArgs->getEntityManager()->willReturn($entityManager);
         $entityManager->getUnitOfWork()->willReturn($unitOfWork);
@@ -73,7 +73,7 @@ final class DefaultUsernameORMSubscriberSpec extends ObjectBehavior
         UnitOfWork $unitOfWork,
         CustomerInterface $customer,
         UserInterface $user,
-        ClassMetadata $userMetadata
+        ClassMetadata $userMetadata,
     ): void {
         $onFlushEventArgs->getEntityManager()->willReturn($entityManager);
         $entityManager->getUnitOfWork()->willReturn($unitOfWork);
@@ -102,7 +102,7 @@ final class DefaultUsernameORMSubscriberSpec extends ObjectBehavior
         UnitOfWork $unitOfWork,
         CustomerInterface $customer,
         UserInterface $user,
-        ClassMetadata $userMetadata
+        ClassMetadata $userMetadata,
     ): void {
         $onFlushEventArgs->getEntityManager()->willReturn($entityManager);
         $entityManager->getUnitOfWork()->willReturn($unitOfWork);
@@ -131,7 +131,7 @@ final class DefaultUsernameORMSubscriberSpec extends ObjectBehavior
         UnitOfWork $unitOfWork,
         CustomerInterface $customer,
         UserInterface $user,
-        ClassMetadata $userMetadata
+        ClassMetadata $userMetadata,
     ): void {
         $onFlushEventArgs->getEntityManager()->willReturn($entityManager);
         $entityManager->getUnitOfWork()->willReturn($unitOfWork);
@@ -157,7 +157,7 @@ final class DefaultUsernameORMSubscriberSpec extends ObjectBehavior
         OnFlushEventArgs $onFlushEventArgs,
         EntityManager $entityManager,
         UnitOfWork $unitOfWork,
-        CustomerInterface $customer
+        CustomerInterface $customer,
     ): void {
         $onFlushEventArgs->getEntityManager()->willReturn($entityManager);
         $entityManager->getUnitOfWork()->willReturn($unitOfWork);
@@ -176,7 +176,7 @@ final class DefaultUsernameORMSubscriberSpec extends ObjectBehavior
         OnFlushEventArgs $onFlushEventArgs,
         EntityManager $entityManager,
         UnitOfWork $unitOfWork,
-        CustomerInterface $customer
+        CustomerInterface $customer,
     ): void {
         $onFlushEventArgs->getEntityManager()->willReturn($entityManager);
         $entityManager->getUnitOfWork()->willReturn($unitOfWork);
@@ -195,7 +195,7 @@ final class DefaultUsernameORMSubscriberSpec extends ObjectBehavior
     function it_does_nothing_when_there_are_no_objects_scheduled_in_the_unit_of_work(
         OnFlushEventArgs $onFlushEventArgs,
         EntityManager $entityManager,
-        UnitOfWork $unitOfWork
+        UnitOfWork $unitOfWork,
     ): void {
         $onFlushEventArgs->getEntityManager()->willReturn($entityManager);
         $entityManager->getUnitOfWork()->willReturn($unitOfWork);
@@ -213,7 +213,7 @@ final class DefaultUsernameORMSubscriberSpec extends ObjectBehavior
         EntityManager $entityManager,
         UnitOfWork $unitOfWork,
         \stdClass $stdObject,
-        \stdClass $stdObject2
+        \stdClass $stdObject2,
     ): void {
         $onFlushEventArgs->getEntityManager()->willReturn($entityManager);
         $entityManager->getUnitOfWork()->willReturn($unitOfWork);
@@ -233,7 +233,7 @@ final class DefaultUsernameORMSubscriberSpec extends ObjectBehavior
         \stdClass $stdObject,
         CustomerInterface $customer,
         UserInterface $user,
-        ClassMetadata $userMetadata
+        ClassMetadata $userMetadata,
     ): void {
         $user->getUsername()->willReturn('customer+extra@email.com');
         $user->getUsernameCanonical()->willReturn('user@email.com');
@@ -264,7 +264,7 @@ final class DefaultUsernameORMSubscriberSpec extends ObjectBehavior
         CustomerInterface $customerWithoutUser,
         CustomerInterface $customerWithUser,
         UserInterface $user,
-        ClassMetadata $userMetadata
+        ClassMetadata $userMetadata,
     ): void {
         $customerWithoutUser->getUser()->willReturn(null);
 
@@ -298,7 +298,7 @@ final class DefaultUsernameORMSubscriberSpec extends ObjectBehavior
         CustomerInterface $customerWithDifferentEmail,
         UserInterface $userWithSameEmail,
         UserInterface $userWithDifferentEmail,
-        ClassMetadata $userMetadata
+        ClassMetadata $userMetadata,
     ): void {
         $onFlushEventArgs->getEntityManager()->willReturn($entityManager);
         $entityManager->getUnitOfWork()->willReturn($unitOfWork);
