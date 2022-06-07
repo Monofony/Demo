@@ -1,0 +1,8 @@
+#app_api_your_respource:
+#    resource: "api/your_resource.yaml"
+
+api_login_check:
+    path: /api/authentication_token
+
+gesdinet_jwt_refresh_token:
+    path: /api/token/refresh

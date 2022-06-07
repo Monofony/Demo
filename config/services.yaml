@@ -15,7 +15,7 @@ services:
             $environment: '%kernel.environment%'
             $locale: '%locale%'
             $publicDir: '%kernel.project_dir%/public'
-            #$syliusResources: '%sylius.resources%' # for api
+            $syliusResources: '%sylius.resources%' # for api
             $testsDir: '%kernel.project_dir%/tests'
 
     # makes classes in src/ available to be used as services
