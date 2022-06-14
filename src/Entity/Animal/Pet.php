@@ -51,7 +51,7 @@ use Symfony\Component\Validator\Constraints\Valid;
 #[ApiResource(
     collectionOperations: ['get'],
     itemOperations: ['get'],
-    normalizationContext: ['groups' => ['pet:read']],
+    normalizationContext: ['groups' => ['pet:read', 'file:read']],
 )]
 class Pet implements ResourceInterface
 {
@@ -108,6 +108,7 @@ class Pet implements ResourceInterface
         orphanRemoval: true,
     )]
     #[Valid]
+    #[Groups(groups: ['pet:read'])]
     private Collection $images;
 
     public function __construct()

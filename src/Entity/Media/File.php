@@ -29,7 +29,7 @@ abstract class File implements FileInterface, ResourceInterface
     protected ?\SplFileInfo $file = null;
 
     #[ORM\Column(type: 'string')]
-    #[Groups(groups: ['Default', 'Detailed'])]
+    #[Groups(groups: ['file:read'])]
     protected ?string $path = null;
 
     #[ORM\Column(type: 'datetime')]

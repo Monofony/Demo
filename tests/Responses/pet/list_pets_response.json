@@ -12,7 +12,24 @@
             "sizeUnit": "@string@",
             "mainColor": "@string@",
             "sex": "@string@",
-            "taxon": "@string@.startsWith('/api/taxa/')"
+            "taxon": "@string@.startsWith('/api/taxa/')",
+            "images": [
+                {
+                    "@id": "@string@.startsWith('/api/pet_images/')",
+                    "@type": "PetImage",
+                    "path": "@string@.startsWith('/media/animal/')"
+                },
+                {
+                    "@id": "@string@.startsWith('/api/pet_images/')",
+                    "@type": "PetImage",
+                    "path": "@string@.startsWith('/media/animal/')"
+                },
+                {
+                    "@id": "@string@.startsWith('/api/pet_images/')",
+                    "@type": "PetImage",
+                    "path": "@string@.startsWith('/media/animal/')"
+                }
+            ]
         },
         {
             "@id": "@string@.startsWith('/api/pets/')",
@@ -23,7 +40,24 @@
             "sizeUnit": "@string@",
             "mainColor": "@string@",
             "sex": "@string@",
-            "taxon": "@string@.startsWith('/api/taxa/')"
+            "taxon": "@string@.startsWith('/api/taxa/')",
+            "images": [
+                {
+                    "@id": "@string@.startsWith('/api/pet_images/')",
+                    "@type": "PetImage",
+                    "path": "@string@.startsWith('/media/animal/')"
+                },
+                {
+                    "@id": "@string@.startsWith('/api/pet_images/')",
+                    "@type": "PetImage",
+                    "path": "@string@.startsWith('/media/animal/')"
+                },
+                {
+                    "@id": "@string@.startsWith('/api/pet_images/')",
+                    "@type": "PetImage",
+                    "path": "@string@.startsWith('/media/animal/')"
+                }
+            ]
         },
         {
             "@id": "@string@.startsWith('/api/pets/')",
@@ -34,7 +68,24 @@
             "sizeUnit": "@string@",
             "mainColor": "@string@",
             "sex": "@string@",
-            "taxon": "@string@.startsWith('/api/taxa/')"
+            "taxon": "@string@.startsWith('/api/taxa/')",
+            "images": [
+                {
+                    "@id": "@string@.startsWith('/api/pet_images/')",
+                    "@type": "PetImage",
+                    "path": "@string@.startsWith('/media/animal/')"
+                },
+                {
+                    "@id": "@string@.startsWith('/api/pet_images/')",
+                    "@type": "PetImage",
+                    "path": "@string@.startsWith('/media/animal/')"
+                },
+                {
+                    "@id": "@string@.startsWith('/api/pet_images/')",
+                    "@type": "PetImage",
+                    "path": "@string@.startsWith('/media/animal/')"
+                }
+            ]
         },
         {
             "@id": "@string@.startsWith('/api/pets/')",
@@ -45,7 +96,24 @@
             "sizeUnit": "@string@",
             "mainColor": "@string@",
             "sex": "@string@",
-            "taxon": "@string@.startsWith('/api/taxa/')"
+            "taxon": "@string@.startsWith('/api/taxa/')",
+            "images": [
+                {
+                    "@id": "@string@.startsWith('/api/pet_images/')",
+                    "@type": "PetImage",
+                    "path": "@string@.startsWith('/media/animal/')"
+                },
+                {
+                    "@id": "@string@.startsWith('/api/pet_images/')",
+                    "@type": "PetImage",
+                    "path": "@string@.startsWith('/media/animal/')"
+                },
+                {
+                    "@id": "@string@.startsWith('/api/pet_images/')",
+                    "@type": "PetImage",
+                    "path": "@string@.startsWith('/media/animal/')"
+                }
+            ]
         }
     ],
     "hydra:totalItems": 4
