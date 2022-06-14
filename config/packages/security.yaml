@@ -88,9 +88,9 @@ security:
                 target: app_frontend_homepage
 
         # disables authentication for assets and the profiler, adapt it according to your needs
-#        dev:
-#            pattern: ^/(_(profiler|wdt)|css|images|js)/
-#            security: false
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
 
     access_control:
         - { path: ^/api/(authentication_token|token/refresh), roles: PUBLIC_ACCESS }
