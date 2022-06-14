@@ -57,7 +57,7 @@ security:
             stateless: true
             entry_point: jwt
             json_login:
-                check_path: /api/login # or, if you have defined a route for your login path, the route name you used
+                check_path: api_login_check
                 success_handler: lexik_jwt_authentication.handler.authentication_success
                 failure_handler: lexik_jwt_authentication.handler.authentication_failure
             jwt: ~
@@ -88,14 +88,14 @@ security:
                 target: app_frontend_homepage
 
         # disables authentication for assets and the profiler, adapt it according to your needs
-#        dev:
-#            pattern: ^/(_(profiler|wdt)|css|images|js)/
-#            security: false
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
 
     access_control:
-        - { path: ^/api/(login|token/refresh), roles: PUBLIC_ACCESS }
-        - { path: ^/login, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/admin/login, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/admin/login-check, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/(authentication_token|token/refresh), roles: PUBLIC_ACCESS }
+        - { path: ^/login, role: PUBLIC_ACCESS }
+        - { path: ^/admin/login, role: PUBLIC_ACCESS }
+        - { path: ^/admin/login-check, role: PUBLIC_ACCESS }
         - { path: ^/admin/dashboard, role: ROLE_ADMIN }
         - { path: "^/admin.*", role: ROLE_ADMIN }
