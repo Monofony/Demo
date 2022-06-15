@@ -13,8 +13,10 @@ declare(strict_types=1);
 
 namespace App\Entity\Animal;
 
-use ApiPlatform\Core\Annotation\ApiProperty;
-use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Metadata\ApiProperty;
+use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\GetCollection;
 use App\Entity\IdentifiableTrait;
 use App\Entity\Taxonomy\Taxon;
 use App\Entity\Taxonomy\TaxonInterface;
@@ -48,11 +50,9 @@ use Symfony\Component\Validator\Constraints\Valid;
 #[SyliusRoute(name: 'app_frontend_partial_pet_latest', path: '/_partial/pets/latest/{count}', methods: ['GET'], controller: 'app.controller.pet::indexAction', template: '$template', repository: ['method' => 'findLatest', 'arguments' => ['!!int $count']], requirements: ['template' => '[^?]+'])]
 #[SyliusRoute(name: 'app_frontend_ajax_pet_index', path: '/ajax/pets', methods: ['GET'], controller: 'app.controller.pet::indexAction', template: 'frontend/pet/index/_main.html.twig', requirements: ['slug' => '.+'], grid: 'app_frontend_pet')]
 #[SyliusRoute(name: 'app_frontend_ajax_pet_per_taxon_index', path: '/ajax/pets/taxon/{slug}', methods: ['GET'], controller: 'app.controller.pet::indexAction', template: 'frontend/pet/index/_main.html.twig', requirements: ['slug' => '.+'], grid: 'app_frontend_pet_per_taxon')]
-#[ApiResource(
-    collectionOperations: ['get'],
-    itemOperations: ['get'],
-    normalizationContext: ['groups' => ['pet:read', 'file:read']],
-)]
+#[ApiResource(normalizationContext: ['groups' => ['pet:read', 'file:read']])]
+#[Get]
+#[GetCollection]
 class Pet implements ResourceInterface
 {
     use IdentifiableTrait;
