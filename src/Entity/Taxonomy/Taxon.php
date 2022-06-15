@@ -13,8 +13,11 @@ declare(strict_types=1);
 
 namespace App\Entity\Taxonomy;
 
-use ApiPlatform\Core\Action\NotFoundAction;
-use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Action\NotFoundAction;
+use ApiPlatform\Metadata\ApiProperty;
+use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\GetCollection;
 use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\Table;
@@ -35,13 +38,17 @@ use Sylius\Component\Taxonomy\Model\Taxon as BaseTaxon;
 #[SyliusRoute(name: 'sylius_admin_partial_taxon_tree', path: '/admin/_partial/taxa/tree', methods: ['GET'], controller: 'sylius.controller.taxon::indexAction', template: '$template', repository: ['method' => 'findRootNodes'])]
 #[SyliusRoute(name: 'sylius_frontend_partial_taxon_root_nodes', path: '/_partial/taxa/root-nodes', methods: ['GET'], controller: 'sylius.controller.taxon::indexAction', template: '$template', repository: ['method' => 'findRootNodes'], requirements: ['template' => '[^?]+'])]
 #[SyliusRoute(name: 'app_frontend_partial_taxon_show', path: '/_partial/taxa/{slug}', methods: ['GET'], controller: 'sylius.controller.taxon::showAction', template: '$template', repository: ['method' => 'findOneBySlug', 'arguments' => ['$slug', '%locale%']], requirements: ['template' => '[^?]+', 'slug' => '.+'])]
-#[ApiResource(
-    collectionOperations: [],
-    itemOperations: ['get' => ['controller' => NotFoundAction::class, 'read' => false, 'output' => false]],
-    normalizationContext: ['groups' => ['taxon:read']],
-)]
+#[ApiResource(normalizationContext: ['groups' => ['taxon:read']])]
+#[Get(controller: NotFoundAction::class, read: false)]
+#[GetCollection]
 class Taxon extends BaseTaxon implements TaxonInterface
 {
+    #[ApiProperty(identifier: false)]
+    protected $id;
+
+    #[ApiProperty(identifier: true)]
+    protected $code;
+
     #[Column(type: 'string', nullable: true)]
     private ?string $sizeRange = null;
 
