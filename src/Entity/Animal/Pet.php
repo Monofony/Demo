@@ -17,6 +17,7 @@ use ApiPlatform\Metadata\ApiProperty;
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
+use ApiPlatform\Metadata\Link;
 use App\Entity\IdentifiableTrait;
 use App\Entity\Taxonomy\Taxon;
 use App\Entity\Taxonomy\TaxonInterface;
@@ -53,6 +54,7 @@ use Symfony\Component\Validator\Constraints\Valid;
 #[ApiResource(normalizationContext: ['groups' => ['pet:read', 'file:read']])]
 #[Get]
 #[GetCollection]
+#[GetCollection(uriTemplate: '/taxa/{code}/pets', uriVariables: ['code' => new Link(toProperty: 'taxon', fromClass: Taxon::class)])]
 class Pet implements ResourceInterface
 {
     use IdentifiableTrait;

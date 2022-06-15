@@ -1,0 +1,36 @@
+{
+    "@context": "/api/contexts/Pet",
+    "@id": "/api/taxa/cats/pets",
+    "@type": "hydra:Collection",
+    "hydra:member": [
+        {
+            "@id": "/api/pets/willy",
+            "@type": "Pet",
+            "name": "Willy",
+            "description": "@string@",
+            "size": @number@,
+            "sizeUnit": "@string@",
+            "mainColor": "@string@",
+            "sex": "@string@",
+            "taxon": "/api/taxa/cats",
+            "images": [
+                {
+                    "@id": "@string@.startsWith('/api/pet_images/')",
+                    "@type": "PetImage",
+                    "path": "@string@.startsWith('/media/animal/')"
+                },
+                {
+                    "@id": "@string@.startsWith('/api/pet_images/')",
+                    "@type": "PetImage",
+                    "path": "@string@.startsWith('/media/animal/')"
+                },
+                {
+                    "@id": "@string@.startsWith('/api/pet_images/')",
+                    "@type": "PetImage",
+                    "path": "@string@.startsWith('/media/animal/')"
+                }
+            ]
+        }
+    ],
+    "hydra:totalItems": 1
+}

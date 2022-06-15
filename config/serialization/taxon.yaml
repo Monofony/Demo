@@ -1,0 +1,13 @@
+Sylius\Component\Taxonomy\Model\Taxon:
+    attributes:
+        id:
+            expose: false
+            type: integer
+        code:
+            expose: true
+            type: string
+            groups: [taxon:read]
+        name:
+            expose: true
+            type: string
+            groups: [taxon:read]

@@ -16,6 +16,7 @@ namespace App\Factory;
 use App\Colors;
 use App\Entity\Animal\Pet;
 use App\Entity\Animal\PetImage;
+use App\Entity\Taxonomy\Taxon;
 use App\Repository\PetRepository;
 use App\Sexes;
 use App\SizeUnits;
@@ -62,6 +63,11 @@ final class PetFactory extends ModelFactory
         return $this->addState(['main_color' => $mainColor]);
     }
 
+    public function withTaxon(Proxy|Taxon|string $taxon): self
+    {
+        return $this->addState(['taxon' => $taxon]);
+    }
+
     protected function getDefaults(): array
     {
         return [
@@ -84,6 +90,10 @@ final class PetFactory extends ModelFactory
                     $attributes['name'] = Sexes::FEMALE === $attributes['sex'] ?
                         self::faker()->firstNameFemale() : self::faker()->firstNameMale()
                     ;
+                }
+
+                if (\is_string($attributes['taxon'])) {
+                    $attributes['taxon'] = TaxonFactory::find(['code' => $attributes['taxon']]);
                 }
 
                 if (null === $attributes['images']) {
