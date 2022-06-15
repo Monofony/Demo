@@ -13,22 +13,27 @@ declare(strict_types=1);
 
 namespace App\Entity\Animal;
 
-use ApiPlatform\Core\Action\NotFoundAction;
-use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Action\NotFoundAction;
+use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\GetCollection;
 use App\Entity\Media\File;
 use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\ManyToOne;
 use Doctrine\ORM\Mapping\Table;
+use Symfony\Component\Validator\Constraints\File as FileValidator;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[Vich\Uploadable]
 #[Entity]
 #[Table]
-#[ApiResource(collectionOperations: [], itemOperations: ['get' => ['controller' => NotFoundAction::class, 'read' => false, 'output' => false]])]
+#[ApiResource]
+#[Get(controller: NotFoundAction::class, read: false)]
+#[GetCollection]
 class PetImage extends File
 {
     #[Vich\UploadableField(mapping: 'animal_image', fileNameProperty: 'path')]
-    #[\Symfony\Component\Validator\Constraints\File(maxSize: '6000000', mimeTypes: ['image/*'])]
+    #[FileValidator(maxSize: '6000000', mimeTypes: ['image/*'])]
     protected ?\SplFileInfo $file = null;
 
     #[ManyToOne(targetEntity: Pet::class, inversedBy: 'images')]

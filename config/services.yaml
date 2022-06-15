@@ -43,6 +43,10 @@ services:
         tags:
             - { name: 'sylius.grid_filter', type: 'frontend_select', form_type: Sylius\Bundle\GridBundle\Form\Type\Filter\SelectFilterType }
 
+    App\OpenApi\JwtDecorator:
+        decorates: 'api_platform.openapi.factory'
+        arguments: ['@.inner']
+
     App\Serializer\FileNormalizer:
         decorates: 'api_platform.jsonld.normalizer.item'
         arguments: ['@.inner' ]
