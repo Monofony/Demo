@@ -8,3 +8,4 @@ gem 'capistrano-nvm', require: false
 gem 'net-ssh', '7.0.1'
 
 gem 'bcrypt_pbkdf'
+gem 'ed25519'
