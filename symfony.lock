@@ -312,6 +312,15 @@
     "mobizel/coding-standard": {
         "version": "v1.1.3"
     },
+    "mobizel/symfony-capistrano": {
+        "version": "0.4",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "0.2",
+            "ref": "a0e63c8b2e9e7489fcbdbe9fd03ee953f8ec3f29"
+        }
+    },
     "monofony/admin": {
         "version": "v0.8.0-beta.2"
     },
