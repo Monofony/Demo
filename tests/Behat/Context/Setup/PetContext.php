@@ -17,6 +17,7 @@ use App\Colors;
 use App\Entity\Animal\Pet;
 use App\Entity\Taxonomy\Taxon;
 use App\Factory\PetFactory;
+use App\PetStates;
 use App\Sexes;
 use App\SizeRanges;
 use Behat\Behat\Context\Context;
@@ -37,7 +38,7 @@ final class PetContext implements Context
      */
     public function thereIsAPetWithName(string $name): void
     {
-        $this->createWithOptions(['name' => $name]);
+        $this->createWithOptions(['name' => $name, 'status' => PetStates::BOOKABLE]);
     }
 
     /**

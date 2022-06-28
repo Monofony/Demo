@@ -8,8 +8,10 @@ app:
             It also contains some basic features like registering, login, resetting password.
             There are two extra packages to build your API and the public views of your application.
             This demo uses all the Monofony packages.
+        accepted_visit: Accepted visit
         admin: Admin
         adopt_the_perfect_pet_for_you_and_your_family: Adopt the perfect pet for you and your family!
+        adopted_pet: Adopted pet
         any_questions_lets_talk: Any question? Let’s talk!
         ask_for_a_visit: Ask for a visit!
         at_least_4_characters_long: At least 4 characters long.
@@ -46,6 +48,7 @@ app:
         medium: Medium
         meter: Meter
         millimeter: Millimeter
+        moreover_he_will_be_marked_as_reserved: Moreover, he will be marked as reserved.
         new_bookings: New bookings
         new_pet: New pet
         new_pets: New pets
@@ -53,8 +56,12 @@ app:
         orange: Orange
         overview_of_your_website: Overview of you website
         pet: Pet
+        pet_is_reserved: "%animal% is reserved"
         pet_name: Pet name
         pets: Pets
+        requested_visit: Requested visit
+        reservation: Reservation
+        scheduled_visit: Scheduled visit
         search_customers: Search customers
         sex: Sex
         show_me_more: Show me more!
@@ -71,6 +78,8 @@ app:
         what_kind_of_animal_are_you_looking_for: What kind of animal are you looking for?
         white: White
         you_are_right_security_first: You’re right, security first!
+        you_will_be_contacted_soon_to_schedule_a_visit_for_this_pet: You will be contacted soon to schedule a visit for this pet.
+        you_will_be_contacted_soon_to_schedule_a_visit: You will be contacted soon to schedule a visit.
 sylius:
     ui:
         adopted: Adopted

@@ -13,7 +13,9 @@ declare(strict_types=1);
 
 namespace App\Repository;
 
+use App\Entity\Animal\Pet;
 use App\Entity\Booking\Booking;
+use App\Entity\Customer\CustomerInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\ResourceRepositoryTrait;
@@ -49,5 +51,19 @@ class BookingRepository extends ServiceEntityRepository implements RepositoryInt
             ->setMaxResults($count)
             ->getQuery()
             ->getResult();
+    }
+
+    public function findOneByCustomerAndPet(CustomerInterface $booker, Pet $pet): ?Booking
+    {
+        $queryBuilder = $this->createQueryBuilder('o')
+            ->where('o.booker = :booker')
+            ->andWhere('o.pet = :pet')
+            ->addOrderBy('o.createdAt', 'DESC')
+            ->setMaxResults(1)
+            ->setParameter('booker', $booker)
+            ->setParameter('pet', $pet)
+        ;
+
+        return $queryBuilder->getQuery()->getOneOrNullResult();
     }
 }

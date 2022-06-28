@@ -17,15 +17,12 @@ use App\Entity\Animal\Pet;
 use App\PetStates;
 use Behat\Behat\Context\Context;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\Workflow\WorkflowInterface;
 use Webmozart\Assert\Assert;
 
 class PetContext implements Context
 {
-    public function __construct(
-        private WorkflowInterface $petBookingStateMachine,
-        private EntityManagerInterface $entityManager,
-    ) {
+    public function __construct(private EntityManagerInterface $entityManager)
+    {
     }
 
     /**
@@ -33,7 +30,7 @@ class PetContext implements Context
      */
     public function thisPetIsBookable(Pet $pet): void
     {
-        $this->petBookingStateMachine->apply($pet, 'validate');
+        $pet->setStatus(PetStates::BOOKABLE);
 
         $this->entityManager->flush();
     }

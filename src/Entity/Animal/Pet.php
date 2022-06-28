@@ -80,6 +80,9 @@ class Pet implements ResourceInterface
     #[ORM\Column(type: 'string')]
     private string $status;
 
+    #[ORM\Column(type: 'boolean')]
+    private bool $enabled = false;
+
     #[ORM\Column(type: 'text', nullable: true)]
     #[Groups(groups: ['pet:read'])]
     private ?string $description = null;
@@ -144,6 +147,16 @@ class Pet implements ResourceInterface
     public function getStatus(): string
     {
         return $this->status;
+    }
+
+    public function isEnabled(): bool
+    {
+        return $this->enabled;
+    }
+
+    public function setEnabled(bool $enabled): void
+    {
+        $this->enabled = $enabled;
     }
 
     public function setStatus(string $status): void

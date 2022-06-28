@@ -17,6 +17,7 @@ use App\Colors;
 use App\Entity\Animal\Pet;
 use App\Entity\Animal\PetImage;
 use App\Entity\Taxonomy\Taxon;
+use App\PetStates;
 use App\Repository\PetRepository;
 use App\Sexes;
 use App\SizeUnits;
@@ -79,6 +80,7 @@ final class PetFactory extends ModelFactory
             'sex' => self::faker()->randomElement(Sexes::ALL),
             'images' => null,
             'main_color' => null,
+            'status' => self::faker()->randomElement(PetStates::ALL),
         ];
     }
 
@@ -119,8 +121,13 @@ final class PetFactory extends ModelFactory
                 $pet->setSizeUnit($attributes['size_unit']);
                 $pet->setSex($attributes['sex']);
                 $pet->setMainColor($attributes['main_color']);
+                $pet->setStatus($attributes['status']);
 
                 $this->createImages($pet, $attributes);
+
+                if (in_array($pet->getStatus(), [PetStates::BOOKED, PetStates::BOOKABLE], true)) {
+                    $pet->setEnabled(true);
+                }
 
                 return $pet;
             })

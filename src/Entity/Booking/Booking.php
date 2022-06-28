@@ -57,7 +57,7 @@ class Booking implements ResourceInterface
     private \DateTimeImmutable $createdAt;
 
     #[ORM\ManyToOne(targetEntity: Pet::class)]
-    private ?Pet $Pet = null;
+    private ?Pet $pet = null;
 
     #[ORM\ManyToOne(targetEntity: Customer::class, inversedBy: 'bookings')]
     private ?CustomerInterface $booker = null;
@@ -69,6 +69,15 @@ class Booking implements ResourceInterface
     {
         $this->createdAt = new \DateTimeImmutable();
         $this->status = BookingStates::NEW;
+    }
+
+    public static function createForPetAndBooker(Pet $pet, CustomerInterface $booker): self
+    {
+        $booking = new self();
+        $booking->setPet($pet);
+        $booking->setBooker($booker);
+
+        return $booking;
     }
 
     public function getId(): ?int
@@ -88,12 +97,12 @@ class Booking implements ResourceInterface
 
     public function getPet(): ?Pet
     {
-        return $this->Pet;
+        return $this->pet;
     }
 
-    public function setPet(?Pet $Pet): void
+    public function setPet(?Pet $pet): void
     {
-        $this->Pet = $Pet;
+        $this->pet = $pet;
     }
 
     public function getBooker(): ?CustomerInterface
