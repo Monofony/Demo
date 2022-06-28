@@ -42,6 +42,14 @@ use Sylius\Component\Resource\Model\ResourceInterface;
     ],
 )]
 #[SyliusRoute(
+    name: 'sylius_frontend_account_booking',
+    path: '/mon-compte/bookings',
+    methods: ['GET'],
+    controller: 'app.controller.booking::indexAction',
+    template: 'frontend/account/bookings.html.twig',
+    grid: 'app_frontend_booking',
+)]
+#[SyliusRoute(
     name: 'app_backend_partial_booking_latest',
     path: '/_partial/bookings/latest/{count}',
     methods: ['GET'],
