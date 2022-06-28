@@ -16,3 +16,7 @@ liip_imagine:
             filters:
                 auto_rotate: ~
                 thumbnail: { size: [400, 400], mode: outbound }
+        app_frontend_pet_details:
+            filters:
+                auto_rotate: ~
+                thumbnail: { size: [300, 300], mode: outbound }
