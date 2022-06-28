@@ -17,6 +17,7 @@ use App\Entity\Animal\Pet;
 use App\Entity\Booking\Booking;
 use App\Entity\Customer\CustomerInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\ResourceRepositoryTrait;
 use Sylius\Component\Resource\Repository\RepositoryInterface;
@@ -34,6 +35,13 @@ class BookingRepository extends ServiceEntityRepository implements RepositoryInt
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Booking::class);
+    }
+
+    public function createListForFrontQueryBuilder(CustomerInterface $booker): QueryBuilder
+    {
+        return $this->createQueryBuilder('o')
+            ->where('o.booker = :booker')
+            ->setParameter('booker', $booker);
     }
 
     public function countBookings(): int

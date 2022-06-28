@@ -1,0 +1,35 @@
+{% extends "frontend/account/layout.html.twig" %}
+
+{% import 'frontend/macro/buttons.html.twig' as buttons %}
+{% import 'frontend/macro/pagination.html.twig' as pagination %}
+
+{% block breadcrumb %}
+    <nav aria-label="You are here:" role="navigation" class="breadcrumb">
+        <ul class="breadcrumbs">
+            <li><a href="{{ path('app_frontend_homepage') }}" class="section">{{ 'sylius.ui.home'|trans }}</a></li>
+            <li><span class="show-for-sr">Current: </span>{{ 'sylius.ui.my_account'|trans }}</li>
+        </ul>
+    </nav>
+{% endblock %}
+
+{% block subcontent -%}
+    <div class="customer-bookings">
+        <div class="grid-x title-container">
+            <div class="cell small-2">
+                <div id="booking-logo" class="hide-for-small-only">
+                    <i class="fas fa-user"></i>
+                    <i class="fas fa-pencil-alt"></i>
+                </div>
+            </div>
+            <div class="cell auto">
+                <h3 class="title">{{ 'app.ui.bookings'|trans }}</h3>
+                <h4 class="subtitle">{{ 'app.ui.check_all_your_reservations_statuses'|trans }}</h4>
+            </div>
+        </div>
+        {% for booking in bookings.data %}
+            {% include 'frontend/account/_booking_card.html.twig' with {'booking': booking} only %}
+        {% endfor %}
+
+        {{ pagination.render(bookings.data) }}
+    </div>
+{% endblock %}

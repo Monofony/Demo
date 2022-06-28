@@ -36,10 +36,17 @@ final class AccountMenuBuilder implements AccountMenuBuilderInterface
         $menu->setLabel('sylius.ui.my_account');
 
         $menu
+            ->addChild('dashboard', ['route' => 'sylius_frontend_account_dashboard'])
+            ->setLabel('app.ui.bookings')
+            ->setLabelAttribute('icon', 'fas fa-scroll')
+        ;
+
+        $menu
             ->addChild('personal_information', ['route' => 'sylius_frontend_account_profile_update'])
             ->setLabel('sylius.ui.personal_information')
             ->setLabelAttribute('icon', 'fas fa-user')
         ;
+
         $menu
             ->addChild('change_password', ['route' => 'sylius_frontend_account_change_password'])
             ->setLabel('sylius.ui.change_password')

@@ -1,0 +1,21 @@
+{% import 'macro/image.html.twig' as images %}
+
+<div class="card booking-card">
+    <div class="grid-x">
+        <div class="cell medium-3">
+            <div class ="img">
+                {% set path = vich_uploader_asset(booking.pet.firstImage, 'file') %}
+                {{ images.render(path, 'pet_grid', booking.pet.name) }}
+            </div>
+        </div>
+        <div class="cell medium-4" style="margin-left: 2rem">
+            <h6>#{{ booking.id }} - {{ booking.createdAt|date("m/d/Y") }}</h6>
+            <h3>{{ booking.pet.name }}</h3>
+            <h4>{{ booking.pet.taxon.name }}</h4>
+        </div>
+        <div class="cell medium-4 booking-state">
+            <div class="booking-state-label">{% include '@SyliusUi/Grid/Field/state.html.twig' with {'data': booking.status,'options': {'vars': {'labels': 'frontend/booking/label/state'}}} %}</div>
+{#            <a href="{{ path('app_frontend_booking_show', { 'id': booking.id }) }}"><h5>{{ 'app.ui.see_the_reservation_details'|trans }}</h5><i class="fas fa-chevron-right"></i></a>#}
+        </div>
+    </div>
+</div>

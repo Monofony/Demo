@@ -23,6 +23,7 @@ app:
         brown: Brown
         browse_all_pets: Browse all pets
         centimeter: Centimeter
+        check_all_your_reservations_statuses: Check all your reservations statuses
         contact: Contact
         create_user: Create an user
         customer_name: Customer name

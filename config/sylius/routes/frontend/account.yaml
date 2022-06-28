@@ -3,7 +3,7 @@ sylius_frontend_account_dashboard:
     methods: [GET]
     controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController::redirectAction
     defaults:
-        route: sylius_frontend_account_profile_update
+        route: sylius_frontend_account_booking
 
 sylius_frontend_account_profile_update:
     path: /profile/edit
