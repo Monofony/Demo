@@ -47,6 +47,8 @@ class PetRepository extends ServiceEntityRepository implements RepositoryInterfa
     public function findLatest(int $count): array
     {
         return $this->createQueryBuilder('o')
+            ->andWhere('o.enabled = :enabled')
+            ->setParameter('enabled', true)
             ->addOrderBy('o.id', 'DESC')
             ->setMaxResults($count)
             ->getQuery()

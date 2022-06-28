@@ -47,7 +47,7 @@ final class PetContext implements Context
     public function thereArePets(int $numbersOfPets): void
     {
         for ($i = 0; $i < $numbersOfPets; ++$i) {
-            $this->createWithOptions([]);
+            $this->createWithOptions(['status' => PetStates::BOOKABLE]);
         }
     }
 
