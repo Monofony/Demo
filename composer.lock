@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "864d4e5767de1ad36c67f2035a387bcf",
+    "content-hash": "9bc92ceb5ba203919cbe450dfce2ac6f",
     "packages": [
         {
             "name": "api-platform/core",
@@ -16704,16 +16704,16 @@
         },
         {
             "name": "se/selenium-server-standalone",
-            "version": "v2.53.1",
+            "version": "3.141.59",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sveneisenschmidt/selenium-server-standalone.git",
-                "reference": "ef4eea9c99efb9c0e3084e9cae625662ccd43361"
+                "reference": "ae8e6ab8833a662328bfbdd52aa05d038c65fd5a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sveneisenschmidt/selenium-server-standalone/zipball/ef4eea9c99efb9c0e3084e9cae625662ccd43361",
-                "reference": "ef4eea9c99efb9c0e3084e9cae625662ccd43361",
+                "url": "https://api.github.com/repos/sveneisenschmidt/selenium-server-standalone/zipball/ae8e6ab8833a662328bfbdd52aa05d038c65fd5a",
+                "reference": "ae8e6ab8833a662328bfbdd52aa05d038c65fd5a",
                 "shasum": ""
             },
             "require-dev": {
@@ -16725,12 +16725,16 @@
             "type": "library",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "Apache 2.0"
+                "Apache-2.0"
             ],
             "authors": [
                 {
                     "name": "Sven Eisenschmidt",
                     "email": "sven.eisenschmidt@gmail.com"
+                },
+                {
+                    "name": "James Titcumb",
+                    "email": "hello@jamestitcumb.com"
                 }
             ],
             "description": "Composer distribution of Selenium Server Standalone, the browser automation framework. Adds a executable to your composer bin directory.",
@@ -16741,9 +16745,9 @@
             ],
             "support": {
                 "issues": "https://github.com/sveneisenschmidt/selenium-server-standalone/issues",
-                "source": "https://github.com/sveneisenschmidt/selenium-server-standalone/tree/master"
+                "source": "https://github.com/sveneisenschmidt/selenium-server-standalone/tree/3.141.59"
             },
-            "time": "2016-07-01T14:16:52+00:00"
+            "time": "2019-12-23T12:37:36+00:00"
         },
         {
             "name": "sebastian/cli-parser",
