@@ -1,0 +1,34 @@
+{% import 'macro/image.html.twig' as images %}
+{% import 'macro/age.html.twig' as ages %}
+
+<div class="grid-container grid-x align-middle pet-detail">
+    <div class="cell large-4 img-container">
+        {% set path = vich_uploader_asset(pet.firstImage, 'file') %}
+        {{ images.render(path, 'app_frontend_pet_details', pet.name) }}
+    </div>
+    <div class="cell large-6">
+        <div class="pet-info">
+            <div class="title">
+                <h2>{{ pet.name }}</h2>
+{#                {% if pet.birthdate is not null %}#}
+{#                    {{ ages.age(pet.age) }}#}
+{#                {% endif %}#}
+            </div>
+            <h3>{{ pet.taxon.name }}</h3>
+            <div class="grid-x">
+                <div class="cell medium-4">
+                    <h4>{{ 'app.ui.sex'|trans }}</h4>
+                    <h5>{% if constant('App\\Sexes::FEMALE') == pet.sex %}<i class="fas fa-venus"></i>{% else %}<i class="fas fa-mars"></i>{% endif %} {{ ('app.ui.'~pet.sex)|trans }}</h5>
+                </div>
+                <div class="cell medium-4">
+                    <h4>{{ 'app.ui.main_color'|trans }}</h4>
+                    <h5>{{ pet.mainColor is not null ? (('app.ui.'~pet.mainColor)|trans) : ('app.ui.no_main_color'|trans) }}</h5>
+                </div>
+                <div class="cell medium-4">
+                    <h4>{{ 'app.ui.size'|trans }}</h4>
+                    <h5>{{ pet.size }} {{ (('app.ui.'~pet.sizeUnit)|trans) }}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

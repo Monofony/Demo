@@ -1,0 +1,28 @@
+framework:
+    workflows:
+        pet_booking:
+            type: 'state_machine'
+            marking_store:
+                type: 'method'
+                property: 'status'
+            supports:
+                - App\Entity\Animal\Pet
+            initial_marking: new
+            places:
+                - new
+                - bookable
+                - booked
+                - adopted
+            transitions:
+                validate:
+                    from: new
+                    to: bookable
+                book:
+                    from: bookable
+                    to: booked
+                adopt:
+                    from: booked
+                    to: adopted
+                unbook:
+                    from: booked
+                    to: bookable

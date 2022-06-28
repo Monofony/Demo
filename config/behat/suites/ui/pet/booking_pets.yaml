@@ -1,8 +1,11 @@
 default:
     suites:
-        ui_viewing_pets:
+        ui_booking_pets:
             contexts:
                 - App\Tests\Behat\Context\Hook\DoctrineORMContext
+
+                # - App\Tests\Behat\Context\Domain\BookingContext
+                - App\Tests\Behat\Context\Domain\PetContext
 
                 - App\Tests\Behat\Context\Setup\AppSecurityContext
                 - App\Tests\Behat\Context\Setup\LocaleContext
@@ -14,6 +17,6 @@ default:
                 - App\Tests\Behat\Context\Transform\SharedStorageContext
                 - App\Tests\Behat\Context\Transform\TaxonContext
 
-                - App\Tests\Behat\Context\Ui\Frontend\PetContext
+                - App\Tests\Behat\Context\Ui\Frontend\BookingContext
             filters:
-                tags: "@viewing_pets&&@ui"
+                tags: "@booking_pets&&@ui"

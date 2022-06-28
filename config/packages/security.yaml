@@ -99,3 +99,4 @@ security:
         - { path: ^/admin/login-check, role: PUBLIC_ACCESS }
         - { path: ^/admin/dashboard, role: ROLE_ADMIN }
         - { path: "^/admin.*", role: ROLE_ADMIN }
+        - { path: "^/bookings.*", role: ROLE_USER }
