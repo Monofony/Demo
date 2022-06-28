@@ -1,0 +1,38 @@
+{% extends 'frontend/layout.html.twig' %}
+
+{% set pet_slug = app.request.get('slug') %}
+
+{% block flashes %}
+{% endblock %}
+
+{% block content %}
+    <div class="confirmation">
+        <div class="header-confirmation">
+            <i class="fas fa-check"></i>
+            <h1>{{ 'app.ui.pet_is_reserved'|trans({'%animal%': (pet_slug|capitalize)}) }}</h1>
+        </div>
+        <p>{{ 'app.ui.you_will_be_contacted_soon_to_schedule_a_visit'|trans }}</p>
+        <div class="grid-container grid-x align-middle booking-state">
+            <div class="cell medium-3">
+                <h6 class="active-state"><i class="fas fa-check-circle"></i>{{ 'app.ui.requested_visit'|trans }}</h6>
+            </div>
+            <div class="cell medium-3">
+                <h6 class="inactive-state"><i class="far fa-clock"></i>{{ 'app.ui.accepted_visit'|trans }}</h6>
+            </div>
+            <div class="cell medium-3">
+                <h6 class="inactive-state"><i class="far fa-clock"></i>{{ 'app.ui.scheduled_visit'|trans }}</h6>
+            </div>
+            <div class="cell medium-3">
+                <h6 class="inactive-state"><i class="far fa-clock"></i>{{ 'app.ui.adopted_pet'|trans }}</h6>
+            </div>
+        </div>
+        {{ render(url('app_frontend_partial_pet_show', {'template': 'frontend/booking/_card.html.twig', 'slug': pet_slug})) }}
+        <div class="summary_button">
+{#            <a class="button confirmation_text"#}
+{#               href="{{ path('app_frontend_booking_show', { 'id': booking.id }) }}"#}
+{#            >#}
+{#                {{ 'app.ui.see_the_reservation_details'|trans }}#}
+{#            </a>#}
+        </div>
+    </div>
+{% endblock content %}

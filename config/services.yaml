@@ -50,3 +50,5 @@ services:
     App\Serializer\FileNormalizer:
         decorates: 'api_platform.jsonld.normalizer.item'
         arguments: ['@.inner' ]
+
+    Sylius\Component\Customer\Context\CustomerContextInterface: '@App\Context\CustomerContext'

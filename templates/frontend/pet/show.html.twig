@@ -35,9 +35,9 @@
                         <p>{{ 'app.ui.this_one_is_about_to_meet_their_new_family'|trans }}</p>
                     </div>
                 {% else %}
-{#                    <a href="{{ path('app_frontend_booking_summary', { 'slug': pet.slug }) }}" type="button" class="button pet">#}
-{#                        {{ 'app.ui.ask_for_a_visit'|trans }}#}
-{#                    </a>#}
+                    <a href="{{ path('app_frontend_booking_summary', { 'slug': pet.slug }) }}" type="button" class="button pet">
+                        {{ 'app.ui.ask_for_a_visit'|trans }}
+                    </a>
                 {% endif %}
             </div>
         </div>

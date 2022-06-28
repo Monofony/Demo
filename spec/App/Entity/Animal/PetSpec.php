@@ -68,6 +68,18 @@ class PetSpec extends ObjectBehavior
         $this->getStatus()->shouldReturn('booked');
     }
 
+    function it_is_not_enabled_by_default(): void
+    {
+        $this->isEnabled()->shouldBe(false);
+    }
+
+    function it_can_be_enabled(): void
+    {
+        $this->setEnabled(true);
+
+        $this->isEnabled()->shouldBe(true);
+    }
+
     function it_has_no_description_by_default(): void
     {
         $this->getDescription()->shouldReturn(null);

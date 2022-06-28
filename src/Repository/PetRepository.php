@@ -77,8 +77,8 @@ class PetRepository extends ServiceEntityRepository implements RepositoryInterfa
         $queryBuilder = $this->createQueryBuilder('o');
         $queryBuilder
             ->innerJoin('o.taxon', 'taxon')
-            //->andWhere('o.enabled = :enabled')
-            //->setParameter('enabled', true)
+            ->andWhere('o.enabled = :enabled')
+            ->setParameter('enabled', true)
         ;
 
         if (null !== $taxon) {
