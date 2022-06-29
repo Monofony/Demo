@@ -4,11 +4,5 @@ app_frontend_homepage:
     defaults:
         template: 'frontend/homepage/index.html.twig'
 
-app_frontend_booking_summary:
-    path: /bookings/{slug}/summary
-    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController
-    defaults:
-        template: 'frontend/booking/summary.html.twig'
-
 app_frontend:
     resource: "../sylius/routes/frontend/_main.yaml"
