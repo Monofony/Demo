@@ -43,7 +43,7 @@ use Sylius\Component\Resource\Model\ResourceInterface;
 )]
 #[SyliusRoute(
     name: 'sylius_frontend_account_booking',
-    path: '/mon-compte/bookings',
+    path: '/account/bookings',
     methods: ['GET'],
     controller: 'app.controller.booking::indexAction',
     template: 'frontend/account/bookings.html.twig',
