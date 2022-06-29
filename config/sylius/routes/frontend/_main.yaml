@@ -1,6 +1,6 @@
 app_account:
   resource: "account.yaml"
-  prefix: "mon-compte"
+  prefix: "account"
 
 sylius_security:
   resource: "security.yaml"
