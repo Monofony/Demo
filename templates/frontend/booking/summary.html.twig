@@ -1,14 +1,13 @@
 {% extends 'frontend/layout.html.twig' %}
 
-{% set pet_slug = app.request.get('slug') %}
-
 {% block content %}
     <div class="header-summary">
         <h1>{{ 'app.ui.reservation'|trans }}</h1>
         <p>{{ 'app.ui.you_will_be_contacted_soon_to_schedule_a_visit_for_this_pet'|trans }}<br>{{ 'app.ui.moreover_he_will_be_marked_as_reserved'|trans }}</p>
     </div>
-    {{ render(url('app_frontend_partial_pet_show', {'template': 'frontend/booking/_card.html.twig', 'slug': pet_slug})) }}
-    <form class="confirmation_button" method="post" action="{{ path('app_frontend_pet_book', {'slug': app.request.get('slug')}) }}" novalidate>
+    {{ render(url('app_frontend_partial_pet_show', {'template': 'frontend/booking/_card.html.twig', 'slug': pet.slug})) }}
+    <form class="confirmation_button" method="post" action="{{ path('app_frontend_pet_book', {'slug': pet.slug}) }}" novalidate>
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token(pet.id) }}" />
         <button type="submit" class="button summary">{{ 'app.ui.ask_for_a_visit'|trans }}</button>
     </form>
 {% endblock content %}
