@@ -66,6 +66,7 @@ app:
         search_customers: Search customers
         sex: Sex
         show_me_more: Show me more!
+        show_on_github: Show on Github
         size: Size
         size_unit: Size unit
         small: Small
