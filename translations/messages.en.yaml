@@ -3,7 +3,7 @@ app:
         about_demo: About the Monofony demo
         about_demo_content: |
             This website is a demo of the Monofony project.
-            Monofony is a micro-framework created by Mobizel company.
+            Monofony is a micro-framework created by Loïc Frémont.
             It uses Sylius packages to build a powerful admin panel.
             It also contains some basic features like registering, login, resetting password.
             There are two extra packages to build your API and the public views of your application.
