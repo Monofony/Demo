@@ -64,7 +64,7 @@
         "symfony/templating": "5.4.*",
         "symfony/translation": "5.4.*",
         "symfony/twig-bundle": "5.4.*",
-        "symfony/validator": "5.4.*",
+        "symfony/validator": "6.1.*",
         "symfony/webpack-encore-bundle": "^1.9",
         "symfony/workflow": "5.4.*",
         "twig/twig": "^2.7",
